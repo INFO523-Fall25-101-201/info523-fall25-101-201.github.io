@@ -18,7 +18,7 @@ auto-stretch: false
 
 ## Teaching team
 
-::: columns
+::::: columns
 ::: {.column width="50%"}
 ### Instructor
 
@@ -36,7 +36,7 @@ Office: {{< var instructor.office >}},
 
 [{{< var ta.email >}}](mailto:{{< var ta.email >}})
 :::
-:::
+:::::
 
 ## Timetable
 
@@ -200,13 +200,13 @@ It is my intent that students from all diverse backgrounds and perspectives be w
 
 This course is assessed 100% on your coursework (there is no exam). We will be assessing you based on the following assignments,
 
-| Assignment                 | Type       | Value | n   | Due                                        |
+| Assignment | Type | Value | n | Due |
 |:--------------|:--------------|:--------------|:--------------|---------------|
-| Attendance + participation | Individual | 5%    |     |                                            |
-| Reading quizzes            | Individual | 10%   | 6   | \~ Every other week                        |
-| Homeworks                  | Individual | 45%   | 6   | \~ Every 2-3 weeks                         |
-| Project 1                  | Team       | 15%   | 1   | \~ Week 10 + earlier interim deadlines     |
-| Project 2                  | Team       | 25%   | 1   | \~ Finals week + earlier interim deadlines |
+| Attendance + participation | Individual | 5% |  |  |
+| Reading quizzes | Individual | 10% | 6 | \~ Every other week |
+| Homeworks | Individual | 45% | 6 | \~ Every 2-3 weeks |
+| Project 1 | Team | 15% | 1 | \~ Week 10 + earlier interim deadlines |
+| Project 2 | Team | 25% | 1 | \~ Finals week + earlier interim deadlines |
 
 # Course policies
 
@@ -283,7 +283,7 @@ Three "free passes" for the semester
 
 ## Academic integrity
 
-> To uphold the [{{< var university.short_name >}} iSchool Community Standard](https://ischool.arizona.edu/sites/ischool.arizona.edu/files/iSchool%20Policy%20on%20Academic%20Integrity%20in%20Computing%202023%20-%20approved%20by%20faculty%20vote%20April%202023.pdf#:~:text={{< var university.short_name >}}%20iSchool%20Instructors%20are%20expected%20to%20help%20students,prohibited%20in%20some%20courses%20are%20allowed%20in%20others.):
+> To uphold the [{{< var university.short_name >}} iSchool Community Standard](https://ischool.arizona.edu/sites/ischool.arizona.edu/files/iSchool Policy on Academic Integrity in Computing 2023 - approved by faculty vote April 2023.pdf#:~:text={{< var university.short_name >}} iSchool Instructors are expected to help students,prohibited in some courses are allowed in others.):
 
 > -   I will not lie, cheat, or steal in my academic endeavors;
 > -   I will conduct myself honorably in all my endeavors; and
@@ -342,7 +342,7 @@ I want to make sure that you learn everything you were hoping to learn from this
 ## GitHub {.smaller}
 
 ::: {.large style="text-align: center;"}
-<{{< var links.github_org >}}>
+\<{{< var links.github_org >}}\>
 :::
 
 -   All of your work and your membership (enrollment) in the organization is private
@@ -447,8 +447,8 @@ Sit back and enjoy!
 
 ## Git + GitHub
 
-::: columns
-::: {.column width="50%"}
+::::::: columns
+:::: {.column width="50%"}
 ![](images/git-icon-logo.png){fig-align="center" width="150"}
 
 ::: incremental
@@ -458,9 +458,9 @@ Sit back and enjoy!
 
 -   **Branching and Merging**
 :::
-:::
+::::
 
-::: {.column width="50%"}
+:::: {.column width="50%"}
 ![](images/GitHub-Symbol.png){fig-align="center" width="250"}
 
 ::: incremental
@@ -470,14 +470,15 @@ Sit back and enjoy!
 
 -   **Community and Networking**
 :::
-:::
-:::
+::::
+:::::::
 
 ## Git setup
 
 ```{=html}
 <iframe width="1000" height="400" src="https://{{< var website.url >}}/computing/computing-git.html" frameborder="1" style="background:white;"></iframe>
 ```
+
 # Let's setup! {style="text-align: center;"}
 
 # Intro to Python {style="text-align: center;"}
