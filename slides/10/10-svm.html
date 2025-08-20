@@ -1,0 +1,1458 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<link href="../..//images/logo.png" rel="icon" type="image/png">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script><script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-html/tabby.min.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-ea385d0e468b0dd5ea5bf0780b1290d9.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.7.33">
+
+  <meta name="author" content="John Chen">
+  <title>INFO 523 – Support Vector Machines (SVMs)</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/reveal.css">
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+      vertical-align: middle;
+    }
+    /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      { color: #003b4f; background-color: #f1f3f5; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #003b4f; } /* Normal */
+    code span.al { color: #ad0000; } /* Alert */
+    code span.an { color: #5e5e5e; } /* Annotation */
+    code span.at { color: #657422; } /* Attribute */
+    code span.bn { color: #ad0000; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #003b4f; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #20794d; } /* Char */
+    code span.cn { color: #8f5902; } /* Constant */
+    code span.co { color: #5e5e5e; } /* Comment */
+    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+    code span.dt { color: #ad0000; } /* DataType */
+    code span.dv { color: #ad0000; } /* DecVal */
+    code span.er { color: #ad0000; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #ad0000; } /* Float */
+    code span.fu { color: #4758ab; } /* Function */
+    code span.im { color: #00769e; } /* Import */
+    code span.in { color: #5e5e5e; } /* Information */
+    code span.kw { color: #003b4f; font-weight: bold; } /* Keyword */
+    code span.op { color: #5e5e5e; } /* Operator */
+    code span.ot { color: #003b4f; } /* Other */
+    code span.pp { color: #ad0000; } /* Preprocessor */
+    code span.sc { color: #5e5e5e; } /* SpecialChar */
+    code span.ss { color: #20794d; } /* SpecialString */
+    code span.st { color: #20794d; } /* String */
+    code span.va { color: #111111; } /* Variable */
+    code span.vs { color: #20794d; } /* VerbatimString */
+    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
+  </style>
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-191024931916078fc4eae1dde1f53f1c.css">
+  <link href="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="../../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="../../site_libs/revealjs/plugin/reveal-chalkboard/font-awesome/css/all.css" rel="stylesheet">
+  <link href="../../site_libs/revealjs/plugin/reveal-chalkboard/style.css" rel="stylesheet">
+  <link href="../../site_libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <style type="text/css">
+    .reveal div.sourceCode {
+      margin: 0;
+      overflow: auto;
+    }
+    .reveal div.hanging-indent {
+      margin-left: 1em;
+      text-indent: -1em;
+    }
+    .reveal .slide:not(.center) {
+      height: 100%;
+    }
+    .reveal .slide.scrollable {
+      overflow-y: auto;
+    }
+    .reveal .footnotes {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide .absolute {
+      position: absolute;
+      display: block;
+    }
+    .reveal .footnotes ol {
+      counter-reset: ol;
+      list-style-type: none; 
+      margin-left: 0;
+    }
+    .reveal .footnotes ol li:before {
+      counter-increment: ol;
+      content: counter(ol) ". "; 
+    }
+    .reveal .footnotes ol li > p:first-child {
+      display: inline-block;
+    }
+    .reveal .slide ul,
+    .reveal .slide ol {
+      margin-bottom: 0.5em;
+    }
+    .reveal .slide ul li,
+    .reveal .slide ol li {
+      margin-top: 0.4em;
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide ul[role="tablist"] li {
+      margin-bottom: 0;
+    }
+    .reveal .slide ul li > *:first-child,
+    .reveal .slide ol li > *:first-child {
+      margin-block-start: 0;
+    }
+    .reveal .slide ul li > *:last-child,
+    .reveal .slide ol li > *:last-child {
+      margin-block-end: 0;
+    }
+    .reveal .slide .columns:nth-child(3) {
+      margin-block-start: 0.8em;
+    }
+    .reveal blockquote {
+      box-shadow: none;
+    }
+    .reveal .tippy-content>* {
+      margin-top: 0.2em;
+      margin-bottom: 0.7em;
+    }
+    .reveal .tippy-content>*:last-child {
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide > img.stretch.quarto-figure-center,
+    .reveal .slide > img.r-stretch.quarto-figure-center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-left,
+    .reveal .slide > img.r-stretch.quarto-figure-left  {
+      display: block;
+      margin-left: 0;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-right,
+    .reveal .slide > img.r-stretch.quarto-figure-right  {
+      display: block;
+      margin-left: auto;
+      margin-right: 0; 
+    }
+  </style>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+  
+  <script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
+<meta property="og:title" content="Support Vector Machines (SVMs) – INFO 523">
+<meta property="og:description" content="Lecture 10">
+<meta property="og:site_name" content="INFO 523">
+</head>
+<body class="quarto-light">
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide" data-background-image="../minedata-bg.png" data-background-size="600px, cover" data-slide-number="none" class="quarto-title-block center">
+  <h1 class="title">Support Vector Machines (SVMs)</h1>
+  <p class="subtitle">Lecture 10</p>
+
+<div class="quarto-title-authors">
+<div class="quarto-title-author">
+<div class="quarto-title-author-name">
+John Chen 
+</div>
+        <p class="quarto-title-affiliation">
+            University of Arizona <br> INFO 523 - Fall 2025
+          </p>
+    </div>
+</div>
+
+</section>
+<section>
+<section id="warm-up" class="title-slide slide level1 center">
+<h1>Warm up</h1>
+
+</section>
+<section id="announcements" class="slide level2">
+<h2>Announcements</h2>
+<ul>
+<li><p>RQ 04 is due tonight, 11:59pm</p></li>
+<li><p>HW 05 is due Fri Apr 26, 11:59pm</p></li>
+</ul>
+</section>
+<section id="setup" class="slide level2 smaller">
+<h2>Setup</h2>
+<div id="setup" class="cell" data-message="false" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a></a><span class="co"># Data Handling and Manipulation</span></span>
+<span id="cb1-2"><a></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-3"><a></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-4"><a></a></span>
+<span id="cb1-5"><a></a><span class="co"># Data Preprocessing</span></span>
+<span id="cb1-6"><a></a><span class="im">from</span> sklearn.preprocessing <span class="im">import</span> StandardScaler, OneHotEncoder, PolynomialFeatures</span>
+<span id="cb1-7"><a></a><span class="im">from</span> sklearn.compose <span class="im">import</span> ColumnTransformer</span>
+<span id="cb1-8"><a></a><span class="im">from</span> sklearn.pipeline <span class="im">import</span> Pipeline</span>
+<span id="cb1-9"><a></a></span>
+<span id="cb1-10"><a></a><span class="co"># Model Selection and Evaluation</span></span>
+<span id="cb1-11"><a></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> train_test_split, GridSearchCV, RandomizedSearchCV</span>
+<span id="cb1-12"><a></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> classification_report, confusion_matrix, mean_squared_error, r2_score</span>
+<span id="cb1-13"><a></a></span>
+<span id="cb1-14"><a></a><span class="co"># Machine Learning Models</span></span>
+<span id="cb1-15"><a></a><span class="im">from</span> sklearn.svm <span class="im">import</span> SVC  <span class="co"># Support Vector Classifier for classification tasks</span></span>
+<span id="cb1-16"><a></a><span class="im">from</span> sklearn.svm <span class="im">import</span> SVR</span>
+<span id="cb1-17"><a></a><span class="im">from</span> sklearn.linear_model <span class="im">import</span> LinearRegression  <span class="co"># For polynomial regression</span></span>
+<span id="cb1-18"><a></a></span>
+<span id="cb1-19"><a></a><span class="co"># Data Visualization</span></span>
+<span id="cb1-20"><a></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb1-21"><a></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
+<span id="cb1-22"><a></a></span>
+<span id="cb1-23"><a></a><span class="co"># Additional Tools</span></span>
+<span id="cb1-24"><a></a><span class="im">from</span> skopt.plots <span class="im">import</span> plot_convergence, plot_objective, plot_evaluations</span>
+<span id="cb1-25"><a></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> accuracy_score, make_scorer</span>
+<span id="cb1-26"><a></a></span>
+<span id="cb1-27"><a></a><span class="co"># Set the default style for visualization</span></span>
+<span id="cb1-28"><a></a>sns.set_theme(style <span class="op">=</span> <span class="st">"white"</span>, palette <span class="op">=</span> <span class="st">"colorblind"</span>)</span>
+<span id="cb1-29"><a></a></span>
+<span id="cb1-30"><a></a><span class="co"># Increase font size of all Seaborn plot elements</span></span>
+<span id="cb1-31"><a></a>sns.<span class="bu">set</span>(font_scale <span class="op">=</span> <span class="fl">1.25</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section></section>
+<section id="a-short-lesson-in-linear-algebra" class="title-slide slide level1 center">
+<h1>A short lesson in Linear Algebra</h1>
+
+</section>
+
+<section id="just-kidding-too-complicated" class="title-slide slide level1 center">
+<h1>Just kidding… too complicated…</h1>
+<div class="fragment">
+<p>But see the free <a href="https://deeplearning.ai">deeplearning.ai</a> course on <a href="https://www.deeplearning.ai/courses/mathematics-for-machine-learning-and-data-science-specialization/">Mathematics for Data Science and Machine Learning</a>.</p>
+</div>
+</section>
+
+<section>
+<section id="support-vector-machines-svms" class="title-slide slide level1 center">
+<h1>Support Vector Machines (SVMs)</h1>
+
+</section>
+<section id="question" class="slide level2">
+<h2>Question:</h2>
+<p>Does mentioning <strong>special skills</strong>, <strong>computer skills</strong>, and the <strong>presence of honors</strong> in a resume <u>increase the likelihood</u> of <strong>receiving a call-back</strong> for a job interview, and how does this effect <u>vary</u> by <u>gender and race</u>?</p>
+</section>
+<section id="our-data-labor-market-discrimination" class="slide level2 smaller">
+<h2>Our data: Labor market discrimination</h2>
+<div class="panel-tabset">
+<ul id="tabset-1" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-1-1">Read + head</a></li><li><a href="#tabset-1-2">Metadata</a></li><li><a href="#tabset-1-3">Info</a></li><li><a href="#tabset-1-4">Categories</a></li><li><a href="#tabset-1-5">Visualize</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1">
+<div id="79153765" class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a></a>laborDiscrim <span class="op">=</span> pd.read_csv(<span class="st">"data/labor_market_discrimination.csv"</span>, encoding <span class="op">=</span> <span class="st">'iso-8859-1'</span>)[[<span class="st">"education"</span>, <span class="st">"special_skills"</span>, <span class="st">"computer_skills"</span>, <span class="st">"honors"</span>, <span class="st">"sex"</span>, <span class="st">"race"</span>, <span class="st">"call"</span>]]</span>
+<span id="cb2-2"><a></a>laborDiscrim.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="2">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+
+<table class="dataframe caption-top" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header" style="text-align: right;">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">education</th>
+<th data-quarto-table-cell-role="th">special_skills</th>
+<th data-quarto-table-cell-role="th">computer_skills</th>
+<th data-quarto-table-cell-role="th">honors</th>
+<th data-quarto-table-cell-role="th">sex</th>
+<th data-quarto-table-cell-role="th">race</th>
+<th data-quarto-table-cell-role="th">call</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>4</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>f</td>
+<td>w</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>3</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>f</td>
+<td>w</td>
+<td>0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>4</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>f</td>
+<td>b</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>3</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>f</td>
+<td>b</td>
+<td>0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>3</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>f</td>
+<td>w</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-1-2">
+<table class="caption-top">
+<colgroup>
+<col style="width: 26%">
+<col style="width: 26%">
+<col style="width: 47%">
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>variable</strong></th>
+<th><strong>class</strong></th>
+<th><strong>description</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>education</code></td>
+<td>int</td>
+<td>Level of education: <code>0</code> = not reported; <code>1</code> = high school diploma; <code>2</code> = high school graduate; <code>3</code> = some college; <code>4</code> = college or more</td>
+</tr>
+<tr class="even">
+<td><code>special_skills</code></td>
+<td>int / boolean</td>
+<td>Whether they mentioned special skills</td>
+</tr>
+<tr class="odd">
+<td><code>computer_skills</code></td>
+<td>int / boolean</td>
+<td>Whether they mentioned computer skills</td>
+</tr>
+<tr class="even">
+<td><code>honors</code></td>
+<td>int / boolean</td>
+<td>Whether they mentioned some honors</td>
+</tr>
+<tr class="odd">
+<td><code>sex</code></td>
+<td>object</td>
+<td>Applicant’s gender</td>
+</tr>
+<tr class="even">
+<td><code>race</code></td>
+<td>object</td>
+<td>Applicant’s race</td>
+</tr>
+<tr class="odd">
+<td><code>call</code></td>
+<td>int / boolean</td>
+<td>Whether they received a call back</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="tabset-1-3">
+<div id="6f4c60a4" class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a></a>laborDiscrim.info()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>&lt;class 'pandas.core.frame.DataFrame'&gt;
+RangeIndex: 4870 entries, 0 to 4869
+Data columns (total 7 columns):
+ #   Column           Non-Null Count  Dtype 
+---  ------           --------------  ----- 
+ 0   education        4870 non-null   int64 
+ 1   special_skills   4870 non-null   int64 
+ 2   computer_skills  4870 non-null   int64 
+ 3   honors           4870 non-null   int64 
+ 4   sex              4870 non-null   object
+ 5   race             4870 non-null   object
+ 6   call             4870 non-null   int64 
+dtypes: int64(5), object(2)
+memory usage: 266.5+ KB</code></pre>
+</div>
+</div>
+</div>
+<div id="tabset-1-4">
+<div id="57ce0dc7" class="cell" data-execution_count="4">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a></a><span class="co"># Select categorical columns</span></span>
+<span id="cb5-2"><a></a>categorical_cols <span class="op">=</span> laborDiscrim.columns</span>
+<span id="cb5-3"><a></a></span>
+<span id="cb5-4"><a></a><span class="co"># Initialize a dictionary to store results</span></span>
+<span id="cb5-5"><a></a>category_analysis <span class="op">=</span> {}</span>
+<span id="cb5-6"><a></a></span>
+<span id="cb5-7"><a></a><span class="co"># Loop through each categorical column</span></span>
+<span id="cb5-8"><a></a><span class="cf">for</span> col <span class="kw">in</span> categorical_cols:</span>
+<span id="cb5-9"><a></a>    counts <span class="op">=</span> laborDiscrim[col].value_counts()</span>
+<span id="cb5-10"><a></a>    proportions <span class="op">=</span> laborDiscrim[col].value_counts(normalize<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb5-11"><a></a>    unique_levels <span class="op">=</span> laborDiscrim[col].unique()</span>
+<span id="cb5-12"><a></a>    </span>
+<span id="cb5-13"><a></a>    <span class="co"># Store results in dictionary</span></span>
+<span id="cb5-14"><a></a>    category_analysis[col] <span class="op">=</span> {</span>
+<span id="cb5-15"><a></a>        <span class="st">'Unique Levels'</span>: unique_levels,</span>
+<span id="cb5-16"><a></a>        <span class="st">'Counts'</span>: counts,</span>
+<span id="cb5-17"><a></a>        <span class="st">'Proportions'</span>: proportions</span>
+<span id="cb5-18"><a></a>    }</span>
+<span id="cb5-19"><a></a></span>
+<span id="cb5-20"><a></a><span class="co"># Print results</span></span>
+<span id="cb5-21"><a></a><span class="cf">for</span> col, data <span class="kw">in</span> category_analysis.items():</span>
+<span id="cb5-22"><a></a>    <span class="bu">print</span>(<span class="ss">f"Analysis for </span><span class="sc">{</span>col<span class="sc">}</span><span class="ss">:</span><span class="ch">\n</span><span class="ss">"</span>)</span>
+<span id="cb5-23"><a></a>    <span class="bu">print</span>(<span class="st">"Unique Levels:"</span>, data[<span class="st">'Unique Levels'</span>])</span>
+<span id="cb5-24"><a></a>    <span class="bu">print</span>(<span class="st">"</span><span class="ch">\n</span><span class="st">Counts:</span><span class="ch">\n</span><span class="st">"</span>, data[<span class="st">'Counts'</span>])</span>
+<span id="cb5-25"><a></a>    <span class="bu">print</span>(<span class="st">"</span><span class="ch">\n</span><span class="st">Proportions:</span><span class="ch">\n</span><span class="st">"</span>, data[<span class="st">'Proportions'</span>])</span>
+<span id="cb5-26"><a></a>    <span class="bu">print</span>(<span class="st">"</span><span class="ch">\n</span><span class="st">"</span> <span class="op">+</span> <span class="st">"-"</span><span class="op">*</span><span class="dv">50</span> <span class="op">+</span> <span class="st">"</span><span class="ch">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>Analysis for education:
+
+Unique Levels: [4 3 1 2 0]
+
+Counts:
+ education
+4    3504
+3    1006
+2     274
+0      46
+1      40
+Name: count, dtype: int64
+
+Proportions:
+ education
+4    0.719507
+3    0.206571
+2    0.056263
+0    0.009446
+1    0.008214
+Name: proportion, dtype: float64
+
+--------------------------------------------------
+
+Analysis for special_skills:
+
+Unique Levels: [0 1]
+
+Counts:
+ special_skills
+0    3269
+1    1601
+Name: count, dtype: int64
+
+Proportions:
+ special_skills
+0    0.671253
+1    0.328747
+Name: proportion, dtype: float64
+
+--------------------------------------------------
+
+Analysis for computer_skills:
+
+Unique Levels: [1 0]
+
+Counts:
+ computer_skills
+1    3996
+0     874
+Name: count, dtype: int64
+
+Proportions:
+ computer_skills
+1    0.820534
+0    0.179466
+Name: proportion, dtype: float64
+
+--------------------------------------------------
+
+Analysis for honors:
+
+Unique Levels: [0 1]
+
+Counts:
+ honors
+0    4613
+1     257
+Name: count, dtype: int64
+
+Proportions:
+ honors
+0    0.947228
+1    0.052772
+Name: proportion, dtype: float64
+
+--------------------------------------------------
+
+Analysis for sex:
+
+Unique Levels: ['f' 'm']
+
+Counts:
+ sex
+f    3746
+m    1124
+Name: count, dtype: int64
+
+Proportions:
+ sex
+f    0.769199
+m    0.230801
+Name: proportion, dtype: float64
+
+--------------------------------------------------
+
+Analysis for race:
+
+Unique Levels: ['w' 'b']
+
+Counts:
+ race
+w    2435
+b    2435
+Name: count, dtype: int64
+
+Proportions:
+ race
+w    0.5
+b    0.5
+Name: proportion, dtype: float64
+
+--------------------------------------------------
+
+Analysis for call:
+
+Unique Levels: [0 1]
+
+Counts:
+ call
+0    4478
+1     392
+Name: count, dtype: int64
+
+Proportions:
+ call
+0    0.919507
+1    0.080493
+Name: proportion, dtype: float64
+
+--------------------------------------------------
+</code></pre>
+</div>
+</div>
+</div>
+<div id="tabset-1-5">
+<div id="c1db7498" class="cell" data-execution_count="5">
+<div class="cell-output cell-output-display">
+<div>
+<figure>
+<p><img data-src="10-svm_files/figure-revealjs/cell-6-output-1.png" width="944" height="457"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="support-vector-machines" class="slide level2 smaller">
+<h2>Support Vector Machines</h2>
+<blockquote>
+<p>SVMs are a set of supervised learning methods used for classification, regression, and outliers detection. The objective of the SVM algorithm is to find a hyperplane in an N-dimensional space (N — the number of features) that distinctly classifies the data points.</p>
+</blockquote>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/svm-1.webp" class="quarto-figure quarto-figure-center" width="450"></p>
+</figure>
+</div>
+</section>
+<section id="maximum-margin-classifier" class="slide level2 smaller">
+<h2>Maximum margin classifier</h2>
+<ol type="1">
+<li class="fragment"><p><strong>Fundamental Concept</strong>: A linear classifier aiming to find a hyperplane that separates classes with the maximum margin, enhancing generalization.</p></li>
+<li class="fragment"><p><strong>Hyperplane Definition</strong>: An <span class="math inline">\(n−1\)</span>-dimensional decision boundary in <span class="math inline">\(n\)</span>-dimensional space, critical for class separation.</p></li>
+<li class="fragment"><p><strong>Margin Maximization</strong>: Focuses on creating the widest possible “street” between classes, determined by the closest data points, known as support vectors.</p></li>
+<li class="fragment"><p><strong>Linear Separability Assumption</strong>: Assumes data can be perfectly divided into two classes with a straight line (or hyperplane in higher dimensions).</p></li>
+<li class="fragment"><p><strong>Robustness and Overfitting</strong>: Aims to improve model’s robustness to overfitting by maximizing the margin, effective in truly linearly separable and low-noise scenarios.</p></li>
+<li class="fragment"><p><strong>Optimization Challenge</strong>: Involves solving a quadratic optimization problem to find the hyperplane, which can be computationally intensive.</p></li>
+<li class="fragment"><p><strong>Limitations</strong>: Not directly applicable to non-linearly separable data without modifications, such as using slack variables or kernel methods.</p></li>
+<li class="fragment"><p><strong>Evolutionary Significance</strong>: Serves as a foundation for more sophisticated SVM techniques, addressing limitations like non-linear separability and data overlap.</p></li>
+</ol>
+</section>
+<section id="classification-using-a-hyperplane" class="slide level2 smaller">
+<h2>Classification using a hyperplane</h2>
+<div class="panel-tabset">
+<ul id="tabset-2" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-2-1">Visual</a></li><li><a href="#tabset-2-2">Formula</a></li></ul>
+<div class="tab-content">
+<div id="tabset-2-1">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/hyperplane.png" class="quarto-figure quarto-figure-center" width="450"></p>
+</figure>
+</div>
+</div>
+<div id="tabset-2-2">
+<blockquote>
+<p>Hyperplanes serve as decision boundaries in SVMs. The goal is to find the hyperplane that maximally separates different classes with the largest margin.</p>
+</blockquote>
+<p><span class="math inline">\(w^{T}x + b\)</span></p>
+<p><strong>Where</strong>:</p>
+<ul>
+<li class="fragment"><p><span class="math inline">\(w\)</span> is the weight vector</p></li>
+<li class="fragment"><p><span class="math inline">\(x\)</span> is the input feature vector</p></li>
+<li class="fragment"><p><span class="math inline">\(b\)</span> is the bias</p></li>
+</ul>
+<p>The objective is to classify data points into two classes based on which side of the hyperplane they fall.</p>
+<ul>
+<li class="fragment"><p>If <span class="math inline">\(w^{T}x + b &gt; 0\)</span>, the data point is classified into one class</p></li>
+<li class="fragment"><p>If <span class="math inline">\(w^{T}x + b &lt; 0\)</span>it is classified into the other class</p></li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section id="constructing-the-marginal-classifier" class="slide level2 smaller">
+<h2>Constructing the marginal classifier</h2>
+<div class="panel-tabset">
+<ul id="tabset-3" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-3-1">Visual</a></li><li><a href="#tabset-3-2">Approach</a></li><li><a href="#tabset-3-3">Key points</a></li></ul>
+<div class="tab-content">
+<div id="tabset-3-1">
+<p><strong>Goal</strong>: Construct a hyperplane that maximizes the margin between classes, creating optimal separation with a buffer zone around the hyperplane that’s free of data.</p>
+<div id="5358df6b" class="cell" data-execution_count="6">
+<div class="cell-output cell-output-display">
+<div>
+<figure>
+<p><img data-src="10-svm_files/figure-revealjs/cell-7-output-1.png" width="944" height="368"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-3-2">
+<p><strong>Given</strong> the hyperplane function: <span class="math inline">\(w^{T}x + b\)</span></p>
+<p><strong>Objective Function</strong>: Maximize the margin <span class="math inline">\(M\)</span> subject to the constraints that all data points are classified correctly, formulated as:</p>
+<p><span class="math inline">\(\max_{w, b} \; M = \frac{1}{\|w\|}\)</span></p>
+<p>Subject to <span class="math inline">\(y_i(w^{T}x + b) \geq 1\)</span> for all <span class="math inline">\(i\)</span>, where <span class="math inline">\(y_i\)</span> are class labels (<span class="math inline">\(+1\)</span> or <span class="math inline">\(-1\)</span>)</p>
+</div>
+<div id="tabset-3-3">
+<ul>
+<li class="fragment"><p><strong>Margin &amp; Support Vectors</strong></p>
+<ul>
+<li class="fragment">Distance between hyperplane and nearest points (support vectors) enhances generalization.</li>
+</ul></li>
+<li class="fragment"><p><strong>Linear Separability</strong></p>
+<ul>
+<li class="fragment">Assumes perfect separation by a hyperplane; real data may need soft margins or kernels.</li>
+</ul></li>
+<li class="fragment"><p><strong>Geometric Interpretation</strong></p>
+<ul>
+<li class="fragment">A line (2D) or plane (higher dimensions) divides feature space, crucial for accuracy.</li>
+</ul></li>
+<li class="fragment"><p><strong>Computational Aspects</strong></p>
+<ul>
+<li class="fragment">Finding optimal hyperplane involves quadratic programming to maximize margin.</li>
+</ul></li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section id="the-non-separable-case" class="slide level2 smaller">
+<h2>The non-separable case</h2>
+<div class="panel-tabset">
+<ul id="tabset-4" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-4-1">Visual</a></li><li><a href="#tabset-4-2">Soft margin</a></li><li><a href="#tabset-4-3">Kernel trick</a></li><li><a href="#tabset-4-4">Overview</a></li></ul>
+<div class="tab-content">
+<div id="tabset-4-1">
+<blockquote>
+<p>When data cannot be perfectly divided by a linear boundary, SVMs adapt using soft margins and the kernel trick to handle overlaps and complex patterns.</p>
+</blockquote>
+<p><img data-src="images/non-separable.png" width="408"></p>
+</div>
+<div id="tabset-4-2">
+<p><strong>Definition</strong>: Extends SVM to allow some misclassifications, enhancing flexibility for non-linearly separable data.</p>
+<p><strong>Formula:</strong> minimize <span class="math inline">\(\frac{1}{2}\|w\|^2 + C\sum_{i=1}^{n}\xi_i\)</span></p>
+<p><strong>Where:</strong></p>
+<ul>
+<li class="fragment"><p><span class="math inline">\(\xi_i\)</span> are <a href="https://en.wikipedia.org/wiki/Slack_variable">slack variables</a> indicating misclassification degree</p></li>
+<li class="fragment"><p><span class="math inline">\(C\)</span> is the regularization parameter</p></li>
+</ul>
+<p><strong>Key points:</strong></p>
+<ul>
+<li class="fragment"><p>Slack variables permit data points to be on the wrong side of the margin.</p></li>
+<li class="fragment"><p><span class="math inline">\(C\)</span> balances margin width and misclassification penalty, crucial for model performance.</p></li>
+</ul>
+</div>
+<div id="tabset-4-3">
+<p><strong>Definition</strong>: Transforms data into a higher-dimensional space to find a separable hyperplane, enabling non-linear classification.</p>
+<p><strong>Formula</strong>: Uses kernel functions like RBF (<span class="math inline">\(\exp(-\gamma\|x-x'\|^2)\)</span>), Polynomial (<span class="math inline">\(x \cdot x')^d\)</span>), or Sigmoid (<span class="math inline">\(\tanh(\alpha x \cdot x' + r)\)</span>).</p>
+<p><strong>Key Points</strong>:</p>
+<ul>
+<li class="fragment"><p>Allows complex decision boundaries without explicitly computing high-dimensional transformations.</p></li>
+<li class="fragment"><p>Selection of kernel and its parameters (<span class="math inline">\(d\)</span>, <span class="math inline">\(\gamma\)</span> etc.) is vital for capturing data structure.</p></li>
+</ul>
+</div>
+<div id="tabset-4-4">
+<p><strong>Handling Non-separable Data</strong></p>
+<ul>
+<li class="fragment"><p><strong>Soft Margins</strong>: Introduce flexibility by penalizing misclassifications to a degree controlled by <span class="math inline">\(C\)</span>.</p></li>
+<li class="fragment"><p><strong>Kernel-Based Mapping</strong>: Facilitates classification in cases where linear separation is not feasible in the original feature space.</p></li>
+<li class="fragment"><p><strong>Parameter Tuning</strong>: Critical for optimizing the trade-off between model complexity and generalization ability, often achieved through cross-validation.</p></li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section id="support-vector-machines---revisited" class="slide level2 smaller">
+<h2>Support vector machines - revisited</h2>
+<div class="panel-tabset">
+<ul id="tabset-5" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-5-1">Visual</a></li><li><a href="#tabset-5-2">Soft margin (linear)</a></li><li><a href="#tabset-5-3">Kernel trick (non-linear)</a></li><li><a href="#tabset-5-4">Key points</a></li></ul>
+<div class="tab-content">
+<div id="tabset-5-1">
+<blockquote>
+<p><strong>SVMs</strong> adapt the <u>Maximal Margin Classifier</u> for linearly non-separable data using slack variables and kernel functions, focusing on <u>soft margin classification for linear data</u> and the <u>kernel trick for non-linear cases</u>.</p>
+</blockquote>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/svm-1.webp" class="quarto-figure quarto-figure-center" width="450"></p>
+</figure>
+</div>
+</div>
+<div id="tabset-5-2">
+<p><strong>Objective Function</strong>: Minimize the following objective to find the optimal hyperplane</p>
+<p><span class="math inline">\(\min_{w, b, \xi} \; \frac{1}{2}\|w\|^2 + C\sum_{i=1}^{n}\xi_i\)</span></p>
+<p>Subject to <span class="math inline">\(y_i(w^{T}x + b) \geq 1 - \xi_i\)</span> for all <span class="math inline">\(i\)</span>, where:</p>
+<ul>
+<li class="fragment"><p><span class="math inline">\(w\)</span> is the weight factor</p></li>
+<li class="fragment"><p><span class="math inline">\(b\)</span> is the bias</p></li>
+<li class="fragment"><p><span class="math inline">\(\xi_i\)</span> are slack variables representing the degree of misclassification of <span class="math inline">\(x_i\)</span></p></li>
+<li class="fragment"><p><span class="math inline">\(C\)</span> is the is the regularization parameter controlling the trade-off between margin maximization and classification error.</p></li>
+</ul>
+</div>
+<div id="tabset-5-3">
+<p><strong>Dual Problem Solution</strong>: The SVM optimization problem in its dual form allows the incorporation of kernel functions:</p>
+<p><span class="math inline">\(\max_{\alpha} \; \sum_{i=1}^{n}\alpha_i - \frac{1}{2}\sum_{i,j=1}^{n}\alpha_i \alpha_j y_i y_j K(x_i, x_j)\)</span></p>
+<p>Subject to <span class="math inline">\(0 \leq \alpha_1 \leq C\)</span> for all <span class="math inline">\(i\)</span> and <span class="math inline">\(\sum_{i=1}^{n}\alpha_iy_i = 0\)</span>, where:</p>
+<ul>
+<li><p><span class="math inline">\(\alpha_i\)</span> <a href="https://en.wikipedia.org/wiki/Lagrange_multiplier">Lagrange multipliers</a></p></li>
+<li><p><span class="math inline">\(K(x_i, x_j)\)</span> is the kernel function evaluating the dot product of <span class="math inline">\(x_i\)</span> and <span class="math inline">\(x_j\)</span> in the transformed feature space.</p></li>
+</ul>
+</div>
+<div id="tabset-5-4">
+<ul>
+<li class="fragment"><p><strong>Slack Variables</strong> <span class="math inline">\(\xi_i\)</span>: Allow for flexibility in classification by permitting data points to be within the margin or incorrectly classified, i.e., the soft margin approach.</p></li>
+<li class="fragment"><p><strong>Regularization Parameter (</strong><span class="math inline">\(C\)</span><strong>)</strong> : Balances the trade-off between achieving a wide margin and minimizing the classification error; higher <span class="math inline">\(C\)</span> values lead to less tolerance for misclassification.</p></li>
+<li class="fragment"><p><strong>Kernel Functions</strong>: Transform the original feature space into a higher-dimensional space, enabling SVMs to find a separating hyperplane in cases where data is not linearly separable. Common kernels include linear, polynomial, RBF, and sigmoid.</p></li>
+<li class="fragment"><p><strong>Dual Formulation</strong>: Simplifies the problem by focusing on Lagrange multipliers, allowing the use of kernel functions and making the problem solvable even when the feature space is high-dimensional or infinite.</p></li>
+<li class="fragment"><p><strong>Support Vectors</strong>: Data points corresponding to non-zero <span class="math inline">\(\alpha_i\)</span>​ values; these are the critical elements that define the hyperplane and margin.</p></li>
+<li class="fragment"><p><strong>Decision Function</strong>: For a new data point <span class="math inline">\(x\)</span>, the decision function becomes <span class="math inline">\(\text{sign}\left(\sum_{i=1}^{n} \alpha_i y_i K(x_i, x) + b\right)\)</span>, determining the class membership based on the sign of the output.</p></li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section id="back-to-our-data---preprocessing" class="slide level2 smaller">
+<h2>Back to our data - preprocessing</h2>
+<div id="8d25400d" class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a></a><span class="co"># Selecting columns</span></span>
+<span id="cb7-2"><a></a>X <span class="op">=</span> laborDiscrim[[<span class="st">'education'</span>, <span class="st">'special_skills'</span>, <span class="st">'computer_skills'</span>, <span class="st">'honors'</span>, <span class="st">'sex'</span>, <span class="st">'race'</span>]]</span>
+<span id="cb7-3"><a></a>y <span class="op">=</span> laborDiscrim[<span class="st">'call'</span>]</span>
+<span id="cb7-4"><a></a></span>
+<span id="cb7-5"><a></a><span class="co"># Define categorical and numerical features</span></span>
+<span id="cb7-6"><a></a>categorical_features <span class="op">=</span> [<span class="st">'sex'</span>, <span class="st">'race'</span>]  <span class="co"># Add other categorical feature names as needed</span></span>
+<span id="cb7-7"><a></a>numerical_features <span class="op">=</span> [<span class="st">'education'</span>, <span class="st">'special_skills'</span>, <span class="st">'computer_skills'</span>, <span class="st">'honors'</span>]  <span class="co"># Add other numerical feature names as needed</span></span>
+<span id="cb7-8"><a></a></span>
+<span id="cb7-9"><a></a><span class="co"># Create transformers for preprocessing</span></span>
+<span id="cb7-10"><a></a>categorical_transformer <span class="op">=</span> Pipeline(steps<span class="op">=</span>[</span>
+<span id="cb7-11"><a></a>    (<span class="st">'onehot'</span>, OneHotEncoder(handle_unknown<span class="op">=</span><span class="st">'ignore'</span>))</span>
+<span id="cb7-12"><a></a>])</span>
+<span id="cb7-13"><a></a></span>
+<span id="cb7-14"><a></a>numerical_transformer <span class="op">=</span> Pipeline(steps<span class="op">=</span>[</span>
+<span id="cb7-15"><a></a>    (<span class="st">'scaler'</span>, StandardScaler())</span>
+<span id="cb7-16"><a></a>])</span>
+<span id="cb7-17"><a></a></span>
+<span id="cb7-18"><a></a><span class="co"># Combine transformers into a ColumnTransformer</span></span>
+<span id="cb7-19"><a></a>preprocessor <span class="op">=</span> ColumnTransformer(</span>
+<span id="cb7-20"><a></a>    transformers<span class="op">=</span>[</span>
+<span id="cb7-21"><a></a>        (<span class="st">'num'</span>, numerical_transformer, numerical_features),</span>
+<span id="cb7-22"><a></a>        (<span class="st">'cat'</span>, categorical_transformer, categorical_features)</span>
+<span id="cb7-23"><a></a>    ])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="svms-linear-kernel---applied" class="slide level2 smaller">
+<h2>SVMs (linear kernel) - applied</h2>
+<div class="panel-tabset">
+<ul id="tabset-6" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-6-1">Model summary</a></li><li><a href="#tabset-6-2">Metrics</a></li><li><a href="#tabset-6-3">Classes</a></li><li><a href="#tabset-6-4">Overall Metrics</a></li></ul>
+<div class="tab-content">
+<div id="tabset-6-1">
+<div id="558a714f" class="cell" data-execution_count="8">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a></a><span class="co"># Splitting dataset into training and testing sets</span></span>
+<span id="cb8-2"><a></a>X_train, X_test, y_train, y_test <span class="op">=</span> train_test_split(X, y, test_size <span class="op">=</span> <span class="fl">0.2</span>, random_state <span class="op">=</span> <span class="dv">42</span>)</span>
+<span id="cb8-3"><a></a></span>
+<span id="cb8-4"><a></a><span class="co"># Define the full pipeline</span></span>
+<span id="cb8-5"><a></a>svm_pipeline <span class="op">=</span> Pipeline(steps<span class="op">=</span>[</span>
+<span id="cb8-6"><a></a>    (<span class="st">'preprocessor'</span>, preprocessor),</span>
+<span id="cb8-7"><a></a>    (<span class="st">'svc'</span>, SVC())</span>
+<span id="cb8-8"><a></a>])</span>
+<span id="cb8-9"><a></a></span>
+<span id="cb8-10"><a></a><span class="co"># Create a custom scorer for cross-validation</span></span>
+<span id="cb8-11"><a></a>accuracy_scorer <span class="op">=</span> make_scorer(accuracy_score)</span>
+<span id="cb8-12"><a></a></span>
+<span id="cb8-13"><a></a><span class="co"># Training the SVM model</span></span>
+<span id="cb8-14"><a></a>svm_pipeline.fit(X_train, y_train)</span>
+<span id="cb8-15"><a></a></span>
+<span id="cb8-16"><a></a><span class="co"># Predicting the test set results</span></span>
+<span id="cb8-17"><a></a>y_pred <span class="op">=</span> svm_pipeline.predict(X_test)</span>
+<span id="cb8-18"><a></a></span>
+<span id="cb8-19"><a></a><span class="co"># Model Evaluation</span></span>
+<span id="cb8-20"><a></a><span class="bu">print</span>(confusion_matrix(y_test, y_pred))</span>
+<span id="cb8-21"><a></a><span class="bu">print</span>(classification_report(y_test, y_pred))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[[910   0]
+ [ 64   0]]
+              precision    recall  f1-score   support
+
+           0       0.93      1.00      0.97       910
+           1       0.00      0.00      0.00        64
+
+    accuracy                           0.93       974
+   macro avg       0.47      0.50      0.48       974
+weighted avg       0.87      0.93      0.90       974
+</code></pre>
+</div>
+</div>
+</div>
+<div id="tabset-6-2">
+<p><strong>Columns Explained:</strong></p>
+<ul>
+<li class="fragment"><p><strong>Precision</strong>: The ratio of correctly predicted positive observations to the total predicted positives. High precision relates to a low false positive rate.</p></li>
+<li class="fragment"><p><strong>Recall (Sensitivity)</strong>: The ratio of correctly predicted positive observations to all observations in the actual class. It indicates the model’s ability to find all the positive samples.</p></li>
+<li class="fragment"><p><strong>F1-Score</strong>: The weighted average of Precision and Recall. It takes both false positives and false negatives into account, with 1 being the best score and 0 the worst.</p></li>
+<li class="fragment"><p><strong>Support</strong>: The number of actual occurrences of the class in the specified dataset.</p></li>
+</ul>
+</div>
+<div id="tabset-6-3">
+<ul>
+<li class="fragment"><p>The report details metrics for two classes, labeled <strong><code>0</code></strong> and <strong><code>1</code></strong>, which represent the binary outcomes that the model is predicting.</p>
+<p><strong>Class 0</strong>:</p>
+<ul>
+<li class="fragment"><p>Precision: 0.93, meaning 93% of the model’s predictions for class 0 are correct.</p></li>
+<li class="fragment"><p>Recall: 1.00, the model correctly identified 100% of all actual class 0s.</p></li>
+<li class="fragment"><p>F1-Score: 0.97, showing a high balance between precision + recall for class 0.</p></li>
+<li class="fragment"><p>Support: 910, indicating there are 910 instances of class 0 in the test set.</p></li>
+</ul>
+<p><strong>Class 1</strong>:</p>
+<ul>
+<li class="fragment"><p>Precision: 0.00, none of the model’s predictions for class 1 were correct.</p></li>
+<li class="fragment"><p>Recall: 0.00, the model failed to correctly identify any actual class 1 instances.</p></li>
+<li class="fragment"><p>F1-Score: 0.00, reflecting poor performance for class 1.</p></li>
+<li class="fragment"><p>Support: 64, showing there are 64 instances of class 1 in the test set.</p></li>
+</ul></li>
+</ul>
+</div>
+<div id="tabset-6-4">
+<ul>
+<li class="fragment"><p><strong>Accuracy</strong>: 93% of the predictions are correct across both classes.</p></li>
+<li class="fragment"><p><strong>Macro Average</strong>: Shows unweighted averages with 47% precision, 50% recall, and 48% F1-score, reflecting equal consideration for each class irrespective of their size.</p></li>
+<li class="fragment"><p><strong>Weighted Average</strong>: Indicates averages weighted by class support, resulting in 87% precision, 93% accuracy, and 90% F1-score, highlighting performance adjustments due to class imbalance.</p></li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section id="model-tuning-svm" class="slide level2 smaller">
+<h2>Model tuning: SVM</h2>
+<div class="panel-tabset">
+<ul id="tabset-7" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-7-1">Applied</a></li><li><a href="#tabset-7-2">Residual analysis</a></li></ul>
+<div class="tab-content">
+<div id="tabset-7-1">
+<div id="741c221d" class="cell" data-execution_count="10">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a></a><span class="co"># Defining the parameter grid for Random Search</span></span>
+<span id="cb10-2"><a></a>param_grid <span class="op">=</span> {</span>
+<span id="cb10-3"><a></a>    <span class="st">'svc__C'</span>: np.logspace(<span class="op">-</span><span class="dv">4</span>, <span class="dv">4</span>, <span class="dv">10</span>),</span>
+<span id="cb10-4"><a></a>    <span class="st">'svc__gamma'</span>: np.logspace(<span class="op">-</span><span class="dv">4</span>, <span class="dv">1</span>, <span class="dv">10</span>),</span>
+<span id="cb10-5"><a></a>    <span class="st">'svc__kernel'</span>: [<span class="st">'linear'</span>, <span class="st">'rbf'</span>]</span>
+<span id="cb10-6"><a></a>}</span>
+<span id="cb10-7"><a></a></span>
+<span id="cb10-8"><a></a><span class="co"># Create a custom scorer for cross-validation</span></span>
+<span id="cb10-9"><a></a>accuracy_scorer <span class="op">=</span> make_scorer(accuracy_score)</span>
+<span id="cb10-10"><a></a></span>
+<span id="cb10-11"><a></a><span class="co"># Initialize RandomizedSearchCV</span></span>
+<span id="cb10-12"><a></a>random_search <span class="op">=</span> RandomizedSearchCV(</span>
+<span id="cb10-13"><a></a>    svm_pipeline,</span>
+<span id="cb10-14"><a></a>    param_distributions<span class="op">=</span>param_grid,</span>
+<span id="cb10-15"><a></a>    n_iter <span class="op">=</span> <span class="dv">20</span>,  <span class="co"># Number of parameter settings sampled</span></span>
+<span id="cb10-16"><a></a>    scoring<span class="op">=</span>accuracy_scorer,</span>
+<span id="cb10-17"><a></a>    cv <span class="op">=</span> <span class="dv">5</span>,</span>
+<span id="cb10-18"><a></a>    random_state <span class="op">=</span> <span class="dv">42</span></span>
+<span id="cb10-19"><a></a>)</span>
+<span id="cb10-20"><a></a></span>
+<span id="cb10-21"><a></a><span class="co"># Fit the model with RandomizedSearchCV</span></span>
+<span id="cb10-22"><a></a>random_search.fit(X_train, y_train)</span>
+<span id="cb10-23"><a></a></span>
+<span id="cb10-24"><a></a><span class="co"># Best parameters from RandomizedSearchCV</span></span>
+<span id="cb10-25"><a></a><span class="bu">print</span>(<span class="ss">f'Best parameters found: </span><span class="sc">{</span>random_search<span class="sc">.</span>best_params_<span class="sc">}</span><span class="ss">'</span>)</span>
+<span id="cb10-26"><a></a></span>
+<span id="cb10-27"><a></a><span class="co"># Evaluate the model with the best found parameters</span></span>
+<span id="cb10-28"><a></a>best_model <span class="op">=</span> random_search.best_estimator_</span>
+<span id="cb10-29"><a></a>y_pred <span class="op">=</span> best_model.predict(X_test)</span>
+<span id="cb10-30"><a></a></span>
+<span id="cb10-31"><a></a><span class="co"># Calculate and print the accuracy</span></span>
+<span id="cb10-32"><a></a>accuracy_best <span class="op">=</span> accuracy_score(y_test, y_pred)</span>
+<span id="cb10-33"><a></a><span class="bu">print</span>(<span class="ss">f'Accuracy with best parameters: </span><span class="sc">{</span>accuracy_best<span class="sc">:.3f}</span><span class="ss">'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<pre><code>Best parameters found: {'svc__kernel': 'rbf', 'svc__gamma': 0.774, 'svc__C': 0.359}
+Accuracy with best parameters: 0.934</code></pre>
+</div>
+<div id="tabset-7-2">
+<div id="89b3f7b3" class="cell" data-execution_count="11">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a></a><span class="co"># Generate classification report and confusion matrix</span></span>
+<span id="cb12-2"><a></a><span class="bu">print</span>(classification_report(y_test, y_pred))</span>
+<span id="cb12-3"><a></a><span class="bu">print</span>(confusion_matrix(y_test, y_pred))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<pre><code>              precision    recall  f1-score   support
+
+           0       0.93      1.00      0.97       910
+           1       0.00      0.00      0.00        64
+
+    accuracy                           0.93       974
+   macro avg       0.47      0.50      0.48       974
+weighted avg       0.87      0.93      0.90       974
+
+[[910   0]
+ [ 64   0]]</code></pre>
+</div>
+</div>
+</div>
+</section>
+<section id="aside-svm-regression" class="slide level2 smaller">
+<h2>Aside: SVM Regression</h2>
+<div class="panel-tabset">
+<ul id="tabset-8" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-8-1">Visual</a></li><li><a href="#tabset-8-2">Formula</a></li><li><a href="#tabset-8-3">Key points</a></li></ul>
+<div class="tab-content">
+<div id="tabset-8-1">
+<p>Support Vector Regression (SVR) adapts SVMs for regression, aiming to predict values within an <span class="math inline">\(\epsilon\)</span>-margin of the actual targets while maintaining simplicity.</p>
+<div id="719da232" class="cell" data-execution_count="12">
+<div class="cell-output cell-output-display">
+<div>
+<figure>
+<p><img data-src="10-svm_files/figure-revealjs/cell-13-output-1.png" width="825" height="455"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-8-2">
+<p><span class="math inline">\(f(x) = w^T \phi(x) + b\)</span></p>
+<p><strong>Where:</strong></p>
+<ul>
+<li><span class="math inline">\(w\)</span> is the weight vector, <span class="math inline">\(\phi(x)\)</span> represents the high-dimensional feature space mapped from the input vector <span class="math inline">\(x\)</span> via a kernel function, <span class="math inline">\(b\)</span> is the bias term.</li>
+</ul>
+<p>The objective includes an <span class="math inline">\(\epsilon\)</span>-insensitive loss function - errors are tolerated if they are less than <span class="math inline">\(\epsilon\)</span>, leading to the following optimization problem:</p>
+<p><strong>Minimize</strong>:</p>
+<p><span class="math inline">\(\frac{1}{2} \|w\|^2 + C \sum_{i=1}^{n} (\xi_i + \xi_i^*)\)</span></p>
+<p><strong>Subject to</strong>:</p>
+<p><span class="math inline">\(y_i - w^T \phi(x_i) - b \leq \epsilon + \xi_i\)</span></p>
+<p><span class="math inline">\(w^T \phi(x_i) + b - y_i \leq \epsilon + \xi_i^*\)</span></p>
+<p><span class="math inline">\(\xi_i, \xi_i^* \geq 0\)</span></p>
+</div>
+<div id="tabset-8-3">
+<ol type="1">
+<li class="fragment"><p><span class="math inline">\(\epsilon\)</span><strong>-Insensitive Loss</strong>: SVR predicts within an <span class="math inline">\(\epsilon\)</span> margin of actual targets, ignoring errors within this range.</p></li>
+<li class="fragment"><p><strong>Regularization Parameter (</strong><span class="math inline">\(C\)</span><strong>)</strong>: Balances prediction simplicity and margin violation tolerance.</p></li>
+<li class="fragment"><p><strong>Kernel Trick</strong>: Enables capturing non-linear relationships by mapping inputs into higher-dimensional spaces.</p></li>
+<li class="fragment"><p><strong>Support Vectors</strong>: Data points that lie outside the <span class="math inline">\(\epsilon\)</span>-insensitive zone or on the boundary become support vectors, directly influencing the model.</p></li>
+<li class="fragment"><p><strong>Versatility</strong>: Suitable for both linear and non-linear regression tasks across various domains.</p></li>
+</ol>
+</div>
+</div>
+</div>
+</section>
+<section id="conclusions" class="slide level2 smaller">
+<h2>Conclusions</h2>
+<ol type="1">
+<li class="fragment"><p><strong>SVM Effectiveness</strong>: SVMs are highly effective for binary classification, showcasing strong generalization with appropriate kernel and hyperparameter selection.</p></li>
+<li class="fragment"><p><strong>Hyperparameter Tuning Importance</strong>: Significant improvements in model performance are achievable through precise hyperparameter tuning, utilizing methods like RandomizedSearchCV and GridSearchCV.</p></li>
+<li class="fragment"><p><strong>Preprocessing Necessity</strong>: Proper preprocessing, including feature scaling and categorical encoding, is crucial for optimal SVM performance.</p></li>
+<li class="fragment"><p><strong>Kernel Trick Benefits</strong>: The kernel trick enables SVMs to handle non-linear problems efficiently by operating in high-dimensional spaces without explicit high-dimension mapping.</p></li>
+<li class="fragment"><p><strong>Cross-Validation for Reliability</strong>: Employing cross-validation ensures robust and generalizable hyperparameter selection.</p></li>
+<li class="fragment"><p><strong>Balancing Model Complexity</strong>: There’s a critical balance between capturing data complexity with models like <strong><code>rbf</code></strong> kernel SVMs and avoiding overfitting, underscored by careful adjustment of the regularization parameter <span class="math inline">\(C\)</span>.</p></li>
+</ol>
+
+
+</section></section>
+    </div>
+  <div class="quarto-auto-generated-content" style="display: none;">
+<p><img src="../logo.png" class="slide-logo"></p>
+<div class="footer footer-default">
+<p><a href="https://info523-fall25-101-201.github.io/">🔗 github.io</a></p>
+</div>
+</div></div>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script>
+  <script src="../../site_libs/revealjs/dist/reveal.js"></script>
+  <!-- reveal.js plugins -->
+  <script src="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="../../site_libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="../../site_libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="../../site_libs/revealjs/plugin/reveal-chalkboard/plugin.js"></script>
+  <script src="../../site_libs/revealjs/plugin/quarto-support/support.js"></script>
+  
+
+  <script src="../../site_libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="../../site_libs/revealjs/plugin/search/search.js"></script>
+  <script src="../../site_libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="../../site_libs/revealjs/plugin/math/math.js"></script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+'controlsAuto': true,
+'previewLinksAuto': false,
+'pdfSeparateFragments': false,
+'autoAnimateEasing': "ease",
+'autoAnimateDuration': 1,
+'autoAnimateUnmatched': true,
+'jumpToSlide': true,
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\"><kbd>r</kbd> Scroll View Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleChalkboard(event)\"><kbd>b</kbd> Toggle Chalkboard</a></li>\n<li class=\"slide-tool-item\" data-item=\"6\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleNotesCanvas(event)\"><kbd>c</kbd> Toggle Notes Canvas</a></li>\n<li class=\"slide-tool-item\" data-item=\"7\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.downloadDrawings(event)\"><kbd>d</kbd> Download Drawings</a></li>\n<li class=\"slide-tool-item\" data-item=\"8\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'chalkboard': {"buttons":true},
+'smaller': false,
+ 
+        // Display controls in the bottom right corner
+        controls: false,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: false,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'edges',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: 'c/t',
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: true,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: false,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'linear',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: false,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'fade',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'none',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1050,
+
+        height: 700,
+
+        // Factor of the display size that should remain empty around the content
+        margin: 0.1,
+
+        math: {
+          mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
+        // reveal.js plugins
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, RevealChalkboard, QuartoSupport,
+
+          RevealMath,
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    <script id="quarto-html-after-body" type="application/javascript">
+      window.document.addEventListener("DOMContentLoaded", function (event) {
+        const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
+        tabsets.forEach(function(tabset) {
+          const tabby = new Tabby('#' + tabset.id);
+        });
+        const isCodeAnnotation = (el) => {
+          for (const clz of el.classList) {
+            if (clz.startsWith('code-annotation-')) {                     
+              return true;
+            }
+          }
+          return false;
+        }
+        const onCopySuccess = function(e) {
+          // button target
+          const button = e.trigger;
+          // don't keep focus
+          button.blur();
+          // flash "checked"
+          button.classList.add('code-copy-button-checked');
+          var currentTitle = button.getAttribute("title");
+          button.setAttribute("title", "Copied!");
+          let tooltip;
+          if (window.bootstrap) {
+            button.setAttribute("data-bs-toggle", "tooltip");
+            button.setAttribute("data-bs-placement", "left");
+            button.setAttribute("data-bs-title", "Copied!");
+            tooltip = new bootstrap.Tooltip(button, 
+              { trigger: "manual", 
+                customClass: "code-copy-button-tooltip",
+                offset: [0, -8]});
+            tooltip.show();    
+          }
+          setTimeout(function() {
+            if (tooltip) {
+              tooltip.hide();
+              button.removeAttribute("data-bs-title");
+              button.removeAttribute("data-bs-toggle");
+              button.removeAttribute("data-bs-placement");
+            }
+            button.setAttribute("title", currentTitle);
+            button.classList.remove('code-copy-button-checked');
+          }, 1000);
+          // clear code selection
+          e.clearSelection();
+        }
+        const getTextToCopy = function(trigger) {
+            const codeEl = trigger.previousElementSibling.cloneNode(true);
+            for (const childEl of codeEl.children) {
+              if (isCodeAnnotation(childEl)) {
+                childEl.remove();
+              }
+            }
+            return codeEl.innerText;
+        }
+        const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+          text: getTextToCopy
+        });
+        clipboard.on('success', onCopySuccess);
+        if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+          const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+            text: getTextToCopy,
+            container: window.document.getElementById('quarto-embedded-source-code-modal')
+          });
+          clipboardModal.on('success', onCopySuccess);
+        }
+          var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+          var mailtoRegex = new RegExp(/^mailto:/);
+            var filterRegex = new RegExp('/' + window.location.host + '/');
+          var isInternal = (href) => {
+              return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+          }
+          // Inspect non-navigation links and adorn them if external
+         var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+          for (var i=0; i<links.length; i++) {
+            const link = links[i];
+            if (!isInternal(link.href)) {
+              // undo the damage that might have been done by quarto-nav.js in the case of
+              // links that we want to consider external
+              if (link.dataset.originalHref !== undefined) {
+                link.href = link.dataset.originalHref;
+              }
+            }
+          }
+        function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+          const config = {
+            allowHTML: true,
+            maxWidth: 500,
+            delay: 100,
+            arrow: false,
+            appendTo: function(el) {
+                return el.closest('section.slide') || el.parentElement;
+            },
+            interactive: true,
+            interactiveBorder: 10,
+            theme: 'light-border',
+            placement: 'bottom-start',
+          };
+          if (contentFn) {
+            config.content = contentFn;
+          }
+          if (onTriggerFn) {
+            config.onTrigger = onTriggerFn;
+          }
+          if (onUntriggerFn) {
+            config.onUntrigger = onUntriggerFn;
+          }
+            config['offset'] = [0,0];
+            config['maxWidth'] = 700;
+          window.tippy(el, config); 
+        }
+        const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+        for (var i=0; i<noterefs.length; i++) {
+          const ref = noterefs[i];
+          tippyHover(ref, function() {
+            // use id or data attribute instead here
+            let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+            try { href = new URL(href).hash; } catch {}
+            const id = href.replace(/^#\/?/, "");
+            const note = window.document.getElementById(id);
+            if (note) {
+              return note.innerHTML;
+            } else {
+              return "";
+            }
+          });
+        }
+        const findCites = (el) => {
+          const parentEl = el.parentElement;
+          if (parentEl) {
+            const cites = parentEl.dataset.cites;
+            if (cites) {
+              return {
+                el,
+                cites: cites.split(' ')
+              };
+            } else {
+              return findCites(el.parentElement)
+            }
+          } else {
+            return undefined;
+          }
+        };
+        var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+        for (var i=0; i<bibliorefs.length; i++) {
+          const ref = bibliorefs[i];
+          const citeInfo = findCites(ref);
+          if (citeInfo) {
+            tippyHover(citeInfo.el, function() {
+              var popup = window.document.createElement('div');
+              citeInfo.cites.forEach(function(cite) {
+                var citeDiv = window.document.createElement('div');
+                citeDiv.classList.add('hanging-indent');
+                citeDiv.classList.add('csl-entry');
+                var biblioDiv = window.document.getElementById('ref-' + cite);
+                if (biblioDiv) {
+                  citeDiv.innerHTML = biblioDiv.innerHTML;
+                }
+                popup.appendChild(citeDiv);
+              });
+              return popup.innerHTML;
+            });
+          }
+        }
+      });
+      </script>
+    
+
+</body></html>

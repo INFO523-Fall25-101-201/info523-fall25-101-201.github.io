@@ -1,0 +1,2757 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<link href="../..//images/logo.png" rel="icon" type="image/png">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script><script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-html/tabby.min.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-ea385d0e468b0dd5ea5bf0780b1290d9.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.7.33">
+
+  <meta name="author" content="John Chen">
+  <title>INFO 523 – Regressions I</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/reveal.css">
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+      vertical-align: middle;
+    }
+    /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      { color: #003b4f; background-color: #f1f3f5; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #003b4f; } /* Normal */
+    code span.al { color: #ad0000; } /* Alert */
+    code span.an { color: #5e5e5e; } /* Annotation */
+    code span.at { color: #657422; } /* Attribute */
+    code span.bn { color: #ad0000; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #003b4f; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #20794d; } /* Char */
+    code span.cn { color: #8f5902; } /* Constant */
+    code span.co { color: #5e5e5e; } /* Comment */
+    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+    code span.dt { color: #ad0000; } /* DataType */
+    code span.dv { color: #ad0000; } /* DecVal */
+    code span.er { color: #ad0000; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #ad0000; } /* Float */
+    code span.fu { color: #4758ab; } /* Function */
+    code span.im { color: #00769e; } /* Import */
+    code span.in { color: #5e5e5e; } /* Information */
+    code span.kw { color: #003b4f; font-weight: bold; } /* Keyword */
+    code span.op { color: #5e5e5e; } /* Operator */
+    code span.ot { color: #003b4f; } /* Other */
+    code span.pp { color: #ad0000; } /* Preprocessor */
+    code span.sc { color: #5e5e5e; } /* SpecialChar */
+    code span.ss { color: #20794d; } /* SpecialString */
+    code span.st { color: #20794d; } /* String */
+    code span.va { color: #111111; } /* Variable */
+    code span.vs { color: #20794d; } /* VerbatimString */
+    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
+  </style>
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-191024931916078fc4eae1dde1f53f1c.css">
+  <link href="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="../../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="../../site_libs/revealjs/plugin/reveal-chalkboard/font-awesome/css/all.css" rel="stylesheet">
+  <link href="../../site_libs/revealjs/plugin/reveal-chalkboard/style.css" rel="stylesheet">
+  <link href="../../site_libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <style type="text/css">
+    .reveal div.sourceCode {
+      margin: 0;
+      overflow: auto;
+    }
+    .reveal div.hanging-indent {
+      margin-left: 1em;
+      text-indent: -1em;
+    }
+    .reveal .slide:not(.center) {
+      height: 100%;
+    }
+    .reveal .slide.scrollable {
+      overflow-y: auto;
+    }
+    .reveal .footnotes {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide .absolute {
+      position: absolute;
+      display: block;
+    }
+    .reveal .footnotes ol {
+      counter-reset: ol;
+      list-style-type: none; 
+      margin-left: 0;
+    }
+    .reveal .footnotes ol li:before {
+      counter-increment: ol;
+      content: counter(ol) ". "; 
+    }
+    .reveal .footnotes ol li > p:first-child {
+      display: inline-block;
+    }
+    .reveal .slide ul,
+    .reveal .slide ol {
+      margin-bottom: 0.5em;
+    }
+    .reveal .slide ul li,
+    .reveal .slide ol li {
+      margin-top: 0.4em;
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide ul[role="tablist"] li {
+      margin-bottom: 0;
+    }
+    .reveal .slide ul li > *:first-child,
+    .reveal .slide ol li > *:first-child {
+      margin-block-start: 0;
+    }
+    .reveal .slide ul li > *:last-child,
+    .reveal .slide ol li > *:last-child {
+      margin-block-end: 0;
+    }
+    .reveal .slide .columns:nth-child(3) {
+      margin-block-start: 0.8em;
+    }
+    .reveal blockquote {
+      box-shadow: none;
+    }
+    .reveal .tippy-content>* {
+      margin-top: 0.2em;
+      margin-bottom: 0.7em;
+    }
+    .reveal .tippy-content>*:last-child {
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide > img.stretch.quarto-figure-center,
+    .reveal .slide > img.r-stretch.quarto-figure-center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-left,
+    .reveal .slide > img.r-stretch.quarto-figure-left  {
+      display: block;
+      margin-left: 0;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-right,
+    .reveal .slide > img.r-stretch.quarto-figure-right  {
+      display: block;
+      margin-left: auto;
+      margin-right: 0; 
+    }
+  </style>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+  
+  <script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
+<meta property="og:title" content="Regressions I – INFO 523">
+<meta property="og:description" content="Lecture 7">
+<meta property="og:site_name" content="INFO 523">
+</head>
+<body class="quarto-light">
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide" data-background-image="../minedata-bg.png" data-background-size="600px, cover" data-slide-number="none" class="quarto-title-block center">
+  <h1 class="title">Regressions I</h1>
+  <p class="subtitle">Lecture 7</p>
+
+<div class="quarto-title-authors">
+<div class="quarto-title-author">
+<div class="quarto-title-author-name">
+John Chen 
+</div>
+        <p class="quarto-title-affiliation">
+            University of Arizona <br> INFO 523 - Fall 2025
+          </p>
+    </div>
+</div>
+
+</section>
+<section>
+<section id="warm-up" class="title-slide slide level1 center">
+<h1>Warm up</h1>
+
+</section>
+<section id="announcements" class="slide level2">
+<h2>Announcements</h2>
+<ul>
+<li><p>RQ 3 is due today, 11:59pm</p></li>
+<li><p>HW 3 is due today, 11:59pm</p></li>
+<li><p>Final project peer-review is Wed Mar 27</p></li>
+</ul>
+</section>
+<section id="setup" class="slide level2 smaller">
+<h2>Setup</h2>
+<div id="setup" class="cell" data-message="false" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a></a><span class="co"># Import all required libraries</span></span>
+<span id="cb1-2"><a></a><span class="co"># Data handling and manipulation</span></span>
+<span id="cb1-3"><a></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-4"><a></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-5"><a></a></span>
+<span id="cb1-6"><a></a><span class="co"># Implementing and selecting models</span></span>
+<span id="cb1-7"><a></a><span class="im">import</span> statsmodels.api <span class="im">as</span> sm</span>
+<span id="cb1-8"><a></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> train_test_split, cross_val_score, KFold</span>
+<span id="cb1-9"><a></a><span class="im">from</span> itertools <span class="im">import</span> combinations</span>
+<span id="cb1-10"><a></a><span class="im">from</span> mlxtend.feature_selection <span class="im">import</span> SequentialFeatureSelector <span class="im">as</span> SFS</span>
+<span id="cb1-11"><a></a><span class="im">from</span> sklearn.linear_model <span class="im">import</span> LinearRegression</span>
+<span id="cb1-12"><a></a></span>
+<span id="cb1-13"><a></a><span class="co"># For advanced visualizations</span></span>
+<span id="cb1-14"><a></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb1-15"><a></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
+<span id="cb1-16"><a></a></span>
+<span id="cb1-17"><a></a><span class="co"># Show computation time</span></span>
+<span id="cb1-18"><a></a><span class="im">import</span> time</span>
+<span id="cb1-19"><a></a></span>
+<span id="cb1-20"><a></a><span class="co"># Increase font size of all Seaborn plot elements</span></span>
+<span id="cb1-21"><a></a>sns.<span class="bu">set</span>(font_scale <span class="op">=</span> <span class="fl">1.25</span>)</span>
+<span id="cb1-22"><a></a></span>
+<span id="cb1-23"><a></a><span class="co"># Set Seaborn theme</span></span>
+<span id="cb1-24"><a></a>sns.set_theme(style <span class="op">=</span> <span class="st">"white"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section></section>
+<section>
+<section id="regressions" class="title-slide slide level1 center">
+<h1>Regressions</h1>
+
+</section>
+<section id="linear-regression" class="slide level2 smaller">
+<h2>Linear regression</h2>
+<div class="panel-tabset">
+<ul id="tabset-1" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-1-1">Visual</a></li><li><a href="#tabset-1-2">Definition</a></li><li><a href="#tabset-1-3">Key points</a></li><li><a href="#tabset-1-4"></a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1">
+<div id="12815d37" class="cell" data-execution_count="2">
+<div class="cell-output cell-output-display">
+<div>
+<figure>
+<p><img data-src="07-regn-1_files/figure-revealjs/cell-3-output-1.png" width="800" height="415"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-1-2">
+<p><strong>Objective</strong>: Minimize the sum of squared differences between observed and predicted.</p>
+<p><strong>Model structure:</strong></p>
+<p><span class="math inline">\(Y_i = \beta_0 + \beta_1 X_i + \epsilon_i\)</span></p>
+<ul>
+<li class="fragment"><p><span class="math inline">\(Y_i\)</span>: Dependent/response variable</p></li>
+<li class="fragment"><p><span class="math inline">\(X_i\)</span>: Independent/predictor variable</p></li>
+<li class="fragment"><p><span class="math inline">\(\beta_0\)</span>: y-intercept</p></li>
+<li class="fragment"><p><span class="math inline">\(\beta_1\)</span>: Slope</p></li>
+<li class="fragment"><p><span class="math inline">\(\epsilon_i\)</span>: Random error term, deviation of the real value from predicted</p></li>
+</ul>
+</div>
+<div id="tabset-1-3">
+<ol type="1">
+<li class="fragment"><p><strong>Assumptions</strong>: Linearity, independent residuals, constant variance (homoscedasticity), and normally distributed residuals.</p></li>
+<li class="fragment"><p><strong>Goodness of Fit</strong>: Assessed by <span class="math inline">\(R^2\)</span>, the proportion of variance in <span class="math inline">\(Y\)</span> explained by <span class="math inline">\(X\)</span>.</p></li>
+<li class="fragment"><p><strong>Statistical Significance</strong>: Tested by t-tests on the coefficients.</p></li>
+<li class="fragment"><p><strong>Confidence Intervals</strong>: Provide a range for the estimated coefficients.</p></li>
+<li class="fragment"><p><strong>Predictions</strong>: Use the model to predict <span class="math inline">\(Y\)</span> for new <span class="math inline">\(X\)</span> values.</p></li>
+<li class="fragment"><p><strong>Diagnostics</strong>: Check residuals for model assumption violations.</p></li>
+<li class="fragment"><p><strong>Sensitivity</strong>: Influenced by outliers which can skew the model.</p></li>
+<li class="fragment"><p><strong>Applications</strong>: Used across various fields for predictive modeling and data analysis.</p></li>
+</ol>
+</div>
+<div id="tabset-1-4">
+
+</div>
+</div>
+</div>
+</section>
+<section id="assumptions" class="slide level2 smaller">
+<h2>Assumptions</h2>
+<div class="columns">
+<div class="column fragment" data-fragment-index="1" style="width:33.3%;">
+<p><strong>Linearity</strong></p>
+<p>(Linear relationship between Y ~ X)</p>
+<p><img data-src="images/assumptions1.png"></p>
+</div><div class="column fragment" data-fragment-index="2" style="width:33.3%;">
+<p><strong>Homoscedasticity</strong></p>
+<p>(Equal variance among variables)</p>
+<p><img data-src="images/assumptions2.png"></p>
+</div><div class="column fragment" data-fragment-index="3" style="width:33.3%;">
+<p><strong>Multivartiate Normality</strong></p>
+<p>(Normally distributed residuals)</p>
+<p><img data-src="images/assumptions3.png"></p>
+</div></div>
+<div class="columns">
+<div class="column fragment" data-fragment-index="4" style="width:33.3%;">
+<p><strong>Independence</strong></p>
+<p>(Observations are independent)</p>
+<p><img data-src="images/assumptions4.png"></p>
+</div><div class="column fragment" data-fragment-index="5" style="width:33.3%;">
+<p><strong>Lack of Multicollinearity</strong></p>
+<p>(Predictors are not correlated)</p>
+<p><img data-src="images/assumptions5.png"></p>
+</div><div class="column fragment" data-fragment-index="6" style="width:33.3%;">
+<p><strong>Outlier check</strong></p>
+<p>(Technically not an assumption)</p>
+<p><img data-src="images/assumptions6.png"></p>
+</div></div>
+</section>
+<section id="ordinary-least-squares-ols" class="slide level2 smaller">
+<h2>Ordinary Least Squares (OLS)</h2>
+<div class="columns">
+<div class="column fragment" data-fragment-index="1" style="width:50%;">
+<p><img data-src="images/error-in-machine-learning-ols.webp"></p>
+</div><div class="column fragment" data-fragment-index="2" style="width:50%;">
+<p><img data-src="images/error-ordinary-least-squares-ols.webp"></p>
+</div></div>
+<div class="fragment" data-fragment-index="3">
+<p><span class="math inline">\(\displaystyle y_{i}=\beta_{1}&nbsp;x{i_1}+\beta_{2}&nbsp;x{i_2}+\cdots +\beta_{p}&nbsp;x{i_p}+\varepsilon _{i}\)</span></p>
+<ol type="1">
+<li class="fragment"><span class="math inline">\(y_i\)</span>: Dependent variable for the <span class="math inline">\(i\)</span>-th observation.</li>
+<li class="fragment"><span class="math inline">\(\beta_1, \beta_2, …, \beta_p\)</span>: Coefficients representing the impact of each independent variable.</li>
+<li class="fragment"><span class="math inline">\(x_{i1}, ​x_{i1},…, x_{ip}\)</span>: Independent variables for the <span class="math inline">\(i\)</span>-th observation.</li>
+<li class="fragment"><span class="math inline">\(\epsilon_i\)</span>​: Error term for the <span class="math inline">\(i\)</span>-th observation, indicating unexplained variance.</li>
+</ol>
+</div>
+</section>
+<section id="assessing-accuracy-of-coefficients" class="slide level2 smaller">
+<h2>Assessing accuracy of coefficients</h2>
+<p><strong>Two major methods</strong>:</p>
+<ol type="1">
+<li class="fragment"><strong>Standard errors (SE)</strong>:</li>
+</ol>
+<ul>
+<li class="fragment"><p>Indicate the precision of coefficient estimates; smaller values suggest more precise estimates.</p></li>
+<li class="fragment"><p>Formula: <span class="math inline">\(\sigma_{\bar{x}} \approx \frac{\sigma_x}{\sqrt{n}}\)</span></p></li>
+</ul>
+<ol start="2" type="1">
+<li class="fragment"><strong>Confidence Intervals</strong>:</li>
+</ol>
+<ul>
+<li class="fragment"><p>Ranges constructed from standard errors that indicate where the true coefficient is likely to fall, typically at a 95% confidence level.</p></li>
+<li class="fragment"><p>Derived from same method as <strong>p-values</strong></p></li>
+</ul>
+</section>
+<section id="assessing-accuracy-of-model" class="slide level2 smaller">
+<h2>Assessing accuracy of model</h2>
+<div class="panel-tabset">
+<ul id="tabset-2" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-2-1">Overview</a></li><li><a href="#tabset-2-2">MSE</a></li><li><a href="#tabset-2-3">R-squared</a></li><li><a href="#tabset-2-4">Adjusted R-squared</a></li><li><a href="#tabset-2-5">Residual plots</a></li></ul>
+<div class="tab-content">
+<div id="tabset-2-1">
+<div class="fragment" data-fragment-index="1">
+<p><strong>Three major methods</strong>:</p>
+<ol type="1">
+<li><strong>Mean square error (MSE)</strong>: MSE of a <strong>predictor</strong> is calculated as the average of the squares of the errors, where the error is the difference between the actual value and the predicted value.</li>
+<li><strong>R-squared (</strong><span class="math inline">\(R^2\)</span><strong>)</strong>: Proportion of variance in the dependent variable explained by the model; closer to 1 indicates a better fit.</li>
+<li><strong>Adjusted R-squared (</strong><span class="math inline">\(R^2_{adj}\)</span><strong>)</strong>: Modified R² that accounts for the number of predictors; useful for comparing models with different numbers of independent variables.</li>
+<li><strong>Residual plots</strong>: Visual check for randomness in residuals; patterns may indicate model issues like non-linearity or heteroscedasticity.</li>
+</ol>
+</div>
+</div>
+<div id="tabset-2-2">
+<blockquote>
+<p>In <a href="https://en.wikipedia.org/wiki/Statistics" title="Statistics">statistics</a>, the mean squared error (MSE) or mean squared deviation (MSD) of an <a href="https://en.wikipedia.org/wiki/Estimator" title="Estimator">estimator</a> measures the <a href="https://en.wikipedia.org/wiki/Expected_value" title="Expected value">average</a> of the squares of the <a href="https://en.wikipedia.org/wiki/Error_(statistics)" title="Error (statistics)">errors</a>—that is, the average squared difference between the estimated values and the actual value. The MSE either assesses the quality of a <a href="https://en.wikipedia.org/wiki/Predictor_(statistics)" title="Predictor (statistics)"><strong><em>predictor</em></strong></a>or of an <a href="https://en.wikipedia.org/wiki/Estimator" title="Estimator"><em>estimator</em></a><em>.</em></p>
+</blockquote>
+<div class="fragment" data-fragment-index="2">
+<p><strong>Predictor</strong></p>
+<p><span class="math inline">\(MSE = \frac{1}{n} \sum_{i=1}^{n} (y_i - \hat{y}_i)^2\)</span></p>
+<ul>
+<li><p><span class="math inline">\(y_i\)</span>: the actual values</p></li>
+<li><p><span class="math inline">\(\hat{y}_i\)</span>: the predicted values</p></li>
+<li><p><span class="math inline">\(n\)</span>: sample size</p></li>
+</ul>
+</div>
+</div>
+<div id="tabset-2-3">
+<div class="fragment" data-fragment-index="3">
+<p>Define the <a href="https://en.wikipedia.org/wiki/Residuals_(statistics)" title="Residuals (statistics)">residuals</a> as <span class="math inline">\(e_i = y_i − f_i\)</span>(forming a vector <span class="math inline">\(e\)</span>).</p>
+</div>
+<div class="fragment" data-fragment-index="4">
+<p>If <span class="math inline">\(\bar{y}\)</span> is the observed mean:</p>
+<p><span class="math inline">\(\bar{y}=\frac{1}{n} \sum_{i=1}^{n}y_i\)</span></p>
+</div>
+<div class="fragment" data-fragment-index="5">
+<p>then the variability of the data set can be measured with two <a href="https://en.wikipedia.org/wiki/Mean_squared_error" title="Mean squared error">sums of squares</a> (SS) formulas:</p>
+</div>
+<div class="fragment" data-fragment-index="5">
+<p><a href="https://en.wikipedia.org/wiki/Residual_sum_of_squares"><strong>Residual SS</strong></a>:</p>
+</div>
+<div class="fragment" data-fragment-index="6">
+<p><span class="math inline">\(RSS = \sum_{i=1}^{n} (y_i - \hat{y}_i)^2\)</span></p>
+</div>
+<div class="fragment" data-fragment-index="5">
+<p><a href="https://en.wikipedia.org/wiki/Total_sum_of_squares"><strong>Total SS</strong></a>:</p>
+</div>
+<div class="fragment" data-fragment-index="6">
+<p><span class="math inline">\(TSS = \sum_{i=1}^{n} (y_i - \bar{y})^2\)</span></p>
+</div>
+<div class="fragment" data-fragment-index="7">
+<p><strong>R-squared</strong>:</p>
+<p><span class="math inline">\(R^2 = 1 - \frac{RSS}{TSS}\)</span></p>
+</div>
+</div>
+<div id="tabset-2-4">
+<div class="fragment" data-fragment-index="8">
+<p><strong>Formula</strong> <span class="math inline">\(R^2 = 1 - \frac{RSS / df_{res}}{TSS / df_{tot}}\)</span></p>
+</div>
+<div class="fragment" data-fragment-index="9">
+<p><strong>Key points</strong>:</p>
+<ul>
+<li class="fragment"><p><strong>Penalizes Complexity</strong>: Adjusts for the number of terms in the model, penalizing the addition of irrelevant predictors.</p></li>
+<li class="fragment"><p><strong>Comparability</strong>: More reliable than R-squared for comparing models with different numbers of independent variables.</p></li>
+<li class="fragment"><p><strong>Value Range</strong>: Can be negative if the model is worse than using just the mean of the dependent variable, whereas R-squared is always between 0 and 1.</p></li>
+</ul>
+</div>
+<ul>
+<li class="fragment"><span class="math inline">\(df_{res}\)</span>: <a href="https://en.wikipedia.org/wiki/Degrees_of_freedom_(statistics)">degrees of freedom</a> of the estimate of the population variance around the model</li>
+<li class="fragment"><span class="math inline">\(df_{tot}\)</span>: degrees of freedom of the estimate of the population variance around the mean</li>
+</ul>
+</div>
+<div id="tabset-2-5">
+<div id="7ef927ba" class="cell" data-execution_count="3">
+<div class="cell-output cell-output-display">
+<div>
+<figure>
+<p><img data-src="07-regn-1_files/figure-revealjs/cell-4-output-1.png" width="664" height="529"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="our-data" class="slide level2 smaller">
+<h2>Our data</h2>
+<div class="panel-tabset">
+<ul id="tabset-3" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-3-1">Read</a></li><li><a href="#tabset-3-2">Info</a></li><li><a href="#tabset-3-3">Describe</a></li><li><a href="#tabset-3-4">Plot</a></li></ul>
+<div class="tab-content">
+<div id="tabset-3-1">
+<div id="e9288f9d" class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a></a>elmhurst <span class="op">=</span> pd.read_csv(<span class="st">"data/elmhurst.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<div id="tabset-3-2">
+<div id="fd905fbc" class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a></a>elmhurst.info()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>&lt;class 'pandas.core.frame.DataFrame'&gt;
+RangeIndex: 50 entries, 0 to 49
+Data columns (total 3 columns):
+ #   Column         Non-Null Count  Dtype  
+---  ------         --------------  -----  
+ 0   family_income  50 non-null     float64
+ 1   gift_aid       50 non-null     float64
+ 2   price_paid     50 non-null     float64
+dtypes: float64(3)
+memory usage: 1.3 KB</code></pre>
+</div>
+</div>
+</div>
+<div id="tabset-3-3">
+<div id="f5cdb4b0" class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a></a>elmhurst.describe()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="6">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+
+<table class="dataframe caption-top" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header" style="text-align: right;">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">family_income</th>
+<th data-quarto-table-cell-role="th">gift_aid</th>
+<th data-quarto-table-cell-role="th">price_paid</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">count</td>
+<td>50.000000</td>
+<td>50.000000</td>
+<td>50.000000</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">mean</td>
+<td>101.778520</td>
+<td>19.935560</td>
+<td>19.544440</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">std</td>
+<td>63.206451</td>
+<td>5.460581</td>
+<td>5.979759</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">min</td>
+<td>0.000000</td>
+<td>7.000000</td>
+<td>8.530000</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">25%</td>
+<td>64.079000</td>
+<td>16.250000</td>
+<td>15.000000</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">50%</td>
+<td>88.061500</td>
+<td>20.470000</td>
+<td>19.500000</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">75%</td>
+<td>137.174000</td>
+<td>23.515000</td>
+<td>23.630000</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">max</td>
+<td>271.974000</td>
+<td>32.720000</td>
+<td>35.000000</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-3-4">
+<div id="5b455861" class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a></a>sns.scatterplot(data <span class="op">=</span> elmhurst, x <span class="op">=</span> <span class="st">"family_income"</span>, y <span class="op">=</span> <span class="st">"gift_aid"</span>)</span>
+<span id="cb6-2"><a></a>plt.xlabel(<span class="st">"Family income ($)"</span>)</span>
+<span id="cb6-3"><a></a>plt.ylabel(<span class="st">"Gift aid from university ($)"</span>)</span>
+<span id="cb6-4"><a></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure>
+<p><img data-src="07-regn-1_files/figure-revealjs/cell-8-output-1.png" width="813" height="437"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="ols-regression-applied" class="slide level2 smaller">
+<h2>OLS regression: applied</h2>
+<div class="panel-tabset">
+<ul id="tabset-4" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-4-1">Model summary</a></li><li><a href="#tabset-4-2">Residual plot</a></li><li><a href="#tabset-4-3">Regression fit plot</a></li></ul>
+<div class="tab-content">
+<div id="tabset-4-1">
+<div id="8bdf5021" class="cell" data-execution_count="8">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb7" data-code-line-numbers="|1,2|4|5|7|9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a></a>X <span class="op">=</span> elmhurst[<span class="st">'family_income'</span>]  <span class="co"># Independent variable</span></span>
+<span id="cb7-2"><a></a>y <span class="op">=</span> elmhurst[<span class="st">'gift_aid'</span>]  <span class="co"># Dependent variable</span></span>
+<span id="cb7-3"><a></a></span>
+<span id="cb7-4"><a></a>X_train, X_test, y_train, y_test <span class="op">=</span> train_test_split(X, y, test_size <span class="op">=</span> <span class="fl">0.2</span>, random_state <span class="op">=</span> <span class="dv">42</span>)</span>
+<span id="cb7-5"><a></a>X_train_with_const <span class="op">=</span> sm.add_constant(X_train)</span>
+<span id="cb7-6"><a></a></span>
+<span id="cb7-7"><a></a>model <span class="op">=</span> sm.OLS(y_train, X_train_with_const).fit()</span>
+<span id="cb7-8"><a></a></span>
+<span id="cb7-9"><a></a>model_summary2 <span class="op">=</span> model.summary2()</span>
+<span id="cb7-10"><a></a><span class="bu">print</span>(model_summary2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>                 Results: Ordinary least squares
+=================================================================
+Model:              OLS              Adj. R-squared:     0.205   
+Dependent Variable: gift_aid         AIC:                241.3545
+Date:               2025-08-20 11:30 BIC:                244.7323
+No. Observations:   40               Log-Likelihood:     -118.68 
+Df Model:           1                F-statistic:        11.05   
+Df Residuals:       38               Prob (F-statistic): 0.00197 
+R-squared:          0.225            Scale:              23.273  
+-----------------------------------------------------------------
+                   Coef.  Std.Err.    t    P&gt;|t|   [0.025  0.975]
+-----------------------------------------------------------------
+const             24.5170   1.4489 16.9216 0.0000 21.5839 27.4500
+family_income     -0.0398   0.0120 -3.3238 0.0020 -0.0640 -0.0156
+-----------------------------------------------------------------
+Omnibus:              0.057        Durbin-Watson:           2.277
+Prob(Omnibus):        0.972        Jarque-Bera (JB):        0.249
+Skew:                 0.047        Prob(JB):                0.883
+Kurtosis:             2.625        Condition No.:           230  
+=================================================================
+Notes:
+[1] Standard Errors assume that the covariance matrix of the
+errors is correctly specified.</code></pre>
+</div>
+</div>
+</div>
+<div id="tabset-4-2">
+<div id="c4182d70" class="cell" data-execution_count="9">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb9" data-code-line-numbers="|1|2|3|5-9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a></a>X_test_with_const <span class="op">=</span> sm.add_constant(X_test)</span>
+<span id="cb9-2"><a></a>predictions <span class="op">=</span> model.predict(X_test_with_const)</span>
+<span id="cb9-3"><a></a>residuals <span class="op">=</span> y_test <span class="op">-</span> predictions</span>
+<span id="cb9-4"><a></a></span>
+<span id="cb9-5"><a></a>sns.residplot(x <span class="op">=</span> predictions, y <span class="op">=</span> residuals)</span>
+<span id="cb9-6"><a></a>plt.xlabel(<span class="st">'Predicted Values'</span>)</span>
+<span id="cb9-7"><a></a>plt.ylabel(<span class="st">'Residuals'</span>)</span>
+<span id="cb9-8"><a></a>plt.title(<span class="st">'Residual Plot'</span>)</span>
+<span id="cb9-9"><a></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display">
+<div>
+<figure>
+<p><img data-src="07-regn-1_files/figure-revealjs/cell-10-output-1.png" width="812" height="455"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-4-3">
+<div id="308c96c0" class="cell" data-execution_count="10">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb10" data-code-line-numbers="|1|3,4|5|7-11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a></a>plt.scatter(X_test, y_test, label <span class="op">=</span> <span class="st">'Data'</span>)</span>
+<span id="cb10-2"><a></a></span>
+<span id="cb10-3"><a></a>line_x <span class="op">=</span> np.linspace(X_test.<span class="bu">min</span>(), X_test.<span class="bu">max</span>(), <span class="dv">100</span>)</span>
+<span id="cb10-4"><a></a>line_y <span class="op">=</span> model.predict(sm.add_constant(line_x))</span>
+<span id="cb10-5"><a></a>plt.plot(line_x, line_y, color <span class="op">=</span> <span class="st">'red'</span>, label <span class="op">=</span> <span class="st">'OLS Regression Line'</span>)</span>
+<span id="cb10-6"><a></a></span>
+<span id="cb10-7"><a></a>plt.xlabel(<span class="st">"Family income ($)"</span>)</span>
+<span id="cb10-8"><a></a>plt.ylabel(<span class="st">"Gift aid from university ($)"</span>)</span>
+<span id="cb10-9"><a></a>plt.title(<span class="st">'OLS Regression Fit'</span>)</span>
+<span id="cb10-10"><a></a>plt.legend()</span>
+<span id="cb10-11"><a></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display">
+<div>
+<figure>
+<p><img data-src="07-regn-1_files/figure-revealjs/cell-11-output-1.png" width="826" height="456"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section></section>
+<section>
+<section id="multiple-regression" class="title-slide slide level1 center">
+<h1>Multiple regression</h1>
+
+</section>
+<section id="multiple-regression-1" class="slide level2">
+<h2>Multiple regression</h2>
+<div class="panel-tabset">
+<ul id="tabset-5" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-5-1">Visual</a></li><li><a href="#tabset-5-2">Key points</a></li></ul>
+<div class="tab-content">
+<div id="tabset-5-1">
+<div class="columns">
+<div class="column" style="width:50%;">
+<div id="00fb18f2" class="cell" data-execution_count="11">
+<div class="cell-output cell-output-display">
+<div>
+<figure>
+<p><img data-src="07-regn-1_files/figure-revealjs/cell-12-output-1.png" width="497" height="520"></p>
+</figure>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:50%;">
+<div id="db0db60e" class="cell" data-execution_count="12">
+<div class="cell-output cell-output-display">
+<div>
+<figure>
+<p><img data-src="07-regn-1_files/figure-revealjs/cell-13-output-1.png" width="464" height="483"></p>
+</figure>
+</div>
+</div>
+</div>
+</div></div>
+</div>
+<div id="tabset-5-2">
+<ol type="1">
+<li class="fragment"><p><strong>Multiple Predictors</strong>: more than one predictor variable to predict a response variable.</p></li>
+<li class="fragment"><p><strong>Model Form</strong>: <span class="math inline">\(Y = \beta_0 + \beta_1 X_1 + \beta_2 X_2 + \cdots + \beta_n X_n + \epsilon\)</span> , where <span class="math inline">\(Y\)</span> is the response variable, <span class="math inline">\(X_1, X_2,...,X_n\)</span> are predictor variables, <span class="math inline">\(\beta\)</span>s are coefficients, and <span class="math inline">\(\epsilon\)</span> is the error term.</p></li>
+<li class="fragment"><p><strong>Coefficient Interpretation</strong>: Each coefficient represents the change in the response variable for one unit change in the predictor, holding other predictors constant.</p></li>
+<li class="fragment"><p><strong>Assumptions</strong>: Includes linearity, no perfect multicollinearity, homoscedasticity, independence of errors, and normality of residuals.</p></li>
+<li class="fragment"><p><strong>Adjusted R-squared</strong>: Used to determine the model’s explanatory power, adjusting for the number of predictors.</p></li>
+<li class="fragment"><p><strong>Multicollinearity Concerns</strong>: High correlation between predictor variables can distort the model and make coefficient estimates unreliable.</p></li>
+<li class="fragment"><p><strong>Interaction Effects</strong>: Can be included to see if the effect of one predictor on the response variable depends on another predictor.</p></li>
+</ol>
+</div>
+</div>
+</div>
+</section>
+<section id="our-data-1" class="slide level2 smaller">
+<h2>Our data</h2>
+<div class="panel-tabset">
+<ul id="tabset-6" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-6-1">Question</a></li><li><a href="#tabset-6-2">Read + examine</a></li><li><a href="#tabset-6-3">Relevant variables</a></li><li><a href="#tabset-6-4">Info</a></li><li><a href="#tabset-6-5">Describe</a></li><li><a href="#tabset-6-6">Plot</a></li></ul>
+<div class="tab-content">
+<div id="tabset-6-1">
+<p>How do factors like debt-to-income ratio, bankruptcy history, and loan term affect the interest rate of a loan?</p>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/credit-risk.jpeg" class="quarto-figure quarto-figure-center" width="1000"></p>
+</figure>
+</div>
+</div>
+<div id="tabset-6-2">
+<div id="212c1183" class="cell" data-execution_count="13">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a></a>loans <span class="op">=</span> pd.read_csv(<span class="st">"data/loans.csv"</span>)</span>
+<span id="cb11-2"><a></a>loans.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="13">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+
+<table class="dataframe caption-top" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header" style="text-align: right;">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">emp_title</th>
+<th data-quarto-table-cell-role="th">emp_length</th>
+<th data-quarto-table-cell-role="th">state</th>
+<th data-quarto-table-cell-role="th">homeownership</th>
+<th data-quarto-table-cell-role="th">annual_income</th>
+<th data-quarto-table-cell-role="th">verified_income</th>
+<th data-quarto-table-cell-role="th">debt_to_income</th>
+<th data-quarto-table-cell-role="th">annual_income_joint</th>
+<th data-quarto-table-cell-role="th">verification_income_joint</th>
+<th data-quarto-table-cell-role="th">debt_to_income_joint</th>
+<th data-quarto-table-cell-role="th">...</th>
+<th data-quarto-table-cell-role="th">sub_grade</th>
+<th data-quarto-table-cell-role="th">issue_month</th>
+<th data-quarto-table-cell-role="th">loan_status</th>
+<th data-quarto-table-cell-role="th">initial_listing_status</th>
+<th data-quarto-table-cell-role="th">disbursement_method</th>
+<th data-quarto-table-cell-role="th">balance</th>
+<th data-quarto-table-cell-role="th">paid_total</th>
+<th data-quarto-table-cell-role="th">paid_principal</th>
+<th data-quarto-table-cell-role="th">paid_interest</th>
+<th data-quarto-table-cell-role="th">paid_late_fees</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>global config engineer</td>
+<td>3.0</td>
+<td>NJ</td>
+<td>MORTGAGE</td>
+<td>90000.0</td>
+<td>Verified</td>
+<td>18.01</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>...</td>
+<td>C3</td>
+<td>Mar-2018</td>
+<td>Current</td>
+<td>whole</td>
+<td>Cash</td>
+<td>27015.86</td>
+<td>1999.33</td>
+<td>984.14</td>
+<td>1015.19</td>
+<td>0.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>warehouse office clerk</td>
+<td>10.0</td>
+<td>HI</td>
+<td>RENT</td>
+<td>40000.0</td>
+<td>Not Verified</td>
+<td>5.04</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>...</td>
+<td>C1</td>
+<td>Feb-2018</td>
+<td>Current</td>
+<td>whole</td>
+<td>Cash</td>
+<td>4651.37</td>
+<td>499.12</td>
+<td>348.63</td>
+<td>150.49</td>
+<td>0.0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>assembly</td>
+<td>3.0</td>
+<td>WI</td>
+<td>RENT</td>
+<td>40000.0</td>
+<td>Source Verified</td>
+<td>21.15</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>...</td>
+<td>D1</td>
+<td>Feb-2018</td>
+<td>Current</td>
+<td>fractional</td>
+<td>Cash</td>
+<td>1824.63</td>
+<td>281.80</td>
+<td>175.37</td>
+<td>106.43</td>
+<td>0.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>customer service</td>
+<td>1.0</td>
+<td>PA</td>
+<td>RENT</td>
+<td>30000.0</td>
+<td>Not Verified</td>
+<td>10.16</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>...</td>
+<td>A3</td>
+<td>Jan-2018</td>
+<td>Current</td>
+<td>whole</td>
+<td>Cash</td>
+<td>18853.26</td>
+<td>3312.89</td>
+<td>2746.74</td>
+<td>566.15</td>
+<td>0.0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>security supervisor</td>
+<td>10.0</td>
+<td>CA</td>
+<td>RENT</td>
+<td>35000.0</td>
+<td>Verified</td>
+<td>57.96</td>
+<td>57000.0</td>
+<td>Verified</td>
+<td>37.66</td>
+<td>...</td>
+<td>C3</td>
+<td>Mar-2018</td>
+<td>Current</td>
+<td>whole</td>
+<td>Cash</td>
+<td>21430.15</td>
+<td>2324.65</td>
+<td>1569.85</td>
+<td>754.80</td>
+<td>0.0</td>
+</tr>
+</tbody>
+</table>
+
+<p>5 rows × 55 columns</p>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-6-3">
+<table class="caption-top">
+<colgroup>
+<col style="width: 36%">
+<col style="width: 63%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Variable</strong></th>
+<th style="text-align: left;"><strong>Description</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><code>interest_rate</code></td>
+<td style="text-align: left;">Interest rate on the loan, in an annual percentage.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>verified_income</code></td>
+<td style="text-align: left;">Borrower’s income verification: <code>Verified</code>, <code>Source Verified</code>, and <code>Not Verified</code>.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>debt_to_income</code></td>
+<td style="text-align: left;">Debt-to-income ratio, which is the percentage of total debt of the borrower divided by their total income.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>credit_util</code></td>
+<td style="text-align: left;">The fraction of available credit utilized.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>bankruptcy</code></td>
+<td style="text-align: left;">An indicator variable for whether the borrower has a past bankruptcy in their record. This variable takes a value of <code>1</code> if the answer is <strong>yes</strong> and <code>0</code> if the answer is <strong>no</strong>.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>term</code></td>
+<td style="text-align: left;">The length of the loan, in months.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>issue_month</code></td>
+<td style="text-align: left;">The month and year the loan was issued.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>credit_checks</code></td>
+<td style="text-align: left;">Number of credit checks in the last 12 months.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="tabset-6-4">
+<div id="b8ffd259" class="cell" data-execution_count="14">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a></a>loans.info()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>&lt;class 'pandas.core.frame.DataFrame'&gt;
+RangeIndex: 10000 entries, 0 to 9999
+Data columns (total 55 columns):
+ #   Column                            Non-Null Count  Dtype  
+---  ------                            --------------  -----  
+ 0   emp_title                         9167 non-null   object 
+ 1   emp_length                        9183 non-null   float64
+ 2   state                             10000 non-null  object 
+ 3   homeownership                     10000 non-null  object 
+ 4   annual_income                     10000 non-null  float64
+ 5   verified_income                   10000 non-null  object 
+ 6   debt_to_income                    9976 non-null   float64
+ 7   annual_income_joint               1495 non-null   float64
+ 8   verification_income_joint         1455 non-null   object 
+ 9   debt_to_income_joint              1495 non-null   float64
+ 10  delinq_2y                         10000 non-null  int64  
+ 11  months_since_last_delinq          4342 non-null   float64
+ 12  earliest_credit_line              10000 non-null  int64  
+ 13  inquiries_last_12m                10000 non-null  int64  
+ 14  total_credit_lines                10000 non-null  int64  
+ 15  open_credit_lines                 10000 non-null  int64  
+ 16  total_credit_limit                10000 non-null  int64  
+ 17  total_credit_utilized             10000 non-null  int64  
+ 18  num_collections_last_12m          10000 non-null  int64  
+ 19  num_historical_failed_to_pay      10000 non-null  int64  
+ 20  months_since_90d_late             2285 non-null   float64
+ 21  current_accounts_delinq           10000 non-null  int64  
+ 22  total_collection_amount_ever      10000 non-null  int64  
+ 23  current_installment_accounts      10000 non-null  int64  
+ 24  accounts_opened_24m               10000 non-null  int64  
+ 25  months_since_last_credit_inquiry  8729 non-null   float64
+ 26  num_satisfactory_accounts         10000 non-null  int64  
+ 27  num_accounts_120d_past_due        9682 non-null   float64
+ 28  num_accounts_30d_past_due         10000 non-null  int64  
+ 29  num_active_debit_accounts         10000 non-null  int64  
+ 30  total_debit_limit                 10000 non-null  int64  
+ 31  num_total_cc_accounts             10000 non-null  int64  
+ 32  num_open_cc_accounts              10000 non-null  int64  
+ 33  num_cc_carrying_balance           10000 non-null  int64  
+ 34  num_mort_accounts                 10000 non-null  int64  
+ 35  account_never_delinq_percent      10000 non-null  float64
+ 36  tax_liens                         10000 non-null  int64  
+ 37  public_record_bankrupt            10000 non-null  int64  
+ 38  loan_purpose                      10000 non-null  object 
+ 39  application_type                  10000 non-null  object 
+ 40  loan_amount                       10000 non-null  int64  
+ 41  term                              10000 non-null  int64  
+ 42  interest_rate                     10000 non-null  float64
+ 43  installment                       10000 non-null  float64
+ 44  grade                             10000 non-null  object 
+ 45  sub_grade                         10000 non-null  object 
+ 46  issue_month                       10000 non-null  object 
+ 47  loan_status                       10000 non-null  object 
+ 48  initial_listing_status            10000 non-null  object 
+ 49  disbursement_method               10000 non-null  object 
+ 50  balance                           10000 non-null  float64
+ 51  paid_total                        10000 non-null  float64
+ 52  paid_principal                    10000 non-null  float64
+ 53  paid_interest                     10000 non-null  float64
+ 54  paid_late_fees                    10000 non-null  float64
+dtypes: float64(17), int64(25), object(13)
+memory usage: 4.2+ MB</code></pre>
+</div>
+</div>
+</div>
+<div id="tabset-6-5">
+<div id="d2a99918" class="cell" data-execution_count="15">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a></a>loans.describe()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="15">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+
+<table class="dataframe caption-top" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header" style="text-align: right;">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">emp_length</th>
+<th data-quarto-table-cell-role="th">annual_income</th>
+<th data-quarto-table-cell-role="th">debt_to_income</th>
+<th data-quarto-table-cell-role="th">annual_income_joint</th>
+<th data-quarto-table-cell-role="th">debt_to_income_joint</th>
+<th data-quarto-table-cell-role="th">delinq_2y</th>
+<th data-quarto-table-cell-role="th">months_since_last_delinq</th>
+<th data-quarto-table-cell-role="th">earliest_credit_line</th>
+<th data-quarto-table-cell-role="th">inquiries_last_12m</th>
+<th data-quarto-table-cell-role="th">total_credit_lines</th>
+<th data-quarto-table-cell-role="th">...</th>
+<th data-quarto-table-cell-role="th">public_record_bankrupt</th>
+<th data-quarto-table-cell-role="th">loan_amount</th>
+<th data-quarto-table-cell-role="th">term</th>
+<th data-quarto-table-cell-role="th">interest_rate</th>
+<th data-quarto-table-cell-role="th">installment</th>
+<th data-quarto-table-cell-role="th">balance</th>
+<th data-quarto-table-cell-role="th">paid_total</th>
+<th data-quarto-table-cell-role="th">paid_principal</th>
+<th data-quarto-table-cell-role="th">paid_interest</th>
+<th data-quarto-table-cell-role="th">paid_late_fees</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">count</td>
+<td>9183.000000</td>
+<td>1.000000e+04</td>
+<td>9976.000000</td>
+<td>1.495000e+03</td>
+<td>1495.000000</td>
+<td>10000.00000</td>
+<td>4342.000000</td>
+<td>10000.00000</td>
+<td>10000.00000</td>
+<td>10000.000000</td>
+<td>...</td>
+<td>10000.000000</td>
+<td>10000.000000</td>
+<td>10000.000000</td>
+<td>10000.000000</td>
+<td>10000.000000</td>
+<td>10000.000000</td>
+<td>10000.000000</td>
+<td>10000.000000</td>
+<td>10000.000000</td>
+<td>10000.000000</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">mean</td>
+<td>5.930306</td>
+<td>7.922215e+04</td>
+<td>19.308192</td>
+<td>1.279146e+05</td>
+<td>19.979304</td>
+<td>0.21600</td>
+<td>36.760709</td>
+<td>2001.29000</td>
+<td>1.95820</td>
+<td>22.679600</td>
+<td>...</td>
+<td>0.123800</td>
+<td>16361.922500</td>
+<td>43.272000</td>
+<td>12.427524</td>
+<td>476.205323</td>
+<td>14458.916610</td>
+<td>2494.234773</td>
+<td>1894.448466</td>
+<td>599.666781</td>
+<td>0.119516</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">std</td>
+<td>3.703734</td>
+<td>6.473429e+04</td>
+<td>15.004851</td>
+<td>7.016838e+04</td>
+<td>8.054781</td>
+<td>0.68366</td>
+<td>21.634939</td>
+<td>7.79551</td>
+<td>2.38013</td>
+<td>11.885439</td>
+<td>...</td>
+<td>0.337172</td>
+<td>10301.956759</td>
+<td>11.029877</td>
+<td>5.001105</td>
+<td>294.851627</td>
+<td>9964.561865</td>
+<td>3958.230365</td>
+<td>3884.407175</td>
+<td>517.328062</td>
+<td>1.813468</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">min</td>
+<td>0.000000</td>
+<td>0.000000e+00</td>
+<td>0.000000</td>
+<td>1.920000e+04</td>
+<td>0.320000</td>
+<td>0.00000</td>
+<td>1.000000</td>
+<td>1963.00000</td>
+<td>0.00000</td>
+<td>2.000000</td>
+<td>...</td>
+<td>0.000000</td>
+<td>1000.000000</td>
+<td>36.000000</td>
+<td>5.310000</td>
+<td>30.750000</td>
+<td>0.000000</td>
+<td>0.000000</td>
+<td>0.000000</td>
+<td>0.000000</td>
+<td>0.000000</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">25%</td>
+<td>2.000000</td>
+<td>4.500000e+04</td>
+<td>11.057500</td>
+<td>8.683350e+04</td>
+<td>14.160000</td>
+<td>0.00000</td>
+<td>19.000000</td>
+<td>1997.00000</td>
+<td>0.00000</td>
+<td>14.000000</td>
+<td>...</td>
+<td>0.000000</td>
+<td>8000.000000</td>
+<td>36.000000</td>
+<td>9.430000</td>
+<td>256.040000</td>
+<td>6679.065000</td>
+<td>928.700000</td>
+<td>587.100000</td>
+<td>221.757500</td>
+<td>0.000000</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">50%</td>
+<td>6.000000</td>
+<td>6.500000e+04</td>
+<td>17.570000</td>
+<td>1.130000e+05</td>
+<td>19.720000</td>
+<td>0.00000</td>
+<td>34.000000</td>
+<td>2003.00000</td>
+<td>1.00000</td>
+<td>21.000000</td>
+<td>...</td>
+<td>0.000000</td>
+<td>14500.000000</td>
+<td>36.000000</td>
+<td>11.980000</td>
+<td>398.420000</td>
+<td>12379.495000</td>
+<td>1563.300000</td>
+<td>984.990000</td>
+<td>446.140000</td>
+<td>0.000000</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">75%</td>
+<td>10.000000</td>
+<td>9.500000e+04</td>
+<td>25.002500</td>
+<td>1.515455e+05</td>
+<td>25.500000</td>
+<td>0.00000</td>
+<td>53.000000</td>
+<td>2006.00000</td>
+<td>3.00000</td>
+<td>29.000000</td>
+<td>...</td>
+<td>0.000000</td>
+<td>24000.000000</td>
+<td>60.000000</td>
+<td>15.050000</td>
+<td>644.690000</td>
+<td>20690.182500</td>
+<td>2616.005000</td>
+<td>1694.555000</td>
+<td>825.420000</td>
+<td>0.000000</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">max</td>
+<td>10.000000</td>
+<td>2.300000e+06</td>
+<td>469.090000</td>
+<td>1.100000e+06</td>
+<td>39.980000</td>
+<td>13.00000</td>
+<td>118.000000</td>
+<td>2015.00000</td>
+<td>29.00000</td>
+<td>87.000000</td>
+<td>...</td>
+<td>3.000000</td>
+<td>40000.000000</td>
+<td>60.000000</td>
+<td>30.940000</td>
+<td>1566.590000</td>
+<td>40000.000000</td>
+<td>41630.443684</td>
+<td>40000.000000</td>
+<td>4216.440000</td>
+<td>52.980000</td>
+</tr>
+</tbody>
+</table>
+
+<p>8 rows × 42 columns</p>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-6-6">
+<div id="dd542ae5" class="cell" data-execution_count="16">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a></a>sns.scatterplot(data <span class="op">=</span> loans, x <span class="op">=</span> <span class="st">"debt_to_income"</span>, y <span class="op">=</span> <span class="st">"interest_rate"</span>, hue <span class="op">=</span> <span class="st">"loan_purpose"</span>)</span>
+<span id="cb15-2"><a></a>plt.xlabel(<span class="st">"Annual income ($)"</span>)</span>
+<span id="cb15-3"><a></a>plt.ylabel(<span class="st">"Loan interest rate (%)"</span>)</span>
+<span id="cb15-4"><a></a>plt.legend(title <span class="op">=</span> <span class="st">"Loan purpose"</span>)</span>
+<span id="cb15-5"><a></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display">
+<div>
+<figure>
+<p><img data-src="07-regn-1_files/figure-revealjs/cell-17-output-1.png" width="812" height="437"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="our-data-preprocessed" class="slide level2">
+<h2>Our data: preprocessed</h2>
+<div id="e3a60ed9" class="cell" data-execution_count="17">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a></a>loans[<span class="st">'credit_util'</span>] <span class="op">=</span> loans[<span class="st">'total_credit_utilized'</span>] <span class="op">/</span> loans[<span class="st">'total_credit_limit'</span>]</span>
+<span id="cb16-2"><a></a>loans[<span class="st">'bankruptcy'</span>] <span class="op">=</span> (loans[<span class="st">'public_record_bankrupt'</span>] <span class="op">!=</span> <span class="dv">0</span>).astype(<span class="bu">int</span>)</span>
+<span id="cb16-3"><a></a>loans[<span class="st">'verified_income'</span>] <span class="op">=</span> loans[<span class="st">'verified_income'</span>].astype(<span class="st">'category'</span>).cat.remove_unused_categories()</span>
+<span id="cb16-4"><a></a>loans <span class="op">=</span> loans.rename(columns <span class="op">=</span> {<span class="st">'inquiries_last_12m'</span>: <span class="st">'credit_checks'</span>})</span>
+<span id="cb16-5"><a></a></span>
+<span id="cb16-6"><a></a>loans <span class="op">=</span> loans[[<span class="st">'interest_rate'</span>, <span class="st">'verified_income'</span>, <span class="st">'debt_to_income'</span>, <span class="st">'credit_util'</span>, <span class="st">'bankruptcy'</span>, <span class="st">'term'</span>, <span class="st">'credit_checks'</span>, <span class="st">'issue_month'</span>]]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="multiple-regression-applied" class="slide level2 smaller">
+<h2>Multiple regression: applied</h2>
+<div class="panel-tabset">
+<ul id="tabset-7" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-7-1">Model summary</a></li><li><a href="#tabset-7-2">Coefficients</a></li><li><a href="#tabset-7-3">Residual plot</a></li><li><a href="#tabset-7-4">Regression fit</a></li></ul>
+<div class="tab-content">
+<div id="tabset-7-1">
+<div id="2f3d9a52" class="cell" data-execution_count="18">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a></a>X <span class="op">=</span> loans[[<span class="st">'verified_income'</span>, <span class="st">'debt_to_income'</span>, <span class="st">'credit_util'</span>, <span class="st">'bankruptcy'</span>, <span class="st">'term'</span>, <span class="st">'credit_checks'</span>, <span class="st">'issue_month'</span>]]  </span>
+<span id="cb17-2"><a></a>y <span class="op">=</span> loans[<span class="st">'interest_rate'</span>]  </span>
+<span id="cb17-3"><a></a>X <span class="op">=</span> pd.get_dummies(X, columns <span class="op">=</span> [<span class="st">'verified_income'</span>, <span class="st">'issue_month'</span>], drop_first <span class="op">=</span> <span class="va">True</span>)</span>
+<span id="cb17-4"><a></a>X.fillna(<span class="dv">0</span>, inplace<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb17-5"><a></a></span>
+<span id="cb17-6"><a></a>X_train, X_test, y_train, y_test <span class="op">=</span> train_test_split(X, y, test_size <span class="op">=</span> <span class="fl">0.2</span>, random_state <span class="op">=</span> <span class="dv">42</span>)</span>
+<span id="cb17-7"><a></a></span>
+<span id="cb17-8"><a></a>X_train_with_const <span class="op">=</span> sm.add_constant(X_train)</span>
+<span id="cb17-9"><a></a>X_test_with_const <span class="op">=</span> sm.add_constant(X_test)</span>
+<span id="cb17-10"><a></a></span>
+<span id="cb17-11"><a></a>X_train_with_const <span class="op">=</span> X_train_with_const.astype(<span class="bu">int</span>)</span>
+<span id="cb17-12"><a></a>X_test_with_const <span class="op">=</span> X_test_with_const.astype(<span class="bu">int</span>)</span>
+<span id="cb17-13"><a></a></span>
+<span id="cb17-14"><a></a>model <span class="op">=</span> sm.OLS(y_train, X_train_with_const).fit()</span>
+<span id="cb17-15"><a></a></span>
+<span id="cb17-16"><a></a>model_summary2 <span class="op">=</span> model.summary2()</span>
+<span id="cb17-17"><a></a><span class="bu">print</span>(model_summary2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>                       Results: Ordinary least squares
+==============================================================================
+Model:                   OLS                 Adj. R-squared:        0.191     
+Dependent Variable:      interest_rate       AIC:                   46653.7930
+Date:                    2025-08-20 11:30    BIC:                   46723.6650
+No. Observations:        8000                Log-Likelihood:        -23317.   
+Df Model:                9                   F-statistic:           210.4     
+Df Residuals:            7990                Prob (F-statistic):    0.00      
+R-squared:               0.192               Scale:                 19.937    
+------------------------------------------------------------------------------
+                                 Coef.  Std.Err.    t    P&gt;|t|   [0.025 0.975]
+------------------------------------------------------------------------------
+const                            4.0713   0.2319 17.5583 0.0000  3.6167 4.5258
+debt_to_income                   0.0330   0.0033  9.8715 0.0000  0.0265 0.0396
+credit_util                      3.0409   0.4077  7.4585 0.0000  2.2417 3.8401
+bankruptcy                       0.5811   0.1543  3.7659 0.0002  0.2786 0.8836
+term                             0.1445   0.0046 31.5795 0.0000  0.1356 0.1535
+credit_checks                    0.2122   0.0211 10.0534 0.0000  0.1708 0.2535
+verified_income_Source Verified  1.0041   0.1150  8.7304 0.0000  0.7787 1.2296
+verified_income_Verified         2.4460   0.1355 18.0457 0.0000  2.1803 2.7117
+issue_month_Jan-2018            -0.0778   0.1254 -0.6204 0.5350 -0.3236 0.1680
+issue_month_Mar-2018            -0.0178   0.1233 -0.1445 0.8851 -0.2596 0.2239
+------------------------------------------------------------------------------
+Omnibus:                  762.745          Durbin-Watson:             1.958   
+Prob(Omnibus):            0.000            Jarque-Bera (JB):          1001.147
+Skew:                     0.820            Prob(JB):                  0.000   
+Kurtosis:                 3.562            Condition No.:             398     
+==============================================================================
+Notes:
+[1] Standard Errors assume that the covariance matrix of the errors is
+correctly specified.</code></pre>
+</div>
+</div>
+</div>
+<div id="tabset-7-2">
+<span class="math display">\[\begin{aligned}
+\widehat{\texttt{interest\_rate}} &amp;= b_0 \\
+&amp;+ b_1 \times \texttt{verified\_income}_{\texttt{Source Verified}} \\
+&amp;+ b_2 \times \texttt{verified\_income}_{\texttt{Verified}} \\
+&amp;+ b_3 \times \texttt{debt\_to\_income} \\
+&amp;+ b_4 \times \texttt{credit\_util} \\
+&amp;+ b_5 \times \texttt{bankruptcy} \\
+&amp;+ b_6 \times \texttt{term} \\
+&amp;+ b_9 \times \texttt{credit\_checks} \\
+&amp;+ b_7 \times \texttt{issue\_month}_{\texttt{Jan-2018}} \\
+&amp;+ b_8 \times \texttt{issue\_month}_{\texttt{Mar-2018}}
+\end{aligned}\]</span>
+</div>
+<div id="tabset-7-3">
+<div id="802c34f3" class="cell" data-execution_count="19">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a></a>X_test_with_const <span class="op">=</span> sm.add_constant(X_test)</span>
+<span id="cb19-2"><a></a>predictions <span class="op">=</span> model.predict(X_test_with_const)</span>
+<span id="cb19-3"><a></a>predictions <span class="op">=</span> pd.to_numeric(predictions, errors<span class="op">=</span><span class="st">'coerce'</span>)</span>
+<span id="cb19-4"><a></a>residuals <span class="op">=</span> y_test <span class="op">-</span> predictions</span>
+<span id="cb19-5"><a></a>residuals <span class="op">=</span> pd.to_numeric(residuals, errors<span class="op">=</span><span class="st">'coerce'</span>).fillna(<span class="dv">0</span>)</span>
+<span id="cb19-6"><a></a></span>
+<span id="cb19-7"><a></a><span class="co"># Plotting the residuals</span></span>
+<span id="cb19-8"><a></a>sns.residplot(x <span class="op">=</span> predictions, y <span class="op">=</span> residuals)</span>
+<span id="cb19-9"><a></a>plt.xlabel(<span class="st">'Predicted Values'</span>)</span>
+<span id="cb19-10"><a></a>plt.ylabel(<span class="st">'Residuals'</span>)</span>
+<span id="cb19-11"><a></a>plt.title(<span class="st">'Residual Plot'</span>)</span>
+<span id="cb19-12"><a></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display">
+<div>
+<figure>
+<p><img data-src="07-regn-1_files/figure-revealjs/cell-20-output-1.png" width="821" height="455"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-7-4">
+<div id="37fc9923" class="cell" data-execution_count="20">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a></a>plt.scatter(predictions, y_test, label <span class="op">=</span> <span class="st">'Data'</span>)</span>
+<span id="cb20-2"><a></a>plt.plot(y_test, y_test, color <span class="op">=</span> <span class="st">'red'</span>, label <span class="op">=</span> <span class="st">'Ideal Fit'</span>)  </span>
+<span id="cb20-3"><a></a></span>
+<span id="cb20-4"><a></a>plt.xlabel(<span class="st">'Predicted Interest Rate'</span>)</span>
+<span id="cb20-5"><a></a>plt.ylabel(<span class="st">'Actual Interest Rate'</span>)</span>
+<span id="cb20-6"><a></a>plt.title(<span class="st">'Multiple Regression Fit'</span>)</span>
+<span id="cb20-7"><a></a>plt.legend()</span>
+<span id="cb20-8"><a></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display">
+<div>
+<figure>
+<p><img data-src="07-regn-1_files/figure-revealjs/cell-21-output-1.png" width="812" height="455"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="model-optimization" class="slide level2 smaller">
+<h2>Model optimization</h2>
+<div class="panel-tabset">
+<ul id="tabset-8" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-8-1">Overview</a></li><li><a href="#tabset-8-2">AIC</a></li><li><a href="#tabset-8-3">BIC</a></li><li><a href="#tabset-8-4">k-Fold CV</a></li></ul>
+<div class="tab-content">
+<div id="tabset-8-1">
+<p><strong>Three major methods</strong>:</p>
+<ol type="1">
+<li class="fragment"><strong>AIC (Akaike Information Criterion)</strong>: a measure of the relative quality of a statistical model for a given set of data. <strong>Lower</strong> and <strong>fewer parameters = better</strong>.
+<ul>
+<li class="fragment"><span class="math inline">\(AIC=2k−2\ln(L)\)</span>, where <span class="math inline">\(k\)</span> is the number of parameters, and <span class="math inline">\(L\)</span> is the likelihood of the model.</li>
+</ul></li>
+<li class="fragment"><strong>BIC (Bayesian Information Criterion):</strong> a criterion for model selection based on the likelihood of the model. <strong>Lower</strong> and <u><strong>fewer parameters</strong></u> <strong>= better</strong>.
+<ul>
+<li class="fragment"><span class="math inline">\(BIC = k \ln(n) - 2 \ln(L)\)</span>, where <span class="math inline">\(k\)</span> is the number of parameters, <span class="math inline">\(n\)</span> is the sample size, and <span class="math inline">\(L\)</span> is the likelihood of the model</li>
+</ul></li>
+<li class="fragment"><strong>Cross-Validation</strong>: a statistical method used for assessing how the results of a predictive model will generalize to an independent data set.
+<ul>
+<li class="fragment">Most common method is <strong>k-Fold Cross Validation</strong></li>
+</ul></li>
+</ol>
+</div>
+<div id="tabset-8-2">
+<p><strong>Pros:</strong></p>
+<ol type="1">
+<li class="fragment"><p><strong>Balanced Approach</strong>: AIC balances model fit with complexity, reducing overfitting.</p></li>
+<li class="fragment"><p><strong>Comparative Utility</strong>: Suitable for comparing models on the same dataset.</p></li>
+<li class="fragment"><p><strong>Widespread Acceptance</strong>: Commonly used and recognized in statistical analysis.</p></li>
+<li class="fragment"><p><strong>Versatile</strong>: Applicable across various types of statistical models.</p></li>
+</ol>
+<p><strong>Cons:</strong></p>
+<ol type="1">
+<li class="fragment"><p><strong>Relative Measurement</strong>: Only provides a comparative metric and doesn’t indicate absolute model quality.</p></li>
+<li class="fragment"><p><strong>Risk of Underfitting</strong>: Penalizing complex models may lead to underfitting.</p></li>
+<li class="fragment"><p><strong>Sample Size Sensitivity</strong>: Its effectiveness can vary with the size of the dataset.</p></li>
+<li class="fragment"><p><strong>Assumption of Large Sample</strong>: Infinite sample size assumption is impractical.</p></li>
+<li class="fragment"><p><strong>No Probabilistic Interpretation</strong>: Lacks a direct probabilistic meaning, unlike some other statistical measures.</p></li>
+</ol>
+</div>
+<div id="tabset-8-3">
+<p><strong>Pros</strong>:</p>
+<ol type="1">
+<li class="fragment"><p><strong>Penalizes Complexity</strong>: Penalizes complexity, preventing overfitting.</p></li>
+<li class="fragment"><p><strong>Good for Large Data</strong>: The penalty term is more significant in larger datasets.</p></li>
+<li class="fragment"><p><strong>Model Comparison</strong>: Useful for comparing different models on the same dataset.</p></li>
+<li class="fragment"><p><strong>Widely Recognized</strong>: Commonly used in statistical model selection.</p></li>
+</ol>
+<p><strong>Cons</strong>:</p>
+<ol type="1">
+<li class="fragment"><p><strong>Relative, Not Absolute</strong>: Only provides a comparative metric and doesn’t indicate absolute model quality.</p></li>
+<li class="fragment"><p><strong>Can Favor Simpler Models</strong>: Penalizing complex models may lead to underfitting.</p></li>
+<li class="fragment"><p><strong>Sample Size Dependent</strong>: The effectiveness of BIC is influenced by sample size.</p></li>
+<li class="fragment"><p><strong>Assumes Correct Model is in Set</strong>: Assumes that the true model is given.</p></li>
+<li class="fragment"><p><strong>Lacks Probabilistic Meaning</strong>: Lacks a direct probabilistic meaning, unlike some other statistical measures.</p></li>
+</ol>
+</div>
+<div id="tabset-8-4">
+<p><strong>Pros</strong>:</p>
+<ol type="1">
+<li class="fragment"><p><strong>Robustness</strong>: Provides a more accurate measure of out-of-sample accuracy.</p></li>
+<li class="fragment"><p><strong>Prevents Overfitting</strong>: Helps in detecting overfitting by evaluating model performance on unseen data.</p></li>
+<li class="fragment"><p><strong>Versatile</strong>: Can be used with any predictive modeling technique.</p></li>
+<li class="fragment"><p><strong>Tuning Hyperparameters</strong>: Useful for selecting the best model hyperparameters.</p></li>
+</ol>
+<p><strong>Cons</strong>:</p>
+<ol type="1">
+<li class="fragment"><p><strong>Computationally Intensive</strong>: Can be slow with large datasets and complex models.</p></li>
+<li class="fragment"><p><strong>Data Requirements</strong>: Requires a sufficient amount of data to partition into meaningful subsets.</p></li>
+<li class="fragment"><p><strong>Variance</strong>: Results can be sensitive to the way in which data is divided.</p></li>
+<li class="fragment"><p><strong>No Single Best Model</strong>: only provides an estimation of how well a model type will perform.</p></li>
+</ol>
+</div>
+</div>
+</div>
+</section></section>
+<section>
+<section id="model-selection" class="title-slide slide level1 center">
+<h1>Model selection</h1>
+
+</section>
+<section id="model-selection-1" class="slide level2 smaller">
+<h2>Model selection</h2>
+<blockquote>
+<p>The task of selecting a model from among various candidates on the basis of performance criterion to choose the best one.</p>
+</blockquote>
+<h4 id="two-major-methods">Two major methods:</h4>
+<ol type="1">
+<li class="fragment"><strong>Best subset selection</strong>: Evaluate all combinations, choose by a criterion - e.g., lowest <span class="math inline">\(RSS\)</span> or highest <span class="math inline">\(R^{2}_{adj}\)</span></li>
+<li class="fragment"><strong>Stepwise selection</strong>: <strong>Forward Selection</strong> or <strong>Backward Selection</strong></li>
+</ol>
+</section>
+<section id="best-subset-selection" class="slide level2 smaller">
+<h2>Best subset selection</h2>
+<div class="panel-tabset">
+<ul id="tabset-9" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-9-1">Overview</a></li><li><a href="#tabset-9-2">Formula</a></li><li><a href="#tabset-9-3">Pros + cons</a></li></ul>
+<div class="tab-content">
+<div id="tabset-9-1">
+<p><strong>Definition</strong></p>
+<p>Best Subset Selection is a statistical method used in regression analysis to select a subset of predictors that provides the best fit for the response variable.</p>
+<p><strong>It involves</strong>:</p>
+<ol type="1">
+<li class="fragment"><p><strong>Considering All Possible Predictor Subsets</strong>: For <span class="math inline">\(p\)</span> predictors, all possible combinations (totaling <span class="math inline">\(2_p\)</span>) of these predictors are considered.</p></li>
+<li class="fragment"><p><strong>Fitting a Model for Each Subset</strong>: A regression model is fitted for each subset of predictors.</p></li>
+<li class="fragment"><p><strong>Selecting the Best Model</strong>: The best model is selected based on a criterion that balances fit and complexity, such as the lowest Residual Sum of Squares (<span class="math inline">\(RSS\)</span>) or the highest <span class="math inline">\(R^{2}_{adj}\)</span> (or <span class="math inline">\(AIC\)</span>, <span class="math inline">\(BIC\)</span>).</p></li>
+</ol>
+</div>
+<div id="tabset-9-2">
+<p><strong>For each subset, the model is given by</strong>:</p>
+<p><span class="math inline">\(Y = \beta_0 + \sum_{i \in S} \beta_i X_i + \epsilon\)</span></p>
+<ul>
+<li class="fragment"><p><span class="math inline">\(Y\)</span>: Response variable.</p></li>
+<li class="fragment"><p><span class="math inline">\(\beta_0\)</span>: Intercept.</p></li>
+<li class="fragment"><p><span class="math inline">\(\beta_i\)</span>: Coefficients for predictors.</p></li>
+<li class="fragment"><p><span class="math inline">\(X_i\)</span>: Predictor variables.</p></li>
+<li class="fragment"><p><span class="math inline">\(\epsilon\)</span>: Error term.</p></li>
+<li class="fragment"><p><span class="math inline">\(S\)</span>: Set of indices of selected predictors.</p></li>
+</ul>
+<p>The quality of each model is assessed using a criterion like:</p>
+<p><span class="math inline">\(RSS = \sum_{i=1}^{n} (y_i - \hat{y}_i)^2\)</span></p>
+<p>…or <span class="math inline">\(R^{2}_{adj}\)</span>,<span class="math inline">\(AIC\)</span>,<span class="math inline">\(BIC\)</span></p>
+</div>
+<div id="tabset-9-3">
+<p><strong>Pros</strong>:</p>
+<ol type="1">
+<li class="fragment"><p><strong>Comprehensive Approach</strong>: Evaluates all possible combinations of predictors, ensuring a thorough search.</p></li>
+<li class="fragment"><p><strong>Flexibility</strong>: Can be used with various selection criteria and types of regression models.</p></li>
+<li class="fragment"><p><strong>Intuitive</strong>: Provides a clear framework for model selection.</p></li>
+</ol>
+<p><strong>Cons</strong>:</p>
+<ol type="1">
+<li class="fragment"><p><strong>Computational Intensity</strong>: The number of models to evaluate grows exponentially with the number of predictors, making it computationally demanding.</p></li>
+<li class="fragment"><p><strong>Overfitting Risk</strong>: May lead to overfit models, especially when the number of observations is not significantly larger than the number of predictors.</p></li>
+<li class="fragment"><p><strong>Model Selection Complexity</strong>: Requires careful choice and interpretation of model selection criteria to balance between model fit and complexity.</p></li>
+</ol>
+</div>
+</div>
+</div>
+</section>
+<section id="stepwise-selection-both-types" class="slide level2 smaller">
+<h2>Stepwise selection (both types)</h2>
+<div class="panel-tabset">
+<ul id="tabset-10" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-10-1">Overview</a></li><li><a href="#tabset-10-2">Formula</a></li><li><a href="#tabset-10-3">Pros + cons</a></li></ul>
+<div class="tab-content">
+<div id="tabset-10-1">
+<p><strong>Definition</strong></p>
+<p>Stepwise selection is a method used in regression analysis to select predictor variables. There are two main types:</p>
+<p><strong>Forward Selection</strong>:</p>
+<ol type="1">
+<li class="fragment"><p>Starts with no predictor variables in the model.</p></li>
+<li class="fragment"><p>Iteratively adds the variable that provides the most significant model improvement.</p></li>
+<li class="fragment"><p>Continues until no significant improvement is made by adding more variables.</p></li>
+</ol>
+<p><strong>Backward Selection</strong>:</p>
+<ol type="1">
+<li class="fragment"><p>Begins with all candidate predictor variables.</p></li>
+<li class="fragment"><p>Iteratively removes the least significant variable (that least worsens the model).</p></li>
+<li class="fragment"><p>Continues until removing more variables significantly worsens the model.</p></li>
+</ol>
+</div>
+<div id="tabset-10-2">
+<p>The criteria for adding or removing a variable are usually based on statistical tests like the <strong>F-test</strong> or <strong>p-values</strong>:</p>
+<p><strong>Forward selection (adding a variable)</strong></p>
+<p><span class="math inline">\(F = \frac{(\text{RSS}_0 - \text{RSS}_1) / p_1}{\text{RSS}_1 / (n - p_0 - 1)}\)</span></p>
+<ul>
+<li class="fragment"><span class="math inline">\(RSS_0\)</span> is the Residual Sum of Squares of the current model.</li>
+<li class="fragment"><span class="math inline">\(RSS_1\)</span> is the Residual Sum of Squares with the additional variable.</li>
+<li class="fragment"><span class="math inline">\(p_1\)</span> is the number of predictors in the new model.</li>
+<li class="fragment"><span class="math inline">\(n\)</span> is the number of observations.</li>
+<li class="fragment"><span class="math inline">\(p_0\)</span> is the number of predictors in the current model.</li>
+</ul>
+<p><strong>Backward selection (removing a variable)</strong></p>
+<p>Similar criteria but in reverse, considering the increase in <span class="math inline">\(RSS\)</span> or the <strong>p-values</strong> of the coefficients.</p>
+</div>
+<div id="tabset-10-3">
+<p><strong>Pros</strong>:</p>
+<ol type="1">
+<li class="fragment"><p><strong>Simplicity</strong>: More straightforward and computationally less intensive than Best Subset Selection.</p></li>
+<li class="fragment"><p><strong>Flexibility</strong>: Can be adapted to various criteria for entering and removing variables.</p></li>
+<li class="fragment"><p><strong>Practical</strong>: Useful with multicollinearity and large sets of potential predictors.</p></li>
+</ol>
+<p><strong>Cons</strong>:</p>
+<ol type="1">
+<li class="fragment"><p><strong>Arbitrary Choices</strong>: Depends on the order of variables and the specific entry and removal criteria.</p></li>
+<li class="fragment"><p><strong>Local Optima</strong>: Might not find the best possible model as it doesn’t evaluate all possible combinations.</p></li>
+<li class="fragment"><p><strong>Overfitting Risk</strong>: Especially in datasets with many variables relative to the number of observations.</p></li>
+<li class="fragment"><p><strong>Statistical Issues</strong>: Stepwise methods can inflate the significance of variables and do not account for the search process in assessing the fit.</p></li>
+</ol>
+</div>
+</div>
+</div>
+</section>
+<section id="best-subset-selection-applied" class="slide level2 smaller">
+<h2>Best Subset Selection: applied</h2>
+<div class="panel-tabset">
+<ul id="tabset-11" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-11-1">Original</a></li><li><a href="#tabset-11-2">Implementing BSS</a></li><li><a href="#tabset-11-3">AIC</a></li><li><a href="#tabset-11-4">BIC</a></li><li><a href="#tabset-11-5"><span class="math inline">\(R^{2}_{adj}\)</span></a></li></ul>
+<div class="tab-content">
+<div id="tabset-11-1">
+<div id="dcc751f5" class="cell" data-execution_count="21">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a></a>X <span class="op">=</span> loans[[<span class="st">'verified_income'</span>, <span class="st">'debt_to_income'</span>, <span class="st">'credit_util'</span>, <span class="st">'bankruptcy'</span>, <span class="st">'term'</span>, <span class="st">'credit_checks'</span>, <span class="st">'issue_month'</span>]]  </span>
+<span id="cb21-2"><a></a>y <span class="op">=</span> loans[<span class="st">'interest_rate'</span>]  </span>
+<span id="cb21-3"><a></a>X <span class="op">=</span> pd.get_dummies(X, columns <span class="op">=</span> [<span class="st">'verified_income'</span>, <span class="st">'issue_month'</span>], drop_first <span class="op">=</span> <span class="va">True</span>)</span>
+<span id="cb21-4"><a></a>X.fillna(<span class="dv">0</span>, inplace<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb21-5"><a></a></span>
+<span id="cb21-6"><a></a>X_train, X_test, y_train, y_test <span class="op">=</span> train_test_split(X, y, test_size <span class="op">=</span> <span class="fl">0.2</span>, random_state <span class="op">=</span> <span class="dv">42</span>)</span>
+<span id="cb21-7"><a></a></span>
+<span id="cb21-8"><a></a>X_train_with_const <span class="op">=</span> sm.add_constant(X_train)</span>
+<span id="cb21-9"><a></a>X_test_with_const <span class="op">=</span> sm.add_constant(X_test)</span>
+<span id="cb21-10"><a></a></span>
+<span id="cb21-11"><a></a>X_train_with_const <span class="op">=</span> X_train_with_const.astype(<span class="bu">int</span>)</span>
+<span id="cb21-12"><a></a>X_test_with_const <span class="op">=</span> X_test_with_const.astype(<span class="bu">int</span>)</span>
+<span id="cb21-13"><a></a></span>
+<span id="cb21-14"><a></a>model <span class="op">=</span> sm.OLS(y_train, X_train_with_const).fit()</span>
+<span id="cb21-15"><a></a></span>
+<span id="cb21-16"><a></a>model_summary2 <span class="op">=</span> model.summary2()</span>
+<span id="cb21-17"><a></a><span class="bu">print</span>(model_summary2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>                       Results: Ordinary least squares
+==============================================================================
+Model:                   OLS                 Adj. R-squared:        0.191     
+Dependent Variable:      interest_rate       AIC:                   46653.7930
+Date:                    2025-08-20 11:30    BIC:                   46723.6650
+No. Observations:        8000                Log-Likelihood:        -23317.   
+Df Model:                9                   F-statistic:           210.4     
+Df Residuals:            7990                Prob (F-statistic):    0.00      
+R-squared:               0.192               Scale:                 19.937    
+------------------------------------------------------------------------------
+                                 Coef.  Std.Err.    t    P&gt;|t|   [0.025 0.975]
+------------------------------------------------------------------------------
+const                            4.0713   0.2319 17.5583 0.0000  3.6167 4.5258
+debt_to_income                   0.0330   0.0033  9.8715 0.0000  0.0265 0.0396
+credit_util                      3.0409   0.4077  7.4585 0.0000  2.2417 3.8401
+bankruptcy                       0.5811   0.1543  3.7659 0.0002  0.2786 0.8836
+term                             0.1445   0.0046 31.5795 0.0000  0.1356 0.1535
+credit_checks                    0.2122   0.0211 10.0534 0.0000  0.1708 0.2535
+verified_income_Source Verified  1.0041   0.1150  8.7304 0.0000  0.7787 1.2296
+verified_income_Verified         2.4460   0.1355 18.0457 0.0000  2.1803 2.7117
+issue_month_Jan-2018            -0.0778   0.1254 -0.6204 0.5350 -0.3236 0.1680
+issue_month_Mar-2018            -0.0178   0.1233 -0.1445 0.8851 -0.2596 0.2239
+------------------------------------------------------------------------------
+Omnibus:                  762.745          Durbin-Watson:             1.958   
+Prob(Omnibus):            0.000            Jarque-Bera (JB):          1001.147
+Skew:                     0.820            Prob(JB):                  0.000   
+Kurtosis:                 3.562            Condition No.:             398     
+==============================================================================
+Notes:
+[1] Standard Errors assume that the covariance matrix of the errors is
+correctly specified.</code></pre>
+</div>
+</div>
+</div>
+<div id="tabset-11-2">
+<div id="674e9b8b" class="cell" data-execution_count="22">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a></a><span class="kw">def</span> best_subset_selection(X, y):</span>
+<span id="cb23-2"><a></a>    results <span class="op">=</span> []</span>
+<span id="cb23-3"><a></a>    <span class="cf">for</span> k <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, <span class="bu">len</span>(X.columns) <span class="op">+</span> <span class="dv">1</span>):</span>
+<span id="cb23-4"><a></a>        <span class="cf">for</span> combo <span class="kw">in</span> combinations(X.columns, k):</span>
+<span id="cb23-5"><a></a>            X_subset <span class="op">=</span> sm.add_constant(X[<span class="bu">list</span>(combo)].astype(<span class="bu">int</span>))</span>
+<span id="cb23-6"><a></a>            model <span class="op">=</span> sm.OLS(y, X_subset).fit()</span>
+<span id="cb23-7"><a></a>            results.append({<span class="st">'model'</span>: model, <span class="st">'predictors'</span>: combo})</span>
+<span id="cb23-8"><a></a>    <span class="cf">return</span> results</span>
+<span id="cb23-9"><a></a></span>
+<span id="cb23-10"><a></a>subset_results <span class="op">=</span> best_subset_selection(X_train, y_train)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<div id="tabset-11-3">
+<div id="ec07f663" class="cell" data-execution_count="23">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a></a>best_aic <span class="op">=</span> np.inf</span>
+<span id="cb24-2"><a></a>best_model_1 <span class="op">=</span> <span class="va">None</span></span>
+<span id="cb24-3"><a></a></span>
+<span id="cb24-4"><a></a><span class="cf">for</span> result <span class="kw">in</span> subset_results:</span>
+<span id="cb24-5"><a></a>    <span class="cf">if</span> result[<span class="st">'model'</span>].aic <span class="op">&lt;</span> best_aic:</span>
+<span id="cb24-6"><a></a>        best_aic <span class="op">=</span> result[<span class="st">'model'</span>].aic</span>
+<span id="cb24-7"><a></a>        best_model_1 <span class="op">=</span> result</span>
+<span id="cb24-8"><a></a>        </span>
+<span id="cb24-9"><a></a><span class="bu">print</span>(<span class="st">"Best Model Predictors:"</span>, best_model_1[<span class="st">'predictors'</span>])</span>
+<span id="cb24-10"><a></a><span class="bu">print</span>(<span class="st">"Best Model AIC:"</span>, <span class="bu">round</span>(best_aic, <span class="dv">2</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Best Model Predictors: ('debt_to_income', 'credit_util', 'bankruptcy', 'term', 'credit_checks', 'verified_income_Source Verified', 'verified_income_Verified')
+Best Model AIC: 46650.23</code></pre>
+</div>
+</div>
+</div>
+<div id="tabset-11-4">
+<div id="66e9ab54" class="cell" data-execution_count="24">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a></a>best_bic <span class="op">=</span> np.inf</span>
+<span id="cb26-2"><a></a>best_model_2 <span class="op">=</span> <span class="va">None</span></span>
+<span id="cb26-3"><a></a></span>
+<span id="cb26-4"><a></a><span class="cf">for</span> result <span class="kw">in</span> subset_results:</span>
+<span id="cb26-5"><a></a>    <span class="cf">if</span> result[<span class="st">'model'</span>].bic <span class="op">&lt;</span> best_bic:</span>
+<span id="cb26-6"><a></a>        best_bic <span class="op">=</span> result[<span class="st">'model'</span>].bic</span>
+<span id="cb26-7"><a></a>        best_model_2 <span class="op">=</span> result</span>
+<span id="cb26-8"><a></a>        </span>
+<span id="cb26-9"><a></a><span class="bu">print</span>(<span class="st">"Best Model Predictors:"</span>, best_model_2[<span class="st">'predictors'</span>])</span>
+<span id="cb26-10"><a></a><span class="bu">print</span>(<span class="st">"Best Model BIC:"</span>, <span class="bu">round</span>(best_bic, <span class="dv">2</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Best Model Predictors: ('debt_to_income', 'credit_util', 'bankruptcy', 'term', 'credit_checks', 'verified_income_Source Verified', 'verified_income_Verified')
+Best Model BIC: 46706.13</code></pre>
+</div>
+</div>
+</div>
+<div id="tabset-11-5">
+<div id="8c8d3f84" class="cell" data-execution_count="25">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a></a>best_r_sq_adj <span class="op">=</span> <span class="op">-</span>np.inf  </span>
+<span id="cb28-2"><a></a>best_model_3 <span class="op">=</span> <span class="va">None</span></span>
+<span id="cb28-3"><a></a></span>
+<span id="cb28-4"><a></a><span class="cf">for</span> result <span class="kw">in</span> subset_results:</span>
+<span id="cb28-5"><a></a>    <span class="cf">if</span> result[<span class="st">'model'</span>].rsquared_adj <span class="op">&gt;</span> best_r_sq_adj:  </span>
+<span id="cb28-6"><a></a>        best_r_sq_adj <span class="op">=</span> result[<span class="st">'model'</span>].rsquared_adj</span>
+<span id="cb28-7"><a></a>        best_model_3 <span class="op">=</span> result</span>
+<span id="cb28-8"><a></a>        </span>
+<span id="cb28-9"><a></a><span class="bu">print</span>(<span class="st">"Best Model Predictors:"</span>, best_model_3[<span class="st">'predictors'</span>])</span>
+<span id="cb28-10"><a></a><span class="bu">print</span>(<span class="st">"Best Model Adjusted R-squared:"</span>, <span class="bu">round</span>(best_r_sq_adj, <span class="dv">2</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Best Model Predictors: ('debt_to_income', 'credit_util', 'bankruptcy', 'term', 'credit_checks', 'verified_income_Source Verified', 'verified_income_Verified')
+Best Model Adjusted R-squared: 0.19</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="step-wise-selection-applied" class="slide level2 smaller">
+<h2>Step-wise selection: applied</h2>
+<div class="panel-tabset">
+<ul id="tabset-12" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-12-1">Original</a></li><li><a href="#tabset-12-2">Forward selection</a></li><li><a href="#tabset-12-3">Backward selection</a></li></ul>
+<div class="tab-content">
+<div id="tabset-12-1">
+<div id="5f80c738" class="cell" data-execution_count="26">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a></a>X <span class="op">=</span> loans[[<span class="st">'verified_income'</span>, <span class="st">'debt_to_income'</span>, <span class="st">'credit_util'</span>, <span class="st">'bankruptcy'</span>, <span class="st">'term'</span>, <span class="st">'credit_checks'</span>, <span class="st">'issue_month'</span>]]  </span>
+<span id="cb30-2"><a></a>y <span class="op">=</span> loans[<span class="st">'interest_rate'</span>]  </span>
+<span id="cb30-3"><a></a>X <span class="op">=</span> pd.get_dummies(X, columns <span class="op">=</span> [<span class="st">'verified_income'</span>, <span class="st">'issue_month'</span>], drop_first <span class="op">=</span> <span class="va">True</span>)</span>
+<span id="cb30-4"><a></a>X.fillna(<span class="dv">0</span>, inplace<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb30-5"><a></a></span>
+<span id="cb30-6"><a></a>X_train, X_test, y_train, y_test <span class="op">=</span> train_test_split(X, y, test_size <span class="op">=</span> <span class="fl">0.2</span>, random_state <span class="op">=</span> <span class="dv">42</span>)</span>
+<span id="cb30-7"><a></a></span>
+<span id="cb30-8"><a></a>X_train_with_const <span class="op">=</span> sm.add_constant(X_train)</span>
+<span id="cb30-9"><a></a>X_test_with_const <span class="op">=</span> sm.add_constant(X_test)</span>
+<span id="cb30-10"><a></a></span>
+<span id="cb30-11"><a></a>X_train_with_const <span class="op">=</span> X_train_with_const.astype(<span class="bu">int</span>)</span>
+<span id="cb30-12"><a></a>X_test_with_const <span class="op">=</span> X_test_with_const.astype(<span class="bu">int</span>)</span>
+<span id="cb30-13"><a></a></span>
+<span id="cb30-14"><a></a>model <span class="op">=</span> sm.OLS(y_train, X_train_with_const).fit()</span>
+<span id="cb30-15"><a></a></span>
+<span id="cb30-16"><a></a>model_summary2 <span class="op">=</span> model.summary2()</span>
+<span id="cb30-17"><a></a><span class="bu">print</span>(model_summary2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>                       Results: Ordinary least squares
+==============================================================================
+Model:                   OLS                 Adj. R-squared:        0.191     
+Dependent Variable:      interest_rate       AIC:                   46653.7930
+Date:                    2025-08-20 11:30    BIC:                   46723.6650
+No. Observations:        8000                Log-Likelihood:        -23317.   
+Df Model:                9                   F-statistic:           210.4     
+Df Residuals:            7990                Prob (F-statistic):    0.00      
+R-squared:               0.192               Scale:                 19.937    
+------------------------------------------------------------------------------
+                                 Coef.  Std.Err.    t    P&gt;|t|   [0.025 0.975]
+------------------------------------------------------------------------------
+const                            4.0713   0.2319 17.5583 0.0000  3.6167 4.5258
+debt_to_income                   0.0330   0.0033  9.8715 0.0000  0.0265 0.0396
+credit_util                      3.0409   0.4077  7.4585 0.0000  2.2417 3.8401
+bankruptcy                       0.5811   0.1543  3.7659 0.0002  0.2786 0.8836
+term                             0.1445   0.0046 31.5795 0.0000  0.1356 0.1535
+credit_checks                    0.2122   0.0211 10.0534 0.0000  0.1708 0.2535
+verified_income_Source Verified  1.0041   0.1150  8.7304 0.0000  0.7787 1.2296
+verified_income_Verified         2.4460   0.1355 18.0457 0.0000  2.1803 2.7117
+issue_month_Jan-2018            -0.0778   0.1254 -0.6204 0.5350 -0.3236 0.1680
+issue_month_Mar-2018            -0.0178   0.1233 -0.1445 0.8851 -0.2596 0.2239
+------------------------------------------------------------------------------
+Omnibus:                  762.745          Durbin-Watson:             1.958   
+Prob(Omnibus):            0.000            Jarque-Bera (JB):          1001.147
+Skew:                     0.820            Prob(JB):                  0.000   
+Kurtosis:                 3.562            Condition No.:             398     
+==============================================================================
+Notes:
+[1] Standard Errors assume that the covariance matrix of the errors is
+correctly specified.</code></pre>
+</div>
+</div>
+</div>
+<div id="tabset-12-2">
+<div id="3126f2df" class="cell" data-execution_count="27">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a></a>lr <span class="op">=</span> LinearRegression()</span>
+<span id="cb32-2"><a></a></span>
+<span id="cb32-3"><a></a><span class="co"># Initialize SequentialFeatureSelector (SFS) for forward selection</span></span>
+<span id="cb32-4"><a></a>sfs <span class="op">=</span> SFS(lr, </span>
+<span id="cb32-5"><a></a>          k_features <span class="op">=</span> <span class="st">'best'</span>,  <span class="co"># Select the best number of features based on criterion</span></span>
+<span id="cb32-6"><a></a>          forward <span class="op">=</span> <span class="va">True</span>,  <span class="co"># Forward selection</span></span>
+<span id="cb32-7"><a></a>          floating <span class="op">=</span> <span class="va">False</span>,</span>
+<span id="cb32-8"><a></a>          scoring <span class="op">=</span> <span class="st">'neg_mean_squared_error'</span>,  <span class="co"># Using negative MSE as scoring criterion</span></span>
+<span id="cb32-9"><a></a>          cv <span class="op">=</span> <span class="dv">0</span>)  <span class="co"># No cross-validation</span></span>
+<span id="cb32-10"><a></a></span>
+<span id="cb32-11"><a></a><span class="co"># Fit SFS on the training data</span></span>
+<span id="cb32-12"><a></a>sfs.fit(X_train, y_train)</span>
+<span id="cb32-13"><a></a></span>
+<span id="cb32-14"><a></a><span class="co"># Get the names of the selected features</span></span>
+<span id="cb32-15"><a></a>selected_features <span class="op">=</span> <span class="bu">list</span>(sfs.k_feature_names_)</span>
+<span id="cb32-16"><a></a></span>
+<span id="cb32-17"><a></a><span class="co"># Convert the DataFrame to numeric to ensure all features are numeric</span></span>
+<span id="cb32-18"><a></a>X_train <span class="op">=</span> X_train.<span class="bu">apply</span>(pd.to_numeric, errors<span class="op">=</span><span class="st">'coerce'</span>).fillna(<span class="dv">0</span>)</span>
+<span id="cb32-19"><a></a>X_test <span class="op">=</span> X_test.<span class="bu">apply</span>(pd.to_numeric, errors<span class="op">=</span><span class="st">'coerce'</span>).fillna(<span class="dv">0</span>)</span>
+<span id="cb32-20"><a></a></span>
+<span id="cb32-21"><a></a><span class="co"># Select the features identified by forward selection</span></span>
+<span id="cb32-22"><a></a>X_train_selected <span class="op">=</span> X_train[selected_features]</span>
+<span id="cb32-23"><a></a></span>
+<span id="cb32-24"><a></a><span class="co"># Fit the final Linear Regression model using selected features</span></span>
+<span id="cb32-25"><a></a>final_model <span class="op">=</span> lr.fit(X_train_selected, y_train)</span>
+<span id="cb32-26"><a></a></span>
+<span id="cb32-27"><a></a><span class="co"># For AIC, BIC, and adjusted R-squared, use statsmodels</span></span>
+<span id="cb32-28"><a></a>X_train_selected_with_const <span class="op">=</span> sm.add_constant(X_train_selected)</span>
+<span id="cb32-29"><a></a></span>
+<span id="cb32-30"><a></a><span class="co"># Ensure data type consistency</span></span>
+<span id="cb32-31"><a></a>X_train_selected_with_const <span class="op">=</span> X_train_selected_with_const.astype(<span class="bu">float</span>)</span>
+<span id="cb32-32"><a></a></span>
+<span id="cb32-33"><a></a><span class="co"># Fit the OLS model</span></span>
+<span id="cb32-34"><a></a>model_sm <span class="op">=</span> sm.OLS(y_train, X_train_selected_with_const).fit()</span>
+<span id="cb32-35"><a></a></span>
+<span id="cb32-36"><a></a><span class="co"># Output the results</span></span>
+<span id="cb32-37"><a></a><span class="bu">print</span>(<span class="st">"Forward Selection Results"</span>)</span>
+<span id="cb32-38"><a></a><span class="bu">print</span>(<span class="st">"Selected predictors:"</span>, selected_features)</span>
+<span id="cb32-39"><a></a><span class="bu">print</span>(<span class="st">"AIC:"</span>, <span class="bu">round</span>(model_sm.aic, <span class="dv">3</span>))</span>
+<span id="cb32-40"><a></a><span class="bu">print</span>(<span class="st">"BIC:"</span>, <span class="bu">round</span>(model_sm.bic, <span class="dv">3</span>))</span>
+<span id="cb32-41"><a></a><span class="bu">print</span>(<span class="st">"Adjusted R-squared:"</span>, <span class="bu">round</span>(model_sm.rsquared_adj, <span class="dv">3</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>Forward Selection Results
+Selected predictors: ['debt_to_income', 'credit_util', 'bankruptcy', 'term', 'credit_checks', 'verified_income_Source Verified', 'verified_income_Verified', 'issue_month_Jan-2018', 'issue_month_Mar-2018']
+AIC: 46034.53
+BIC: 46104.402
+Adjusted R-squared: 0.251</code></pre>
+</div>
+</div>
+</div>
+<div id="tabset-12-3">
+<div id="7caa12d1" class="cell" data-execution_count="28">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a></a><span class="co"># Initialize the linear regression model</span></span>
+<span id="cb34-2"><a></a>lr <span class="op">=</span> LinearRegression()</span>
+<span id="cb34-3"><a></a></span>
+<span id="cb34-4"><a></a><span class="co"># Initialize SequentialFeatureSelector (SFS) for forward selection</span></span>
+<span id="cb34-5"><a></a>sfs <span class="op">=</span> SFS(lr, </span>
+<span id="cb34-6"><a></a>          k_features <span class="op">=</span> <span class="st">'best'</span>,  <span class="co"># Select the best number of features based on criterion</span></span>
+<span id="cb34-7"><a></a>          forward <span class="op">=</span> <span class="va">False</span>,  <span class="co"># Forward selection</span></span>
+<span id="cb34-8"><a></a>          floating <span class="op">=</span> <span class="va">False</span>,</span>
+<span id="cb34-9"><a></a>          scoring <span class="op">=</span> <span class="st">'neg_mean_squared_error'</span>,  <span class="co"># Using negative MSE as scoring criterion</span></span>
+<span id="cb34-10"><a></a>          cv <span class="op">=</span> <span class="dv">0</span>)  <span class="co"># No cross-validation</span></span>
+<span id="cb34-11"><a></a></span>
+<span id="cb34-12"><a></a><span class="co"># Fit SFS on the training data</span></span>
+<span id="cb34-13"><a></a>sfs.fit(X_train, y_train)</span>
+<span id="cb34-14"><a></a></span>
+<span id="cb34-15"><a></a><span class="co"># Get the names of the selected features</span></span>
+<span id="cb34-16"><a></a>selected_features <span class="op">=</span> <span class="bu">list</span>(sfs.k_feature_names_)</span>
+<span id="cb34-17"><a></a></span>
+<span id="cb34-18"><a></a><span class="co"># Convert the DataFrame to numeric to ensure all features are numeric</span></span>
+<span id="cb34-19"><a></a>X_train <span class="op">=</span> X_train.<span class="bu">apply</span>(pd.to_numeric, errors<span class="op">=</span><span class="st">'coerce'</span>).fillna(<span class="dv">0</span>)</span>
+<span id="cb34-20"><a></a>X_test <span class="op">=</span> X_test.<span class="bu">apply</span>(pd.to_numeric, errors<span class="op">=</span><span class="st">'coerce'</span>).fillna(<span class="dv">0</span>)</span>
+<span id="cb34-21"><a></a></span>
+<span id="cb34-22"><a></a><span class="co"># Select the features identified by forward selection</span></span>
+<span id="cb34-23"><a></a>X_train_selected <span class="op">=</span> X_train[selected_features]</span>
+<span id="cb34-24"><a></a></span>
+<span id="cb34-25"><a></a><span class="co"># Fit the final Linear Regression model using selected features</span></span>
+<span id="cb34-26"><a></a>final_model <span class="op">=</span> lr.fit(X_train_selected, y_train)</span>
+<span id="cb34-27"><a></a></span>
+<span id="cb34-28"><a></a><span class="co"># For AIC, BIC, and adjusted R-squared, use statsmodels</span></span>
+<span id="cb34-29"><a></a>X_train_selected_with_const <span class="op">=</span> sm.add_constant(X_train_selected)</span>
+<span id="cb34-30"><a></a></span>
+<span id="cb34-31"><a></a><span class="co"># Ensure data type consistency</span></span>
+<span id="cb34-32"><a></a>X_train_selected_with_const <span class="op">=</span> X_train_selected_with_const.astype(<span class="bu">float</span>)</span>
+<span id="cb34-33"><a></a></span>
+<span id="cb34-34"><a></a><span class="co"># Fit the OLS model</span></span>
+<span id="cb34-35"><a></a>model_sm <span class="op">=</span> sm.OLS(y_train, X_train_selected_with_const).fit()</span>
+<span id="cb34-36"><a></a></span>
+<span id="cb34-37"><a></a><span class="co"># Output the results</span></span>
+<span id="cb34-38"><a></a><span class="bu">print</span>(<span class="st">"Backward Selection Results"</span>)</span>
+<span id="cb34-39"><a></a><span class="bu">print</span>(<span class="st">"Selected predictors:"</span>, selected_features)</span>
+<span id="cb34-40"><a></a><span class="bu">print</span>(<span class="st">"AIC:"</span>, <span class="bu">round</span>(model_sm.aic, <span class="dv">3</span>))</span>
+<span id="cb34-41"><a></a><span class="bu">print</span>(<span class="st">"BIC:"</span>, <span class="bu">round</span>(model_sm.bic, <span class="dv">3</span>))</span>
+<span id="cb34-42"><a></a><span class="bu">print</span>(<span class="st">"Adjusted R-squared:"</span>, <span class="bu">round</span>(model_sm.rsquared_adj, <span class="dv">3</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>Backward Selection Results
+Selected predictors: ['debt_to_income', 'credit_util', 'bankruptcy', 'term', 'credit_checks', 'verified_income_Source Verified', 'verified_income_Verified', 'issue_month_Jan-2018', 'issue_month_Mar-2018']
+AIC: 46034.53
+BIC: 46104.402
+Adjusted R-squared: 0.251</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="cross-validation" class="slide level2 smaller">
+<h2>Cross validation</h2>
+<div class="panel-tabset">
+<ul id="tabset-13" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-13-1">Best Subset Selection</a></li><li><a href="#tabset-13-2">Stepwise Selection</a></li><li><a href="#tabset-13-3">Model output</a></li></ul>
+<div class="tab-content">
+<div id="tabset-13-1">
+<div id="a889b409" class="cell" data-execution_count="29">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a></a><span class="kw">def</span> best_subset_cv(X, y, max_features<span class="op">=</span><span class="dv">5</span>):</span>
+<span id="cb36-2"><a></a>    best_score <span class="op">=</span> np.inf</span>
+<span id="cb36-3"><a></a>    best_subset <span class="op">=</span> <span class="va">None</span></span>
+<span id="cb36-4"><a></a>    </span>
+<span id="cb36-5"><a></a>    <span class="co"># Limiting the number of features for computational feasibility</span></span>
+<span id="cb36-6"><a></a>    <span class="cf">for</span> k <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, max_features <span class="op">+</span> <span class="dv">1</span>):</span>
+<span id="cb36-7"><a></a>        <span class="cf">for</span> subset <span class="kw">in</span> combinations(X.columns, k):</span>
+<span id="cb36-8"><a></a>            <span class="co"># Define the model</span></span>
+<span id="cb36-9"><a></a>            model <span class="op">=</span> LinearRegression()</span>
+<span id="cb36-10"><a></a>            </span>
+<span id="cb36-11"><a></a>            <span class="co"># Perform k-fold cross-validation</span></span>
+<span id="cb36-12"><a></a>            kf <span class="op">=</span> KFold(n_splits <span class="op">=</span> <span class="dv">5</span>, shuffle <span class="op">=</span> <span class="va">True</span>, random_state <span class="op">=</span> <span class="dv">42</span>)</span>
+<span id="cb36-13"><a></a>            cv_scores <span class="op">=</span> cross_val_score(model, X[<span class="bu">list</span>(subset)], y, cv <span class="op">=</span> kf, scoring <span class="op">=</span> <span class="st">'neg_mean_squared_error'</span>)</span>
+<span id="cb36-14"><a></a>            </span>
+<span id="cb36-15"><a></a>            <span class="co"># Compute the average score</span></span>
+<span id="cb36-16"><a></a>            score <span class="op">=</span> <span class="op">-</span>np.mean(cv_scores)  <span class="co"># Convert back to positive MSE</span></span>
+<span id="cb36-17"><a></a>            </span>
+<span id="cb36-18"><a></a>            <span class="co"># Update the best score and subset</span></span>
+<span id="cb36-19"><a></a>            <span class="cf">if</span> score <span class="op">&lt;</span> best_score:</span>
+<span id="cb36-20"><a></a>                best_score <span class="op">=</span> score</span>
+<span id="cb36-21"><a></a>                best_subset <span class="op">=</span> subset</span>
+<span id="cb36-22"><a></a>    </span>
+<span id="cb36-23"><a></a>    <span class="cf">return</span> best_subset, best_score</span>
+<span id="cb36-24"><a></a></span>
+<span id="cb36-25"><a></a><span class="co"># Start timing</span></span>
+<span id="cb36-26"><a></a>start_time <span class="op">=</span> time.time()</span>
+<span id="cb36-27"><a></a></span>
+<span id="cb36-28"><a></a><span class="co"># Assuming X and y are already defined and preprocessed</span></span>
+<span id="cb36-29"><a></a>best_subset, best_score <span class="op">=</span> best_subset_cv(X, y)</span>
+<span id="cb36-30"><a></a></span>
+<span id="cb36-31"><a></a><span class="co"># End timing</span></span>
+<span id="cb36-32"><a></a>end_time <span class="op">=</span> time.time()</span>
+<span id="cb36-33"><a></a></span>
+<span id="cb36-34"><a></a><span class="co"># Calculate duration</span></span>
+<span id="cb36-35"><a></a>duration <span class="op">=</span> end_time <span class="op">-</span> start_time</span>
+<span id="cb36-36"><a></a></span>
+<span id="cb36-37"><a></a><span class="bu">print</span>(<span class="st">"Best Subset:"</span>, best_subset)</span>
+<span id="cb36-38"><a></a><span class="bu">print</span>(<span class="st">"Best CV Score (MSE):"</span>, best_score)</span>
+<span id="cb36-39"><a></a><span class="bu">print</span>(<span class="st">"Computation Time: </span><span class="sc">{:.2f}</span><span class="st"> seconds"</span>.<span class="bu">format</span>(duration))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>Best Subset: ('credit_util', 'term', 'credit_checks', 'verified_income_Source Verified', 'verified_income_Verified')
+Best CV Score (MSE): 18.664618422927752
+Computation Time: 3.66 seconds</code></pre>
+</div>
+</div>
+</div>
+<div id="tabset-13-2">
+<div id="ffcd1ec7" class="cell" data-execution_count="30">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a></a><span class="co"># Initialize the linear regression model</span></span>
+<span id="cb38-2"><a></a>lr <span class="op">=</span> LinearRegression()</span>
+<span id="cb38-3"><a></a></span>
+<span id="cb38-4"><a></a><span class="co"># Initialize SequentialFeatureSelector for forward selection with cross-validation</span></span>
+<span id="cb38-5"><a></a>sfs <span class="op">=</span> SFS(lr,</span>
+<span id="cb38-6"><a></a>          k_features <span class="op">=</span> <span class="st">'best'</span>,  <span class="co"># 'best' or specify a number with ('1, 10') for range</span></span>
+<span id="cb38-7"><a></a>          forward<span class="op">=</span><span class="va">True</span>,</span>
+<span id="cb38-8"><a></a>          floating<span class="op">=</span><span class="va">False</span>,</span>
+<span id="cb38-9"><a></a>          scoring <span class="op">=</span> <span class="st">'neg_mean_squared_error'</span>,</span>
+<span id="cb38-10"><a></a>          cv <span class="op">=</span> KFold(n_splits <span class="op">=</span> <span class="dv">5</span>, shuffle <span class="op">=</span> <span class="va">True</span>, random_state <span class="op">=</span> <span class="dv">42</span>))</span>
+<span id="cb38-11"><a></a></span>
+<span id="cb38-12"><a></a><span class="co"># Start timing</span></span>
+<span id="cb38-13"><a></a>start_time <span class="op">=</span> time.time()</span>
+<span id="cb38-14"><a></a></span>
+<span id="cb38-15"><a></a><span class="co"># Fit SFS on the training data</span></span>
+<span id="cb38-16"><a></a>sfs.fit(X, y)</span>
+<span id="cb38-17"><a></a></span>
+<span id="cb38-18"><a></a><span class="co"># End timing</span></span>
+<span id="cb38-19"><a></a>end_time <span class="op">=</span> time.time()</span>
+<span id="cb38-20"><a></a></span>
+<span id="cb38-21"><a></a><span class="co"># Calculate duration</span></span>
+<span id="cb38-22"><a></a>duration <span class="op">=</span> end_time <span class="op">-</span> start_time</span>
+<span id="cb38-23"><a></a></span>
+<span id="cb38-24"><a></a><span class="co"># Get the names of the selected features</span></span>
+<span id="cb38-25"><a></a>selected_features <span class="op">=</span> <span class="bu">list</span>(sfs.k_feature_names_)</span>
+<span id="cb38-26"><a></a></span>
+<span id="cb38-27"><a></a><span class="bu">print</span>(<span class="st">"Selected predictors (forward selection):"</span>, selected_features)</span>
+<span id="cb38-28"><a></a><span class="bu">print</span>(<span class="st">"Computation Time: </span><span class="sc">{:.2f}</span><span class="st"> seconds"</span>.<span class="bu">format</span>(duration))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>Selected predictors (forward selection): ['debt_to_income', 'credit_util', 'bankruptcy', 'term', 'credit_checks', 'verified_income_Source Verified', 'verified_income_Verified']
+Computation Time: 0.47 seconds</code></pre>
+</div>
+</div>
+</div>
+<div id="tabset-13-3">
+<div id="cb8f28d9" class="cell" data-execution_count="31">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a></a><span class="co"># Convert the DataFrame to numeric to ensure all features are numeric</span></span>
+<span id="cb40-2"><a></a>X_train <span class="op">=</span> X_train.<span class="bu">apply</span>(pd.to_numeric, errors <span class="op">=</span> <span class="st">'coerce'</span>).fillna(<span class="dv">0</span>)</span>
+<span id="cb40-3"><a></a>X_test <span class="op">=</span> X_test.<span class="bu">apply</span>(pd.to_numeric, errors <span class="op">=</span> <span class="st">'coerce'</span>).fillna(<span class="dv">0</span>)</span>
+<span id="cb40-4"><a></a></span>
+<span id="cb40-5"><a></a><span class="co"># Select the features identified by forward selection</span></span>
+<span id="cb40-6"><a></a>X_train_selected <span class="op">=</span> X_train[selected_features]</span>
+<span id="cb40-7"><a></a></span>
+<span id="cb40-8"><a></a><span class="co"># Fit the final Linear Regression model using selected features</span></span>
+<span id="cb40-9"><a></a>final_model <span class="op">=</span> lr.fit(X_train_selected, y_train)</span>
+<span id="cb40-10"><a></a></span>
+<span id="cb40-11"><a></a><span class="co"># For AIC, BIC, and adjusted R-squared, use statsmodels</span></span>
+<span id="cb40-12"><a></a>X_train_selected_with_const <span class="op">=</span> sm.add_constant(X_train_selected)</span>
+<span id="cb40-13"><a></a></span>
+<span id="cb40-14"><a></a><span class="co"># Ensure data type consistency</span></span>
+<span id="cb40-15"><a></a>X_train_selected_with_const <span class="op">=</span> X_train_selected_with_const.astype(<span class="bu">float</span>)</span>
+<span id="cb40-16"><a></a></span>
+<span id="cb40-17"><a></a><span class="co"># Fit the OLS model</span></span>
+<span id="cb40-18"><a></a>model_sm <span class="op">=</span> sm.OLS(y_train, X_train_selected_with_const).fit()</span>
+<span id="cb40-19"><a></a></span>
+<span id="cb40-20"><a></a><span class="co"># Model results</span></span>
+<span id="cb40-21"><a></a>model_summary2 <span class="op">=</span> model_sm.summary2()</span>
+<span id="cb40-22"><a></a><span class="bu">print</span>(<span class="st">"Forward selection best fit:</span><span class="ch">\n</span><span class="st">"</span>)</span>
+<span id="cb40-23"><a></a><span class="bu">print</span>(model_summary2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>Forward selection best fit:
+
+                      Results: Ordinary least squares
+============================================================================
+Model:                 OLS                 Adj. R-squared:        0.251     
+Dependent Variable:    interest_rate       AIC:                   46030.6466
+Date:                  2025-08-20 11:30    BIC:                   46086.5442
+No. Observations:      8000                Log-Likelihood:        -23007.   
+Df Model:              7                   F-statistic:           384.2     
+Df Residuals:          7992                Prob (F-statistic):    0.00      
+R-squared:             0.252               Scale:                 18.448    
+----------------------------------------------------------------------------
+                                Coef.  Std.Err.    t    P&gt;|t|  [0.025 0.975]
+----------------------------------------------------------------------------
+const                           2.1781   0.2216  9.8311 0.0000 1.7438 2.6125
+debt_to_income                  0.0214   0.0032  6.5925 0.0000 0.0150 0.0277
+credit_util                     4.7592   0.1794 26.5247 0.0000 4.4075 5.1109
+bankruptcy                      0.4028   0.1486  2.7109 0.0067 0.1115 0.6940
+term                            0.1493   0.0044 33.8811 0.0000 0.1406 0.1579
+credit_checks                   0.2238   0.0203 11.0250 0.0000 0.1840 0.2636
+verified_income_Source Verified 0.9396   0.1106  8.4934 0.0000 0.7228 1.1565
+verified_income_Verified        2.5107   0.1304 19.2581 0.0000 2.2551 2.7663
+----------------------------------------------------------------------------
+Omnibus:                908.105          Durbin-Watson:             1.953   
+Prob(Omnibus):          0.000            Jarque-Bera (JB):          1279.631
+Skew:                   0.884            Prob(JB):                  0.000   
+Kurtosis:               3.843            Condition No.:             242     
+============================================================================
+Notes:
+[1] Standard Errors assume that the covariance matrix of the errors is
+correctly specified.</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="conclusions" class="slide level2">
+<h2>Conclusions</h2>
+<ul>
+<li><p>OLS regression is a great baseline model to compare against</p></li>
+<li><p>Falls victim to collinearity, overly complex models</p>
+<ul>
+<li>Hence selection methods with model assessment</li>
+</ul></li>
+<li><p>Best subset selection can overfit easier than stepwise selection</p></li>
+<li><p>Stepwise selection is faster</p></li>
+<li><p>Stepwise inflates Type I error with multiple testing…</p></li>
+</ul>
+</section>
+<section id="live-coding-indoor-air-pollution" class="slide level2">
+<h2>Live coding: Indoor air pollution</h2>
+<div class="panel-tabset">
+<ul id="tabset-14" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-14-1">Fuel access</a></li><li><a href="#tabset-14-2">Fuel GDP</a></li><li><a href="#tabset-14-3">Death source</a></li></ul>
+<div class="tab-content">
+<div id="tabset-14-1">
+<table class="caption-top">
+<colgroup>
+<col style="width: 23%">
+<col style="width: 23%">
+<col style="width: 52%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>variable</th>
+<th>class</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Entity</td>
+<td>character</td>
+<td>Country name</td>
+</tr>
+<tr class="even">
+<td>Code</td>
+<td>character</td>
+<td>Country code</td>
+</tr>
+<tr class="odd">
+<td>Year</td>
+<td>double</td>
+<td>Year</td>
+</tr>
+<tr class="even">
+<td>access_clean_perc</td>
+<td>double</td>
+<td>Access to clean fuels and technologies for cooking (% of population)</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="tabset-14-2">
+<table class="caption-top">
+<colgroup>
+<col style="width: 24%">
+<col style="width: 24%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>variable</th>
+<th>class</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Entity</td>
+<td>character</td>
+<td>The country</td>
+</tr>
+<tr class="even">
+<td>Code</td>
+<td>character</td>
+<td>Country code</td>
+</tr>
+<tr class="odd">
+<td>Year</td>
+<td>double</td>
+<td>Year</td>
+</tr>
+<tr class="even">
+<td>access_clean_perc</td>
+<td>double</td>
+<td>% of population with access to clean cooking fuels</td>
+</tr>
+<tr class="odd">
+<td>GDP</td>
+<td>double</td>
+<td>GDP per capita, PPP (constant 2017 international $)</td>
+</tr>
+<tr class="even">
+<td>popn</td>
+<td>double</td>
+<td>Country population</td>
+</tr>
+<tr class="odd">
+<td>Continent</td>
+<td>character</td>
+<td>Continent the country resides on</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="tabset-14-3">
+<table class="caption-top">
+<colgroup>
+<col style="width: 23%">
+<col style="width: 23%">
+<col style="width: 53%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>variable</th>
+<th>class</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Entity</td>
+<td>character</td>
+<td>The country</td>
+</tr>
+<tr class="even">
+<td>Code</td>
+<td>character</td>
+<td>Country code</td>
+</tr>
+<tr class="odd">
+<td>Year</td>
+<td>double</td>
+<td>Year</td>
+</tr>
+<tr class="even">
+<td>Death_Rate_ASP</td>
+<td>double</td>
+<td>Cause of death related to air pollution from solid fuels, standardized</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</section>
+<section id="live-coding" class="slide level2 smaller">
+<h2>Live coding</h2>
+<div id="8156b798" class="cell" data-execution_count="32">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a></a><span class="im">from</span> sklearn.impute <span class="im">import</span> SimpleImputer</span>
+<span id="cb42-2"><a></a><span class="im">from</span> feature_engine.imputation <span class="im">import</span> CategoricalImputer</span>
+<span id="cb42-3"><a></a></span>
+<span id="cb42-4"><a></a><span class="co"># Read in data</span></span>
+<span id="cb42-5"><a></a>fuel_access <span class="op">=</span> pd.read_csv(<span class="st">'data/fuel_access.csv'</span>)</span>
+<span id="cb42-6"><a></a>fuel_gdp <span class="op">=</span> pd.read_csv(<span class="st">'data/fuel_gdp.csv'</span>)</span>
+<span id="cb42-7"><a></a>death_source <span class="op">=</span> pd.read_csv(<span class="st">'data/death_source.csv'</span>)</span>
+<span id="cb42-8"><a></a></span>
+<span id="cb42-9"><a></a><span class="co"># Select relevant columns and rename for consistency if needed</span></span>
+<span id="cb42-10"><a></a>fuel_access <span class="op">=</span> fuel_access[[<span class="st">'Entity'</span>, <span class="st">'Year'</span>, <span class="st">'access_clean_perc'</span>]]</span>
+<span id="cb42-11"><a></a>fuel_gdp <span class="op">=</span> fuel_gdp[[<span class="st">'Entity'</span>, <span class="st">'Year'</span>, <span class="st">'GDP'</span>, <span class="st">'popn'</span>]]</span>
+<span id="cb42-12"><a></a>death_source <span class="op">=</span> death_source[[<span class="st">'Entity'</span>, <span class="st">'Year'</span>, <span class="st">'Death_Rate_ASP'</span>]]</span>
+<span id="cb42-13"><a></a></span>
+<span id="cb42-14"><a></a><span class="co"># Ensure 'Year' is an integer</span></span>
+<span id="cb42-15"><a></a>fuel_access[<span class="st">'Year'</span>] <span class="op">=</span> fuel_access[<span class="st">'Year'</span>].astype(<span class="bu">int</span>)</span>
+<span id="cb42-16"><a></a>fuel_gdp[<span class="st">'Year'</span>] <span class="op">=</span> fuel_gdp[<span class="st">'Year'</span>].astype(<span class="bu">int</span>)</span>
+<span id="cb42-17"><a></a>death_source[<span class="st">'Year'</span>] <span class="op">=</span> death_source[<span class="st">'Year'</span>].astype(<span class="bu">int</span>)</span>
+<span id="cb42-18"><a></a></span>
+<span id="cb42-19"><a></a><span class="co"># Merge datasets on 'Entity' and 'Year'</span></span>
+<span id="cb42-20"><a></a>merged_data <span class="op">=</span> pd.merge(fuel_access, fuel_gdp, on <span class="op">=</span> [<span class="st">'Entity'</span>, <span class="st">'Year'</span>], how <span class="op">=</span> <span class="st">'inner'</span>)</span>
+<span id="cb42-21"><a></a>merged_data <span class="op">=</span> pd.merge(merged_data, death_source, on <span class="op">=</span> [<span class="st">'Entity'</span>, <span class="st">'Year'</span>], how <span class="op">=</span> <span class="st">'inner'</span>)</span>
+<span id="cb42-22"><a></a></span>
+<span id="cb42-23"><a></a><span class="co"># Check for missing values</span></span>
+<span id="cb42-24"><a></a><span class="bu">print</span>(merged_data.isnull().<span class="bu">sum</span>())</span>
+<span id="cb42-25"><a></a></span>
+<span id="cb42-26"><a></a><span class="co"># Handle missing values if necessary (e.g., fill with mean or median, or drop)</span></span>
+<span id="cb42-27"><a></a>num_imputer <span class="op">=</span> SimpleImputer(strategy <span class="op">=</span> <span class="st">'mean'</span>)  <span class="co"># or 'median'</span></span>
+<span id="cb42-28"><a></a>numerical_cols <span class="op">=</span> merged_data.select_dtypes(include <span class="op">=</span> [<span class="st">'int64'</span>, <span class="st">'float64'</span>]).columns.tolist()</span>
+<span id="cb42-29"><a></a>merged_data[numerical_cols] <span class="op">=</span> num_imputer.fit_transform(merged_data[numerical_cols])</span>
+<span id="cb42-30"><a></a></span>
+<span id="cb42-31"><a></a>merged_data.dropna()</span>
+<span id="cb42-32"><a></a>merged_data[<span class="st">'Entity'</span>] <span class="op">=</span> pd.factorize(merged_data[<span class="st">'Entity'</span>])[<span class="dv">0</span>]</span>
+<span id="cb42-33"><a></a></span>
+<span id="cb42-34"><a></a><span class="co"># Final check for data types and missing values</span></span>
+<span id="cb42-35"><a></a><span class="bu">print</span>(merged_data.info())</span>
+<span id="cb42-36"><a></a><span class="bu">print</span>(merged_data.isnull().<span class="bu">sum</span>())</span>
+<span id="cb42-37"><a></a></span>
+<span id="cb42-38"><a></a><span class="co"># Optional: Standardize/normalize numerical columns if necessary</span></span>
+<span id="cb42-39"><a></a><span class="im">from</span> sklearn.preprocessing <span class="im">import</span> StandardScaler</span>
+<span id="cb42-40"><a></a></span>
+<span id="cb42-41"><a></a>scaler <span class="op">=</span> StandardScaler()</span>
+<span id="cb42-42"><a></a>numerical_columns <span class="op">=</span> [<span class="st">'access_clean_perc'</span>, <span class="st">'GDP'</span>, <span class="st">'popn'</span>]</span>
+<span id="cb42-43"><a></a>merged_data[numerical_columns] <span class="op">=</span> scaler.fit_transform(merged_data[numerical_columns])</span>
+<span id="cb42-44"><a></a>merged_data.to_csv()</span>
+<span id="cb42-45"><a></a><span class="co"># Define the predictor variables and the response variable</span></span>
+<span id="cb42-46"><a></a>X <span class="op">=</span> merged_data.drop([<span class="st">'Death_Rate_ASP'</span>], axis <span class="op">=</span> <span class="dv">1</span>)  <span class="co"># Assuming 'Death_Rate_ASP' is the response variable</span></span>
+<span id="cb42-47"><a></a>y <span class="op">=</span> merged_data[<span class="st">'Death_Rate_ASP'</span>]</span>
+<span id="cb42-48"><a></a></span>
+<span id="cb42-49"><a></a><span class="co"># Split the data into training and testing sets</span></span>
+<span id="cb42-50"><a></a>X_train, X_test, y_train, y_test <span class="op">=</span> train_test_split(X, y, test_size <span class="op">=</span> <span class="fl">0.2</span>, random_state <span class="op">=</span> <span class="dv">42</span>)</span>
+<span id="cb42-51"><a></a></span>
+<span id="cb42-52"><a></a><span class="co"># Initialize LinearRegression model</span></span>
+<span id="cb42-53"><a></a>lr <span class="op">=</span> LinearRegression()</span>
+<span id="cb42-54"><a></a></span>
+<span id="cb42-55"><a></a><span class="co"># Initialize SequentialFeatureSelector for forward selection with cross-validation</span></span>
+<span id="cb42-56"><a></a>sfs <span class="op">=</span> SFS(lr,</span>
+<span id="cb42-57"><a></a>          k_features <span class="op">=</span> <span class="st">'best'</span>,  <span class="co"># 'best' or specify a number with ('1, 10') for range</span></span>
+<span id="cb42-58"><a></a>          forward <span class="op">=</span> <span class="va">True</span>,  <span class="co"># Forward selection</span></span>
+<span id="cb42-59"><a></a>          floating <span class="op">=</span> <span class="va">False</span>,  <span class="co"># Set to True for stepwise selection</span></span>
+<span id="cb42-60"><a></a>          scoring <span class="op">=</span> <span class="st">'neg_mean_squared_error'</span>,  <span class="co"># Using negative MSE as scoring criterion</span></span>
+<span id="cb42-61"><a></a>          cv <span class="op">=</span> KFold(n_splits <span class="op">=</span> <span class="dv">5</span>, shuffle <span class="op">=</span> <span class="va">True</span>, random_state <span class="op">=</span> <span class="dv">42</span>))  <span class="co"># 5-fold cross-validation</span></span>
+<span id="cb42-62"><a></a></span>
+<span id="cb42-63"><a></a><span class="co"># Fit SFS on the training data</span></span>
+<span id="cb42-64"><a></a>sfs.fit(X_train, y_train)</span>
+<span id="cb42-65"><a></a></span>
+<span id="cb42-66"><a></a><span class="co"># Get the names of the selected features</span></span>
+<span id="cb42-67"><a></a>selected_features <span class="op">=</span> <span class="bu">list</span>(sfs.k_feature_names_)</span>
+<span id="cb42-68"><a></a></span>
+<span id="cb42-69"><a></a><span class="co"># Fit the final Linear Regression model using selected features</span></span>
+<span id="cb42-70"><a></a>final_model <span class="op">=</span> lr.fit(X_train[selected_features], y_train)</span>
+<span id="cb42-71"><a></a></span>
+<span id="cb42-72"><a></a><span class="co"># Evaluate the model performance on the test set</span></span>
+<span id="cb42-73"><a></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> mean_squared_error</span>
+<span id="cb42-74"><a></a></span>
+<span id="cb42-75"><a></a>y_pred <span class="op">=</span> final_model.predict(X_test[selected_features])</span>
+<span id="cb42-76"><a></a>mse <span class="op">=</span> mean_squared_error(y_test, y_pred)</span>
+<span id="cb42-77"><a></a></span>
+<span id="cb42-78"><a></a><span class="bu">print</span>(<span class="st">"Selected predictors (forward selection):"</span>, selected_features)</span>
+<span id="cb42-79"><a></a><span class="bu">print</span>(<span class="st">"Test MSE:"</span>, mse)</span>
+<span id="cb42-80"><a></a></span>
+<span id="cb42-81"><a></a><span class="co"># Extracting predictor variables (X) and the target variable (y)</span></span>
+<span id="cb42-82"><a></a>X <span class="op">=</span> merged_data[selected_features]</span>
+<span id="cb42-83"><a></a>Y <span class="op">=</span> merged_data[<span class="st">'Death_Rate_ASP'</span>]</span>
+<span id="cb42-84"><a></a></span>
+<span id="cb42-85"><a></a><span class="co"># Adding a constant for the intercept term</span></span>
+<span id="cb42-86"><a></a>X <span class="op">=</span> sm.add_constant(X)</span>
+<span id="cb42-87"><a></a></span>
+<span id="cb42-88"><a></a><span class="co"># Fit the regression model</span></span>
+<span id="cb42-89"><a></a>model <span class="op">=</span> sm.OLS(y, X).fit()</span>
+<span id="cb42-90"><a></a></span>
+<span id="cb42-91"><a></a>model_summary <span class="op">=</span> model.summary2()</span>
+<span id="cb42-92"><a></a><span class="bu">print</span>(model_summary)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+
+
+</section></section>
+    </div>
+  <div class="quarto-auto-generated-content" style="display: none;">
+<p><img src="../logo.png" class="slide-logo"></p>
+<div class="footer footer-default">
+<p><a href="https://info523-fall25-101-201.github.io/">🔗 github.io</a></p>
+</div>
+</div></div>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script>
+  <script src="../../site_libs/revealjs/dist/reveal.js"></script>
+  <!-- reveal.js plugins -->
+  <script src="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="../../site_libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="../../site_libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="../../site_libs/revealjs/plugin/reveal-chalkboard/plugin.js"></script>
+  <script src="../../site_libs/revealjs/plugin/quarto-support/support.js"></script>
+  
+
+  <script src="../../site_libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="../../site_libs/revealjs/plugin/search/search.js"></script>
+  <script src="../../site_libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="../../site_libs/revealjs/plugin/math/math.js"></script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+'controlsAuto': true,
+'previewLinksAuto': false,
+'pdfSeparateFragments': false,
+'autoAnimateEasing': "ease",
+'autoAnimateDuration': 1,
+'autoAnimateUnmatched': true,
+'jumpToSlide': true,
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\"><kbd>r</kbd> Scroll View Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleChalkboard(event)\"><kbd>b</kbd> Toggle Chalkboard</a></li>\n<li class=\"slide-tool-item\" data-item=\"6\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleNotesCanvas(event)\"><kbd>c</kbd> Toggle Notes Canvas</a></li>\n<li class=\"slide-tool-item\" data-item=\"7\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.downloadDrawings(event)\"><kbd>d</kbd> Download Drawings</a></li>\n<li class=\"slide-tool-item\" data-item=\"8\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'chalkboard': {"buttons":true},
+'smaller': false,
+ 
+        // Display controls in the bottom right corner
+        controls: false,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: false,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'edges',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: 'c/t',
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: true,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: false,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'linear',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: false,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'fade',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'none',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1050,
+
+        height: 700,
+
+        // Factor of the display size that should remain empty around the content
+        margin: 0.1,
+
+        math: {
+          mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
+        // reveal.js plugins
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, RevealChalkboard, QuartoSupport,
+
+          RevealMath,
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    <script id="quarto-html-after-body" type="application/javascript">
+      window.document.addEventListener("DOMContentLoaded", function (event) {
+        const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
+        tabsets.forEach(function(tabset) {
+          const tabby = new Tabby('#' + tabset.id);
+        });
+        const isCodeAnnotation = (el) => {
+          for (const clz of el.classList) {
+            if (clz.startsWith('code-annotation-')) {                     
+              return true;
+            }
+          }
+          return false;
+        }
+        const onCopySuccess = function(e) {
+          // button target
+          const button = e.trigger;
+          // don't keep focus
+          button.blur();
+          // flash "checked"
+          button.classList.add('code-copy-button-checked');
+          var currentTitle = button.getAttribute("title");
+          button.setAttribute("title", "Copied!");
+          let tooltip;
+          if (window.bootstrap) {
+            button.setAttribute("data-bs-toggle", "tooltip");
+            button.setAttribute("data-bs-placement", "left");
+            button.setAttribute("data-bs-title", "Copied!");
+            tooltip = new bootstrap.Tooltip(button, 
+              { trigger: "manual", 
+                customClass: "code-copy-button-tooltip",
+                offset: [0, -8]});
+            tooltip.show();    
+          }
+          setTimeout(function() {
+            if (tooltip) {
+              tooltip.hide();
+              button.removeAttribute("data-bs-title");
+              button.removeAttribute("data-bs-toggle");
+              button.removeAttribute("data-bs-placement");
+            }
+            button.setAttribute("title", currentTitle);
+            button.classList.remove('code-copy-button-checked');
+          }, 1000);
+          // clear code selection
+          e.clearSelection();
+        }
+        const getTextToCopy = function(trigger) {
+            const codeEl = trigger.previousElementSibling.cloneNode(true);
+            for (const childEl of codeEl.children) {
+              if (isCodeAnnotation(childEl)) {
+                childEl.remove();
+              }
+            }
+            return codeEl.innerText;
+        }
+        const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+          text: getTextToCopy
+        });
+        clipboard.on('success', onCopySuccess);
+        if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+          const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+            text: getTextToCopy,
+            container: window.document.getElementById('quarto-embedded-source-code-modal')
+          });
+          clipboardModal.on('success', onCopySuccess);
+        }
+          var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+          var mailtoRegex = new RegExp(/^mailto:/);
+            var filterRegex = new RegExp('/' + window.location.host + '/');
+          var isInternal = (href) => {
+              return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+          }
+          // Inspect non-navigation links and adorn them if external
+         var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+          for (var i=0; i<links.length; i++) {
+            const link = links[i];
+            if (!isInternal(link.href)) {
+              // undo the damage that might have been done by quarto-nav.js in the case of
+              // links that we want to consider external
+              if (link.dataset.originalHref !== undefined) {
+                link.href = link.dataset.originalHref;
+              }
+            }
+          }
+        function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+          const config = {
+            allowHTML: true,
+            maxWidth: 500,
+            delay: 100,
+            arrow: false,
+            appendTo: function(el) {
+                return el.closest('section.slide') || el.parentElement;
+            },
+            interactive: true,
+            interactiveBorder: 10,
+            theme: 'light-border',
+            placement: 'bottom-start',
+          };
+          if (contentFn) {
+            config.content = contentFn;
+          }
+          if (onTriggerFn) {
+            config.onTrigger = onTriggerFn;
+          }
+          if (onUntriggerFn) {
+            config.onUntrigger = onUntriggerFn;
+          }
+            config['offset'] = [0,0];
+            config['maxWidth'] = 700;
+          window.tippy(el, config); 
+        }
+        const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+        for (var i=0; i<noterefs.length; i++) {
+          const ref = noterefs[i];
+          tippyHover(ref, function() {
+            // use id or data attribute instead here
+            let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+            try { href = new URL(href).hash; } catch {}
+            const id = href.replace(/^#\/?/, "");
+            const note = window.document.getElementById(id);
+            if (note) {
+              return note.innerHTML;
+            } else {
+              return "";
+            }
+          });
+        }
+        const findCites = (el) => {
+          const parentEl = el.parentElement;
+          if (parentEl) {
+            const cites = parentEl.dataset.cites;
+            if (cites) {
+              return {
+                el,
+                cites: cites.split(' ')
+              };
+            } else {
+              return findCites(el.parentElement)
+            }
+          } else {
+            return undefined;
+          }
+        };
+        var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+        for (var i=0; i<bibliorefs.length; i++) {
+          const ref = bibliorefs[i];
+          const citeInfo = findCites(ref);
+          if (citeInfo) {
+            tippyHover(citeInfo.el, function() {
+              var popup = window.document.createElement('div');
+              citeInfo.cites.forEach(function(cite) {
+                var citeDiv = window.document.createElement('div');
+                citeDiv.classList.add('hanging-indent');
+                citeDiv.classList.add('csl-entry');
+                var biblioDiv = window.document.getElementById('ref-' + cite);
+                if (biblioDiv) {
+                  citeDiv.innerHTML = biblioDiv.innerHTML;
+                }
+                popup.appendChild(citeDiv);
+              });
+              return popup.innerHTML;
+            });
+          }
+        }
+      });
+      </script>
+    
+
+</body></html>
