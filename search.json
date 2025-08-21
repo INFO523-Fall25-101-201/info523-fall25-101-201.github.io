@@ -37,7 +37,7 @@
     "href": "course-syllabus.html#instructor-information",
     "title": "INFO 523 Syllabus Fall 2025",
     "section": "Instructor Information",
-    "text": "Instructor Information\nJohn Chen,\nLecturer,\nCollege of Information Science\njohnchen@arizona.edu\nOffice: Harvill 304\nOffice Hours: Mondays, TBA, Zoom",
+    "text": "Instructor Information\nJohn Chen,\nLecturer,\nCollege of Information Science\njohnchen@arizona.edu\nOffice: Harvill 304\nOffice Hours: Wednesdays, 12-1pm, Zoom",
     "crumbs": [
       "Course information",
       "Syllabus"
@@ -114,7 +114,7 @@
     "href": "course-syllabus.html#course-community",
     "title": "INFO 523 Syllabus Fall 2025",
     "section": "Course Community",
-    "text": "Course Community\n\nUArizona Community Standard\nAll students must adhere to the UArizona Student Rights & Responsibilities: The University of Arizona is a community dedicated to scholarship, leadership, and service and to the principles of honesty, fairness, and accountability. Citizens of this community commit to reflect upon these principles in all academic and non-academic endeavors, and to protect and promote a culture of integrity.\n\n\nInclusive Community\nIt is my intent that students from all diverse backgrounds and perspectives be well-served by this course, that students’ learning needs be addressed both in and out of class, and that the diversity that the students bring to this class be viewed as a resource, strength, and benefit. It is my intent to present materials and activities that are respectful of diversity and in alignment with UArizona’s Commitment to Diversity and Inclusion. Your suggestions are encouraged and appreciated. Please let me know ways to improve the effectiveness of the course for you personally, or for other students or student groups.\nFurthermore, I would like to create a learning environment for my students that supports a diversity of thoughts, perspectives and experiences, and honors your identities. To help accomplish this:\n\nIf you have a name that differs from those that appear in your official UArizona records, please let me know! You’ll be able to note this in the Getting to know you survey.\nIf you feel like your performance in the class is being impacted by your experiences outside of class, please don’t hesitate to come and talk with me. If you prefer to speak with someone outside of the course, your academic dean is an excellent resource.\nI (like many people) am still in the process of learning about diverse perspectives and identities. If something was said in class (by anyone) that made you feel uncomfortable, please let me or a member of the teaching team know.\n\n\n\nCommunication\nAll lecture notes, assignment instructions, an up-to-date schedule, and other course materials may be found on the course website: https://info523-fall25-101-201.github.io.\nI will regularly send course announcements via email and Slack, make sure to check one or the other of these regularly. If an announcement is sent Monday through Thursday, I will assume that you have read the announcement by the next day. If an announcement is sent on a Friday or over the weekend, I will assume that you have read it by Monday.\n\n\nWhere to Get Help\n\nIf you have a question during lecture, feel free to ask it! There are likely other students with the same question, so by asking you will create a learning opportunity for everyone.\nThe teaching team is here to help you be successful in the course. You are encouraged to attend office hours to ask questions about the course content and assignments. Many questions are most effectively answered as you discuss them with others, so office hours are a valuable resource. Please use them!\nOutside of class and office hours, any general questions about course content or assignments should be posted on the course Slack. There is a chance another student has already asked a similar question, so please check the other posts on Slack before adding a new question. If you know the answer to a question posted on Slack, I encourage you to respond!\n\nCheck out the Support page for more resources.\nI want to make sure that you learn everything you were hoping to learn from this class. If this requires flexibility, please don’t hesitate to ask.\n\nYou never owe me personal information about your health (mental or physical) but you’re always welcome to talk to me. If I can’t help, I likely know someone who can.\nI want you to learn lots of things from this class, but I primarily want you to stay healthy, balanced, and grounded during this crisis.",
+    "text": "Course Community\n\nUArizona Community Standard\nAll students must adhere to the UArizona Student Rights & Responsibilities: The University of Arizona is a community dedicated to scholarship, leadership, and service and to the principles of honesty, fairness, and accountability. Citizens of this community commit to reflect upon these principles in all academic and non-academic endeavors, and to protect and promote a culture of integrity.\n\n\nA Welcoming Community for Everyone\nIt is my intent that students from all diverse backgrounds and perspectives be well-served by this course, that students’ learning needs be addressed both in and out of class, and that the diversity that the students bring to this class be viewed as a resource, strength, and benefit. It is my intent to present materials and activities that are welcoming to everyone. Your suggestions are encouraged and appreciated. Please let me know ways to improve the effectiveness of the course for you personally, or for other students or student groups.\nFurthermore, I would like to create a learning environment for my students that supports a diversity of thoughts, perspectives and experiences, and honors your identities. To help accomplish this:\n\nIf you have a name that differs from those that appear in your official UArizona records, please let me know! You’ll be able to note this in the Getting to know you survey.\nIf you feel like your performance in the class is being impacted by your experiences outside of class, please don’t hesitate to come and talk with me. If you prefer to speak with someone outside of the course, your academic dean is an excellent resource.\nI (like many people) am still in the process of learning about diverse perspectives and identities. If something was said in class (by anyone) that made you feel uncomfortable, please let me or a member of the teaching team know.\n\n\n\nCommunication\nAll lecture notes, assignment instructions, an up-to-date schedule, and other course materials may be found on the course website: https://info523-fall25-101-201.github.io.\nI will regularly send course announcements via email and Slack, make sure to check one or the other of these regularly. If an announcement is sent Monday through Thursday, I will assume that you have read the announcement by the next day. If an announcement is sent on a Friday or over the weekend, I will assume that you have read it by Monday.\n\n\nWhere to Get Help\n\nIf you have a question during lecture, feel free to ask it! There are likely other students with the same question, so by asking you will create a learning opportunity for everyone.\nThe teaching team is here to help you be successful in the course. You are encouraged to attend office hours to ask questions about the course content and assignments. Many questions are most effectively answered as you discuss them with others, so office hours are a valuable resource. Please use them!\nOutside of class and office hours, any general questions about course content or assignments should be posted on the course Slack. There is a chance another student has already asked a similar question, so please check the other posts on Slack before adding a new question. If you know the answer to a question posted on Slack, I encourage you to respond!\n\nCheck out the Support page for more resources.\nI want to make sure that you learn everything you were hoping to learn from this class. If this requires flexibility, please don’t hesitate to ask.\n\nYou never owe me personal information about your health (mental or physical) but you’re always welcome to talk to me. If I can’t help, I likely know someone who can.\nI want you to learn lots of things from this class, but I primarily want you to stay healthy, balanced, and grounded during this crisis.",
     "crumbs": [
       "Course information",
       "Syllabus"
@@ -136,7 +136,95 @@
     "href": "course-syllabus.html#assessment",
     "title": "INFO 523 Syllabus Fall 2025",
     "section": "Assessment",
-    "text": "Assessment\nAssessment for the course is comprised of four components: participation, reading quizzes, homework assignments, and projects. All assignments are due by 11:59pm on the indicated day on the course schedule.\n\nParticipation is required throughout the semester. Students who participate regularly in Slack discussion will receive full credit for 10% of the grade.\nReading quizzes (5), due every other week (roughly), completed individually. Each quiz is worth 2% of the grade.\nReading quizzes will be linked from the course schedule(",
+    "text": "Assessment\nAssessment for the course is comprised of four components: participation, reading quizzes, homework assignments, and projects. All assignments are due by 11:59pm on the indicated day on the course schedule.\n\nParticipation is required throughout the semester. Students who participate regularly in Slack discussion will receive full credit for 10% of the grade.\nReading quizzes (5), due every other week (roughly), completed individually. Each quiz is worth 2% of the grade.\nReading quizzes will be linked from the course schedule. They always cover reading that is due since the previous quiz and up to and including the deadline for the given quiz.\nHomework assignments (5), due every other week (roughly), completed individually. Each homework assignment is worth 8% of the course grade. Lowest homework assignment score is dropped.\nFinal Project (1), completed in teams, worth 40% of the course grade.\nTeams will pick a dataset of interest to them and develop a data mining workflow in Python (problem –&gt; solution). The deliverables will include a data visualization and/or analysis, a write up of the process and findings, and a presentation. For the second project, you will be encouraged to think beyond traditional data mining techniques (i.e., explore and utilize modern best practices)\nIt will have a peer review component to provide at least one round of feedback during the process of development. Teams will provide periodic peer feedback to their teammates while working on the projects as well as upon completion. The scores from the peer evaluations, along with individual contributions tracked by commits on GitHub, will be used to ensure that each student has contributed to the teamwork.\nAll team members must take part in the presentation. Presentations must be given via Zoom, or in recording if the team requires. My preference is that the team stick to one method of delivery (all presenters on Zoom or in recording), but I realize a lot can change throughout this semester, and we’ll adjust accordingly.\n\nAll work is expected to be submitted by the deadline and there are no make ups for any missed assessments. See Late work policy for policies on late work.",
+    "crumbs": [
+      "Course information",
+      "Syllabus"
+    ]
+  },
+  {
+    "objectID": "course-syllabus.html#grading",
+    "href": "course-syllabus.html#grading",
+    "title": "INFO 523 Syllabus Fall 2025",
+    "section": "Grading:",
+    "text": "Grading:\nThe final letter grade will be determined based on the following thresholds:\n\n\n\nLetter Grade\nFinal Course Grade\n\n\n\n\nA\n&gt;= 90\n\n\nB\n80 - 89.99\n\n\nC\n70 - 79.99\n\n\nD\n60 - 69.99\n\n\nE\n50-59.99\n\n\nF\n&lt; 60\n\n\n\nThese are upper bounds for grade cutoffs. Depending on the class performance the cutoffs may be lowered, but not increased.",
+    "crumbs": [
+      "Course information",
+      "Syllabus"
+    ]
+  },
+  {
+    "objectID": "course-syllabus.html#teams",
+    "href": "course-syllabus.html#teams",
+    "title": "INFO 523 Syllabus Fall 2025",
+    "section": "Teams",
+    "text": "Teams\nYou will be assigned to a different team for each of your two projects. You are encouraged to work in a shared Slack channel with your team members. All team members are expected to contribute equally to the completion of each project and you will be asked to evaluate your team members after each assignment is due. Failure to adequately contribute to an assignment will result in a penalty to your mark relative to the team’s overall mark.\nYou are expected to make use of the provided GitHub repository as their central collaborative platform. Commits to this repository will be used as a metric (one of several) of each team member’s relative contribution for each project.",
+    "crumbs": [
+      "Course information",
+      "Syllabus"
+    ]
+  },
+  {
+    "objectID": "course-syllabus.html#course-policies",
+    "href": "course-syllabus.html#course-policies",
+    "title": "INFO 523 Syllabus Fall 2025",
+    "section": "Course Policies",
+    "text": "Course Policies\n\nAcademic Honesty\nTL;DR: Don’t cheat!\nStudents are expected to abide by The University of Arizona Code of Academic Integrity. ‘The guiding principle of academic integrity is that a student’s submitted work must be the student’s own.’ If you have any questions regarding what acceptable practice under this Code is, please ask an Instructor.\nPlease abide by the following as you work on assignments in this course:\n\nCollaboration: Only work that is clearly assigned as team work should be completed collaboratively.\nThe reading quizzes must be completed individually with absolutely no communication with classmates.\nThe homework assignments must also be completed individually and you are welcomed to discuss the assignment with classmates at a high level (e.g., discuss what’s the best way for approaching a problem, what functions are useful for accomplishing a particular task, etc.). However you may not directly share answers to homework questions (including any code) with anyone other than myself and the teaching assistants.\nFor the projects, collaboration within teams is not only allowed, but expected. Communication between teams at a high level is also allowed however you may not share code or components of the project across teams.\nSharing and reusing code: I am well aware that a huge volume of code is available on the web to solve any number of problems. Unless I explicitly tell you not to use something, the course’s policy is that you may make use of any online resources (e.g. RStudio Community, StackOverflow) but you must explicitly cite where you obtained any code you directly use (or use as inspiration). Any recycled code that is discovered and is not explicitly cited will be treated as plagiarism. On individual assignments you may not directly share code with another student in this class, and on team assignments you may not directly share code with another team in this class.",
+    "crumbs": [
+      "Course information",
+      "Syllabus"
+    ]
+  },
+  {
+    "objectID": "course-syllabus.html#college-of-information-science-academic-integrity-policy",
+    "href": "course-syllabus.html#college-of-information-science-academic-integrity-policy",
+    "title": "INFO 523 Syllabus Fall 2025",
+    "section": "College of Information Science Academic Integrity Policy",
+    "text": "College of Information Science Academic Integrity Policy\nThis policy agreed upon by faculty in the UArizona College of Information Science applies in addition to the Dean of Students’ Code of Academic Integrity.\nStudents in courses at the UArizona College of Information Science are expected to maintain rigor in their academic performance with intent to learn, practice, and overcome challenges toward personal growth and enrichment. As future professionals in digital environments, College of Information Science students are also expected to exercise transparency and integrity in collaborations and in the use of tools and resources that may aid completion in assignments for our courses.\nConsider the following PROHIBITED practices in this course, unless the instructor has specifically written instructions or permission to do otherwise:\n\nPosting a question on an online site such as Chegg.com, and copying and pasting some or all of the response into an assessment\nPosting an assessment from the course on online sharing sites such as Course Hero. Aiding other students in violation of academic integrity is also a violation, and is potential copyright infringement.\nGenerating and submitting, in whole or in part, text or code through Artificial Intelligence such as ChatGPT, QuillBot, and text summarizers\nUsing, in whole or in part, computer code not written by the student (for example, from another student, a book, or the internet) in an assignment or project. This includes using such code in modified or unmodified form.\nSearching for solutions to projects or assignments on the internet or through other tools, when your instructor intended for you to learn the solution through exercises (e.g. Googling for the solution to a question on an assignment).\nSimultaneously submitting the same assignment as another student enrolled into the course without prior permission from the instructor\n\nExceptions: Clear Instructions will be Provided\nIn any cases in which this course requires or permits students to use practices in the list above, clear written instructions will specify the tools allowed or required, so students can be certain they are working as instructed. See the UArizona College of Information Science Academic Integrity Policy, the UArizona Code of Academic Integrity and Syllabus policy for more information.\n\nGenerative AI Policy\nAI is Sometimes Permitted\nAs a researcher in human-AI interaction, I published highly impactful research study on how people use Generative AI for coding. I also personally use advanced AI coding tools (e.g. ClaudeCode, Cursor, etc.) as well as more straightforward tools (e.g. ChatGPT, GitHub Copilot, Gemini). Hence, I might have more to say about this topic.\nFollowing the University’s established AI policy, this class encourages you to use/experiment with Generative AI in all assignments and projects. - The only exception are quizzes. They serve as your own checkpoint and for your reflection purposes. Using AI there is a waste of time (and computing power), especially since we are not grading on whether you get to the correct answer. - Always keep control of your code and work by reviewing, criticizing, and steering AI responses While AI-generated code may appear legitimate, my studies show that tools like ChatGPT easily hallucinate or miss your intention. While latest tools such as Claude Code or Cursor may allow “automonous” mode, it is still prone to overthinking or misunderstanding. - Whenever you use Generative AI tools, clearly state in your assignment or project write-up which Generative AI tool(s) you used, what you used it for, and how you incorporated its output. In addition, write reflections about your workflow and AI’s responses, which will be graded.\nAt the end of the day, Generative AI tools won’t be responsible for your grades or your learning. Abusing of Generative AI tools be traced (e.g., failing to give credit or cite ChatGPT when it is used) which could result in your suspension or termination from the course and even your program of study.\nSee my policies on this subject above.\n\n\nLate Work & Extensions\nThe due dates for assignments are there to help you keep up with the course material and to ensure the teaching team can provide feedback within a timely manner. We understand that things come up periodically that could make it difficult to submit an assignment by the deadline.\nPolicy on late work depends on the particular course component:\n\nReading quizzes: Late quizzes are not accepted and there are no make ups for missed quizzes.\nHomework assignments: GitHub repositories will be closed to contributions at the deadline. If you need to submit your work late, send a DM on Slack to me to reopen your repository.\n\nLate, within 24 hours of deadline: -10% of available points\nLate, within 24-48 hours of deadline: -20% of available points\nTwo days late or later: No credit, and we will not provide written feedback\n\nProjects: The following three components contribute to your project score.\n\nPresentation: Late presentations are not accepted and there are no make ups for missed presentations.\nWrite up: GitHub repositories will be closed to contributions at the deadline. If you need to submit your work late, Slack/email me to reopen your repository.\n\nLate, within 24 hours of deadline: -10% of available points\nLate, within 24-48 hours of deadline: -20% of available points\nTwo days late or later: No credit, and we will not provide written feedback\n\nPeer evaluation: Late peer evaluations are not accepted and there are no make ups for missed presentations. If you do not turn in your peer evaluation, you get 0 points for your own peer score as well, regardless of how your teammates have evaluated you.\n\n\n\n\nFree Passes\nI allow three “free passes”, which extends your homework deadline by one full day. They can also be stacked, so two or three passes can apply to a single homework assignment. To utilize these passes, submit a GitHub issue with the number that you will be using. Use sparingly, I will not allow late un-penalized late work after they are gone.\n\n\nWaiver for Extenuating Circumstances\nIf there are circumstances that prevent you from completing a reading quiz or homework assignment by the stated due date, you may email me (johnchen@arizona.edu) before the deadline to waive the late penalty. In your email, you only need to request the waiver; you do not need to provide explanation. This waiver may only be used for once in the semester, so only use it for a truly extenuating circumstance.\nIf there are circumstances that are having a longer-term impact on your academic performance, please let your academic dean know, as they can be a resource. Please let me know if you need help contacting your academic dean.\n\n\nRegrade Requests\n\nBefore hw-02 (training wheels on)\nI will regrade your homework assignments 1 once to encourage the correct format for future submissions. If you made any improvements, I will use the higher grade. Re-submissions must be received within 1-week of the original grade.\n\n\nFrom hw-02 and on (training wheels come off)\nRegrade requests must be made within one week of when the assignment is returned, and must be typed up and submitted via email to me. These will be considered if points were tallied incorrectly or if you feel your answer is correct but it was marked wrong. No regrade will be made to alter the number of points deducted for a mistake. There will be no grade changes after the second project presentations. Note that during the regrade process your score could go up or go down or not change.\nNo grades will be changed after the project presentations.\n\n\n\n“Incomplete” Grade\nThe grade of “I” may be awarded only at the end of a term, when all but a minor portion of the course work has been satisfactorily completed. The grade of I is not to be awarded in place of a failing grade or when the student is expected to repeat the course; in such a case, a grade other than I must be assigned. Students should make arrangements with the instructor to receive an incomplete grade before the end of the term. If the incomplete is not removed by the instructor within one year the I grade will revert to a failing grade.\n\n\nTutoring\nTutoring can be found through the UArizona Think Tank.\n\n\nAttendance Policy\nWhile the online nature of the class adds to the flexibility, responsibility for class attendance rests with individual students. We cannot enforce when and how you watch the lecture videos. That said, students must accept the consequences of failure to attend or participate, including not being able to complete homework and turn in projects.\nNote that participation is part of your grade as well.",
+    "crumbs": [
+      "Course information",
+      "Syllabus"
+    ]
+  },
+  {
+    "objectID": "course-syllabus.html#additional-university-policies",
+    "href": "course-syllabus.html#additional-university-policies",
+    "title": "INFO 523 Syllabus Fall 2025",
+    "section": "Additional University Policies",
+    "text": "Additional University Policies\nAdditional policies can be found at this link (please read through them): https://catalog.arizona.edu/syllabus-policies",
+    "crumbs": [
+      "Course information",
+      "Syllabus"
+    ]
+  },
+  {
+    "objectID": "course-syllabus.html#safety-on-campus-and-in-the-classroom",
+    "href": "course-syllabus.html#safety-on-campus-and-in-the-classroom",
+    "title": "INFO 523 Syllabus Fall 2025",
+    "section": "Safety on Campus and in the Classroom",
+    "text": "Safety on Campus and in the Classroom\nFor a list of emergency procedures for all types of incidents, please visit the website of the Critical Incident Response Team (CIRT): https://cirt.arizona.edu/case-emergency/overview\nAlso watch the video available at https://arizona.sabacloud.com/Saba/Web_spf/NA7P1PRD161/common/learningeventdetail/crtfy000000000003560",
+    "crumbs": [
+      "Course information",
+      "Syllabus"
+    ]
+  },
+  {
+    "objectID": "course-syllabus.html#important-dates",
+    "href": "course-syllabus.html#important-dates",
+    "title": "INFO 523 Syllabus Fall 2025",
+    "section": "Important Dates",
+    "text": "Important Dates\nSee the full UArizona Academic Calendar.",
+    "crumbs": [
+      "Course information",
+      "Syllabus"
+    ]
+  },
+  {
+    "objectID": "course-syllabus.html#graduate-student-resources",
+    "href": "course-syllabus.html#graduate-student-resources",
+    "title": "INFO 523 Syllabus Fall 2025",
+    "section": "Graduate Student Resources",
+    "text": "Graduate Student Resources\nUniversity of Arizona’s Basic Needs Resources page for graduate students: http://basicneeds.arizona.edu/index.html",
     "crumbs": [
       "Course information",
       "Syllabus"
@@ -1520,7 +1608,14 @@
     "href": "slides/00/00-welcome-python.html#lectures",
     "title": "Welcome to INFO 523",
     "section": "Lectures",
-    "text": "Lectures\n\nIn person\nAttendance is required (as long as you’re healthy!)\nA little bit of everything:\n\nTraditional lecture\nLive coding + demos\nShort exercises + solution discussion"
+    "text": "Lectures\n\nAsynchronous online format, watch at your pace\nActive participation is expected throughout the semester\nDiscussions and Q&A are expected and encouraged in the Slack channel, more details to come"
+  },
+  {
+    "objectID": "slides/00/00-welcome-python.html#division-of-labor",
+    "href": "slides/00/00-welcome-python.html#division-of-labor",
+    "title": "Welcome to INFO 523",
+    "section": "Division of Labor",
+    "text": "Division of Labor\n\nWill reuse some of Dr. Greg Chism’s recordings\nDr. Chism designed the class and has been teaching for many semesters at UArizona\nI will record ad-hoc sections:\n\nTo discuss our usage of Generative AI in data mining\nIf some of you want to learn an extra technique (email me!)\nTo address common issues among homework/project submissions\n\nI will provide timely support on Slack channel"
   },
   {
     "objectID": "slides/00/00-welcome-python.html#announcements",
@@ -1530,11 +1625,11 @@
     "text": "Announcements\n\nPosted on D2L (Announcements tool) and sent (primarily) via Slack, be sure to check both regularly\nI’ll assume that you’ve read an announcement by the next “business” day"
   },
   {
-    "objectID": "slides/00/00-welcome-python.html#diversity-and-inclusion",
-    "href": "slides/00/00-welcome-python.html#diversity-and-inclusion",
+    "objectID": "slides/00/00-welcome-python.html#a-course-for-everyone",
+    "href": "slides/00/00-welcome-python.html#a-course-for-everyone",
     "title": "Welcome to INFO 523",
-    "section": "Diversity and inclusion",
-    "text": "Diversity and inclusion\nIt is my intent that students from all diverse backgrounds and perspectives be well-served by this course, that students’ learning needs be addressed both in and out of class, and that the diversity that the students bring to this class be viewed as a resource, strength and benefit.\n\nIf you have a name that differs from those that appear in your official UArizona records, please let me know!\nPlease let me know your preferred pronouns.\nIf you feel like your performance in the class is being impacted by your experiences outside of class, please don’t hesitate to come and talk with me. I want to be a resource for you. If you prefer to speak with someone outside of the course, your advisers and deans are excellent resources.\nI (like many people) am still in the process of learning about diverse perspectives and identities. If something was said in class (by anyone) that made you feel uncomfortable, please talk to me about it."
+    "section": "A Course for Everyone",
+    "text": "A Course for Everyone\nIt is my intent that students from all diverse backgrounds and perspectives be well-served by this course, that students’ learning needs be addressed both in and out of class, and that the diversity that the students bring to this class be viewed as a resource, strength and benefit.\n\nIf you have a name that differs from those that appear in your official UArizona records, please let me know!\nPlease let me know your preferred pronouns.\n\n\n\nIf you feel like your performance in the class is being impacted by your experiences outside of class, please don’t hesitate to come and talk with me. I want to be a resource for you. If you prefer to speak with someone outside of the course, your advisers and deans are excellent resources.\nIf something was said in class (by anyone) that made you feel uncomfortable, please talk to me about it."
   },
   {
     "objectID": "slides/00/00-welcome-python.html#accessibility",
@@ -1544,32 +1639,32 @@
     "text": "Accessibility\n\nThe Disability Resource Center is available to ensure that students are able to engage with their courses and related assignments.\nI am committed to making all course materials accessible and I’m always learning how to do this better. If any course component is not accessible to you in any way, please don’t hesitate to let me know."
   },
   {
-    "objectID": "slides/00/00-welcome-python.html#attendance-participation-5",
-    "href": "slides/00/00-welcome-python.html#attendance-participation-5",
+    "objectID": "slides/00/00-welcome-python.html#attendance-participation-10",
+    "href": "slides/00/00-welcome-python.html#attendance-participation-10",
     "title": "Welcome to INFO 523",
-    "section": "Attendance + participation (5%)",
-    "text": "Attendance + participation (5%)\n\nRequired throughout the semester in lecture\nStudents who attend at least 80% of the lectures and participate regularly in lecture and/or other course venues (Slack) will receive full credit for this portion of their grade"
+    "section": "Attendance + participation (10%)",
+    "text": "Attendance + participation (10%)\n\nRequired throughout the semester in lecture\nStudents who participate regularly in course venues (especially Slack) will receive full credit for this portion of their grade"
   },
   {
     "objectID": "slides/00/00-welcome-python.html#reading-quizzes-10",
     "href": "slides/00/00-welcome-python.html#reading-quizzes-10",
     "title": "Welcome to INFO 523",
     "section": "Reading quizzes (10%)",
-    "text": "Reading quizzes (10%)\n\nOnline, individual\nCover reading that is due since the previous quiz and up to and including the deadline for the given quiz\nDue by 11:59 pm AZ Time on the indicated day on the course schedule\nLowest dropped"
+    "text": "Reading quizzes (10%)\n\nOnline, individual\nDeadline typically on Mondays\n5 quizzes throughout the semester (2% each)\nCover reading that is due since the previous quiz"
   },
   {
-    "objectID": "slides/00/00-welcome-python.html#homework-assignments-45",
-    "href": "slides/00/00-welcome-python.html#homework-assignments-45",
+    "objectID": "slides/00/00-welcome-python.html#homework-assignments-40",
+    "href": "slides/00/00-welcome-python.html#homework-assignments-40",
     "title": "Welcome to INFO 523",
-    "section": "Homework assignments (45%)",
-    "text": "Homework assignments (45%)\n\nSubmitted on GitHub, individual\nSome lab sessions allocated to working on homework / getting feedback from your TA\nDue by 11:59 pm AZ Time on the indicated day on the course schedule\nLowest dropped"
+    "section": "Homework assignments (40%)",
+    "text": "Homework assignments (40%)\n\nSubmitted on GitHub, individual\nDeadline typically on Thursdays\nCo-working sessions based on your availability\nOffice hours to help with your needs"
   },
   {
-    "objectID": "slides/00/00-welcome-python.html#projects-40",
-    "href": "slides/00/00-welcome-python.html#projects-40",
+    "objectID": "slides/00/00-welcome-python.html#the-final-project-40",
+    "href": "slides/00/00-welcome-python.html#the-final-project-40",
     "title": "Welcome to INFO 523",
-    "section": "Projects (40%)",
-    "text": "Projects (40%)\n\nSubmitted on GitHub, team-based\nInterim deadlines, peer review on content, peer evaluation for team contribution"
+    "section": "The Final Project (40%)",
+    "text": "The Final Project (40%)\n\nSubmitted on GitHub, team-based\nOpen-ended, choose your own adventure\nDeadline typically on Thursdays\nPresentation + Writeup\n\n\n\nMilestone deadlines:\n\nSubmitting your idea\nPeer review on the proposal\nInstructor feedback on the proposal\nPeer evaluation for team contribution"
   },
   {
     "objectID": "slides/00/00-welcome-python.html#teams",
@@ -1579,25 +1674,11 @@
     "text": "Teams\n\nTeam assignments\n\nIn class exercises and projects\nAssigned different teams for each project\nPeer evaluation during teamwork and after completion\n\nExpectations and roles\n\nEveryone is expected to contribute equal effort\nEveryone is expected to understand all code turned in\nIndividual contribution evaluated by peer evaluation, commits, etc."
   },
   {
-    "objectID": "slides/00/00-welcome-python.html#project-1-15",
-    "href": "slides/00/00-welcome-python.html#project-1-15",
-    "title": "Welcome to INFO 523",
-    "section": "Project 1 (15%)",
-    "text": "Project 1 (15%)\n\nSame/similar data, different results\nPresentation and write-up\nWrapped up before midterms grades are due"
-  },
-  {
-    "objectID": "slides/00/00-welcome-python.html#project-2-25",
-    "href": "slides/00/00-welcome-python.html#project-2-25",
-    "title": "Welcome to INFO 523",
-    "section": "Project 2 (25%)",
-    "text": "Project 2 (25%)\n\nThe world is your oyster! (and more details TBA)\nNew team\nPresentation and write-up\nWrapped up on the final exam date"
-  },
-  {
     "objectID": "slides/00/00-welcome-python.html#grading",
     "href": "slides/00/00-welcome-python.html#grading",
     "title": "Welcome to INFO 523",
     "section": "Grading",
-    "text": "Grading\nThis course is assessed 100% on your coursework (there is no exam). We will be assessing you based on the following assignments,\n\n\n\n\n\n\n\n\n\n\nAssignment\nType\nValue\nn\nDue\n\n\n\n\nAttendance + participation\nIndividual\n5%\n\n\n\n\nReading quizzes\nIndividual\n10%\n6\n~ Every other week\n\n\nHomeworks\nIndividual\n45%\n6\n~ Every 2-3 weeks\n\n\nProject 1\nTeam\n15%\n1\n~ Week 10 + earlier interim deadlines\n\n\nProject 2\nTeam\n25%\n1\n~ Finals week + earlier interim deadlines"
+    "text": "Grading\nThis course is assessed 100% on your coursework (there is no exam). We will be assessing you based on the following assignments,\nNote: Please refer to the course syllabus and schedule for specific dates and detailed requirements.\n\n\n\n\n\n\n\n\n\n\nAssignment\nType\nValue\nn\nDue\n\n\n\n\nAttendance + participation\nIndividual\n10%\n\nThroughout semester\n\n\nReading quizzes\nIndividual\n10%\n5\n~ Every other week\n\n\nHomeworks\nIndividual\n40%\n5\n~ Every 2-3 weeks\n\n\nFinal Project\nTeam\n40%\n1\nMilestones + Finals week"
   },
   {
     "objectID": "slides/00/00-welcome-python.html#covid-policies",
@@ -1611,7 +1692,7 @@
     "href": "slides/00/00-welcome-python.html#late-work-policy",
     "title": "Welcome to INFO 523",
     "section": "Late work policy",
-    "text": "Late work policy\n\nReading quizzes: Late submissions not accepted\nHomework assignments:\n\nLate, but next day (before noon): -10% of available points\nLate, but next day (after noon): -20% of available points\nTwo days late or later: No credit, and we will not provide written feedback\n\nProject presentations: Late submissions not accepted\nProject write-ups:\n\nLate, but next day (before noon): -10% of available points\nLate, but next day (after noon): -20% of available points\nTwo days late or later: No credit, and we will not provide written feedback\n\nPeer evaluation:\n\nLate submissions not accepted\nMust turn in peer evaluation if you want your own score from others"
+    "text": "Late work policy\n\nReading quizzes: Late submissions not accepted\nHomework assignments:\n\nLate, but next day (before noon): -10% of available points\nLate, but next day (after noon): -20% of available points\nTwo days late or later: No credit, and we will not provide written feedback\n\nPeer evaluation:\n\nLate submissions not accepted\nMust turn in peer evaluation if you want your own score from others\n\n\n\n\nProject presentations: Late submissions not accepted\nProject write-ups:\n\nLate, but next day (before noon): -10% of available points\nLate, but next day (after noon): -20% of available points\nTwo days late or later: No credit, and we will not provide written feedback"
   },
   {
     "objectID": "slides/00/00-welcome-python.html#free-passes",
@@ -1639,7 +1720,7 @@
     "href": "slides/00/00-welcome-python.html#chatgpt-ai-policy",
     "title": "Welcome to INFO 523",
     "section": "ChatGPT / AI policy",
-    "text": "ChatGPT / AI policy\n\nWe are additionally aware of the potential code AI for coding (your instructor taught a workshop on it…).\nWhile these tools are amazing, learners should be aware of the impacts that using such tools can have on core competency. David Humphrey, a computer science professor, wrote about ChatGPT and its potentially negative impacts on core learning. It is a good read about the pitfalls of using generative AI in an educational context.\nBy using a generative AI, learners may miss the opportunity to discover how something works and why things are done that way."
+    "text": "ChatGPT / AI policy\n\nAI is Sometimes Permitted - This class encourages you to use/experiment with Generative AI in all assignments and projects\nException: Quizzes - AI use is not permitted for quizzes as they serve as your own checkpoint and reflection\nRequirements when using AI:\n\nAlways maintain control by reviewing, criticizing, and steering AI responses\nClearly state which AI tools you used and how you incorporated their output\nWrite reflections about your workflow and AI’s responses (graded component)\n\nRemember: AI tools won’t be responsible for your grades or learning - you are!"
   },
   {
     "objectID": "slides/00/00-welcome-python.html#academic-integrity",
@@ -1660,7 +1741,7 @@
     "href": "slides/00/00-welcome-python.html#office-hours",
     "title": "Welcome to INFO 523",
     "section": "Office hours",
-    "text": "Office hours\n\nJohn Chen:\n\nMondays, TBA - Zoom\n\nExcept for university holidays\nAny exceptions will be announced in class / by email\n\nBy appointment - Zoom or Harvill 304\n\n+ lots more resources listed on the syllabus!"
+    "text": "Office hours\n\nJohn Chen:\n\nWednesdays, 12-1pm - Zoom\n\nExcept for university holidays\nAny exceptions will be announced via Slack / D2L\n\nBy appointment - Zoom or Harvill 304\n\n+ lots more resources listed on the syllabus!"
   },
   {
     "objectID": "slides/00/00-welcome-python.html#wellness",
@@ -1670,11 +1751,11 @@
     "text": "Wellness\nI want to make sure that you learn everything you were hoping to learn from this class. If this requires flexibility, please don’t hesitate to ask.\n\nYou never owe me personal information about your health (mental or physical) but you’re always welcome to talk to me. If I can’t help, I likely know someone who can.\nI want you to learn lots of things from this class, but I primarily want you to stay healthy, balanced, and grounded."
   },
   {
-    "objectID": "slides/00/00-welcome-python.html#jupyterlab",
-    "href": "slides/00/00-welcome-python.html#jupyterlab",
+    "objectID": "slides/00/00-welcome-python.html#visual-studio-code",
+    "href": "slides/00/00-welcome-python.html#visual-studio-code",
     "title": "Welcome to INFO 523",
-    "section": "JupyterLab",
-    "text": "JupyterLab\n\nhttps://jupyter.org/try\n\n\nBrowser based JupyterLab instance(s)\nRequires internet connection to access\nProvides consistency in hardware and software environments\nLocal Python and JupyterLab installations are fine but we will not guarantee support"
+    "section": "Visual Studio Code",
+    "text": "Visual Studio Code\n\nhttps://code.visualstudio.com/\n\n\nFull-featured IDE with native Jupyter Notebook support\nIntegrated Python debugger with inline variable values\nBuilt-in variable viewer and data explorer for notebooks\nSupports both local and remote development (including GitHub Codespaces)"
   },
   {
     "objectID": "slides/00/00-welcome-python.html#github",
@@ -1695,14 +1776,14 @@
     "href": "slides/00/00-welcome-python.html#slack",
     "title": "Welcome to INFO 523",
     "section": "Slack",
-    "text": "Slack\n\nOnline forum for asking and answering questions\nPrivate repo in the course organization\nYou will need to join the course organization for access\nAsk and answer questions related to course logistics, assignment, etc. here\nPersonal questions (e.g., extensions, illnesses, etc.) should be via email to me\nOnce you join, browse the channels to make sure you’re posting questions in the right channel, update your profile with your name, photo/avatar of you that matches your GitHub profile, and your pronouns\nUnfortunately Slack is not the best place to ask coding questions, but it’s a great place for real-time connection and collaboration\n\n\nDemo on Wednesday for asking good questions with proper code formatting."
+    "text": "Slack\n\nOnline forum for asking and answering questions\nPrivate repo in the course organization\nYou will need to join the course organization for access\nAsk and answer questions related to course logistics, assignment, etc. here\nPersonal questions (e.g., extensions, illnesses, etc.) should be via email to me\nOnce you join, browse the channels to make sure you’re posting questions in the right channel, update your profile with your name, photo/avatar of you that matches your GitHub profile, and your pronouns"
   },
   {
-    "objectID": "slides/00/00-welcome-python.html#before-the-weekend",
-    "href": "slides/00/00-welcome-python.html#before-the-weekend",
+    "objectID": "slides/00/00-welcome-python.html#before-week-2",
+    "href": "slides/00/00-welcome-python.html#before-week-2",
     "title": "Welcome to INFO 523",
-    "section": "Before the weekend",
-    "text": "Before the weekend\n\nCreate a GitHub account if you don’t have one\nRead the syllabus\nMake sure you can use JupyterLab\n\nIf not, install Python and JupyterLab (or VS Code)"
+    "section": "Before Week 2",
+    "text": "Before Week 2\n\nCreate a GitHub account if you don’t have one\nRead the syllabus\nMake sure you can use Codespaces\n\nIf not, install Python and VS Code"
   },
   {
     "objectID": "slides/00/00-welcome-python.html#quarto-1",
@@ -2668,7 +2749,7 @@
     "href": "index.html",
     "title": "INFO 523: Data Mining & Discovery",
     "section": "",
-    "text": "This page contains an outline of the topics, content, and assignments for the semester. Note that this schedule will be updated as the semester progresses and the timeline of topics and assignments might be updated throughout the semester.\n\n\n\n\n\n\n\n\nWeek\nDate\nwhat\nTopic\nVideo\nPrepare\nDue\n\n\n\n\n1\nMon, Aug 25\nLec 0\nWelcome + Intro to Python\nNA\n📚 Python Data Analysis - Chp 2  📚 Python Data Analysis - Chp 3  🎥 Getting Started with Quarto   🎥 Quarto + VSCode  🎥 Git + GitHub + VSCode\n\n\n\n\n2\nTue, Sep 2\nLec 1\nIntroduction to Data Mining  Intro to Numpy\nNA\n📚 Data Mining Concept - Chp 1  📚 Python Data Analysis - Chp 4\n\n\n\n\n\nThu, Sep 4\nLec 1.5\nIntro to Pandas\nNA\n📚 Python Data Analysis - Chp 4  📚 Python Data Analysis - Chp 5\n✅ RQ 1\n\n\n3\nMon, Sep 8\nLec 2\nSampling + conclusions\nNA\n📚 Prac Stats for DS - Chp 2  📚 Python Data Analysis - Chp 5  📚 Python Data Analysis - Chp 6\n\n\n\n\n\nThu, Sep 11\nFinal\nIntroduction to Final Project\nNA\n\n\n\n\n\n\n4\nMon, Sep 15\nLec 3\nExploratory Data Analysis + Data Viz\nNA\n📚 Prac Stats for DS - Chp 1  📚 Python Data Analysis - Chp 9\n\n\n\n\n\nThu, Sep 18\nHW 1\n\n\nNA\n\n\n📝 HW 1\n\n\n5\nMon, Sep 22\nLec 4\nData Preprocessing\nNA\n📚 Python Data Analysis - Chp 7  📚 Python Data Analysis - Chp 8  📃 Data Preprocessing in Python\n✅ RQ 2\n\n\n6\nMon, Sep 29\nLec 5\nClassification I\nNA\n📚 ISL - Chp 4\n\n\n\n\n\nThu, Oct 2\nHW 2\n\n\nNA\n\n\n📝 HW 2\n\n\n7\nMon, Oct 6\nLec 5.5\nClassification I Cont.\nNA\n\n\n\n\n\n\n\nThu, Oct 9\nFinal\nFinal Project Proposal: Idea\nNA\n\n\n📑 Send your project idea in the Slack channel\n\n\n8\nMon, Oct 13\nLec 6\nClassification II  Model Evaluation\nNA\n📚 ISL - Chp 8.1  📚 ISL - Chp 5\n\n\n\n\n\nThu, Oct 16\nAI\nExtra Credit: Share Your AI Usage\nNA\n\n\n📑 Share stories about your AI usage in this course in the Slack channel\n\n\n9\nMon, Oct 20\nLec 6.5\nGenerative AI Usage in Data Mining and Discovery\nNA\n\n\n\n\n\n\n\nThu, Oct 23\nHW 3\n\n\nNA\n\n\n📝 HW 3\n\n\n10\nMon, Oct 27\nLec 7\nRegression I\nNA\n📚 ISL - Chp 3  📚 ISL - Chp 6, up to regularization\n✅ RQ 3\n\n\n\nThu, Oct 30\nFinal\nFinal Project Proposal for Peer Review\nNA\n\n\n📑 Project proposals for peer review\n\n\n11\nMon, Nov 3\nLec 8\nRegression II\nNA\n📚 ISL - Chp 6, second half\n\n\n\n\n\nThu, Nov 6\nFinal\nFinal Project Revised Proposal\nNA\n\n\n📑 Revised project proposals for instructor review\n\n\n12\nMon, Nov 10\nLec 9\nRegression III\nNA\n📚 ISL - Chp 7  📚 ISL - Chp 8.2\n\n\n\n\n13\nMon, Nov 17\nLec 10\nSupport Vector Machines  Time Series Exercise\nNA\n📚 ISL - Chp 9\n✅ RQ 4\n\n\n\nThu, Nov 20\nHW 4\n\n\nNA\n\n\n📝 HW 4\n\n\n14\nMon, Nov 24\nLec 11\nUnsupervised Learning Methods I\nNA\n📚 Prac Stats for DS - Chp 7 (pgs 294-302)\n\n\n\n\n15\nMon, Dec 1\nLec 12\nUnsupervised Learning Methods II\nNA\n📚 Prac Stats for DS - Chp 7 (pgs 302- 325)\n\n\n\n\n\nThu, Dec 4\nHW 5\n\n\nNA\n\n\n📝 HW 5\n\n\n16\nMon, Dec 8\nLec 13\nAssociation Rules\nNA\n📚 Data Mining Concept - Chp 4  📃 Data Mining in Python\n✅ RQ 5\n\n\n\nThu, Dec 11\nFinal\nFinal Project Peer Code Review\nNA\n\n\n📑 Peer review of other team’s code\n\n\nFinals\nFri, Dec 12\nFinal\nFinal Project Presentations\nNA\n\n\n\n\n\n\nFinals\nTue, Dec 16\nFinal\n\n\nNA\n\n\n📑 Final project due",
+    "text": "This page contains an outline of the topics, content, and assignments for the semester. Note that this schedule will be updated as the semester progresses and the timeline of topics and assignments might be updated throughout the semester.\n\n\n\n\n\n\n\n\nWeek\nDate\nTopic\nVideo\nPrepare\nDue\n\n\n\n\n1\nMon, Aug 25\nWelcome + Intro to Python\nNA\n📚 Python Data Analysis - Chp 2  📚 Python Data Analysis - Chp 3  🎥 Getting Started with Quarto   🎥 Quarto + VSCode  🎥 Git + GitHub + VSCode\n\n\n\n\n2\nTue, Sep 2\nIntroduction to Data Mining  Intro to Numpy\nNA\n📚 Data Mining Concept - Chp 1  📚 Python Data Analysis - Chp 4\n\n\n\n\n\nThu, Sep 4\nIntro to Pandas\nNA\n📚 Python Data Analysis - Chp 4  📚 Python Data Analysis - Chp 5\n✅ RQ 1\n\n\n3\nMon, Sep 8\nSampling + conclusions\nNA\n📚 Prac Stats for DS - Chp 2  📚 Python Data Analysis - Chp 5  📚 Python Data Analysis - Chp 6\n\n\n\n\n\nThu, Sep 11\nIntroduction to Final Project\nNA\n\n\n\n\n\n\n4\nMon, Sep 15\nExploratory Data Analysis + Data Viz\nNA\n📚 Prac Stats for DS - Chp 1  📚 Python Data Analysis - Chp 9\n\n\n\n\n\nThu, Sep 18\n\n\nNA\n\n\n📝 HW 1\n\n\n5\nMon, Sep 22\nData Preprocessing\nNA\n📚 Python Data Analysis - Chp 7  📚 Python Data Analysis - Chp 8  📃 Data Preprocessing in Python\n✅ RQ 2\n\n\n6\nMon, Sep 29\nClassification I\nNA\n📚 ISL - Chp 4\n\n\n\n\n\nThu, Oct 2\n\n\nNA\n\n\n📝 HW 2\n\n\n7\nMon, Oct 6\nClassification I Cont.\nNA\n\n\n\n\n\n\n\nThu, Oct 9\nFinal Project Proposal: Idea\nNA\n\n\n📑 Send your project idea in the Slack channel\n\n\n8\nMon, Oct 13\nClassification II  Model Evaluation\nNA\n📚 ISL - Chp 8.1  📚 ISL - Chp 5\n\n\n\n\n\nThu, Oct 16\nExtra Credit: Share Your AI Usage\nNA\n\n\n📑 Share stories about your AI usage in this course in the Slack channel\n\n\n9\nMon, Oct 20\nGenerative AI Usage in Data Mining and Discovery\nNA\n\n\n\n\n\n\n\nThu, Oct 23\n\n\nNA\n\n\n📝 HW 3\n\n\n10\nMon, Oct 27\nRegression I\nNA\n📚 ISL - Chp 3  📚 ISL - Chp 6, up to regularization\n✅ RQ 3\n\n\n\nThu, Oct 30\nFinal Project Proposal for Peer Review\nNA\n\n\n📑 Project proposals for peer review\n\n\n11\nMon, Nov 3\nRegression II\nNA\n📚 ISL - Chp 6, second half\n\n\n\n\n\nThu, Nov 6\nFinal Project Revised Proposal\nNA\n\n\n📑 Revised project proposals for instructor review\n\n\n12\nMon, Nov 10\nRegression III\nNA\n📚 ISL - Chp 7  📚 ISL - Chp 8.2\n\n\n\n\n13\nMon, Nov 17\nSupport Vector Machines  Time Series Exercise\nNA\n📚 ISL - Chp 9\n✅ RQ 4\n\n\n\nThu, Nov 20\n\n\nNA\n\n\n📝 HW 4\n\n\n14\nMon, Nov 24\nUnsupervised Learning Methods I\nNA\n📚 Prac Stats for DS - Chp 7 (pgs 294-302)\n\n\n\n\n15\nMon, Dec 1\nUnsupervised Learning Methods II\nNA\n📚 Prac Stats for DS - Chp 7 (pgs 302- 325)\n\n\n\n\n\nThu, Dec 4\n\n\nNA\n\n\n📝 HW 5\n\n\n16\nMon, Dec 8\nAssociation Rules\nNA\n📚 Data Mining Concept - Chp 4  📃 Data Mining in Python\n✅ RQ 5\n\n\n\nThu, Dec 11\nFinal Project Peer Code Review\nNA\n\n\n📑 Peer review of other team’s code\n\n\nFinals\nFri, Dec 12\nFinal Project Presentations\nNA\n\n\n\n\n\n\nFinals\nTue, Dec 16\n\n\nNA\n\n\n📑 Final project due",
     "crumbs": [
       "Course information",
       "Schedule"
@@ -3617,7 +3698,7 @@
     "href": "doc-temp/slides/00/00-welcome-python.html#office-hours",
     "title": "Welcome to INFO 523",
     "section": "Office hours",
-    "text": "Office hours\n\nJohn Chen:\n\nMondays, TBA - Zoom\n\nExcept for university holidays\nAny exceptions will be announced in class / by email\n\nBy appointment - Zoom or Harvill 304\n\n+ lots more resources listed on the syllabus!"
+    "text": "Office hours\n\nJohn Chen:\n\nWednesdays, 12-1pm - Zoom\n\nExcept for university holidays\nAny exceptions will be announced in class / by email\n\nBy appointment - Zoom or Harvill 304\n\n+ lots more resources listed on the syllabus!"
   },
   {
     "objectID": "doc-temp/slides/00/00-welcome-python.html#wellness",
@@ -3652,14 +3733,14 @@
     "href": "doc-temp/slides/00/00-welcome-python.html#slack",
     "title": "Welcome to INFO 523",
     "section": "Slack",
-    "text": "Slack\n\nOnline forum for asking and answering questions\nPrivate repo in the course organization\nYou will need to join the course organization for access\nAsk and answer questions related to course logistics, assignment, etc. here\nPersonal questions (e.g., extensions, illnesses, etc.) should be via email to me\nOnce you join, browse the channels to make sure you’re posting questions in the right channel, update your profile with your name, photo/avatar of you that matches your GitHub profile, and your pronouns\nUnfortunately Slack is not the best place to ask coding questions, but it’s a great place for real-time connection and collaboration\n\n\nDemo on Wednesday for asking good questions with proper code formatting."
+    "text": "Slack\n\nOnline forum for asking and answering questions\nPrivate repo in the course organization\nYou will need to join the course organization for access\nAsk and answer questions related to course logistics, assignment, etc. here\nPersonal questions (e.g., extensions, illnesses, etc.) should be via email to me\nOnce you join, browse the channels to make sure you’re posting questions in the right channel, update your profile with your name, photo/avatar of you that matches your GitHub profile, and your pronouns"
   },
   {
-    "objectID": "doc-temp/slides/00/00-welcome-python.html#before-the-weekend",
-    "href": "doc-temp/slides/00/00-welcome-python.html#before-the-weekend",
+    "objectID": "doc-temp/slides/00/00-welcome-python.html#before-week-2",
+    "href": "doc-temp/slides/00/00-welcome-python.html#before-week-2",
     "title": "Welcome to INFO 523",
-    "section": "Before the weekend",
-    "text": "Before the weekend\n\nCreate a GitHub account if you don’t have one\nRead the syllabus\nMake sure you can use JupyterLab\n\nIf not, install Python and JupyterLab (or VS Code)"
+    "section": "Before Week 2",
+    "text": "Before Week 2\n\nCreate a GitHub account if you don’t have one\nRead the syllabus\nMake sure you can use Codespaces\n\nIf not, install Python and VS Code"
   },
   {
     "objectID": "doc-temp/slides/00/00-welcome-python.html#quarto-1",
@@ -6070,7 +6151,7 @@
     "href": "course-team.html",
     "title": "Teaching team",
     "section": "",
-    "text": "{style=“float:right;padding: 0 0 0 10px;” fig-alt=“Headshot of Dr. John Chen” width=“200”}\nJohn Chen (he/him) is an Lecturer at the College of Information Science at The University of Arizona. John Chen is a researcher in human-AI interaction, playful learning, and online communities. He leverages multiple human-centered data science methods in his interdisciplinary research. His online learning software has been used by millions of learners around the world.\n\n\n\n\n\n\n\nOffice hours\nLocation\n\n\n\n\nMondays TBA\nZoom\n\n\nBy appointment\nHarvill 304 or Zoom",
+    "text": "{style=“float:right;padding: 0 0 0 10px;” fig-alt=“Headshot of Dr. John Chen” width=“200”}\nJohn Chen (he/him) is an Lecturer at the College of Information Science at The University of Arizona. John Chen is a researcher in human-AI interaction, playful learning, and online communities. He leverages multiple human-centered data science methods in his interdisciplinary research. His online learning software has been used by millions of learners around the world.\n\n\n\n\n\n\n\nOffice hours\nLocation\n\n\n\n\nWednesdays 12-1pm\nZoom\n\n\nBy appointment\nHarvill 304 or Zoom",
     "crumbs": [
       "Course information",
       "Teaching team"
@@ -6081,7 +6162,7 @@
     "href": "course-team.html#instructor",
     "title": "Teaching team",
     "section": "",
-    "text": "{style=“float:right;padding: 0 0 0 10px;” fig-alt=“Headshot of Dr. John Chen” width=“200”}\nJohn Chen (he/him) is an Lecturer at the College of Information Science at The University of Arizona. John Chen is a researcher in human-AI interaction, playful learning, and online communities. He leverages multiple human-centered data science methods in his interdisciplinary research. His online learning software has been used by millions of learners around the world.\n\n\n\n\n\n\n\nOffice hours\nLocation\n\n\n\n\nMondays TBA\nZoom\n\n\nBy appointment\nHarvill 304 or Zoom",
+    "text": "{style=“float:right;padding: 0 0 0 10px;” fig-alt=“Headshot of Dr. John Chen” width=“200”}\nJohn Chen (he/him) is an Lecturer at the College of Information Science at The University of Arizona. John Chen is a researcher in human-AI interaction, playful learning, and online communities. He leverages multiple human-centered data science methods in his interdisciplinary research. His online learning software has been used by millions of learners around the world.\n\n\n\n\n\n\n\nOffice hours\nLocation\n\n\n\n\nWednesdays 12-1pm\nZoom\n\n\nBy appointment\nHarvill 304 or Zoom",
     "crumbs": [
       "Course information",
       "Teaching team"

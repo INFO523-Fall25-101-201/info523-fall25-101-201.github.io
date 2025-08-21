@@ -101,19 +101,29 @@ aka "the one link to rule them all"
 ```
 :::
 
-## Lectures {.smaller}
+## Lectures
 
--   In person
+-   Asynchronous online format, watch at your pace
 
--   Attendance is required (as long as you're healthy!)
+-   Active participation is expected throughout the semester
 
--   A little bit of everything:
+-   Discussions and Q&A are expected and encouraged in the Slack channel, more details to come
 
-    -   Traditional lecture
+## Division of Labor
 
-    -   Live coding + demos
+-   Will reuse some of Dr. Greg Chism's recordings
 
-    -   Short exercises + solution discussion
+-   Dr. Chism designed the class and has been teaching for many semesters at {{< var university.short_name >}}
+
+-   I will record ad-hoc sections: 
+    
+    -   To discuss our usage of Generative AI in data mining 
+
+    -   If some of you want to learn an extra technique (email me!)
+
+    -   To address common issues among homework/project submissions
+
+-   I will provide timely support on Slack channel
 
 ## Announcements
 
@@ -121,7 +131,7 @@ aka "the one link to rule them all"
 
 -   I'll assume that you've read an announcement by the next "business" day
 
-## Diversity and inclusion {.smaller}
+## A Course for Everyone {.smaller}
 
 It is my intent that students from all diverse backgrounds and perspectives be well-served by this course, that students' learning needs be addressed both in and out of class, and that the diversity that the students bring to this class be viewed as a resource, strength and benefit.
 
@@ -129,9 +139,11 @@ It is my intent that students from all diverse backgrounds and perspectives be w
 
 -   Please let me know your preferred pronouns.
 
+. . .
+
 -   If you feel like your performance in the class is being impacted by your experiences outside of class, please don't hesitate to come and talk with me. I want to be a resource for you. If you prefer to speak with someone outside of the course, your advisers and deans are excellent resources.
 
--   I (like many people) am still in the process of learning about diverse perspectives and identities. If something was said in class (by anyone) that made you feel uncomfortable, please talk to me about it.
+-   If something was said in class (by anyone) that made you feel uncomfortable, please talk to me about it.
 
 ## Accessibility
 
@@ -141,31 +153,40 @@ It is my intent that students from all diverse backgrounds and perspectives be w
 
 # Assessments
 
-## Attendance + participation (5%)
+-   All deadlines are on 11:59pm MST.
+-   The course schedule is designed so you can easily remember:
+    -   Monday: Suggested time for watching the lecture. Quiz deadlines.
+    -   Thursday: Assignment deadlines.
 
+## Attendance + participation (10%)
 -   Required throughout the semester in lecture
-
--   Students who attend at least 80% of the lectures and participate regularly in lecture and/or other course venues (Slack) will receive full credit for this portion of their grade
+-   Students who participate regularly in course venues (especially Slack) will receive full credit for this portion of their grade
 
 ## Reading quizzes (10%)
-
 -   Online, individual
--   Cover reading that is due since the previous quiz and up to and including the deadline for the given quiz
--   Due by 11:59 pm AZ Time on the indicated day on the course schedule
--   **Lowest dropped**
+-   Deadline typically on Mondays
+-   5 quizzes throughout the semester (2% each)
+-   Cover reading that is due since the previous quiz
 
-## Homework assignments (45%)
-
+## Homework assignments (40%)
 -   Submitted on GitHub, individual
--   Some lab sessions allocated to working on homework / getting feedback from your TA
--   Due by 11:59 pm AZ Time on the indicated day on the course schedule
--   **Lowest dropped**
+-   Deadline typically on Thursdays
+-   Co-working sessions based on your availability
+-   Office hours to help with your needs
 
-## Projects (40%)
-
+## The Final Project (40%)
 -   Submitted on GitHub, team-based
+-   Open-ended, choose your own adventure
+-   Deadline typically on Thursdays
+-   Presentation + Writeup
 
--   Interim deadlines, peer review on content, peer evaluation for team contribution
+. . .
+
+-   Milestone deadlines: 
+    - Submitting your idea
+    - Peer review on the proposal
+    - Instructor feedback on the proposal
+    - Peer evaluation for team contribution
 
 ## Teams
 
@@ -178,35 +199,18 @@ It is my intent that students from all diverse backgrounds and perspectives be w
     -   Everyone is expected to understand *all* code turned in
     -   Individual contribution evaluated by peer evaluation, commits, etc.
 
-## Project 1 (15%)
-
--   Same/similar data, different results
-
--   Presentation and write-up
-
--   Wrapped up before midterms grades are due
-
-## Project 2 (25%)
-
--   The world is your oyster! (and more details TBA)
-
--   New team
-
--   Presentation and write-up
-
--   Wrapped up on the final exam date
-
 ## Grading {.smaller}
 
 This course is assessed 100% on your coursework (there is no exam). We will be assessing you based on the following assignments,
 
+**Note:** Please refer to the course syllabus and schedule for specific dates and detailed requirements.
+
 | Assignment | Type | Value | n | Due |
 |:--------------|:--------------|:--------------|:--------------|---------------|
-| Attendance + participation | Individual | 5% |  |  |
-| Reading quizzes | Individual | 10% | 6 | \~ Every other week |
-| Homeworks | Individual | 45% | 6 | \~ Every 2-3 weeks |
-| Project 1 | Team | 15% | 1 | \~ Week 10 + earlier interim deadlines |
-| Project 2 | Team | 25% | 1 | \~ Finals week + earlier interim deadlines |
+| Attendance + participation | Individual | 10% |  | Throughout semester |
+| Reading quizzes | Individual | 10% | 5 | ~ Every other week |
+| Homeworks | Individual | 40% | 5 | ~ Every 2-3 weeks |
+| Final Project | Team | 40% | 1 | Milestones + Finals week |
 
 # Course policies
 
@@ -228,6 +232,13 @@ This course is assessed 100% on your coursework (there is no exam). We will be a
     -   Late, but next day (after noon): -20% of available points
     -   Two days late or later: No credit, and we will not provide written feedback
 
+-   Peer evaluation:
+
+    -   Late submissions not accepted
+    -   Must turn in peer evaluation if you want your own score from others
+
+. . .
+
 -   Project presentations: Late submissions not accepted
 
 -   Project write-ups:
@@ -235,11 +246,6 @@ This course is assessed 100% on your coursework (there is no exam). We will be a
     -   Late, but next day (before noon): -10% of available points
     -   Late, but next day (after noon): -20% of available points
     -   Two days late or later: No credit, and we will not provide written feedback
-
--   Peer evaluation:
-
-    -   Late submissions not accepted
-    -   Must turn in peer evaluation if you want your own score from others
 
 ## Free passes
 
@@ -275,11 +281,16 @@ Three "free passes" for the semester
 
 ## ChatGPT / AI policy
 
--   We are additionally aware of the potential code AI for coding (your instructor taught a workshop on it...).
+-   **AI is Sometimes Permitted** - This class encourages you to use/experiment with Generative AI in all assignments and projects
 
--   While these tools are amazing, learners should be aware of the impacts that using such tools can have on core competency. David Humphrey, a computer science professor, [**wrote about ChatGPT and its potentially negative impacts on core learning.**](https://blog.humphd.org/cheatgpt/) It is a good read about the pitfalls of using generative AI in an educational context.
+-   **Exception:** Quizzes - AI use is not permitted for quizzes as they serve as your own checkpoint and reflection
 
--   By using a generative AI, learners may miss the opportunity to discover how something works and why things are done that way.
+-   **Requirements when using AI:**
+    - Always maintain control by reviewing, criticizing, and steering AI responses
+    - Clearly state which AI tools you used and how you incorporated their output
+    - Write reflections about your workflow and AI's responses (graded component)
+
+-   Remember: AI tools won't be responsible for your grades or learning - you are!
 
 ## Academic integrity
 
@@ -309,7 +320,7 @@ ask if you're not sure if something violates a policy!
 
         -   Except for university holidays
 
-        -   Any exceptions will be announced in class / by email
+        -   Any exceptions will be announced via Slack / D2L
 
     -   By appointment - Zoom or {{< var instructor.office >}}
 
@@ -325,19 +336,19 @@ I want to make sure that you learn everything you were hoping to learn from this
 
 # Course Tools
 
-## JupyterLab
+## Visual Studio Code
 
 ::: {.large style="text-align: center;"}
-<https://jupyter.org/try>
+<https://code.visualstudio.com/>
 :::
 
--   Browser based JupyterLab instance(s)
+-   Full-featured IDE with native Jupyter Notebook support
 
--   Requires internet connection to access
+-   Integrated Python debugger with inline variable values
 
--   Provides consistency in hardware and software environments
+-   Built-in variable viewer and data explorer for notebooks
 
--   Local Python and JupyterLab installations are fine but we will not guarantee support
+-   Supports both local and remote development (including GitHub Codespaces)
 
 ## GitHub {.smaller}
 
