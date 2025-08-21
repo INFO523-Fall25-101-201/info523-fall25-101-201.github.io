@@ -1,0 +1,1713 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<link href="../../..//images/logo.png" rel="icon" type="image/png">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script><script src="../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../site_libs/quarto-html/tabby.min.js"></script>
+<script src="../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-ea385d0e468b0dd5ea5bf0780b1290d9.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.7.33">
+
+  <meta name="author" content="John Chen">
+  <title>INFO 523 – Classification II + Model Evaluation</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="../../../site_libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="../../../site_libs/revealjs/dist/reveal.css">
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+      vertical-align: middle;
+    }
+    /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      { color: #003b4f; background-color: #f1f3f5; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #003b4f; } /* Normal */
+    code span.al { color: #ad0000; } /* Alert */
+    code span.an { color: #5e5e5e; } /* Annotation */
+    code span.at { color: #657422; } /* Attribute */
+    code span.bn { color: #ad0000; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #003b4f; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #20794d; } /* Char */
+    code span.cn { color: #8f5902; } /* Constant */
+    code span.co { color: #5e5e5e; } /* Comment */
+    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+    code span.dt { color: #ad0000; } /* DataType */
+    code span.dv { color: #ad0000; } /* DecVal */
+    code span.er { color: #ad0000; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #ad0000; } /* Float */
+    code span.fu { color: #4758ab; } /* Function */
+    code span.im { color: #00769e; } /* Import */
+    code span.in { color: #5e5e5e; } /* Information */
+    code span.kw { color: #003b4f; font-weight: bold; } /* Keyword */
+    code span.op { color: #5e5e5e; } /* Operator */
+    code span.ot { color: #003b4f; } /* Other */
+    code span.pp { color: #ad0000; } /* Preprocessor */
+    code span.sc { color: #5e5e5e; } /* SpecialChar */
+    code span.ss { color: #20794d; } /* SpecialString */
+    code span.st { color: #20794d; } /* String */
+    code span.va { color: #111111; } /* Variable */
+    code span.vs { color: #20794d; } /* VerbatimString */
+    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
+  </style>
+  <link rel="stylesheet" href="../../../site_libs/revealjs/dist/theme/quarto-191024931916078fc4eae1dde1f53f1c.css">
+  <link href="../../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="../../../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="../../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="../../../site_libs/revealjs/plugin/reveal-chalkboard/font-awesome/css/all.css" rel="stylesheet">
+  <link href="../../../site_libs/revealjs/plugin/reveal-chalkboard/style.css" rel="stylesheet">
+  <link href="../../../site_libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <style type="text/css">
+    .reveal div.sourceCode {
+      margin: 0;
+      overflow: auto;
+    }
+    .reveal div.hanging-indent {
+      margin-left: 1em;
+      text-indent: -1em;
+    }
+    .reveal .slide:not(.center) {
+      height: 100%;
+    }
+    .reveal .slide.scrollable {
+      overflow-y: auto;
+    }
+    .reveal .footnotes {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide .absolute {
+      position: absolute;
+      display: block;
+    }
+    .reveal .footnotes ol {
+      counter-reset: ol;
+      list-style-type: none; 
+      margin-left: 0;
+    }
+    .reveal .footnotes ol li:before {
+      counter-increment: ol;
+      content: counter(ol) ". "; 
+    }
+    .reveal .footnotes ol li > p:first-child {
+      display: inline-block;
+    }
+    .reveal .slide ul,
+    .reveal .slide ol {
+      margin-bottom: 0.5em;
+    }
+    .reveal .slide ul li,
+    .reveal .slide ol li {
+      margin-top: 0.4em;
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide ul[role="tablist"] li {
+      margin-bottom: 0;
+    }
+    .reveal .slide ul li > *:first-child,
+    .reveal .slide ol li > *:first-child {
+      margin-block-start: 0;
+    }
+    .reveal .slide ul li > *:last-child,
+    .reveal .slide ol li > *:last-child {
+      margin-block-end: 0;
+    }
+    .reveal .slide .columns:nth-child(3) {
+      margin-block-start: 0.8em;
+    }
+    .reveal blockquote {
+      box-shadow: none;
+    }
+    .reveal .tippy-content>* {
+      margin-top: 0.2em;
+      margin-bottom: 0.7em;
+    }
+    .reveal .tippy-content>*:last-child {
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide > img.stretch.quarto-figure-center,
+    .reveal .slide > img.r-stretch.quarto-figure-center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-left,
+    .reveal .slide > img.r-stretch.quarto-figure-left  {
+      display: block;
+      margin-left: 0;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-right,
+    .reveal .slide > img.r-stretch.quarto-figure-right  {
+      display: block;
+      margin-left: auto;
+      margin-right: 0; 
+    }
+  </style>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+  
+  <script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
+<meta property="og:title" content="Classification II + Model Evaluation – INFO 523">
+<meta property="og:description" content="Lecture 6">
+<meta property="og:site_name" content="INFO 523">
+</head>
+<body class="quarto-light">
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide" data-background-image="../minedata-bg.png" data-background-size="600px, cover" data-slide-number="none" class="quarto-title-block center">
+  <h1 class="title">Classification II + Model Evaluation</h1>
+  <p class="subtitle">Lecture 6</p>
+
+<div class="quarto-title-authors">
+<div class="quarto-title-author">
+<div class="quarto-title-author-name">
+John Chen 
+</div>
+        <p class="quarto-title-affiliation">
+            University of Arizona <br> INFO 523 - Fall 2025
+          </p>
+    </div>
+</div>
+
+</section>
+<section>
+<section id="warm-up" class="title-slide slide level1 center">
+<h1>Warm up</h1>
+
+</section>
+<section id="announcements" class="slide level2">
+<h2>Announcements</h2>
+<ul>
+<li><p>HW 03 is due Wed, Mar 20, 11:59pm</p></li>
+<li><p>RQ 3 is due Wed, Mar 20, 11:59pm</p></li>
+</ul>
+</section>
+<section id="setup" class="slide level2 smaller">
+<h2>Setup</h2>
+<div id="setup" class="cell" data-message="false" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a></a><span class="co"># Import all required libraries</span></span>
+<span id="cb1-2"><a></a><span class="co"># Data handling and manipulation</span></span>
+<span id="cb1-3"><a></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-4"><a></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-5"><a></a></span>
+<span id="cb1-6"><a></a><span class="co"># Machine learning models</span></span>
+<span id="cb1-7"><a></a><span class="im">from</span> sklearn.preprocessing <span class="im">import</span> LabelEncoder, StandardScaler</span>
+<span id="cb1-8"><a></a><span class="im">from</span> sklearn.decomposition <span class="im">import</span> PCA</span>
+<span id="cb1-9"><a></a><span class="im">import</span> mord <span class="im">as</span> m</span>
+<span id="cb1-10"><a></a><span class="im">from</span> sklearn.discriminant_analysis <span class="im">import</span> LinearDiscriminantAnalysis</span>
+<span id="cb1-11"><a></a><span class="im">from</span> sklearn.neighbors <span class="im">import</span> KNeighborsClassifier</span>
+<span id="cb1-12"><a></a><span class="im">from</span> sklearn.tree <span class="im">import</span> DecisionTreeClassifier, plot_tree</span>
+<span id="cb1-13"><a></a><span class="im">from</span> sklearn.ensemble <span class="im">import</span> RandomForestClassifier</span>
+<span id="cb1-14"><a></a><span class="im">from</span> sklearn.svm <span class="im">import</span> SVC</span>
+<span id="cb1-15"><a></a></span>
+<span id="cb1-16"><a></a></span>
+<span id="cb1-17"><a></a><span class="co"># Model evaluation and validation methods</span></span>
+<span id="cb1-18"><a></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> train_test_split</span>
+<span id="cb1-19"><a></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> KFold</span>
+<span id="cb1-20"><a></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> LeaveOneOut</span>
+<span id="cb1-21"><a></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> cross_val_score</span>
+<span id="cb1-22"><a></a><span class="im">from</span> sklearn.utils <span class="im">import</span> resample</span>
+<span id="cb1-23"><a></a></span>
+<span id="cb1-24"><a></a><span class="co"># Metrics for model evaluation</span></span>
+<span id="cb1-25"><a></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> accuracy_score</span>
+<span id="cb1-26"><a></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> precision_score</span>
+<span id="cb1-27"><a></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> recall_score</span>
+<span id="cb1-28"><a></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> f1_score</span>
+<span id="cb1-29"><a></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> roc_curve, auc</span>
+<span id="cb1-30"><a></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> roc_auc_score</span>
+<span id="cb1-31"><a></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> confusion_matrix</span>
+<span id="cb1-32"><a></a></span>
+<span id="cb1-33"><a></a><span class="co"># Utility for data preprocessing</span></span>
+<span id="cb1-34"><a></a><span class="im">from</span> sklearn.preprocessing <span class="im">import</span> StandardScaler</span>
+<span id="cb1-35"><a></a><span class="im">from</span> sklearn.preprocessing <span class="im">import</span> LabelEncoder</span>
+<span id="cb1-36"><a></a><span class="im">from</span> sklearn.preprocessing <span class="im">import</span> label_binarize</span>
+<span id="cb1-37"><a></a></span>
+<span id="cb1-38"><a></a><span class="co"># For advanced visualizations</span></span>
+<span id="cb1-39"><a></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb1-40"><a></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
+<span id="cb1-41"><a></a></span>
+<span id="cb1-42"><a></a><span class="co"># Increase font size of all Seaborn plot elements</span></span>
+<span id="cb1-43"><a></a>sns.<span class="bu">set</span>(font_scale <span class="op">=</span> <span class="fl">1.25</span>)</span>
+<span id="cb1-44"><a></a></span>
+<span id="cb1-45"><a></a><span class="co"># Set Seaborn theme</span></span>
+<span id="cb1-46"><a></a>sns.set_theme(style <span class="op">=</span> <span class="st">"white"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section></section>
+<section>
+<section id="model-evaluation" class="title-slide slide level1 center">
+<h1>Model Evaluation</h1>
+
+</section>
+<section id="looking-back" class="slide level2">
+<h2>Looking back</h2>
+<p><strong>Can we <u>predict high-risk credit individuals</u> by their <u>financial traits</u>?</strong></p>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/credit-risk.jpeg" class="quarto-figure quarto-figure-center" width="1200"></p>
+</figure>
+</div>
+
+<aside><div>
+<p>Source: <a href="https://www.lendingclub.com/info/statistics.action">Lending Club</a></p>
+</div></aside></section>
+<section id="what-did-we-do" class="slide level2">
+<h2>What did we do?</h2>
+<ul>
+<li class="fragment"><p>Used several models</p></li>
+<li class="fragment"><p>Compared and contrasted efficacy</p></li>
+<li class="fragment"><p>Concluded that we couldn’t predict credit risk</p></li>
+</ul>
+</section>
+<section id="refresher-on-our-data-with-ordinal-risk" class="slide level2 smaller">
+<h2>Refresher on our data (with ordinal risk)</h2>
+<div id="4d5bd3c3" class="cell" data-execution_count="2">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a></a>loans_class <span class="op">=</span> pd.read_csv(<span class="st">"data/loans_class.csv"</span>)</span>
+<span id="cb2-2"><a></a></span>
+<span id="cb2-3"><a></a>loans_class.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display" data-execution_count="2">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+
+<table class="dataframe caption-top" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header" style="text-align: right;">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">emp_title</th>
+<th data-quarto-table-cell-role="th">emp_length</th>
+<th data-quarto-table-cell-role="th">state</th>
+<th data-quarto-table-cell-role="th">homeownership</th>
+<th data-quarto-table-cell-role="th">annual_income</th>
+<th data-quarto-table-cell-role="th">verified_income</th>
+<th data-quarto-table-cell-role="th">debt_to_income</th>
+<th data-quarto-table-cell-role="th">delinq_2y</th>
+<th data-quarto-table-cell-role="th">earliest_credit_line</th>
+<th data-quarto-table-cell-role="th">inquiries_last_12m</th>
+<th data-quarto-table-cell-role="th">...</th>
+<th data-quarto-table-cell-role="th">issue_month</th>
+<th data-quarto-table-cell-role="th">loan_status</th>
+<th data-quarto-table-cell-role="th">initial_listing_status</th>
+<th data-quarto-table-cell-role="th">disbursement_method</th>
+<th data-quarto-table-cell-role="th">balance</th>
+<th data-quarto-table-cell-role="th">paid_total</th>
+<th data-quarto-table-cell-role="th">paid_principal</th>
+<th data-quarto-table-cell-role="th">paid_interest</th>
+<th data-quarto-table-cell-role="th">paid_late_fees</th>
+<th data-quarto-table-cell-role="th">risk</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>global config engineer</td>
+<td>3.0</td>
+<td>NJ</td>
+<td>MORTGAGE</td>
+<td>90000.0</td>
+<td>Verified</td>
+<td>18.01</td>
+<td>0</td>
+<td>2001</td>
+<td>6</td>
+<td>...</td>
+<td>Mar-2018</td>
+<td>Current</td>
+<td>whole</td>
+<td>Cash</td>
+<td>27015.86</td>
+<td>1999.33</td>
+<td>984.14</td>
+<td>1015.19</td>
+<td>0.0</td>
+<td>Medium Risk</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>warehouse office clerk</td>
+<td>10.0</td>
+<td>HI</td>
+<td>RENT</td>
+<td>40000.0</td>
+<td>Not Verified</td>
+<td>5.04</td>
+<td>0</td>
+<td>1996</td>
+<td>1</td>
+<td>...</td>
+<td>Feb-2018</td>
+<td>Current</td>
+<td>whole</td>
+<td>Cash</td>
+<td>4651.37</td>
+<td>499.12</td>
+<td>348.63</td>
+<td>150.49</td>
+<td>0.0</td>
+<td>Medium Risk</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>assembly</td>
+<td>3.0</td>
+<td>WI</td>
+<td>RENT</td>
+<td>40000.0</td>
+<td>Source Verified</td>
+<td>21.15</td>
+<td>0</td>
+<td>2006</td>
+<td>4</td>
+<td>...</td>
+<td>Feb-2018</td>
+<td>Current</td>
+<td>fractional</td>
+<td>Cash</td>
+<td>1824.63</td>
+<td>281.80</td>
+<td>175.37</td>
+<td>106.43</td>
+<td>0.0</td>
+<td>Medium Risk</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>customer service</td>
+<td>1.0</td>
+<td>PA</td>
+<td>RENT</td>
+<td>30000.0</td>
+<td>Not Verified</td>
+<td>10.16</td>
+<td>0</td>
+<td>2007</td>
+<td>0</td>
+<td>...</td>
+<td>Jan-2018</td>
+<td>Current</td>
+<td>whole</td>
+<td>Cash</td>
+<td>18853.26</td>
+<td>3312.89</td>
+<td>2746.74</td>
+<td>566.15</td>
+<td>0.0</td>
+<td>Low Risk</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>security supervisor</td>
+<td>10.0</td>
+<td>CA</td>
+<td>RENT</td>
+<td>35000.0</td>
+<td>Verified</td>
+<td>57.96</td>
+<td>0</td>
+<td>2008</td>
+<td>7</td>
+<td>...</td>
+<td>Mar-2018</td>
+<td>Current</td>
+<td>whole</td>
+<td>Cash</td>
+<td>21430.15</td>
+<td>2324.65</td>
+<td>1569.85</td>
+<td>754.80</td>
+<td>0.0</td>
+<td>Medium Risk</td>
+</tr>
+</tbody>
+</table>
+
+<p>5 rows × 51 columns</p>
+</div>
+</div>
+</div>
+</section>
+<section id="our-preprocessing" class="slide level2">
+<h2>Our preprocessing</h2>
+<div id="8a4a7e69" class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a></a><span class="co"># Encode categorical variables</span></span>
+<span id="cb3-2"><a></a>categorical_columns <span class="op">=</span> loans_class.select_dtypes(include <span class="op">=</span> [<span class="st">'object'</span>, <span class="st">'category'</span>]).columns.tolist()</span>
+<span id="cb3-3"><a></a></span>
+<span id="cb3-4"><a></a><span class="co"># Encode categorical variables</span></span>
+<span id="cb3-5"><a></a>label_encoders <span class="op">=</span> {col: LabelEncoder() <span class="cf">for</span> col <span class="kw">in</span> categorical_columns}</span>
+<span id="cb3-6"><a></a><span class="cf">for</span> col <span class="kw">in</span> categorical_columns:</span>
+<span id="cb3-7"><a></a>    loans_class[col] <span class="op">=</span> label_encoders[col].fit_transform(loans_class[col])</span>
+<span id="cb3-8"><a></a>    </span>
+<span id="cb3-9"><a></a><span class="co"># Define features and target</span></span>
+<span id="cb3-10"><a></a>X <span class="op">=</span> loans_class.drop(<span class="st">'risk'</span>, axis <span class="op">=</span> <span class="dv">1</span>)</span>
+<span id="cb3-11"><a></a>y <span class="op">=</span> loans_class[<span class="st">'risk'</span>]</span>
+<span id="cb3-12"><a></a></span>
+<span id="cb3-13"><a></a><span class="co"># Split the data</span></span>
+<span id="cb3-14"><a></a>X_train, X_test, y_train, y_test <span class="op">=</span> train_test_split(X, y, test_size <span class="op">=</span> <span class="fl">0.2</span>, random_state <span class="op">=</span> <span class="dv">42</span>)</span>
+<span id="cb3-15"><a></a></span>
+<span id="cb3-16"><a></a><span class="co"># Reduce dimensionality to prevent overfitting</span></span>
+<span id="cb3-17"><a></a>pca <span class="op">=</span> PCA(n_components <span class="op">=</span> <span class="dv">2</span>)</span>
+<span id="cb3-18"><a></a>X_train_pca <span class="op">=</span> pca.fit_transform(X_train)</span>
+<span id="cb3-19"><a></a>X_test_pca <span class="op">=</span> pca.transform(X_test)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="reminder-decision-boundary" class="slide level2">
+<h2>Reminder: decision boundary</h2>
+<div id="14ab440c" class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a></a><span class="kw">def</span> decisionplot(model, X, y, resolution<span class="op">=</span><span class="dv">216</span>):</span>
+<span id="cb4-2"><a></a>    <span class="co"># Split the data into features (X) and the class variable (y)</span></span>
+<span id="cb4-3"><a></a>    x_min, x_max <span class="op">=</span> X.iloc[:, <span class="dv">0</span>].<span class="bu">min</span>() <span class="op">-</span> <span class="dv">1</span>, X.iloc[:, <span class="dv">0</span>].<span class="bu">max</span>() <span class="op">+</span> <span class="dv">1</span></span>
+<span id="cb4-4"><a></a>    y_min, y_max <span class="op">=</span> X.iloc[:, <span class="dv">1</span>].<span class="bu">min</span>() <span class="op">-</span> <span class="dv">1</span>, X.iloc[:, <span class="dv">1</span>].<span class="bu">max</span>() <span class="op">+</span> <span class="dv">1</span></span>
+<span id="cb4-5"><a></a>    xx, yy <span class="op">=</span> np.meshgrid(np.linspace(x_min, x_max, resolution),</span>
+<span id="cb4-6"><a></a>                         np.linspace(y_min, y_max, resolution))</span>
+<span id="cb4-7"><a></a></span>
+<span id="cb4-8"><a></a>    <span class="co"># Predict outcomes for each point on the grid</span></span>
+<span id="cb4-9"><a></a>    <span class="cf">if</span> <span class="bu">isinstance</span>(model, LinearDiscriminantAnalysis):</span>
+<span id="cb4-10"><a></a>        <span class="co"># For LDA, we need to use the decision_function method</span></span>
+<span id="cb4-11"><a></a>        Z <span class="op">=</span> model.decision_function(np.c_[xx.ravel(), yy.ravel()])</span>
+<span id="cb4-12"><a></a>    <span class="cf">else</span>:</span>
+<span id="cb4-13"><a></a>        Z <span class="op">=</span> model.predict(np.c_[xx.ravel(), yy.ravel()])</span>
+<span id="cb4-14"><a></a>    </span>
+<span id="cb4-15"><a></a>    <span class="cf">if</span> <span class="bu">isinstance</span>(model, LinearDiscriminantAnalysis):</span>
+<span id="cb4-16"><a></a>    <span class="co"># Reshape LDA decision function output appropriately</span></span>
+<span id="cb4-17"><a></a>        Z <span class="op">=</span> Z.reshape(<span class="op">-</span><span class="dv">1</span>, <span class="dv">1</span>)</span>
+<span id="cb4-18"><a></a>    <span class="cf">else</span>:</span>
+<span id="cb4-19"><a></a>        Z <span class="op">=</span> Z.reshape(xx.shape)</span>
+<span id="cb4-20"><a></a></span>
+<span id="cb4-21"><a></a>    <span class="co"># Plot the actual data points</span></span>
+<span id="cb4-22"><a></a>    plt.scatter(X.iloc[:, <span class="dv">0</span>], X.iloc[:, <span class="dv">1</span>], c<span class="op">=</span>y, edgecolors<span class="op">=</span><span class="st">'k'</span>, s<span class="op">=</span><span class="dv">20</span>)</span>
+<span id="cb4-23"><a></a></span>
+<span id="cb4-24"><a></a>    <span class="co"># Overlay the decision boundary</span></span>
+<span id="cb4-25"><a></a>    plt.contourf(xx, yy, Z, alpha <span class="op">=</span> <span class="fl">0.5</span>)</span>
+<span id="cb4-26"><a></a>    </span>
+<span id="cb4-27"><a></a>    <span class="co"># Calculate the accuracy</span></span>
+<span id="cb4-28"><a></a>    predictions <span class="op">=</span> model.predict(X)</span>
+<span id="cb4-29"><a></a>    acc <span class="op">=</span> accuracy_score(y, predictions)</span>
+<span id="cb4-30"><a></a>    </span>
+<span id="cb4-31"><a></a>  </span>
+<span id="cb4-32"><a></a>    <span class="co"># Set labels for axes</span></span>
+<span id="cb4-33"><a></a>    plt.xlabel(X.columns[<span class="dv">0</span>])</span>
+<span id="cb4-34"><a></a>    plt.ylabel(X.columns[<span class="dv">1</span>])</span>
+<span id="cb4-35"><a></a></span>
+<span id="cb4-36"><a></a>    plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="what-models-will-we-reuse" class="slide level2 smaller">
+<h2>What models will we reuse?</h2>
+<div class="panel-tabset">
+<ul id="tabset-1" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-1-1">Ordinal Logistic Regression</a></li><li><a href="#tabset-1-2">K-Nearest Neighbors</a></li><li><a href="#tabset-1-3">Decision Trees</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1">
+<div id="f7fd4807" class="cell" data-execution_count="5">
+<div class="cell-output cell-output-stdout">
+<pre><code>Ordinal Logistic Regression Accuracy: 0.549</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<figure>
+<p><img data-src="06-model-eval_files/figure-revealjs/cell-6-output-2.png" width="825" height="450"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-1-2">
+<div id="160653fa" class="cell" data-execution_count="6">
+<div class="cell-output cell-output-display">
+<div>
+<figure>
+<p><img data-src="06-model-eval_files/figure-revealjs/cell-7-output-1.png" width="825" height="450"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-1-3">
+<div id="e0ff0491" class="cell" data-execution_count="7">
+<div class="cell-output cell-output-display">
+<div>
+<figure>
+<p><img data-src="06-model-eval_files/figure-revealjs/cell-8-output-1.png" width="825" height="450"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="model-evaluation-1" class="slide level2 smaller">
+<h2>Model Evaluation</h2>
+<blockquote>
+<p><strong>Model selection</strong> is the task of selecting a model from among various candidates on the basis of performance criterion to choose the best one. In the context of <a href="https://en.wikipedia.org/wiki/Machine_learning" title="Machine learning">machine learning</a> and more generally <a href="https://en.wikipedia.org/wiki/Statistical_analysis" title="Statistical analysis">statistical analysis</a>, this may be the selection of a <a href="https://en.wikipedia.org/wiki/Statistical_model" title="Statistical model">statistical model</a> from a set of candidate models, given data. Typically, <a href="https://en.wikipedia.org/wiki/Occam%E2%80%99s_Razor#Science_and_the_scientific_method">Occam’s Razor</a> is the best approach</p>
+</blockquote>
+<div class="fragment">
+<h4 id="broadly-we-will-focus-on-two-categories">Broadly we will focus on two categories</h4>
+</div>
+<div class="fragment">
+<p><strong>Evaluating performance</strong></p>
+<ul>
+<li>The process of assessing the performance of a machine learning model using various metrics, such as accuracy, precision, recall, and F1 score, to determine how effectively it makes predictions on new, unseen data.</li>
+</ul>
+</div>
+<div class="fragment">
+<p><strong>Validation methods</strong></p>
+<ul>
+<li>The technique of verifying a machine learning model’s performance and reliability on a separate dataset (validation set) that was not used during the model’s training, to ensure that it generalizes well to new data.</li>
+</ul>
+</div>
+</section>
+<section id="evaluating-performance" class="slide level2">
+<h2>Evaluating performance</h2>
+<p><strong>Back to Confusion Matrices</strong></p>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/confusion.jpeg" class="quarto-figure quarto-figure-center" width="1067"></p>
+</figure>
+</div>
+</section>
+<section id="accuracy" class="slide level2 smaller">
+<h2>Accuracy</h2>
+<div class="panel-tabset">
+<ul id="tabset-2" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-2-1">Visual</a></li><li><a href="#tabset-2-2">Pros + Cons</a></li></ul>
+<div class="tab-content">
+<div id="tabset-2-1">
+<div class="quarto-figure quarto-figure-left">
+<figure>
+<p><img data-src="images/accuracy.png" class="quarto-figure quarto-figure-left" width="612"></p>
+</figure>
+</div>
+<p><strong>Error Rate</strong> <span class="math inline">\(= \frac{FP + FN}{TP + TN + FP + FN}\)</span></p>
+</div>
+<div id="tabset-2-2">
+<div class="fragment">
+<p><strong>Definition</strong>: The proportion of true results (both true positives and true negatives) among the total number of cases examined.</p>
+</div>
+<div class="fragment">
+<p><strong>Use Case</strong>: Best for balanced datasets where each class is approximately equally represented.</p>
+</div>
+<div class="fragment">
+<p><strong>Pros</strong>:</p>
+<ul>
+<li class="fragment"><p>Intuitive and easy to understand.</p></li>
+<li class="fragment"><p>Useful when the costs of false positives and false negatives are similar.</p></li>
+</ul>
+</div>
+<div class="fragment">
+<p><strong>Cons</strong>:</p>
+<ul>
+<li class="fragment">Can be misleading in imbalanced datasets (where one class significantly outnumbers the other).</li>
+<li class="fragment">Doesn’t consider the type of errors (false positives vs.&nbsp;false negatives).</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="precision" class="slide level2 smaller">
+<h2>Precision</h2>
+<div class="panel-tabset">
+<ul id="tabset-3" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-3-1">Visual</a></li><li><a href="#tabset-3-2">Pros + Cons</a></li></ul>
+<div class="tab-content">
+<div id="tabset-3-1">
+<div class="quarto-figure quarto-figure-left">
+<figure>
+<p><img data-src="images/precision.png" class="quarto-figure quarto-figure-left" width="612"></p>
+</figure>
+</div>
+<p><strong>Error Rate</strong> <span class="math inline">\(= \frac{TP}{TP + FP}\)</span></p>
+</div>
+<div id="tabset-3-2">
+<div class="fragment">
+<p><strong>Definition</strong>: The ratio of true positives to the sum of true and false positives. It’s a measure of a classifier’s exactness.</p>
+</div>
+<div class="fragment">
+<p><strong>Use Case</strong>: Important when the cost of false positives is high (e.g., in spam detection).</p>
+</div>
+<div class="fragment">
+<p><strong>Pros</strong>:</p>
+<ul>
+<li class="fragment"><p>Focuses on the positive class’s predictive power.</p></li>
+<li class="fragment"><p>Useful in imbalanced datasets to evaluate the performance of the minority class.</p></li>
+</ul>
+</div>
+<div class="fragment">
+<p><strong>Cons</strong>:</p>
+<ul>
+<li class="fragment">Does not consider false negatives (i.e., how many positive cases were missed).</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="recall-sensitivity" class="slide level2 smaller">
+<h2>Recall (Sensitivity)</h2>
+<div class="panel-tabset">
+<ul id="tabset-4" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-4-1">Visual</a></li><li><a href="#tabset-4-2">Pros + Cons</a></li></ul>
+<div class="tab-content">
+<div id="tabset-4-1">
+<div class="quarto-figure quarto-figure-left">
+<figure>
+<p><img data-src="images/recall.png" class="quarto-figure quarto-figure-left" width="612"></p>
+</figure>
+</div>
+<p><strong>Error Rate</strong> <span class="math inline">\(= \frac{TP}{TP + FN}\)</span></p>
+</div>
+<div id="tabset-4-2">
+<div class="fragment">
+<p><strong>Definition</strong>: The ratio of true positives to the sum of true positives and false negatives. It’s a measure of a classifier’s completeness.</p>
+</div>
+<div class="fragment">
+<p><strong>Use Case</strong>: Crucial when the cost of false negatives is high (e.g., in disease screening).</p>
+</div>
+<div class="fragment">
+<p><strong>Pros</strong>:</p>
+<ul>
+<li class="fragment"><p>Ensures that most positive examples are correctly recognized.</p></li>
+<li class="fragment"><p>Very useful in imbalanced datasets for evaluating how well the minority class is being predicted</p></li>
+</ul>
+</div>
+<div class="fragment">
+<p><strong>Cons</strong>:</p>
+<ul>
+<li class="fragment">Does not consider false positives (i.e., can lead to many false alarms).</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="f1-score" class="slide level2 smaller">
+<h2>F1 Score</h2>
+<div class="panel-tabset">
+<ul id="tabset-5" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-5-1">Visual</a></li><li><a href="#tabset-5-2">Pros + Cons</a></li></ul>
+<div class="tab-content">
+<div id="tabset-5-1">
+<div class="quarto-figure quarto-figure-left">
+<figure>
+<p><img data-src="images/f1-score.png" class="quarto-figure quarto-figure-left" width="612"></p>
+</figure>
+</div>
+<p><strong>Error Rate</strong> <span class="math inline">\(= 2\times\frac{precision \times recall}{precision + recall} = \frac{TP}{TP + \frac{1}{2}(FP + FN)}\)</span></p>
+</div>
+<div id="tabset-5-2">
+<div class="fragment">
+<p><strong>Definition</strong>: The harmonic mean of precision and recall.</p>
+</div>
+<div class="fragment">
+<p><strong>Use Case</strong>: When you need a balance between precision and recall.</p>
+</div>
+<div class="fragment">
+<p><strong>Pros</strong>:</p>
+<ul>
+<li class="fragment"><p>Combines precision and recall into a single metric.</p></li>
+<li class="fragment"><p>Useful in imbalanced datasets or when both types of errors are equally costly.</p></li>
+</ul>
+</div>
+<div class="fragment">
+<p><strong>Cons</strong>:</p>
+<ul>
+<li class="fragment">Not as intuitive as accuracy.</li>
+<li class="fragment">Harmonic mean can be influenced heavily by lower values of either precision or recall.</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="auc-roc" class="slide level2 smaller">
+<h2><strong>AUC-ROC</strong></h2>
+<div class="panel-tabset">
+<ul id="tabset-6" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-6-1">+/- Positives</a></li><li><a href="#tabset-6-2">E.g., Classifiers</a></li><li><a href="#tabset-6-3">Trade-off</a></li><li><a href="#tabset-6-4">ROC</a></li><li><a href="#tabset-6-5">ROC AUC</a></li><li><a href="#tabset-6-6">Pros + Cons</a></li></ul>
+<div class="tab-content">
+<div id="tabset-6-1">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/trueFalsePositives.png" class="quarto-figure quarto-figure-center" width="888"></p>
+</figure>
+</div>
+</div>
+<div id="tabset-6-2">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/classifiers.png" class="quarto-figure quarto-figure-center" width="888"></p>
+</figure>
+</div>
+</div>
+<div id="tabset-6-3">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/classifierMetrics.png" class="quarto-figure quarto-figure-center" width="915"></p>
+</figure>
+</div>
+</div>
+<div id="tabset-6-4">
+<div class="columns">
+<div class="column" style="width:53%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/roc.png" class="quarto-figure quarto-figure-center" width="838"></p>
+</figure>
+</div>
+</div><div class="column" style="width:47%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/roc-1.png" class="quarto-figure quarto-figure-center" width="635"></p>
+</figure>
+</div>
+</div></div>
+<div class="fragment">
+<ul>
+<li class="fragment"><p><strong>Left side</strong> = more “confident” thresholds: lower recall and fewer false positive errors</p></li>
+<li class="fragment"><p><strong>Right side</strong> = “less strict” scenarios when the threshold is low: both recall and False Positive rates are higher, ultimately reaching 100%</p></li>
+</ul>
+</div>
+</div>
+<div id="tabset-6-5">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/roc-auc.png" class="quarto-figure quarto-figure-center" width="888"></p>
+</figure>
+</div>
+<ul>
+<li class="fragment"><p>Single metric to summarize the performance of models</p></li>
+<li class="fragment"><p>Common calculation - <a href="https://en.wikipedia.org/wiki/Trapezoidal_rule">trapezoid rule</a></p></li>
+</ul>
+</div>
+<div id="tabset-6-6">
+<div class="fragment">
+<p><strong>Definition</strong>: Measures the ability of a classifier to distinguish between classes and is used as a summary of the ROC curve.</p>
+</div>
+<div class="fragment">
+<p><strong>Use Case</strong>: Effective for balanced and imbalanced datasets, especially for binary classification problems.</p>
+</div>
+<div class="fragment">
+<p><strong>Pros</strong>:</p>
+<ul>
+<li class="fragment"><p>Performance measurement for the classification model at various thresholds settings.</p></li>
+<li class="fragment"><p>AUC-ROC near 1 indicates a good ability to distinguish between positive and negative classes.</p></li>
+</ul>
+</div>
+<div class="fragment">
+<p><strong>Cons</strong>:</p>
+<ul>
+<li class="fragment"><p>Can be overly optimistic in imbalanced datasets.</p></li>
+<li class="fragment"><p>Does not distinguish between types of errors.</p></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="applying-model-evaluation" class="slide level2 smaller">
+<h2>Applying model evaluation</h2>
+<p>Using the decision tree model</p>
+</section>
+<section id="applying-model-evaluation-1" class="slide level2 smaller">
+<h2>Applying model evaluation</h2>
+<div class="panel-tabset">
+<ul id="tabset-7" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-7-1">Accuracy</a></li><li><a href="#tabset-7-2">Precision</a></li><li><a href="#tabset-7-3">Recall</a></li><li><a href="#tabset-7-4">F1 Score</a></li><li><a href="#tabset-7-5">AUC-ROC</a></li></ul>
+<div class="tab-content">
+<div id="tabset-7-1">
+<div id="abeb4855" class="cell" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a></a>accuracy <span class="op">=</span> accuracy_score(y_test, predictions)</span>
+<span id="cb6-2"><a></a><span class="bu">print</span>(<span class="ss">f"Accuracy: </span><span class="sc">{</span>accuracy<span class="sc">:.2f}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Accuracy: 0.48</code></pre>
+</div>
+</div>
+</div>
+<div id="tabset-7-2">
+<div id="41ab513a" class="cell" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a></a>precision <span class="op">=</span> precision_score(y_test, predictions, average <span class="op">=</span> <span class="st">'weighted'</span>) <span class="co"># Use 'weighted' for multiclass</span></span>
+<span id="cb8-2"><a></a><span class="bu">print</span>(<span class="ss">f"Precision: </span><span class="sc">{</span>precision<span class="sc">:.2f}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Precision: 0.48</code></pre>
+</div>
+</div>
+</div>
+<div id="tabset-7-3">
+<div id="4d7dde0b" class="cell" data-execution_count="11">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a></a>recall <span class="op">=</span> recall_score(y_test, predictions, average <span class="op">=</span> <span class="st">'weighted'</span>) <span class="co"># Use 'weighted' for multiclass</span></span>
+<span id="cb10-2"><a></a><span class="bu">print</span>(<span class="ss">f"Recall: </span><span class="sc">{</span>recall<span class="sc">:.2f}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Recall: 0.48</code></pre>
+</div>
+</div>
+</div>
+<div id="tabset-7-4">
+<div id="216db207" class="cell" data-execution_count="12">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a></a>f1 <span class="op">=</span> f1_score(y_test, predictions, average <span class="op">=</span> <span class="st">'weighted'</span>) <span class="co"># Use 'weighted' for multiclass</span></span>
+<span id="cb12-2"><a></a><span class="bu">print</span>(<span class="ss">f"F1 Score: </span><span class="sc">{</span>f1<span class="sc">:.2f}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>F1 Score: 0.48</code></pre>
+</div>
+</div>
+</div>
+<div id="tabset-7-5">
+<div id="37c8269d" class="cell" data-execution_count="13">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a></a><span class="co"># Binarize the output for multiclass</span></span>
+<span id="cb14-2"><a></a>y_test_binarized <span class="op">=</span> label_binarize(y_test, classes <span class="op">=</span> np.unique(y_train))</span>
+<span id="cb14-3"><a></a>n_classes <span class="op">=</span> y_test_binarized.shape[<span class="dv">1</span>]</span>
+<span id="cb14-4"><a></a></span>
+<span id="cb14-5"><a></a><span class="co"># Get the probability predictions for each class</span></span>
+<span id="cb14-6"><a></a>y_score <span class="op">=</span> dtree.predict_proba(X_test_pca)</span>
+<span id="cb14-7"><a></a></span>
+<span id="cb14-8"><a></a><span class="co"># Compute ROC curve and ROC area for each class</span></span>
+<span id="cb14-9"><a></a>fpr <span class="op">=</span> <span class="bu">dict</span>()</span>
+<span id="cb14-10"><a></a>tpr <span class="op">=</span> <span class="bu">dict</span>()</span>
+<span id="cb14-11"><a></a>roc_auc <span class="op">=</span> <span class="bu">dict</span>()</span>
+<span id="cb14-12"><a></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(n_classes):</span>
+<span id="cb14-13"><a></a>    fpr[i], tpr[i], _ <span class="op">=</span> roc_curve(y_test_binarized[:, i], y_score[:, i])</span>
+<span id="cb14-14"><a></a>    roc_auc[i] <span class="op">=</span> auc(fpr[i], tpr[i])</span>
+<span id="cb14-15"><a></a></span>
+<span id="cb14-16"><a></a><span class="co"># Calculate macro-average ROC-AUC</span></span>
+<span id="cb14-17"><a></a>roc_auc_macro <span class="op">=</span> np.mean(<span class="bu">list</span>(roc_auc.values()))</span>
+<span id="cb14-18"><a></a><span class="bu">print</span>(<span class="ss">f"Macro-average ROC-AUC: </span><span class="sc">{</span>roc_auc_macro<span class="sc">:.2f}</span><span class="ss">"</span>)</span>
+<span id="cb14-19"><a></a></span>
+<span id="cb14-20"><a></a><span class="co"># Calculate micro-average ROC-AUC</span></span>
+<span id="cb14-21"><a></a>fpr[<span class="st">"micro"</span>], tpr[<span class="st">"micro"</span>], _ <span class="op">=</span> roc_curve(y_test_binarized.ravel(), y_score.ravel())</span>
+<span id="cb14-22"><a></a>roc_auc_micro <span class="op">=</span> auc(fpr[<span class="st">"micro"</span>], tpr[<span class="st">"micro"</span>])</span>
+<span id="cb14-23"><a></a><span class="bu">print</span>(<span class="ss">f"Micro-average ROC-AUC: </span><span class="sc">{</span>roc_auc_micro<span class="sc">:.2f}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>Macro-average ROC-AUC: 0.52
+Micro-average ROC-AUC: 0.61</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<ul>
+<li class="fragment"><p><strong>Binarization</strong>: <code>label_binarize</code> is used to binarize the labels in a one-vs-all fashion which is necessary for multiclass ROC calculation.</p></li>
+<li class="fragment"><p><strong>Macro-average</strong>: computes the metric independently for each class and then takes the average (treating all classes equally).</p></li>
+<li class="fragment"><p><strong>Micro-average</strong>:aggregates the contributions of all classes to compute the average metric.</p></li>
+</ul>
+</section>
+<section id="conclusions" class="slide level2">
+<h2>Conclusions</h2>
+<ul>
+<li class="fragment"><p>All values are relatively the same (~50%)</p></li>
+<li class="fragment"><p>Our risk column is unbalanced, so precision and recall are useful</p></li>
+<li class="fragment"><p>The F1 Score is best to analyze our data (balance precision and recall)</p></li>
+<li class="fragment"><p>ROC-AUC is effective in distinguishing classes</p></li>
+</ul>
+</section>
+<section id="cross-validation" class="slide level2 smaller">
+<h2>Cross validation</h2>
+<div class="fragment">
+<blockquote>
+<p>A resampling method that evaluates machine learning models on a limited data sample. It involves partitioning a dataset into complementary subsets, performing the analysis on one subset (training set), and validating the analysis on the other subset (validation set).</p>
+</blockquote>
+</div>
+<div class="fragment">
+<p><strong>Use Case</strong>: Widely used for assessing the effectiveness of predictive models, helping to safeguard against overfitting.</p>
+</div>
+<div class="fragment">
+<p><strong>Pros</strong>:</p>
+<ul>
+<li class="fragment"><p>Provides a more accurate measure of a model’s predictive performance compared to a simple train/test split.</p></li>
+<li class="fragment"><p>Utilizes the data efficiently as every observation is used for both training and validation.</p></li>
+</ul>
+</div>
+<div class="fragment">
+<p><strong>Cons</strong>:</p>
+<ul>
+<li class="fragment"><p>Computationally intensive, especially for large datasets.</p></li>
+<li class="fragment"><p>Results can vary depending on how the data is divided.</p></li>
+</ul>
+</div>
+</section>
+<section id="cross-validation-methods" class="slide level2">
+<h2>Cross validation methods</h2>
+<ul>
+<li class="fragment"><p>Leave-One-Out Cross-Validation</p></li>
+<li class="fragment"><p>k-Fold Cross-Validation</p></li>
+</ul>
+</section>
+<section id="leave-one-out-cross-validation-loocv" class="slide level2 smaller">
+<h2>Leave-One-Out Cross-Validation (LOOCV)</h2>
+<div class="panel-tabset">
+<ul id="tabset-8" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-8-1">Visual</a></li><li><a href="#tabset-8-2">Pros + Cons</a></li></ul>
+<div class="tab-content">
+<div id="tabset-8-1">
+<div class="columns">
+<div class="column" style="width:60%;">
+<div class="quarto-figure quarto-figure-left">
+<figure>
+<p><img data-src="images/loocv.webp" class="quarto-figure quarto-figure-left" width="653"></p>
+</figure>
+</div>
+</div><div class="column" style="width:40%;">
+<p><strong>Overall score</strong>:</p>
+<p><span class="math inline">\(\frac{score_1 + score_2 + score_3 + score_4 + score_5 + score_6}{6}\)</span></p>
+<div class="fragment">
+<p>For classification the score is:</p>
+</div>
+<div class="fragment">
+<ul>
+<li>Accuracy</li>
+<li>Precision, Recall, F1-Score</li>
+<li>AUC-ROC</li>
+</ul>
+</div>
+</div></div>
+</div>
+<div id="tabset-8-2">
+<div class="fragment">
+<p><strong>Definition</strong>: The number of folds equals the number of instances in the dataset. Each model is trained on all data points except one, which is used as the test set.</p>
+</div>
+<div class="fragment">
+<p><strong>Use Case</strong>: Useful for small datasets where maximizing the training data is important.</p>
+</div>
+<div class="fragment">
+<p><strong>Pros</strong>:</p>
+<ul>
+<li class="fragment"><p>Utilizes the data to its maximum extent.</p></li>
+<li class="fragment"><p>Reduces bias as each data point gets to be in the test set exactly once.</p></li>
+</ul>
+</div>
+<div class="fragment">
+<p><strong>Cons</strong>:</p>
+<ul>
+<li class="fragment">Highly computationally expensive with large datasets.</li>
+<li class="fragment">High variance in the estimate of model performance as the evaluation can be highly dependent on the data points chosen as the test set.</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="k-fold-cross-validation-k-fold" class="slide level2 smaller">
+<h2>k-Fold Cross-Validation (k-Fold)</h2>
+<div class="panel-tabset">
+<ul id="tabset-9" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-9-1">Visual</a></li><li><a href="#tabset-9-2">Pros + Cons</a></li><li><a href="#tabset-9-3">Bias-Variance Trade-off</a></li></ul>
+<div class="tab-content">
+<div id="tabset-9-1">
+<div class="columns">
+<div class="column" style="width:60%;">
+<div class="quarto-figure quarto-figure-left">
+<figure>
+<p><img data-src="images/kfold.webp" class="quarto-figure quarto-figure-left" width="653"></p>
+</figure>
+</div>
+</div><div class="column" style="width:40%;">
+<p><strong>Overall score</strong>:</p>
+<p><span class="math inline">\(\frac{score_1 + score_2 + score_3}{3}\)</span></p>
+<div class="fragment">
+<p>For classification the score is:</p>
+</div>
+<div class="fragment">
+<ul>
+<li>Accuracy</li>
+<li>Precision, Recall, F1-Score</li>
+<li>AUC-ROC</li>
+</ul>
+</div>
+</div></div>
+</div>
+<div id="tabset-9-2">
+<div class="fragment">
+<p><strong>Definition</strong>: The dataset is divided into k subsets, and the holdout method is repeated k times. Each time, one of the k subsets is used as the test set and the other k-1 subsets are put together to form a training set.</p>
+</div>
+<div class="fragment">
+<p><strong>Use Case</strong>: Ideal for both small and medium-sized datasets and when the balance between bias and variance is crucial.</p>
+</div>
+<div class="fragment">
+<p><strong>Pros</strong>:</p>
+<ul>
+<li class="fragment"><p>Reduces the variance of a single trial of train/test split.</p></li>
+<li class="fragment"><p>More reliable estimate of out-of-sample performance than LOOCV.</p></li>
+</ul>
+</div>
+<div class="fragment">
+<p><strong>Cons</strong>:</p>
+<ul>
+<li class="fragment">Still computationally intensive, especially with large k.</li>
+<li class="fragment">Results can be dependent on the random division of the data into folds.</li>
+</ul>
+</div>
+</div>
+<div id="tabset-9-3">
+<div class="fragment">
+<p><strong>Definition</strong>: Refers to managing the trade-off between the bias of the model (error due to overly simplistic assumptions) and its variance (error due to sensitivity to small fluctuations in the training set).</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="the-bootstrap-method" class="slide level2 smaller">
+<h2>The bootstrap method</h2>
+<div class="panel-tabset">
+<ul id="tabset-10" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-10-1">Visual</a></li><li><a href="#tabset-10-2">Pros + Cons</a></li></ul>
+<div class="tab-content">
+<div id="tabset-10-1">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/bootstrap.png" class="quarto-figure quarto-figure-center" width="1644"></p>
+</figure>
+</div>
+<ol type="1">
+<li class="fragment"><p><strong>Sample creation</strong></p></li>
+<li class="fragment"><p><strong>Model training + evaluation</strong></p></li>
+<li class="fragment"><p><strong>Performance aggregation</strong></p></li>
+</ol>
+</div>
+<div id="tabset-10-2">
+<div class="fragment">
+<p><strong>Definition</strong>: A statistical technique using repeated sampling with replacement from a dataset to train and evaluate model performance.</p>
+</div>
+<div class="fragment">
+<p><strong>Use Case</strong>: Ideal for small datasets or when assessing model performance variability. Commonly used for accuracy estimation and model validation.</p>
+</div>
+<div class="fragment">
+<p><strong>Pros</strong>:</p>
+<ul>
+<li class="fragment"><p><strong>Variability estimation</strong>: Offers insights into the model’s performance variability.</p></li>
+<li class="fragment"><p><strong>Flexible</strong>: Non-parametric and adaptable to various data distributions.</p></li>
+</ul>
+</div>
+<div class="fragment">
+<p><strong>Cons</strong>:</p>
+<ul>
+<li class="fragment"><p><strong>Computationally demanding</strong>: High computational cost due to repeated resampling and training.</p></li>
+<li class="fragment"><p><strong>Overfitting bias</strong>: Can be overly optimistic for overfitting models.</p></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="applying-resampling-methods" class="slide level2 smaller">
+<h2>Applying resampling methods</h2>
+<div class="panel-tabset">
+<ul id="tabset-11" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-11-1">LOOCV</a></li><li><a href="#tabset-11-2">k-Fold</a></li><li><a href="#tabset-11-3">Bootstrap</a></li><li><a href="#tabset-11-4">Time spent</a></li></ul>
+<div class="tab-content">
+<div id="tabset-11-1">
+<div id="8672c434" class="cell" data-execution_count="14">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a></a><span class="im">import</span> time</span>
+<span id="cb16-2"><a></a>start_time <span class="op">=</span> time.time()</span>
+<span id="cb16-3"><a></a></span>
+<span id="cb16-4"><a></a>y_train <span class="op">=</span> y_train.to_numpy()</span>
+<span id="cb16-5"><a></a></span>
+<span id="cb16-6"><a></a>loo <span class="op">=</span> LeaveOneOut()</span>
+<span id="cb16-7"><a></a>loo_f1_scores <span class="op">=</span> []</span>
+<span id="cb16-8"><a></a></span>
+<span id="cb16-9"><a></a><span class="cf">for</span> train_index, test_index <span class="kw">in</span> loo.split(X_train_pca):</span>
+<span id="cb16-10"><a></a>    X_train_fold, X_test_fold <span class="op">=</span> X_train_pca[train_index], X_train_pca[test_index]</span>
+<span id="cb16-11"><a></a>    y_train_fold, y_test_fold <span class="op">=</span> y_train[train_index], y_train[test_index]</span>
+<span id="cb16-12"><a></a></span>
+<span id="cb16-13"><a></a>    dtree.fit(X_train_fold, y_train_fold)</span>
+<span id="cb16-14"><a></a>    prediction <span class="op">=</span> dtree.predict(X_test_fold)</span>
+<span id="cb16-15"><a></a>    f1 <span class="op">=</span> f1_score(y_test_fold, prediction, average <span class="op">=</span> <span class="st">'weighted'</span>)</span>
+<span id="cb16-16"><a></a>    loo_f1_scores.append(f1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="9adec9aa" class="cell" data-execution_count="15">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a></a>loo_f1_average <span class="op">=</span> np.mean(loo_f1_scores)</span>
+<span id="cb17-2"><a></a><span class="bu">print</span>(<span class="ss">f"LOOCV F1-Score: </span><span class="sc">{</span>loo_f1_average<span class="sc">:.2f}</span><span class="ss">"</span>)</span>
+<span id="cb17-3"><a></a>loocv_time <span class="op">=</span> time.time() <span class="op">-</span> start_time</span>
+<span id="cb17-4"><a></a><span class="bu">print</span>(<span class="ss">f"LOOCV took </span><span class="sc">{</span>loocv_time<span class="sc">:.2f}</span><span class="ss"> seconds"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>LOOCV F1-Score: 0.48
+LOOCV took 244.76 seconds</code></pre>
+</div>
+</div>
+</div>
+<div id="tabset-11-2">
+<div id="2eb64f08" class="cell" data-execution_count="16">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a></a>start_time <span class="op">=</span> time.time()</span>
+<span id="cb19-2"><a></a></span>
+<span id="cb19-3"><a></a>kf <span class="op">=</span> KFold(n_splits <span class="op">=</span> <span class="dv">5</span>) </span>
+<span id="cb19-4"><a></a>kf_f1_scores <span class="op">=</span> cross_val_score(dtree, X_train_pca, y_train, cv <span class="op">=</span> kf, scoring <span class="op">=</span> <span class="st">'f1_weighted'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="41f9039b" class="cell" data-execution_count="17">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a></a>kf_f1_average <span class="op">=</span> np.mean(kf_f1_scores)</span>
+<span id="cb20-2"><a></a><span class="bu">print</span>(<span class="ss">f"k-Fold F1-Score: </span><span class="sc">{</span>kf_f1_average<span class="sc">:.2f}</span><span class="ss">"</span>)</span>
+<span id="cb20-3"><a></a>kfold_time <span class="op">=</span> time.time() <span class="op">-</span> start_time</span>
+<span id="cb20-4"><a></a><span class="bu">print</span>(<span class="ss">f"k-Fold CV took </span><span class="sc">{</span>kfold_time<span class="sc">:.2f}</span><span class="ss"> seconds"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>k-Fold F1-Score: 0.48
+k-Fold CV took 0.13 seconds</code></pre>
+</div>
+</div>
+</div>
+<div id="tabset-11-3">
+<div id="fd52cba1" class="cell" data-execution_count="18">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a></a>start_time <span class="op">=</span> time.time()</span>
+<span id="cb22-2"><a></a>n_iterations <span class="op">=</span> <span class="dv">100</span>  </span>
+<span id="cb22-3"><a></a>n_size <span class="op">=</span> <span class="bu">int</span>(<span class="bu">len</span>(X_train_pca) <span class="op">*</span> <span class="fl">0.50</span>)  </span>
+<span id="cb22-4"><a></a>bootstrap_f1_scores <span class="op">=</span> []</span>
+<span id="cb22-5"><a></a></span>
+<span id="cb22-6"><a></a><span class="cf">for</span> _ <span class="kw">in</span> <span class="bu">range</span>(n_iterations):</span>
+<span id="cb22-7"><a></a>    X_sample, y_sample <span class="op">=</span> resample(X_train_pca, y_train, n_samples<span class="op">=</span>n_size)</span>
+<span id="cb22-8"><a></a>    dtree.fit(X_sample, y_sample)</span>
+<span id="cb22-9"><a></a></span>
+<span id="cb22-10"><a></a>    predictions <span class="op">=</span> dtree.predict(X_test_pca)</span>
+<span id="cb22-11"><a></a>    f1 <span class="op">=</span> f1_score(y_test, predictions, average<span class="op">=</span><span class="st">'weighted'</span>)</span>
+<span id="cb22-12"><a></a>    bootstrap_f1_scores.append(f1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="f07efe3f" class="cell" data-execution_count="19">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a></a>bootstrap_f1_average <span class="op">=</span> np.mean(bootstrap_f1_scores)</span>
+<span id="cb23-2"><a></a><span class="bu">print</span>(<span class="ss">f"Bootstrap F1-Score: </span><span class="sc">{</span>bootstrap_f1_average<span class="sc">:.2f}</span><span class="ss">"</span>)</span>
+<span id="cb23-3"><a></a>bootstrap_time <span class="op">=</span> time.time() <span class="op">-</span> start_time</span>
+<span id="cb23-4"><a></a><span class="bu">print</span>(<span class="ss">f"Bootstrap Method took </span><span class="sc">{</span>bootstrap_time<span class="sc">:.2f}</span><span class="ss"> seconds"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Bootstrap F1-Score: 0.48
+Bootstrap Method took 1.23 seconds</code></pre>
+</div>
+</div>
+</div>
+<div id="tabset-11-4">
+<div id="bc5c3477" class="cell" data-execution_count="20">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a></a>ratio <span class="op">=</span> kfold_time <span class="op">/</span> loocv_time</span>
+<span id="cb25-2"><a></a><span class="bu">print</span>(<span class="ss">f"Ratio of k-Fold time to LOOCV time: </span><span class="sc">{</span>ratio<span class="sc">:.4f}</span><span class="ss">"</span>)</span>
+<span id="cb25-3"><a></a>ratio <span class="op">=</span> bootstrap_time <span class="op">/</span> loocv_time</span>
+<span id="cb25-4"><a></a><span class="bu">print</span>(<span class="ss">f"Ratio of Bootstrap time to LOOCV time: </span><span class="sc">{</span>ratio<span class="sc">:.4f}</span><span class="ss">"</span>)</span>
+<span id="cb25-5"><a></a>ratio <span class="op">=</span> kfold_time <span class="op">/</span> bootstrap_time</span>
+<span id="cb25-6"><a></a><span class="bu">print</span>(<span class="ss">f"Ratio of k-Fold time to Bootstrap time: </span><span class="sc">{</span>ratio<span class="sc">:.4f}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Ratio of k-Fold time to LOOCV time: 0.0005
+Ratio of Bootstrap time to LOOCV time: 0.0050
+Ratio of k-Fold time to Bootstrap time: 0.1038</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="comparing-classification-methods-ii" class="slide level2">
+<h2>Comparing classification methods II</h2>
+<p><strong>Model evaluation method</strong>:</p>
+<ul>
+<li>F1-Score</li>
+</ul>
+<p><strong>Subset method</strong>:</p>
+<ul>
+<li>k-Fold Cross Validation</li>
+</ul>
+</section>
+<section id="comparing-classification-methods-ii-1" class="slide level2">
+<h2>Comparing classification methods II</h2>
+<div class="panel-tabset">
+<ul id="tabset-12" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-12-1">Define models</a></li><li><a href="#tabset-12-2">k-Fold CV</a></li><li><a href="#tabset-12-3">F1-Scores</a></li></ul>
+<div class="tab-content">
+<div id="tabset-12-1">
+<div id="0288a588" class="cell" data-execution_count="21">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a></a><span class="co"># Logistic Regression</span></span>
+<span id="cb27-2"><a></a>ord_log_reg <span class="op">=</span> m.LogisticAT(alpha <span class="op">=</span> <span class="dv">1</span>)  </span>
+<span id="cb27-3"><a></a></span>
+<span id="cb27-4"><a></a><span class="co"># KNN</span></span>
+<span id="cb27-5"><a></a>knn <span class="op">=</span> KNeighborsClassifier(n_neighbors <span class="op">=</span> <span class="dv">5</span>)</span>
+<span id="cb27-6"><a></a></span>
+<span id="cb27-7"><a></a><span class="co"># Decision Tree</span></span>
+<span id="cb27-8"><a></a>dtree <span class="op">=</span> DecisionTreeClassifier()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<div id="tabset-12-2">
+<div id="3cb846f6" class="cell" data-execution_count="22">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a></a><span class="co"># Define the number of folds</span></span>
+<span id="cb28-2"><a></a>k <span class="op">=</span> <span class="dv">5</span></span>
+<span id="cb28-3"><a></a></span>
+<span id="cb28-4"><a></a><span class="co"># Logistic Regression</span></span>
+<span id="cb28-5"><a></a>ord_log_reg_scores <span class="op">=</span> cross_val_score(ord_log_reg, X_train_pca, y_train, cv <span class="op">=</span> k, scoring <span class="op">=</span> <span class="st">'f1_weighted'</span>)</span>
+<span id="cb28-6"><a></a>ord_log_reg_f1_average <span class="op">=</span> np.mean(ord_log_reg_scores)</span>
+<span id="cb28-7"><a></a></span>
+<span id="cb28-8"><a></a><span class="co"># KNN</span></span>
+<span id="cb28-9"><a></a>knn_scores <span class="op">=</span> cross_val_score(knn, X_train_pca, y_train, cv <span class="op">=</span> k, scoring <span class="op">=</span> <span class="st">'f1_weighted'</span>)</span>
+<span id="cb28-10"><a></a>knn_f1_average <span class="op">=</span> np.mean(knn_scores)</span>
+<span id="cb28-11"><a></a></span>
+<span id="cb28-12"><a></a><span class="co"># Decision Tree</span></span>
+<span id="cb28-13"><a></a>dtree_scores <span class="op">=</span> cross_val_score(dtree, X_train_pca, y_train, cv <span class="op">=</span> k, scoring <span class="op">=</span> <span class="st">'f1_weighted'</span>)</span>
+<span id="cb28-14"><a></a>dtree_f1_average <span class="op">=</span> np.mean(dtree_scores)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<div id="tabset-12-3">
+<div id="4cb26442" class="cell" data-execution_count="23">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a></a><span class="bu">print</span>(<span class="ss">f"Average F1-Score for Ordinal Logistic Regression: </span><span class="sc">{</span>ord_log_reg_f1_average<span class="sc">:.2f}</span><span class="ss">"</span>)</span>
+<span id="cb29-2"><a></a><span class="bu">print</span>(<span class="ss">f"Average F1-Score for KNN: </span><span class="sc">{</span>knn_f1_average<span class="sc">:.2f}</span><span class="ss">"</span>)</span>
+<span id="cb29-3"><a></a><span class="bu">print</span>(<span class="ss">f"Average F1-Score for Decision Tree: </span><span class="sc">{</span>dtree_f1_average<span class="sc">:.2f}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Average F1-Score for Ordinal Logistic Regression: 0.39
+Average F1-Score for KNN: 0.49
+Average F1-Score for Decision Tree: 0.48</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="conclusions-1" class="slide level2">
+<h2>Conclusions</h2>
+<ul>
+<li class="fragment"><p><strong>Model evaluation</strong> determines how well a model predicts the data</p>
+<ul>
+<li class="fragment"><strong>F1-Score</strong> balances <strong>Prediction</strong> and <strong>Recall</strong> (best for <u>uneven classes</u>)</li>
+</ul></li>
+<li class="fragment"><p><strong>Cross validation</strong> and <strong>bootstrapping</strong> are effective ways to prevent <u>overfitting</u></p>
+<ul>
+<li class="fragment"><strong>k-Fold CV</strong> is best for <u>larger datasets</u></li>
+</ul></li>
+<li class="fragment"><p><strong>Ordinal Logistic Regression</strong> performed worst!</p>
+<ul>
+<li class="fragment"><strong>Occam’s Razor</strong> loses…</li>
+</ul></li>
+</ul>
+</section>
+<section id="in-class-exercise" class="slide level2">
+<h2>In-class Exercise</h2>
+<div class="task">
+<p>Go to <a href="https://https://info523-fall25-101-201.github.io/exercises/ex-06.html">ex-06</a> and perform the tasks</p>
+</div>
+
+
+</section></section>
+    </div>
+  <div class="quarto-auto-generated-content" style="display: none;">
+<p><img src="../logo.png" class="slide-logo"></p>
+<div class="footer footer-default">
+<p><a href="https://info523-fall25-101-201.github.io/">🔗 github.io</a></p>
+</div>
+</div></div>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script>
+  <script src="../../../site_libs/revealjs/dist/reveal.js"></script>
+  <!-- reveal.js plugins -->
+  <script src="../../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="../../../site_libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="../../../site_libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="../../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="../../../site_libs/revealjs/plugin/reveal-chalkboard/plugin.js"></script>
+  <script src="../../../site_libs/revealjs/plugin/quarto-support/support.js"></script>
+  
+
+  <script src="../../../site_libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="../../../site_libs/revealjs/plugin/search/search.js"></script>
+  <script src="../../../site_libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="../../../site_libs/revealjs/plugin/math/math.js"></script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+'controlsAuto': true,
+'previewLinksAuto': false,
+'pdfSeparateFragments': false,
+'autoAnimateEasing': "ease",
+'autoAnimateDuration': 1,
+'autoAnimateUnmatched': true,
+'jumpToSlide': true,
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\"><kbd>r</kbd> Scroll View Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleChalkboard(event)\"><kbd>b</kbd> Toggle Chalkboard</a></li>\n<li class=\"slide-tool-item\" data-item=\"6\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleNotesCanvas(event)\"><kbd>c</kbd> Toggle Notes Canvas</a></li>\n<li class=\"slide-tool-item\" data-item=\"7\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.downloadDrawings(event)\"><kbd>d</kbd> Download Drawings</a></li>\n<li class=\"slide-tool-item\" data-item=\"8\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'chalkboard': {"buttons":true},
+'smaller': false,
+ 
+        // Display controls in the bottom right corner
+        controls: false,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: false,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'edges',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: 'c/t',
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: true,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: false,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'linear',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: false,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'fade',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'none',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1050,
+
+        height: 700,
+
+        // Factor of the display size that should remain empty around the content
+        margin: 0.1,
+
+        math: {
+          mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
+        // reveal.js plugins
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, RevealChalkboard, QuartoSupport,
+
+          RevealMath,
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    <script id="quarto-html-after-body" type="application/javascript">
+      window.document.addEventListener("DOMContentLoaded", function (event) {
+        const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
+        tabsets.forEach(function(tabset) {
+          const tabby = new Tabby('#' + tabset.id);
+        });
+        const isCodeAnnotation = (el) => {
+          for (const clz of el.classList) {
+            if (clz.startsWith('code-annotation-')) {                     
+              return true;
+            }
+          }
+          return false;
+        }
+        const onCopySuccess = function(e) {
+          // button target
+          const button = e.trigger;
+          // don't keep focus
+          button.blur();
+          // flash "checked"
+          button.classList.add('code-copy-button-checked');
+          var currentTitle = button.getAttribute("title");
+          button.setAttribute("title", "Copied!");
+          let tooltip;
+          if (window.bootstrap) {
+            button.setAttribute("data-bs-toggle", "tooltip");
+            button.setAttribute("data-bs-placement", "left");
+            button.setAttribute("data-bs-title", "Copied!");
+            tooltip = new bootstrap.Tooltip(button, 
+              { trigger: "manual", 
+                customClass: "code-copy-button-tooltip",
+                offset: [0, -8]});
+            tooltip.show();    
+          }
+          setTimeout(function() {
+            if (tooltip) {
+              tooltip.hide();
+              button.removeAttribute("data-bs-title");
+              button.removeAttribute("data-bs-toggle");
+              button.removeAttribute("data-bs-placement");
+            }
+            button.setAttribute("title", currentTitle);
+            button.classList.remove('code-copy-button-checked');
+          }, 1000);
+          // clear code selection
+          e.clearSelection();
+        }
+        const getTextToCopy = function(trigger) {
+            const codeEl = trigger.previousElementSibling.cloneNode(true);
+            for (const childEl of codeEl.children) {
+              if (isCodeAnnotation(childEl)) {
+                childEl.remove();
+              }
+            }
+            return codeEl.innerText;
+        }
+        const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+          text: getTextToCopy
+        });
+        clipboard.on('success', onCopySuccess);
+        if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+          const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+            text: getTextToCopy,
+            container: window.document.getElementById('quarto-embedded-source-code-modal')
+          });
+          clipboardModal.on('success', onCopySuccess);
+        }
+          var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+          var mailtoRegex = new RegExp(/^mailto:/);
+            var filterRegex = new RegExp('/' + window.location.host + '/');
+          var isInternal = (href) => {
+              return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+          }
+          // Inspect non-navigation links and adorn them if external
+         var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+          for (var i=0; i<links.length; i++) {
+            const link = links[i];
+            if (!isInternal(link.href)) {
+              // undo the damage that might have been done by quarto-nav.js in the case of
+              // links that we want to consider external
+              if (link.dataset.originalHref !== undefined) {
+                link.href = link.dataset.originalHref;
+              }
+            }
+          }
+        function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+          const config = {
+            allowHTML: true,
+            maxWidth: 500,
+            delay: 100,
+            arrow: false,
+            appendTo: function(el) {
+                return el.closest('section.slide') || el.parentElement;
+            },
+            interactive: true,
+            interactiveBorder: 10,
+            theme: 'light-border',
+            placement: 'bottom-start',
+          };
+          if (contentFn) {
+            config.content = contentFn;
+          }
+          if (onTriggerFn) {
+            config.onTrigger = onTriggerFn;
+          }
+          if (onUntriggerFn) {
+            config.onUntrigger = onUntriggerFn;
+          }
+            config['offset'] = [0,0];
+            config['maxWidth'] = 700;
+          window.tippy(el, config); 
+        }
+        const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+        for (var i=0; i<noterefs.length; i++) {
+          const ref = noterefs[i];
+          tippyHover(ref, function() {
+            // use id or data attribute instead here
+            let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+            try { href = new URL(href).hash; } catch {}
+            const id = href.replace(/^#\/?/, "");
+            const note = window.document.getElementById(id);
+            if (note) {
+              return note.innerHTML;
+            } else {
+              return "";
+            }
+          });
+        }
+        const findCites = (el) => {
+          const parentEl = el.parentElement;
+          if (parentEl) {
+            const cites = parentEl.dataset.cites;
+            if (cites) {
+              return {
+                el,
+                cites: cites.split(' ')
+              };
+            } else {
+              return findCites(el.parentElement)
+            }
+          } else {
+            return undefined;
+          }
+        };
+        var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+        for (var i=0; i<bibliorefs.length; i++) {
+          const ref = bibliorefs[i];
+          const citeInfo = findCites(ref);
+          if (citeInfo) {
+            tippyHover(citeInfo.el, function() {
+              var popup = window.document.createElement('div');
+              citeInfo.cites.forEach(function(cite) {
+                var citeDiv = window.document.createElement('div');
+                citeDiv.classList.add('hanging-indent');
+                citeDiv.classList.add('csl-entry');
+                var biblioDiv = window.document.getElementById('ref-' + cite);
+                if (biblioDiv) {
+                  citeDiv.innerHTML = biblioDiv.innerHTML;
+                }
+                popup.appendChild(citeDiv);
+              });
+              return popup.innerHTML;
+            });
+          }
+        }
+      });
+      </script>
+    
+
+</body></html>
