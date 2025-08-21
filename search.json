@@ -3558,7 +3558,14 @@
     "href": "doc-temp/slides/00/00-welcome-python.html#lectures",
     "title": "Welcome to INFO 523",
     "section": "Lectures",
-    "text": "Lectures\n\nIn person\nAttendance is required (as long as you’re healthy!)\nA little bit of everything:\n\nTraditional lecture\nLive coding + demos\nShort exercises + solution discussion"
+    "text": "Lectures\n\nAsynchronous online format, watch at your pace\nActive participation is expected throughout the semester\nDiscussions and Q&A are expected and encouraged in the Slack channel, more details to come"
+  },
+  {
+    "objectID": "doc-temp/slides/00/00-welcome-python.html#division-of-labor",
+    "href": "doc-temp/slides/00/00-welcome-python.html#division-of-labor",
+    "title": "Welcome to INFO 523",
+    "section": "Division of Labor",
+    "text": "Division of Labor\n\nWill reuse some of Dr. Greg Chism’s recordings\nDr. Chism designed the class and has been teaching for many semesters at UArizona\nI will record ad-hoc sections:\n\nTo discuss our usage of Generative AI in data mining\nIf some of you want to learn an extra technique (email me!)\nTo address common issues among homework/project submissions\n\nI will provide timely support on Slack channel"
   },
   {
     "objectID": "doc-temp/slides/00/00-welcome-python.html#announcements",
@@ -3568,11 +3575,11 @@
     "text": "Announcements\n\nPosted on D2L (Announcements tool) and sent (primarily) via Slack, be sure to check both regularly\nI’ll assume that you’ve read an announcement by the next “business” day"
   },
   {
-    "objectID": "doc-temp/slides/00/00-welcome-python.html#diversity-and-inclusion",
-    "href": "doc-temp/slides/00/00-welcome-python.html#diversity-and-inclusion",
+    "objectID": "doc-temp/slides/00/00-welcome-python.html#a-course-for-everyone",
+    "href": "doc-temp/slides/00/00-welcome-python.html#a-course-for-everyone",
     "title": "Welcome to INFO 523",
-    "section": "Diversity and inclusion",
-    "text": "Diversity and inclusion\nIt is my intent that students from all diverse backgrounds and perspectives be well-served by this course, that students’ learning needs be addressed both in and out of class, and that the diversity that the students bring to this class be viewed as a resource, strength and benefit.\n\nIf you have a name that differs from those that appear in your official UArizona records, please let me know!\nPlease let me know your preferred pronouns.\nIf you feel like your performance in the class is being impacted by your experiences outside of class, please don’t hesitate to come and talk with me. I want to be a resource for you. If you prefer to speak with someone outside of the course, your advisers and deans are excellent resources.\nI (like many people) am still in the process of learning about diverse perspectives and identities. If something was said in class (by anyone) that made you feel uncomfortable, please talk to me about it."
+    "section": "A Course for Everyone",
+    "text": "A Course for Everyone\nIt is my intent that students from all diverse backgrounds and perspectives be well-served by this course, that students’ learning needs be addressed both in and out of class, and that the diversity that the students bring to this class be viewed as a resource, strength and benefit.\n\nIf you have a name that differs from those that appear in your official UArizona records, please let me know!\nPlease let me know your preferred pronouns.\n\n\n\nIf you feel like your performance in the class is being impacted by your experiences outside of class, please don’t hesitate to come and talk with me. I want to be a resource for you. If you prefer to speak with someone outside of the course, your advisers and deans are excellent resources.\nIf something was said in class (by anyone) that made you feel uncomfortable, please talk to me about it."
   },
   {
     "objectID": "doc-temp/slides/00/00-welcome-python.html#accessibility",
@@ -3582,32 +3589,32 @@
     "text": "Accessibility\n\nThe Disability Resource Center is available to ensure that students are able to engage with their courses and related assignments.\nI am committed to making all course materials accessible and I’m always learning how to do this better. If any course component is not accessible to you in any way, please don’t hesitate to let me know."
   },
   {
-    "objectID": "doc-temp/slides/00/00-welcome-python.html#attendance-participation-5",
-    "href": "doc-temp/slides/00/00-welcome-python.html#attendance-participation-5",
+    "objectID": "doc-temp/slides/00/00-welcome-python.html#attendance-participation-10",
+    "href": "doc-temp/slides/00/00-welcome-python.html#attendance-participation-10",
     "title": "Welcome to INFO 523",
-    "section": "Attendance + participation (5%)",
-    "text": "Attendance + participation (5%)\n\nRequired throughout the semester in lecture\nStudents who attend at least 80% of the lectures and participate regularly in lecture and/or other course venues (Slack) will receive full credit for this portion of their grade"
+    "section": "Attendance + participation (10%)",
+    "text": "Attendance + participation (10%)\n\nRequired throughout the semester in lecture\nStudents who participate regularly in course venues (especially Slack) will receive full credit for this portion of their grade"
   },
   {
     "objectID": "doc-temp/slides/00/00-welcome-python.html#reading-quizzes-10",
     "href": "doc-temp/slides/00/00-welcome-python.html#reading-quizzes-10",
     "title": "Welcome to INFO 523",
     "section": "Reading quizzes (10%)",
-    "text": "Reading quizzes (10%)\n\nOnline, individual\nCover reading that is due since the previous quiz and up to and including the deadline for the given quiz\nDue by 11:59 pm AZ Time on the indicated day on the course schedule\nLowest dropped"
+    "text": "Reading quizzes (10%)\n\nOnline, individual\nDeadline typically on Mondays\n5 quizzes throughout the semester (2% each)\nCover reading that is due since the previous quiz"
   },
   {
-    "objectID": "doc-temp/slides/00/00-welcome-python.html#homework-assignments-45",
-    "href": "doc-temp/slides/00/00-welcome-python.html#homework-assignments-45",
+    "objectID": "doc-temp/slides/00/00-welcome-python.html#homework-assignments-40",
+    "href": "doc-temp/slides/00/00-welcome-python.html#homework-assignments-40",
     "title": "Welcome to INFO 523",
-    "section": "Homework assignments (45%)",
-    "text": "Homework assignments (45%)\n\nSubmitted on GitHub, individual\nSome lab sessions allocated to working on homework / getting feedback from your TA\nDue by 11:59 pm AZ Time on the indicated day on the course schedule\nLowest dropped"
+    "section": "Homework assignments (40%)",
+    "text": "Homework assignments (40%)\n\nSubmitted on GitHub, individual\nDeadline typically on Thursdays\nCo-working sessions based on your availability\nOffice hours to help with your needs"
   },
   {
-    "objectID": "doc-temp/slides/00/00-welcome-python.html#projects-40",
-    "href": "doc-temp/slides/00/00-welcome-python.html#projects-40",
+    "objectID": "doc-temp/slides/00/00-welcome-python.html#the-final-project-40",
+    "href": "doc-temp/slides/00/00-welcome-python.html#the-final-project-40",
     "title": "Welcome to INFO 523",
-    "section": "Projects (40%)",
-    "text": "Projects (40%)\n\nSubmitted on GitHub, team-based\nInterim deadlines, peer review on content, peer evaluation for team contribution"
+    "section": "The Final Project (40%)",
+    "text": "The Final Project (40%)\n\nSubmitted on GitHub, team-based\nOpen-ended, choose your own adventure\nDeadline typically on Thursdays\nPresentation + Writeup\n\n\n\nMilestone deadlines:\n\nSubmitting your idea\nPeer review on the proposal\nInstructor feedback on the proposal\nPeer evaluation for team contribution"
   },
   {
     "objectID": "doc-temp/slides/00/00-welcome-python.html#teams",
@@ -3617,25 +3624,11 @@
     "text": "Teams\n\nTeam assignments\n\nIn class exercises and projects\nAssigned different teams for each project\nPeer evaluation during teamwork and after completion\n\nExpectations and roles\n\nEveryone is expected to contribute equal effort\nEveryone is expected to understand all code turned in\nIndividual contribution evaluated by peer evaluation, commits, etc."
   },
   {
-    "objectID": "doc-temp/slides/00/00-welcome-python.html#project-1-15",
-    "href": "doc-temp/slides/00/00-welcome-python.html#project-1-15",
-    "title": "Welcome to INFO 523",
-    "section": "Project 1 (15%)",
-    "text": "Project 1 (15%)\n\nSame/similar data, different results\nPresentation and write-up\nWrapped up before midterms grades are due"
-  },
-  {
-    "objectID": "doc-temp/slides/00/00-welcome-python.html#project-2-25",
-    "href": "doc-temp/slides/00/00-welcome-python.html#project-2-25",
-    "title": "Welcome to INFO 523",
-    "section": "Project 2 (25%)",
-    "text": "Project 2 (25%)\n\nThe world is your oyster! (and more details TBA)\nNew team\nPresentation and write-up\nWrapped up on the final exam date"
-  },
-  {
     "objectID": "doc-temp/slides/00/00-welcome-python.html#grading",
     "href": "doc-temp/slides/00/00-welcome-python.html#grading",
     "title": "Welcome to INFO 523",
     "section": "Grading",
-    "text": "Grading\nThis course is assessed 100% on your coursework (there is no exam). We will be assessing you based on the following assignments,\n\n\n\n\n\n\n\n\n\n\nAssignment\nType\nValue\nn\nDue\n\n\n\n\nAttendance + participation\nIndividual\n5%\n\n\n\n\nReading quizzes\nIndividual\n10%\n6\n~ Every other week\n\n\nHomeworks\nIndividual\n45%\n6\n~ Every 2-3 weeks\n\n\nProject 1\nTeam\n15%\n1\n~ Week 10 + earlier interim deadlines\n\n\nProject 2\nTeam\n25%\n1\n~ Finals week + earlier interim deadlines"
+    "text": "Grading\nThis course is assessed 100% on your coursework (there is no exam). We will be assessing you based on the following assignments,\nNote: Please refer to the course syllabus and schedule for specific dates and detailed requirements.\n\n\n\n\n\n\n\n\n\n\nAssignment\nType\nValue\nn\nDue\n\n\n\n\nAttendance + participation\nIndividual\n10%\n\nThroughout semester\n\n\nReading quizzes\nIndividual\n10%\n5\n~ Every other week\n\n\nHomeworks\nIndividual\n40%\n5\n~ Every 2-3 weeks\n\n\nFinal Project\nTeam\n40%\n1\nMilestones + Finals week"
   },
   {
     "objectID": "doc-temp/slides/00/00-welcome-python.html#covid-policies",
@@ -3649,7 +3642,7 @@
     "href": "doc-temp/slides/00/00-welcome-python.html#late-work-policy",
     "title": "Welcome to INFO 523",
     "section": "Late work policy",
-    "text": "Late work policy\n\nReading quizzes: Late submissions not accepted\nHomework assignments:\n\nLate, but next day (before noon): -10% of available points\nLate, but next day (after noon): -20% of available points\nTwo days late or later: No credit, and we will not provide written feedback\n\nProject presentations: Late submissions not accepted\nProject write-ups:\n\nLate, but next day (before noon): -10% of available points\nLate, but next day (after noon): -20% of available points\nTwo days late or later: No credit, and we will not provide written feedback\n\nPeer evaluation:\n\nLate submissions not accepted\nMust turn in peer evaluation if you want your own score from others"
+    "text": "Late work policy\n\nReading quizzes: Late submissions not accepted\nHomework assignments:\n\nLate, but next day (before noon): -10% of available points\nLate, but next day (after noon): -20% of available points\nTwo days late or later: No credit, and we will not provide written feedback\n\nPeer evaluation:\n\nLate submissions not accepted\nMust turn in peer evaluation if you want your own score from others\n\n\n\n\nProject presentations: Late submissions not accepted\nProject write-ups:\n\nLate, but next day (before noon): -10% of available points\nLate, but next day (after noon): -20% of available points\nTwo days late or later: No credit, and we will not provide written feedback"
   },
   {
     "objectID": "doc-temp/slides/00/00-welcome-python.html#free-passes",
@@ -3677,7 +3670,7 @@
     "href": "doc-temp/slides/00/00-welcome-python.html#chatgpt-ai-policy",
     "title": "Welcome to INFO 523",
     "section": "ChatGPT / AI policy",
-    "text": "ChatGPT / AI policy\n\nWe are additionally aware of the potential code AI for coding (your instructor taught a workshop on it…).\nWhile these tools are amazing, learners should be aware of the impacts that using such tools can have on core competency. David Humphrey, a computer science professor, wrote about ChatGPT and its potentially negative impacts on core learning. It is a good read about the pitfalls of using generative AI in an educational context.\nBy using a generative AI, learners may miss the opportunity to discover how something works and why things are done that way."
+    "text": "ChatGPT / AI policy\n\nAI is Sometimes Permitted - This class encourages you to use/experiment with Generative AI in all assignments and projects\nException: Quizzes - AI use is not permitted for quizzes as they serve as your own checkpoint and reflection\nRequirements when using AI:\n\nAlways maintain control by reviewing, criticizing, and steering AI responses\nClearly state which AI tools you used and how you incorporated their output\nWrite reflections about your workflow and AI’s responses (graded component)\n\nRemember: AI tools won’t be responsible for your grades or learning - you are!"
   },
   {
     "objectID": "doc-temp/slides/00/00-welcome-python.html#academic-integrity",
@@ -3698,7 +3691,7 @@
     "href": "doc-temp/slides/00/00-welcome-python.html#office-hours",
     "title": "Welcome to INFO 523",
     "section": "Office hours",
-    "text": "Office hours\n\nJohn Chen:\n\nWednesdays, 12-1pm - Zoom\n\nExcept for university holidays\nAny exceptions will be announced in class / by email\n\nBy appointment - Zoom or Harvill 304\n\n+ lots more resources listed on the syllabus!"
+    "text": "Office hours\n\nJohn Chen:\n\nWednesdays, 12-1pm - Zoom\n\nExcept for university holidays\nAny exceptions will be announced via Slack / D2L\n\nBy appointment - Zoom or Harvill 304\n\n+ lots more resources listed on the syllabus!"
   },
   {
     "objectID": "doc-temp/slides/00/00-welcome-python.html#wellness",
@@ -3708,11 +3701,11 @@
     "text": "Wellness\nI want to make sure that you learn everything you were hoping to learn from this class. If this requires flexibility, please don’t hesitate to ask.\n\nYou never owe me personal information about your health (mental or physical) but you’re always welcome to talk to me. If I can’t help, I likely know someone who can.\nI want you to learn lots of things from this class, but I primarily want you to stay healthy, balanced, and grounded."
   },
   {
-    "objectID": "doc-temp/slides/00/00-welcome-python.html#jupyterlab",
-    "href": "doc-temp/slides/00/00-welcome-python.html#jupyterlab",
+    "objectID": "doc-temp/slides/00/00-welcome-python.html#visual-studio-code",
+    "href": "doc-temp/slides/00/00-welcome-python.html#visual-studio-code",
     "title": "Welcome to INFO 523",
-    "section": "JupyterLab",
-    "text": "JupyterLab\n\nhttps://jupyter.org/try\n\n\nBrowser based JupyterLab instance(s)\nRequires internet connection to access\nProvides consistency in hardware and software environments\nLocal Python and JupyterLab installations are fine but we will not guarantee support"
+    "section": "Visual Studio Code",
+    "text": "Visual Studio Code\n\nhttps://code.visualstudio.com/\n\n\nFull-featured IDE with native Jupyter Notebook support\nIntegrated Python debugger with inline variable values\nBuilt-in variable viewer and data explorer for notebooks\nSupports both local and remote development (including GitHub Codespaces)"
   },
   {
     "objectID": "doc-temp/slides/00/00-welcome-python.html#github",
