@@ -1786,6 +1786,13 @@
     "text": "Visual Studio Code\n\nhttps://code.visualstudio.com/\n\n\nFull-featured IDE with native Jupyter Notebook support\nIntegrated Python debugger with inline variable values\nBuilt-in variable viewer and data explorer for notebooks\nSupports both local and remote development (including GitHub Codespaces)"
   },
   {
+    "objectID": "slides/00/00-welcome-python.html#github-codespaces",
+    "href": "slides/00/00-welcome-python.html#github-codespaces",
+    "title": "Welcome to INFO 523",
+    "section": "GitHub Codespaces",
+    "text": "GitHub Codespaces\n\nhttps://code.visualstudio.com/docs/remote/codespaces\n\n\nVisual Studio Code in your browser\nNo need to set up Python dependencies\nAutomatic integration with GitHub"
+  },
+  {
     "objectID": "slides/00/00-welcome-python.html#github",
     "href": "slides/00/00-welcome-python.html#github",
     "title": "Welcome to INFO 523",
