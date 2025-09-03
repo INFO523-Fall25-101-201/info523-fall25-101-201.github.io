@@ -10,7 +10,6 @@
 <link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-ea385d0e468b0dd5ea5bf0780b1290d9.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.7.33">
 
-  <meta name="author" content="John Chen">
   <title>INFO 523 – Support Vector Machines (SVMs)</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -194,7 +193,7 @@
   
   <script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 <meta property="og:title" content="Support Vector Machines (SVMs) – INFO 523">
-<meta property="og:description" content="Lecture 10">
+<meta property="og:description" content="Data Mining and Discovery">
 <meta property="og:site_name" content="INFO 523">
 </head>
 <body class="quarto-light">
@@ -203,31 +202,11 @@
 
 <section id="title-slide" data-background-image="../minedata-bg.png" data-background-size="600px, cover" data-slide-number="none" class="quarto-title-block center">
   <h1 class="title">Support Vector Machines (SVMs)</h1>
-  <p class="subtitle">Lecture 10</p>
+  <p class="subtitle">Data Mining and Discovery</p>
 
 <div class="quarto-title-authors">
-<div class="quarto-title-author">
-<div class="quarto-title-author-name">
-John Chen 
-</div>
-        <p class="quarto-title-affiliation">
-            University of Arizona <br> INFO 523 - Fall 2025
-          </p>
-    </div>
 </div>
 
-</section>
-<section>
-<section id="warm-up" class="title-slide slide level1 center">
-<h1>Warm up</h1>
-
-</section>
-<section id="announcements" class="slide level2">
-<h2>Announcements</h2>
-<ul>
-<li><p>RQ 04 is due tonight, 11:59pm</p></li>
-<li><p>HW 05 is due Fri Apr 26, 11:59pm</p></li>
-</ul>
 </section>
 <section id="setup" class="slide level2 smaller">
 <h2>Setup</h2>
@@ -264,7 +243,7 @@ John Chen
 <span id="cb1-30"><a></a><span class="co"># Increase font size of all Seaborn plot elements</span></span>
 <span id="cb1-31"><a></a>sns.<span class="bu">set</span>(font_scale <span class="op">=</span> <span class="fl">1.25</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</section></section>
+</section>
 <section id="a-short-lesson-in-linear-algebra" class="title-slide slide level1 center">
 <h1>A short lesson in Linear Algebra</h1>
 
@@ -292,7 +271,7 @@ John Chen
 <ul id="tabset-1" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-1-1">Read + head</a></li><li><a href="#tabset-1-2">Metadata</a></li><li><a href="#tabset-1-3">Info</a></li><li><a href="#tabset-1-4">Categories</a></li><li><a href="#tabset-1-5">Visualize</a></li></ul>
 <div class="tab-content">
 <div id="tabset-1-1">
-<div id="614db92b" class="cell" data-execution_count="2">
+<div id="db87af9a" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a></a>laborDiscrim <span class="op">=</span> pd.read_csv(<span class="st">"data/labor_market_discrimination.csv"</span>, encoding <span class="op">=</span> <span class="st">'iso-8859-1'</span>)[[<span class="st">"education"</span>, <span class="st">"special_skills"</span>, <span class="st">"computer_skills"</span>, <span class="st">"honors"</span>, <span class="st">"sex"</span>, <span class="st">"race"</span>, <span class="st">"call"</span>]]</span>
 <span id="cb2-2"><a></a>laborDiscrim.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="2">
@@ -385,9 +364,9 @@ John Chen
 <div id="tabset-1-2">
 <table class="caption-top">
 <colgroup>
-<col style="width: 26%">
-<col style="width: 26%">
-<col style="width: 47%">
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -436,7 +415,7 @@ John Chen
 </table>
 </div>
 <div id="tabset-1-3">
-<div id="71bd31c3" class="cell" data-execution_count="3">
+<div id="aca153b7" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a></a>laborDiscrim.info()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>&lt;class 'pandas.core.frame.DataFrame'&gt;
@@ -457,7 +436,7 @@ memory usage: 266.5+ KB</code></pre>
 </div>
 </div>
 <div id="tabset-1-4">
-<div id="e3b70c65" class="cell" data-execution_count="4">
+<div id="9d55c4c9" class="cell" data-execution_count="4">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a></a><span class="co"># Select categorical columns</span></span>
@@ -624,7 +603,7 @@ Name: proportion, dtype: float64
 </div>
 </div>
 <div id="tabset-1-5">
-<div id="59de730c" class="cell" data-execution_count="5">
+<div id="059f0830" class="cell" data-execution_count="5">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -700,7 +679,7 @@ Name: proportion, dtype: float64
 <div class="tab-content">
 <div id="tabset-3-1">
 <p><strong>Goal</strong>: Construct a hyperplane that maximizes the margin between classes, creating optimal separation with a buffer zone around the hyperplane that’s free of data.</p>
-<div id="0c216844" class="cell" data-execution_count="6">
+<div id="1227f8bb" class="cell" data-execution_count="6">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -834,7 +813,7 @@ Name: proportion, dtype: float64
 </section>
 <section id="back-to-our-data---preprocessing" class="slide level2 smaller">
 <h2>Back to our data - preprocessing</h2>
-<div id="ad3a90c0" class="cell" data-execution_count="7">
+<div id="09a1b510" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a></a><span class="co"># Selecting columns</span></span>
 <span id="cb7-2"><a></a>X <span class="op">=</span> laborDiscrim[[<span class="st">'education'</span>, <span class="st">'special_skills'</span>, <span class="st">'computer_skills'</span>, <span class="st">'honors'</span>, <span class="st">'sex'</span>, <span class="st">'race'</span>]]</span>
 <span id="cb7-3"><a></a>y <span class="op">=</span> laborDiscrim[<span class="st">'call'</span>]</span>
@@ -866,7 +845,7 @@ Name: proportion, dtype: float64
 <ul id="tabset-6" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-6-1">Model summary</a></li><li><a href="#tabset-6-2">Metrics</a></li><li><a href="#tabset-6-3">Classes</a></li><li><a href="#tabset-6-4">Overall Metrics</a></li></ul>
 <div class="tab-content">
 <div id="tabset-6-1">
-<div id="e6fa6bdc" class="cell" data-execution_count="8">
+<div id="57105a79" class="cell" data-execution_count="8">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a></a><span class="co"># Splitting dataset into training and testing sets</span></span>
@@ -950,7 +929,7 @@ weighted avg       0.87      0.93      0.90       974
 <ul id="tabset-7" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-7-1">Applied</a></li><li><a href="#tabset-7-2">Residual analysis</a></li></ul>
 <div class="tab-content">
 <div id="tabset-7-1">
-<div id="083f7f1d" class="cell" data-execution_count="10">
+<div id="f349cdc7" class="cell" data-execution_count="10">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a></a><span class="co"># Defining the parameter grid for Random Search</span></span>
@@ -992,7 +971,7 @@ weighted avg       0.87      0.93      0.90       974
 Accuracy with best parameters: 0.934</code></pre>
 </div>
 <div id="tabset-7-2">
-<div id="1272b43d" class="cell" data-execution_count="11">
+<div id="c317144f" class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a></a><span class="co"># Generate classification report and confusion matrix</span></span>
 <span id="cb12-2"><a></a><span class="bu">print</span>(classification_report(y_test, y_pred))</span>
 <span id="cb12-3"><a></a><span class="bu">print</span>(confusion_matrix(y_test, y_pred))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1019,7 +998,7 @@ weighted avg       0.87      0.93      0.90       974
 <div class="tab-content">
 <div id="tabset-8-1">
 <p>Support Vector Regression (SVR) adapts SVMs for regression, aiming to predict values within an <span class="math inline">\(\epsilon\)</span>-margin of the actual targets while maintaining simplicity.</p>
-<div id="63d54cdf" class="cell" data-execution_count="12">
+<div id="bfe7c791" class="cell" data-execution_count="12">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -1072,7 +1051,7 @@ weighted avg       0.87      0.93      0.90       974
   <div class="quarto-auto-generated-content" style="display: none;">
 <p><img src="../logo.png" class="slide-logo"></p>
 <div class="footer footer-default">
-<p><a href="https://info523-fall25-101-201.github.io/">🔗 github.io</a></p>
+<p><a href="https://datamineaz.org/">🔗 datamineaz.org</a></p>
 </div>
 </div></div>
 

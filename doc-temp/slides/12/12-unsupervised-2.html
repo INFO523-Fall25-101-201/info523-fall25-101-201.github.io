@@ -10,7 +10,6 @@
 <link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-ea385d0e468b0dd5ea5bf0780b1290d9.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.7.33">
 
-  <meta name="author" content="John Chen">
   <title>INFO 523 – Unsupervised Learning II</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -194,7 +193,7 @@
   
   <script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 <meta property="og:title" content="UnsupervisedLearning II – INFO 523">
-<meta property="og:description" content="Lecture 12">
+<meta property="og:description" content="Data Mining and Discovery">
 <meta property="og:site_name" content="INFO 523">
 </head>
 <body class="quarto-light">
@@ -203,32 +202,11 @@
 
 <section id="title-slide" data-background-image="../minedata-bg.png" data-background-size="600px, cover" data-slide-number="none" class="quarto-title-block center">
   <h1 class="title">Unsupervised<br>Learning II</h1>
-  <p class="subtitle">Lecture 12</p>
+  <p class="subtitle">Data Mining and Discovery</p>
 
 <div class="quarto-title-authors">
-<div class="quarto-title-author">
-<div class="quarto-title-author-name">
-John Chen 
-</div>
-        <p class="quarto-title-affiliation">
-            University of Arizona <br> INFO 523 - Fall 2025
-          </p>
-    </div>
 </div>
 
-</section>
-<section>
-<section id="warm-up" class="title-slide slide level1 center">
-<h1>Warm up</h1>
-
-</section>
-<section id="announcements" class="slide level2">
-<h2>Announcements</h2>
-<ul>
-<li>HW 05 is due Fri Apr 26, 11:59pm</li>
-<li>RQ 05 is due Wed May 01, 11:59pm</li>
-<li>Final Project Presentations are Mon May 06, 1pm</li>
-</ul>
 </section>
 <section id="setup" class="slide level2 smaller">
 <h2>Setup</h2>
@@ -278,7 +256,7 @@ John Chen
 <ul id="tabset-1" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-1-1">Read + Head</a></li><li><a href="#tabset-1-2">Define columns</a></li><li><a href="#tabset-1-3">Prepare steps</a></li><li><a href="#tabset-1-4">Transformations</a></li></ul>
 <div class="tab-content">
 <div id="tabset-1-1">
-<div id="800e542a" class="cell" data-execution_count="2">
+<div id="3f755e3a" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a></a>mlb_players_18 <span class="op">=</span> pd.read_csv(<span class="st">"data/mlb_players_18.csv"</span>, encoding <span class="op">=</span> <span class="st">'iso-8859-1'</span>)</span>
 <span id="cb2-2"><a></a></span>
 <span id="cb2-3"><a></a>mlb_players_18.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -442,14 +420,14 @@ John Chen
 </div>
 </div>
 <div id="tabset-1-2">
-<div id="2965b73b" class="cell" data-execution_count="3">
+<div id="db924bd8" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a></a><span class="co"># Define the columns based on their type for preprocessing</span></span>
 <span id="cb3-2"><a></a>categorical_features <span class="op">=</span> [<span class="st">'team'</span>, <span class="st">'position'</span>]</span>
 <span id="cb3-3"><a></a>numerical_features <span class="op">=</span> [<span class="st">'games'</span>, <span class="st">'AB'</span>, <span class="st">'R'</span>, <span class="st">'H'</span>, <span class="st">'doubles'</span>, <span class="st">'triples'</span>, <span class="st">'HR'</span>, <span class="st">'RBI'</span>, <span class="st">'walks'</span>, <span class="st">'strike_outs'</span>, <span class="st">'stolen_bases'</span>, <span class="st">'caught_stealing_base'</span>, <span class="st">'AVG'</span>, <span class="st">'OBP'</span>, <span class="st">'SLG'</span>, <span class="st">'OPS'</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 <div id="tabset-1-3">
-<div id="7b74a00e" class="cell" data-execution_count="4">
+<div id="6924d8fe" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a></a><span class="co"># Handling missing values: Impute missing values if any</span></span>
 <span id="cb4-2"><a></a><span class="co"># For numerical features, replace missing values with the median of the column</span></span>
 <span id="cb4-3"><a></a><span class="co"># For categorical features, replace missing values with the most frequent value of the column</span></span>
@@ -466,7 +444,7 @@ John Chen
 </div>
 </div>
 <div id="tabset-1-4">
-<div id="ac41ae62" class="cell" data-execution_count="5">
+<div id="619dff0f" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a></a><span class="co"># Apply the transformations to the dataset</span></span>
 <span id="cb5-2"><a></a>mlb_preprocessed <span class="op">=</span> preprocessor.fit_transform(mlb_players_18)</span>
 <span id="cb5-3"><a></a></span>
@@ -651,7 +629,7 @@ John Chen
 </div>
 </div>
 </div>
-</section></section>
+</section>
 <section>
 <section id="clustering-cont." class="title-slide slide level1 center">
 <h1>Clustering cont.</h1>
@@ -660,7 +638,7 @@ John Chen
 <section id="clustering-methods" class="slide level2">
 <h2>Clustering methods</h2>
 <div style="text-align: center;">
-<iframe width="1200" height="400" src="https://https://info523-fall25-101-201.github.io/tables/model-cheatsheet.html" frameborder="1" style="background:white;"></iframe>
+<iframe width="1200" height="400" src="https://datamineaz.org/tables/model-cheatsheet.html" frameborder="1" style="background:white;"></iframe>
 </div>
 </section>
 <section id="hierarchical-clustering" class="slide level2 smaller">
@@ -669,11 +647,11 @@ John Chen
 <ul id="tabset-2" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-2-1">Visual</a></li><li><a href="#tabset-2-2">Agglomerative Clustering Process</a></li><li><a href="#tabset-2-3">Key points</a></li></ul>
 <div class="tab-content">
 <div id="tabset-2-1">
-<div id="1c7102e2" class="cell" data-execution_count="6">
+<div id="225d5395" class="cell" data-execution_count="6">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
-<p><img data-src="12-unsupervised-2_files/figure-revealjs/cell-7-output-1.png" width="657" height="520"></p>
+<p><img data-src="12-unsupervised-2_files/figure-revealjs/cell-7-output-1.png" width="664" height="524"></p>
 </figure>
 </div>
 </div>
@@ -716,7 +694,7 @@ John Chen
 <ul id="tabset-3" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-3-1">Model summary</a></li><li><a href="#tabset-3-2">Visualize results</a></li></ul>
 <div class="tab-content">
 <div id="tabset-3-1">
-<div id="2939c26c" class="cell" data-execution_count="7">
+<div id="70bffcf2" class="cell" data-execution_count="7">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a></a><span class="co"># Apply hierarchical clustering</span></span>
@@ -741,7 +719,7 @@ John Chen
 <div class="cell-output cell-output-display">
 <div>
 <figure>
-<p><img data-src="12-unsupervised-2_files/figure-revealjs/cell-8-output-1.png" width="814" height="376"></p>
+<p><img data-src="12-unsupervised-2_files/figure-revealjs/cell-8-output-1.png" width="824" height="380"></p>
 </figure>
 </div>
 </div>
@@ -751,7 +729,7 @@ John Chen
 </div>
 </div>
 <div id="tabset-3-2">
-<div id="2ad50923" class="cell" data-execution_count="8">
+<div id="13db2a48" class="cell" data-execution_count="8">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a></a><span class="co"># PCA for dimensionality reduction</span></span>
@@ -770,7 +748,7 @@ John Chen
 <div class="cell-output cell-output-display">
 <div>
 <figure>
-<p><img data-src="12-unsupervised-2_files/figure-revealjs/cell-9-output-1.png" width="731" height="445"></p>
+<p><img data-src="12-unsupervised-2_files/figure-revealjs/cell-9-output-1.png" width="741" height="456"></p>
 </figure>
 </div>
 </div>
@@ -786,11 +764,11 @@ John Chen
 <ul id="tabset-4" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-4-1">Visual</a></li><li><a href="#tabset-4-2">Key points</a></li></ul>
 <div class="tab-content">
 <div id="tabset-4-1">
-<div id="28dae6ef" class="cell" data-execution_count="9">
+<div id="1f950527" class="cell" data-execution_count="9">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
-<p><img data-src="12-unsupervised-2_files/figure-revealjs/cell-10-output-1.png" width="657" height="519"></p>
+<p><img data-src="12-unsupervised-2_files/figure-revealjs/cell-10-output-1.png" width="686" height="530"></p>
 </figure>
 </div>
 </div>
@@ -815,7 +793,7 @@ John Chen
 <ul id="tabset-5" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-5-1">Optimal parameters</a></li><li><a href="#tabset-5-2">Model summary</a></li><li><a href="#tabset-5-3">Visualize results</a></li></ul>
 <div class="tab-content">
 <div id="tabset-5-1">
-<div id="da2ae757" class="cell" data-execution_count="10">
+<div id="a6313823" class="cell" data-execution_count="10">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a></a><span class="co"># Selecting relevant features for clustering</span></span>
@@ -842,14 +820,14 @@ John Chen
 <div class="cell-output cell-output-display">
 <div>
 <figure>
-<p><img data-src="12-unsupervised-2_files/figure-revealjs/cell-11-output-1.png" width="724" height="445"></p>
+<p><img data-src="12-unsupervised-2_files/figure-revealjs/cell-11-output-1.png" width="727" height="456"></p>
 </figure>
 </div>
 </div>
 </div>
 </div>
 <div id="tabset-5-2">
-<div id="ce8edd0d" class="cell" data-execution_count="11">
+<div id="27652597" class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a></a><span class="co"># Based on the elbow method from the plot, let's pick an eps value and apply DBSCAN</span></span>
 <span id="cb10-2"><a></a>eps_value <span class="op">=</span> <span class="fl">0.5</span>  <span class="co"># This value should be adjusted based on the elbow point observed in the plot</span></span>
 <span id="cb10-3"><a></a>dbscan <span class="op">=</span> DBSCAN(eps <span class="op">=</span> eps_value, min_samples <span class="op">=</span> <span class="dv">5</span>)</span>
@@ -864,7 +842,7 @@ John Chen
 </div>
 </div>
 <div id="tabset-5-3">
-<div id="ea3a4ec0" class="cell" data-execution_count="12">
+<div id="b9db3778" class="cell" data-execution_count="12">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a></a><span class="co"># PCA for dimensionality reduction</span></span>
@@ -883,7 +861,7 @@ John Chen
 <div class="cell-output cell-output-display">
 <div>
 <figure>
-<p><img data-src="12-unsupervised-2_files/figure-revealjs/cell-13-output-1.png" width="731" height="445"></p>
+<p><img data-src="12-unsupervised-2_files/figure-revealjs/cell-13-output-1.png" width="738" height="456"></p>
 </figure>
 </div>
 </div>
@@ -941,21 +919,21 @@ John Chen
 <div id="tabset-7-1">
 <div class="columns">
 <div class="column" style="width:50%;">
-<div id="0ac0b812" class="cell" data-execution_count="13">
+<div id="65a7f26f" class="cell" data-execution_count="13">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
-<p><img data-src="12-unsupervised-2_files/figure-revealjs/cell-14-output-1.png" width="479" height="480"></p>
+<p><img data-src="12-unsupervised-2_files/figure-revealjs/cell-14-output-1.png" width="486" height="491"></p>
 </figure>
 </div>
 </div>
 </div>
 </div><div class="column" style="width:50%;">
-<div id="1ccfd592" class="cell" data-execution_count="14">
+<div id="4467c0b1" class="cell" data-execution_count="14">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
-<p><img data-src="12-unsupervised-2_files/figure-revealjs/cell-15-output-1.png" width="637" height="445"></p>
+<p><img data-src="12-unsupervised-2_files/figure-revealjs/cell-15-output-1.png" width="656" height="456"></p>
 </figure>
 </div>
 </div>
@@ -982,11 +960,11 @@ John Chen
 <ul id="tabset-8" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-8-1">Visual</a></li><li><a href="#tabset-8-2">Key points</a></li></ul>
 <div class="tab-content">
 <div id="tabset-8-1">
-<div id="23ff023d" class="cell" data-execution_count="15">
+<div id="2c87d493" class="cell" data-execution_count="15">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
-<p><img data-src="12-unsupervised-2_files/figure-revealjs/cell-16-output-1.png" width="644" height="519"></p>
+<p><img data-src="12-unsupervised-2_files/figure-revealjs/cell-16-output-1.png" width="665" height="530"></p>
 </figure>
 </div>
 </div>
@@ -1011,7 +989,7 @@ John Chen
 <ul id="tabset-9" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-9-1">Model summary</a></li><li><a href="#tabset-9-2">Visualize results</a></li></ul>
 <div class="tab-content">
 <div id="tabset-9-1">
-<div id="fdca6eaa" class="cell" data-execution_count="16">
+<div id="b9ddfcc0" class="cell" data-execution_count="16">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a></a><span class="co"># Fit a Gaussian Mixture Model</span></span>
@@ -1052,7 +1030,7 @@ Cluster Weights: [0.48346465 0.24021972 0.27631563]</code></pre>
 </div>
 </div>
 <div id="tabset-9-2">
-<div id="293c998c" class="cell" data-execution_count="17">
+<div id="9165577a" class="cell" data-execution_count="17">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a></a>pca <span class="op">=</span> PCA(n_components <span class="op">=</span> <span class="dv">2</span>)</span>
@@ -1070,7 +1048,7 @@ Cluster Weights: [0.48346465 0.24021972 0.27631563]</code></pre>
 <div class="cell-output cell-output-display">
 <div>
 <figure>
-<p><img data-src="12-unsupervised-2_files/figure-revealjs/cell-18-output-1.png" width="693" height="445"></p>
+<p><img data-src="12-unsupervised-2_files/figure-revealjs/cell-18-output-1.png" width="709" height="456"></p>
 </figure>
 </div>
 </div>
@@ -1106,7 +1084,7 @@ Cluster Weights: [0.48346465 0.24021972 0.27631563]</code></pre>
 <div class="tab-content">
 <div id="tabset-10-1">
 <div class="task">
-<p>Go to <a href="https://https://info523-fall25-101-201.github.io/exercises/ex-12.html">ex-12</a> and perform the tasks</p>
+<p>Go to <a href="https://datamineaz.org/exercises/ex-12.html">ex-12</a> and perform the tasks</p>
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -1130,7 +1108,7 @@ Cluster Weights: [0.48346465 0.24021972 0.27631563]</code></pre>
   <div class="quarto-auto-generated-content" style="display: none;">
 <p><img src="../logo.png" class="slide-logo"></p>
 <div class="footer footer-default">
-<p><a href="https://info523-fall25-101-201.github.io/">🔗 github.io</a></p>
+<p><a href="https://datamineaz.org/">🔗 datamineaz.org</a></p>
 </div>
 </div></div>
 

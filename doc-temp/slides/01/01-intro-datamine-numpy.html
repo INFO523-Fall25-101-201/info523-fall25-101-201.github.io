@@ -10,7 +10,6 @@
 <link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-ea385d0e468b0dd5ea5bf0780b1290d9.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.7.33">
 
-  <meta name="author" content="John Chen">
   <title>INFO 523 – Introduction to Data Mining</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -194,7 +193,7 @@
   
   <script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 <meta property="og:title" content="Introduction to Data Mining – INFO 523">
-<meta property="og:description" content="Lecture 1">
+<meta property="og:description" content="Data Mining and Discovery">
 <meta property="og:site_name" content="INFO 523">
 </head>
 <body class="quarto-light">
@@ -203,34 +202,16 @@
 
 <section id="title-slide" data-background-image="../minedata-bg.png" data-background-size="600px, cover" data-slide-number="none" class="quarto-title-block center">
   <h1 class="title">Introduction to Data Mining</h1>
-  <p class="subtitle">Lecture 1</p>
+  <p class="subtitle">Data Mining and Discovery</p>
 
 <div class="quarto-title-authors">
-<div class="quarto-title-author">
-<div class="quarto-title-author-name">
-John Chen 
-</div>
-        <p class="quarto-title-affiliation">
-            University of Arizona <br> INFO 523 - Fall 2025
-          </p>
-    </div>
 </div>
 
 </section>
 <section>
-<section id="warm-up" class="title-slide slide level1 center">
-<h1>Warm up</h1>
+<section id="data-mining" class="title-slide slide level1 center">
+<h1>Data Mining</h1>
 
-</section>
-<section id="announcements" class="slide level2">
-<h2>Announcements</h2>
-<ul>
-<li><p>Reading Quiz #1 is due Friday, Jan 19th, 11:59pm</p></li>
-<li><p>Project 1 overview next week</p>
-<ul>
-<li>Teams will be announced as well</li>
-</ul></li>
-</ul>
 </section>
 <section id="what-is-data-mining" class="slide level2">
 <h2>What is data mining?</h2>
@@ -319,7 +300,7 @@ John Chen
 <div class="columns">
 <div class="column" style="width:50%;">
 <h4 id="classification">Classification</h4>
-<div id="528200cc" class="cell" data-execution_count="1">
+<div id="bf35903a" class="cell" data-execution_count="1">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -328,7 +309,7 @@ John Chen
 </div>
 </div>
 </div>
-<div id="f7c109d4" class="cell" data-execution_count="2">
+<div id="131ed6d9" class="cell" data-execution_count="2">
 <div class="cell-output cell-output-display" data-execution_count="2">
 <div>
 <style scoped="">
@@ -411,7 +392,7 @@ John Chen
 </div>
 </div><div class="column" style="width:50%;">
 <h4 id="regression">Regression</h4>
-<div id="0b85a256" class="cell" data-execution_count="3">
+<div id="6f2a199d" class="cell" data-execution_count="3">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -484,7 +465,7 @@ John Chen
 <p>E.g., Customer Attrition, Directed Marketing</p>
 <div class="columns">
 <div class="column" style="width:50%;">
-<div id="70cba0ae" class="cell" data-execution_count="4">
+<div id="b91a06f1" class="cell" data-execution_count="4">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -494,7 +475,7 @@ John Chen
 </div>
 </div>
 </div><div class="column" style="width:50%;">
-<div id="343c7cfe" class="cell" data-execution_count="5">
+<div id="cf656507" class="cell" data-execution_count="5">
 <div class="cell-output cell-output-display" data-execution_count="5">
 <div>
 <style scoped="">
@@ -628,7 +609,7 @@ John Chen
 <p>Both are continuous variables (floats)</p>
 <div class="columns">
 <div class="column" style="width:50%;">
-<div id="7ac250af" class="cell" data-execution_count="6">
+<div id="d1401ca0" class="cell" data-execution_count="6">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -638,7 +619,7 @@ John Chen
 </div>
 </div>
 </div><div class="column" style="width:50%;">
-<div id="8b271678" class="cell" data-execution_count="7">
+<div id="d08180a2" class="cell" data-execution_count="7">
 <div class="cell-output cell-output-display" data-execution_count="7">
 <div>
 <style scoped="">
@@ -725,21 +706,21 @@ John Chen
 <section id="association-mining" class="slide level2">
 <h2>Association mining</h2>
 <p>Given a set of transactions, produce rules of association</p>
-<div id="07cf8bab" class="cell" data-execution_count="8">
+<div id="0b702d4f" class="cell" data-execution_count="8">
 <div class="cell-output cell-output-stdout">
 <pre><code>  antecedents consequents  antecedent support  consequent support  support  \
-0      (Beer)   (Diapers)                 0.6                 0.8      0.6   
-1   (Diapers)      (Beer)                 0.8                 0.6      0.6   
+0   (Diapers)      (Beer)                 0.8                 0.6      0.6   
+1      (Beer)   (Diapers)                 0.6                 0.8      0.6   
 2     (Bread)   (Diapers)                 0.8                 0.8      0.6   
 3   (Diapers)     (Bread)                 0.8                 0.8      0.6   
 4     (Bread)      (Milk)                 0.8                 0.8      0.6   
 5      (Milk)     (Bread)                 0.8                 0.8      0.6   
-6   (Diapers)      (Milk)                 0.8                 0.8      0.6   
-7      (Milk)   (Diapers)                 0.8                 0.8      0.6   
+6      (Milk)   (Diapers)                 0.8                 0.8      0.6   
+7   (Diapers)      (Milk)                 0.8                 0.8      0.6   
 
    confidence    lift  representativity  leverage  conviction  zhangs_metric  \
-0        1.00  1.2500               1.0      0.12         inf           0.50   
-1        0.75  1.2500               1.0      0.12         1.6           1.00   
+0        0.75  1.2500               1.0      0.12         1.6           1.00   
+1        1.00  1.2500               1.0      0.12         inf           0.50   
 2        0.75  0.9375               1.0     -0.04         0.8          -0.25   
 3        0.75  0.9375               1.0     -0.04         0.8          -0.25   
 4        0.75  0.9375               1.0     -0.04         0.8          -0.25   
@@ -748,8 +729,8 @@ John Chen
 7        0.75  0.9375               1.0     -0.04         0.8          -0.25   
 
    jaccard  certainty  kulczynski  
-0     0.75      1.000       0.875  
-1     0.75      0.375       0.875  
+0     0.75      0.375       0.875  
+1     0.75      1.000       0.875  
 2     0.60     -0.250       0.750  
 3     0.60     -0.250       0.750  
 4     0.60     -0.250       0.750  
@@ -793,7 +774,7 @@ John Chen
 <h2>Clustering</h2>
 <div class="columns">
 <div class="column" style="width:50%;">
-<div id="61dcc7d4" class="cell" data-execution_count="9">
+<div id="8b244009" class="cell" data-execution_count="9">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -816,7 +797,7 @@ John Chen
 <p>Detect significant deviations from normal behavior.</p>
 <div class="columns">
 <div class="column" style="width:50%;">
-<div id="d0bd713d" class="cell" data-execution_count="10">
+<div id="0a08d438" class="cell" data-execution_count="10">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -956,7 +937,7 @@ John Chen
 <ul id="tabset-1" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-1-1">Code</a></li><li><a href="#tabset-1-2">Output</a></li></ul>
 <div class="tab-content">
 <div id="tabset-1-1">
-<div id="fa7905c7" class="cell" data-execution_count="11">
+<div id="4160b6f6" class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb3-2"><a></a></span>
 <span id="cb3-3"><a></a><span class="co"># Creating a simple NumPy array</span></span>
@@ -979,7 +960,7 @@ John Chen
 </div>
 </div>
 <div id="tabset-1-2">
-<div id="8131b56d" class="cell" data-execution_count="12">
+<div id="e88b7764" class="cell" data-execution_count="12">
 <div class="cell-output cell-output-stdout">
 <pre><code>arr: [1 2 3 4] 
 
@@ -1006,7 +987,7 @@ identity_matrix: [[1. 0. 0.]
 </section>
 <section id="array-attributes" class="slide level2">
 <h2>Array attributes</h2>
-<div id="4c626822" class="cell" data-execution_count="13">
+<div id="999f4154" class="cell" data-execution_count="13">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a></a><span class="co"># Array dimensions</span></span>
 <span id="cb5-2"><a></a><span class="bu">print</span>(<span class="st">"Dimensions:"</span>, multi_arr.ndim)</span>
 <span id="cb5-3"><a></a></span>
@@ -1033,7 +1014,7 @@ Data Type: int64</code></pre>
 </section>
 <section id="arithmetic-operations" class="slide level2">
 <h2>Arithmetic operations</h2>
-<div id="6aa50126" class="cell" data-execution_count="14">
+<div id="981f34da" class="cell" data-execution_count="14">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a></a><span class="co"># Element-wise addition</span></span>
 <span id="cb7-2"><a></a>addition <span class="op">=</span> arr <span class="op">+</span> <span class="dv">2</span></span>
 <span id="cb7-3"><a></a></span>
@@ -1046,7 +1027,7 @@ Data Type: int64</code></pre>
 <span id="cb7-10"><a></a><span class="co"># Element-wise division</span></span>
 <span id="cb7-11"><a></a>division <span class="op">=</span> arr <span class="op">/</span> <span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="fc7a2754" class="cell" data-execution_count="15">
+<div id="a204f8b2" class="cell" data-execution_count="15">
 <div class="cell-output cell-output-stdout">
 <pre><code>addition: [3 4 5 6] 
 
@@ -1066,7 +1047,7 @@ division: [0.5 1.  1.5 2. ]
 <ul id="tabset-2" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-2-1">Python</a></li><li><a href="#tabset-2-2">My slides</a></li></ul>
 <div class="tab-content">
 <div id="tabset-2-1">
-<div id="48d7f793" class="cell" data-execution_count="16">
+<div id="882a2ade" class="cell" data-execution_count="16">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a></a><span class="bu">print</span>(addition)</span>
 <span id="cb9-2"><a></a><span class="bu">print</span>(subtraction)</span>
 <span id="cb9-3"><a></a><span class="bu">print</span>(multiplication)</span>
@@ -1080,7 +1061,7 @@ division: [0.5 1.  1.5 2. ]
 </div>
 </div>
 <div id="tabset-2-2">
-<div id="a516872e" class="cell" data-execution_count="17">
+<div id="6f6ca23f" class="cell" data-execution_count="17">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a></a><span class="bu">print</span>(<span class="st">"addition:"</span>, addition, <span class="st">"</span><span class="ch">\n</span><span class="st">"</span>)</span>
 <span id="cb11-2"><a></a></span>
 <span id="cb11-3"><a></a><span class="bu">print</span>(<span class="st">"subtraction:"</span>, subtraction, <span class="st">"</span><span class="ch">\n</span><span class="st">"</span>)</span>
@@ -1105,7 +1086,7 @@ division: [0.5 1.  1.5 2. ]
 </section>
 <section id="statistical-operations" class="slide level2">
 <h2>Statistical operations</h2>
-<div id="c12991bb" class="cell" data-execution_count="18">
+<div id="9f01aaee" class="cell" data-execution_count="18">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a></a><span class="co"># Sum of elements</span></span>
 <span id="cb13-2"><a></a>total <span class="op">=</span> arr.<span class="bu">sum</span>()</span>
 <span id="cb13-3"><a></a></span>
@@ -1118,7 +1099,7 @@ division: [0.5 1.  1.5 2. ]
 <span id="cb13-10"><a></a><span class="co"># Correlation coefficient</span></span>
 <span id="cb13-11"><a></a>corr <span class="op">=</span> np.corrcoef(multi_arr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="5ca2e248" class="cell" data-execution_count="19">
+<div id="1b984d8d" class="cell" data-execution_count="19">
 <div class="cell-output cell-output-stdout">
 <pre><code>total: 10 
 
@@ -1139,14 +1120,14 @@ corr: [[1. 1.]
 </section>
 <section id="reshaping-and-transposing" class="slide level2">
 <h2>Reshaping and transposing</h2>
-<div id="8a560e62" class="cell" data-execution_count="20">
+<div id="749afbf7" class="cell" data-execution_count="20">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a></a><span class="co"># Reshaping an array</span></span>
 <span id="cb15-2"><a></a>reshaped <span class="op">=</span> np.reshape(range_arr, (<span class="dv">2</span>, <span class="dv">5</span>))</span>
 <span id="cb15-3"><a></a></span>
 <span id="cb15-4"><a></a><span class="co"># Transpose of an array</span></span>
 <span id="cb15-5"><a></a>transposed <span class="op">=</span> multi_arr.T</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="7b7990c7" class="cell" data-execution_count="21">
+<div id="0819e8db" class="cell" data-execution_count="21">
 <div class="cell-output cell-output-stdout">
 <pre><code>range_arr: [0 1 2 3 4 5 6 7 8 9] 
 
@@ -1165,7 +1146,7 @@ transposed: [[1 4]
 </section>
 <section id="indexing-and-slicing" class="slide level2">
 <h2>Indexing and slicing</h2>
-<div id="cdb219e0" class="cell" data-execution_count="22">
+<div id="d00c95fd" class="cell" data-execution_count="22">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a></a><span class="co"># Accessing a specific element</span></span>
 <span id="cb17-2"><a></a>element <span class="op">=</span> multi_arr[<span class="dv">0</span>, <span class="dv">1</span>]</span>
 <span id="cb17-3"><a></a></span>
@@ -1175,7 +1156,7 @@ transposed: [[1 4]
 <span id="cb17-7"><a></a><span class="co"># Slicing a column</span></span>
 <span id="cb17-8"><a></a>column <span class="op">=</span> multi_arr[:, <span class="dv">2</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="ade5a0d5" class="cell" data-execution_count="23">
+<div id="bb6e81d9" class="cell" data-execution_count="23">
 <div class="cell-output cell-output-stdout">
 <pre><code>multi_arr: [[1 2 3]
  [4 5 6]] 
@@ -1189,11 +1170,11 @@ column: [3 6]
 </section>
 <section id="broadcasting" class="slide level2">
 <h2>Broadcasting</h2>
-<div id="a0aaca1e" class="cell" data-execution_count="24">
+<div id="8871de02" class="cell" data-execution_count="24">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a></a><span class="co"># Broadcasting allows arithmetic operations on arrays of different sizes</span></span>
 <span id="cb19-2"><a></a>broadcasted_addition <span class="op">=</span> multi_arr <span class="op">+</span> np.array([<span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="555ad399" class="cell" data-execution_count="25">
+<div id="b3b47e8e" class="cell" data-execution_count="25">
 <div class="cell-output cell-output-stdout">
 <pre><code>multi_arr: [[1 2 3]
  [4 5 6]] 
@@ -1215,14 +1196,14 @@ broadcasted_addition: [[2 2 4]
 <p><code>2 • (1, 2, 3) = 2x1 = 2; 2x2 = 0; 2x3 = 6</code></p>
 <p><strong>Matrix multiplication</strong>:</p>
 <p><code>(1, 2, 3) • (7, 9, 11) = (1×7 + 2×9 + 3×11) = 58</code></p>
-<div id="11b1b2aa" class="cell" data-execution_count="26">
+<div id="98c7a2f2" class="cell" data-execution_count="26">
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a></a><span class="co"># Dot product</span></span>
 <span id="cb21-2"><a></a>dot_product <span class="op">=</span> np.dot(arr, arr)</span>
 <span id="cb21-3"><a></a></span>
 <span id="cb21-4"><a></a><span class="co"># Matrix multiplication</span></span>
 <span id="cb21-5"><a></a>matrix_mul <span class="op">=</span> np.dot(multi_arr, identity_matrix)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="9b3d5f4c" class="cell" data-execution_count="27">
+<div id="6dc5e72c" class="cell" data-execution_count="27">
 <div class="cell-output cell-output-stdout">
 <pre><code>dot_product: 30 
 
@@ -1234,11 +1215,11 @@ matrix_mul: [[1. 2. 3.]
 </section>
 <section id="eigenvalues-and-eigenvectors" class="slide level2">
 <h2>Eigenvalues and Eigenvectors</h2>
-<div id="f2c38bf7" class="cell" data-execution_count="28">
+<div id="5c28af35" class="cell" data-execution_count="28">
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a></a><span class="co"># Eigenvalues and eigenvectors</span></span>
 <span id="cb23-2"><a></a>eigenvalues, eigenvectors <span class="op">=</span> np.linalg.eig(identity_matrix)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="422afad2" class="cell" data-execution_count="29">
+<div id="90b85557" class="cell" data-execution_count="29">
 <div class="cell-output cell-output-stdout">
 <pre><code>eigenvalues: [1. 1. 1.] 
 
@@ -1278,7 +1259,7 @@ eigenvectors: [[1. 0. 0.]
   <div class="quarto-auto-generated-content" style="display: none;">
 <p><img src="../logo.png" class="slide-logo"></p>
 <div class="footer footer-default">
-<p><a href="https://info523-fall25-101-201.github.io/">🔗 github.io</a></p>
+<p><a href="https://datamineaz.org/">🔗 datamineaz.org</a></p>
 </div>
 </div></div>
 

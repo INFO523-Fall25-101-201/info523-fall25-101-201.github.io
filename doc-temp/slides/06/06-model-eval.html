@@ -10,7 +10,6 @@
 <link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-ea385d0e468b0dd5ea5bf0780b1290d9.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.7.33">
 
-  <meta name="author" content="John Chen">
   <title>INFO 523 – Classification II + Model Evaluation</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -194,7 +193,7 @@
   
   <script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 <meta property="og:title" content="Classification II + Model Evaluation – INFO 523">
-<meta property="og:description" content="Lecture 6">
+<meta property="og:description" content="Data Mining and Discovery">
 <meta property="og:site_name" content="INFO 523">
 </head>
 <body class="quarto-light">
@@ -203,31 +202,11 @@
 
 <section id="title-slide" data-background-image="../minedata-bg.png" data-background-size="600px, cover" data-slide-number="none" class="quarto-title-block center">
   <h1 class="title">Classification II + Model Evaluation</h1>
-  <p class="subtitle">Lecture 6</p>
+  <p class="subtitle">Data Mining and Discovery</p>
 
 <div class="quarto-title-authors">
-<div class="quarto-title-author">
-<div class="quarto-title-author-name">
-John Chen 
-</div>
-        <p class="quarto-title-affiliation">
-            University of Arizona <br> INFO 523 - Fall 2025
-          </p>
-    </div>
 </div>
 
-</section>
-<section>
-<section id="warm-up" class="title-slide slide level1 center">
-<h1>Warm up</h1>
-
-</section>
-<section id="announcements" class="slide level2">
-<h2>Announcements</h2>
-<ul>
-<li><p>HW 03 is due Wed, Mar 20, 11:59pm</p></li>
-<li><p>RQ 3 is due Wed, Mar 20, 11:59pm</p></li>
-</ul>
 </section>
 <section id="setup" class="slide level2 smaller">
 <h2>Setup</h2>
@@ -279,7 +258,7 @@ John Chen
 <span id="cb1-45"><a></a><span class="co"># Set Seaborn theme</span></span>
 <span id="cb1-46"><a></a>sns.set_theme(style <span class="op">=</span> <span class="st">"white"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</section></section>
+</section>
 <section>
 <section id="model-evaluation" class="title-slide slide level1 center">
 <h1>Model Evaluation</h1>
@@ -307,7 +286,7 @@ John Chen
 </section>
 <section id="refresher-on-our-data-with-ordinal-risk" class="slide level2 smaller">
 <h2>Refresher on our data (with ordinal risk)</h2>
-<div id="4d5bd3c3" class="cell" data-execution_count="2">
+<div id="52945a35" class="cell" data-execution_count="2">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a></a>loans_class <span class="op">=</span> pd.read_csv(<span class="st">"data/loans_class.csv"</span>)</span>
@@ -488,7 +467,7 @@ John Chen
 </section>
 <section id="our-preprocessing" class="slide level2">
 <h2>Our preprocessing</h2>
-<div id="8a4a7e69" class="cell" data-execution_count="3">
+<div id="1cc3dd68" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a></a><span class="co"># Encode categorical variables</span></span>
 <span id="cb3-2"><a></a>categorical_columns <span class="op">=</span> loans_class.select_dtypes(include <span class="op">=</span> [<span class="st">'object'</span>, <span class="st">'category'</span>]).columns.tolist()</span>
 <span id="cb3-3"><a></a></span>
@@ -512,7 +491,7 @@ John Chen
 </section>
 <section id="reminder-decision-boundary" class="slide level2">
 <h2>Reminder: decision boundary</h2>
-<div id="14ab440c" class="cell" data-execution_count="4">
+<div id="75ddee2f" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a></a><span class="kw">def</span> decisionplot(model, X, y, resolution<span class="op">=</span><span class="dv">216</span>):</span>
 <span id="cb4-2"><a></a>    <span class="co"># Split the data into features (X) and the class variable (y)</span></span>
 <span id="cb4-3"><a></a>    x_min, x_max <span class="op">=</span> X.iloc[:, <span class="dv">0</span>].<span class="bu">min</span>() <span class="op">-</span> <span class="dv">1</span>, X.iloc[:, <span class="dv">0</span>].<span class="bu">max</span>() <span class="op">+</span> <span class="dv">1</span></span>
@@ -557,7 +536,7 @@ John Chen
 <ul id="tabset-1" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-1-1">Ordinal Logistic Regression</a></li><li><a href="#tabset-1-2">K-Nearest Neighbors</a></li><li><a href="#tabset-1-3">Decision Trees</a></li></ul>
 <div class="tab-content">
 <div id="tabset-1-1">
-<div id="f7fd4807" class="cell" data-execution_count="5">
+<div id="f347fb07" class="cell" data-execution_count="5">
 <div class="cell-output cell-output-stdout">
 <pre><code>Ordinal Logistic Regression Accuracy: 0.549</code></pre>
 </div>
@@ -571,7 +550,7 @@ John Chen
 </div>
 </div>
 <div id="tabset-1-2">
-<div id="160653fa" class="cell" data-execution_count="6">
+<div id="b3d16e76" class="cell" data-execution_count="6">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -582,7 +561,7 @@ John Chen
 </div>
 </div>
 <div id="tabset-1-3">
-<div id="e0ff0491" class="cell" data-execution_count="7">
+<div id="df8d5036" class="cell" data-execution_count="7">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -862,6 +841,11 @@ John Chen
 <section id="applying-model-evaluation" class="slide level2 smaller">
 <h2>Applying model evaluation</h2>
 <p>Using the decision tree model</p>
+<div id="a6a45841" class="cell" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a></a>dtree <span class="op">=</span> DecisionTreeClassifier()</span>
+<span id="cb6-2"><a></a>dtree.fit(X_train_pca, y_train)</span>
+<span id="cb6-3"><a></a>predictions <span class="op">=</span> dtree.predict(X_test_pca)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </section>
 <section id="applying-model-evaluation-1" class="slide level2 smaller">
 <h2>Applying model evaluation</h2>
@@ -869,72 +853,72 @@ John Chen
 <ul id="tabset-7" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-7-1">Accuracy</a></li><li><a href="#tabset-7-2">Precision</a></li><li><a href="#tabset-7-3">Recall</a></li><li><a href="#tabset-7-4">F1 Score</a></li><li><a href="#tabset-7-5">AUC-ROC</a></li></ul>
 <div class="tab-content">
 <div id="tabset-7-1">
-<div id="abeb4855" class="cell" data-execution_count="9">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a></a>accuracy <span class="op">=</span> accuracy_score(y_test, predictions)</span>
-<span id="cb6-2"><a></a><span class="bu">print</span>(<span class="ss">f"Accuracy: </span><span class="sc">{</span>accuracy<span class="sc">:.2f}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="e32e4ef6" class="cell" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a></a>accuracy <span class="op">=</span> accuracy_score(y_test, predictions)</span>
+<span id="cb7-2"><a></a><span class="bu">print</span>(<span class="ss">f"Accuracy: </span><span class="sc">{</span>accuracy<span class="sc">:.2f}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Accuracy: 0.48</code></pre>
+<pre><code>Accuracy: 0.49</code></pre>
 </div>
 </div>
 </div>
 <div id="tabset-7-2">
-<div id="41ab513a" class="cell" data-execution_count="10">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a></a>precision <span class="op">=</span> precision_score(y_test, predictions, average <span class="op">=</span> <span class="st">'weighted'</span>) <span class="co"># Use 'weighted' for multiclass</span></span>
-<span id="cb8-2"><a></a><span class="bu">print</span>(<span class="ss">f"Precision: </span><span class="sc">{</span>precision<span class="sc">:.2f}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="07a457e7" class="cell" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a></a>precision <span class="op">=</span> precision_score(y_test, predictions, average <span class="op">=</span> <span class="st">'weighted'</span>) <span class="co"># Use 'weighted' for multiclass</span></span>
+<span id="cb9-2"><a></a><span class="bu">print</span>(<span class="ss">f"Precision: </span><span class="sc">{</span>precision<span class="sc">:.2f}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Precision: 0.48</code></pre>
+<pre><code>Precision: 0.49</code></pre>
 </div>
 </div>
 </div>
 <div id="tabset-7-3">
-<div id="4d7dde0b" class="cell" data-execution_count="11">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a></a>recall <span class="op">=</span> recall_score(y_test, predictions, average <span class="op">=</span> <span class="st">'weighted'</span>) <span class="co"># Use 'weighted' for multiclass</span></span>
-<span id="cb10-2"><a></a><span class="bu">print</span>(<span class="ss">f"Recall: </span><span class="sc">{</span>recall<span class="sc">:.2f}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="5d6943a2" class="cell" data-execution_count="11">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a></a>recall <span class="op">=</span> recall_score(y_test, predictions, average <span class="op">=</span> <span class="st">'weighted'</span>) <span class="co"># Use 'weighted' for multiclass</span></span>
+<span id="cb11-2"><a></a><span class="bu">print</span>(<span class="ss">f"Recall: </span><span class="sc">{</span>recall<span class="sc">:.2f}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Recall: 0.48</code></pre>
+<pre><code>Recall: 0.49</code></pre>
 </div>
 </div>
 </div>
 <div id="tabset-7-4">
-<div id="216db207" class="cell" data-execution_count="12">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a></a>f1 <span class="op">=</span> f1_score(y_test, predictions, average <span class="op">=</span> <span class="st">'weighted'</span>) <span class="co"># Use 'weighted' for multiclass</span></span>
-<span id="cb12-2"><a></a><span class="bu">print</span>(<span class="ss">f"F1 Score: </span><span class="sc">{</span>f1<span class="sc">:.2f}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="b7b0f97d" class="cell" data-execution_count="12">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a></a>f1 <span class="op">=</span> f1_score(y_test, predictions, average <span class="op">=</span> <span class="st">'weighted'</span>) <span class="co"># Use 'weighted' for multiclass</span></span>
+<span id="cb13-2"><a></a><span class="bu">print</span>(<span class="ss">f"F1 Score: </span><span class="sc">{</span>f1<span class="sc">:.2f}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>F1 Score: 0.48</code></pre>
+<pre><code>F1 Score: 0.49</code></pre>
 </div>
 </div>
 </div>
 <div id="tabset-7-5">
-<div id="37c8269d" class="cell" data-execution_count="13">
+<div id="e73f481a" class="cell" data-execution_count="13">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a></a><span class="co"># Binarize the output for multiclass</span></span>
-<span id="cb14-2"><a></a>y_test_binarized <span class="op">=</span> label_binarize(y_test, classes <span class="op">=</span> np.unique(y_train))</span>
-<span id="cb14-3"><a></a>n_classes <span class="op">=</span> y_test_binarized.shape[<span class="dv">1</span>]</span>
-<span id="cb14-4"><a></a></span>
-<span id="cb14-5"><a></a><span class="co"># Get the probability predictions for each class</span></span>
-<span id="cb14-6"><a></a>y_score <span class="op">=</span> dtree.predict_proba(X_test_pca)</span>
-<span id="cb14-7"><a></a></span>
-<span id="cb14-8"><a></a><span class="co"># Compute ROC curve and ROC area for each class</span></span>
-<span id="cb14-9"><a></a>fpr <span class="op">=</span> <span class="bu">dict</span>()</span>
-<span id="cb14-10"><a></a>tpr <span class="op">=</span> <span class="bu">dict</span>()</span>
-<span id="cb14-11"><a></a>roc_auc <span class="op">=</span> <span class="bu">dict</span>()</span>
-<span id="cb14-12"><a></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(n_classes):</span>
-<span id="cb14-13"><a></a>    fpr[i], tpr[i], _ <span class="op">=</span> roc_curve(y_test_binarized[:, i], y_score[:, i])</span>
-<span id="cb14-14"><a></a>    roc_auc[i] <span class="op">=</span> auc(fpr[i], tpr[i])</span>
-<span id="cb14-15"><a></a></span>
-<span id="cb14-16"><a></a><span class="co"># Calculate macro-average ROC-AUC</span></span>
-<span id="cb14-17"><a></a>roc_auc_macro <span class="op">=</span> np.mean(<span class="bu">list</span>(roc_auc.values()))</span>
-<span id="cb14-18"><a></a><span class="bu">print</span>(<span class="ss">f"Macro-average ROC-AUC: </span><span class="sc">{</span>roc_auc_macro<span class="sc">:.2f}</span><span class="ss">"</span>)</span>
-<span id="cb14-19"><a></a></span>
-<span id="cb14-20"><a></a><span class="co"># Calculate micro-average ROC-AUC</span></span>
-<span id="cb14-21"><a></a>fpr[<span class="st">"micro"</span>], tpr[<span class="st">"micro"</span>], _ <span class="op">=</span> roc_curve(y_test_binarized.ravel(), y_score.ravel())</span>
-<span id="cb14-22"><a></a>roc_auc_micro <span class="op">=</span> auc(fpr[<span class="st">"micro"</span>], tpr[<span class="st">"micro"</span>])</span>
-<span id="cb14-23"><a></a><span class="bu">print</span>(<span class="ss">f"Micro-average ROC-AUC: </span><span class="sc">{</span>roc_auc_micro<span class="sc">:.2f}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a></a><span class="co"># Binarize the output for multiclass</span></span>
+<span id="cb15-2"><a></a>y_test_binarized <span class="op">=</span> label_binarize(y_test, classes <span class="op">=</span> np.unique(y_train))</span>
+<span id="cb15-3"><a></a>n_classes <span class="op">=</span> y_test_binarized.shape[<span class="dv">1</span>]</span>
+<span id="cb15-4"><a></a></span>
+<span id="cb15-5"><a></a><span class="co"># Get the probability predictions for each class</span></span>
+<span id="cb15-6"><a></a>y_score <span class="op">=</span> dtree.predict_proba(X_test_pca)</span>
+<span id="cb15-7"><a></a></span>
+<span id="cb15-8"><a></a><span class="co"># Compute ROC curve and ROC area for each class</span></span>
+<span id="cb15-9"><a></a>fpr <span class="op">=</span> <span class="bu">dict</span>()</span>
+<span id="cb15-10"><a></a>tpr <span class="op">=</span> <span class="bu">dict</span>()</span>
+<span id="cb15-11"><a></a>roc_auc <span class="op">=</span> <span class="bu">dict</span>()</span>
+<span id="cb15-12"><a></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(n_classes):</span>
+<span id="cb15-13"><a></a>    fpr[i], tpr[i], _ <span class="op">=</span> roc_curve(y_test_binarized[:, i], y_score[:, i])</span>
+<span id="cb15-14"><a></a>    roc_auc[i] <span class="op">=</span> auc(fpr[i], tpr[i])</span>
+<span id="cb15-15"><a></a></span>
+<span id="cb15-16"><a></a><span class="co"># Calculate macro-average ROC-AUC</span></span>
+<span id="cb15-17"><a></a>roc_auc_macro <span class="op">=</span> np.mean(<span class="bu">list</span>(roc_auc.values()))</span>
+<span id="cb15-18"><a></a><span class="bu">print</span>(<span class="ss">f"Macro-average ROC-AUC: </span><span class="sc">{</span>roc_auc_macro<span class="sc">:.2f}</span><span class="ss">"</span>)</span>
+<span id="cb15-19"><a></a></span>
+<span id="cb15-20"><a></a><span class="co"># Calculate micro-average ROC-AUC</span></span>
+<span id="cb15-21"><a></a>fpr[<span class="st">"micro"</span>], tpr[<span class="st">"micro"</span>], _ <span class="op">=</span> roc_curve(y_test_binarized.ravel(), y_score.ravel())</span>
+<span id="cb15-22"><a></a>roc_auc_micro <span class="op">=</span> auc(fpr[<span class="st">"micro"</span>], tpr[<span class="st">"micro"</span>])</span>
+<span id="cb15-23"><a></a><span class="bu">print</span>(<span class="ss">f"Micro-average ROC-AUC: </span><span class="sc">{</span>roc_auc_micro<span class="sc">:.2f}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>Macro-average ROC-AUC: 0.52
-Micro-average ROC-AUC: 0.61</code></pre>
+Micro-average ROC-AUC: 0.62</code></pre>
 </div>
 </div>
 </div>
@@ -1146,47 +1130,47 @@ Micro-average ROC-AUC: 0.61</code></pre>
 <ul id="tabset-11" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-11-1">LOOCV</a></li><li><a href="#tabset-11-2">k-Fold</a></li><li><a href="#tabset-11-3">Bootstrap</a></li><li><a href="#tabset-11-4">Time spent</a></li></ul>
 <div class="tab-content">
 <div id="tabset-11-1">
-<div id="8672c434" class="cell" data-execution_count="14">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a></a><span class="im">import</span> time</span>
-<span id="cb16-2"><a></a>start_time <span class="op">=</span> time.time()</span>
-<span id="cb16-3"><a></a></span>
-<span id="cb16-4"><a></a>y_train <span class="op">=</span> y_train.to_numpy()</span>
-<span id="cb16-5"><a></a></span>
-<span id="cb16-6"><a></a>loo <span class="op">=</span> LeaveOneOut()</span>
-<span id="cb16-7"><a></a>loo_f1_scores <span class="op">=</span> []</span>
-<span id="cb16-8"><a></a></span>
-<span id="cb16-9"><a></a><span class="cf">for</span> train_index, test_index <span class="kw">in</span> loo.split(X_train_pca):</span>
-<span id="cb16-10"><a></a>    X_train_fold, X_test_fold <span class="op">=</span> X_train_pca[train_index], X_train_pca[test_index]</span>
-<span id="cb16-11"><a></a>    y_train_fold, y_test_fold <span class="op">=</span> y_train[train_index], y_train[test_index]</span>
-<span id="cb16-12"><a></a></span>
-<span id="cb16-13"><a></a>    dtree.fit(X_train_fold, y_train_fold)</span>
-<span id="cb16-14"><a></a>    prediction <span class="op">=</span> dtree.predict(X_test_fold)</span>
-<span id="cb16-15"><a></a>    f1 <span class="op">=</span> f1_score(y_test_fold, prediction, average <span class="op">=</span> <span class="st">'weighted'</span>)</span>
-<span id="cb16-16"><a></a>    loo_f1_scores.append(f1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="91f66fe3" class="cell" data-execution_count="14">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a></a><span class="im">import</span> time</span>
+<span id="cb17-2"><a></a>start_time <span class="op">=</span> time.time()</span>
+<span id="cb17-3"><a></a></span>
+<span id="cb17-4"><a></a>y_train <span class="op">=</span> y_train.to_numpy()</span>
+<span id="cb17-5"><a></a></span>
+<span id="cb17-6"><a></a>loo <span class="op">=</span> LeaveOneOut()</span>
+<span id="cb17-7"><a></a>loo_f1_scores <span class="op">=</span> []</span>
+<span id="cb17-8"><a></a></span>
+<span id="cb17-9"><a></a><span class="cf">for</span> train_index, test_index <span class="kw">in</span> loo.split(X_train_pca):</span>
+<span id="cb17-10"><a></a>    X_train_fold, X_test_fold <span class="op">=</span> X_train_pca[train_index], X_train_pca[test_index]</span>
+<span id="cb17-11"><a></a>    y_train_fold, y_test_fold <span class="op">=</span> y_train[train_index], y_train[test_index]</span>
+<span id="cb17-12"><a></a></span>
+<span id="cb17-13"><a></a>    dtree.fit(X_train_fold, y_train_fold)</span>
+<span id="cb17-14"><a></a>    prediction <span class="op">=</span> dtree.predict(X_test_fold)</span>
+<span id="cb17-15"><a></a>    f1 <span class="op">=</span> f1_score(y_test_fold, prediction, average <span class="op">=</span> <span class="st">'weighted'</span>)</span>
+<span id="cb17-16"><a></a>    loo_f1_scores.append(f1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="9adec9aa" class="cell" data-execution_count="15">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a></a>loo_f1_average <span class="op">=</span> np.mean(loo_f1_scores)</span>
-<span id="cb17-2"><a></a><span class="bu">print</span>(<span class="ss">f"LOOCV F1-Score: </span><span class="sc">{</span>loo_f1_average<span class="sc">:.2f}</span><span class="ss">"</span>)</span>
-<span id="cb17-3"><a></a>loocv_time <span class="op">=</span> time.time() <span class="op">-</span> start_time</span>
-<span id="cb17-4"><a></a><span class="bu">print</span>(<span class="ss">f"LOOCV took </span><span class="sc">{</span>loocv_time<span class="sc">:.2f}</span><span class="ss"> seconds"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="837c6c2b" class="cell" data-execution_count="15">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a></a>loo_f1_average <span class="op">=</span> np.mean(loo_f1_scores)</span>
+<span id="cb18-2"><a></a><span class="bu">print</span>(<span class="ss">f"LOOCV F1-Score: </span><span class="sc">{</span>loo_f1_average<span class="sc">:.2f}</span><span class="ss">"</span>)</span>
+<span id="cb18-3"><a></a>loocv_time <span class="op">=</span> time.time() <span class="op">-</span> start_time</span>
+<span id="cb18-4"><a></a><span class="bu">print</span>(<span class="ss">f"LOOCV took </span><span class="sc">{</span>loocv_time<span class="sc">:.2f}</span><span class="ss"> seconds"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>LOOCV F1-Score: 0.48
-LOOCV took 244.76 seconds</code></pre>
+LOOCV took 233.29 seconds</code></pre>
 </div>
 </div>
 </div>
 <div id="tabset-11-2">
-<div id="2eb64f08" class="cell" data-execution_count="16">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a></a>start_time <span class="op">=</span> time.time()</span>
-<span id="cb19-2"><a></a></span>
-<span id="cb19-3"><a></a>kf <span class="op">=</span> KFold(n_splits <span class="op">=</span> <span class="dv">5</span>) </span>
-<span id="cb19-4"><a></a>kf_f1_scores <span class="op">=</span> cross_val_score(dtree, X_train_pca, y_train, cv <span class="op">=</span> kf, scoring <span class="op">=</span> <span class="st">'f1_weighted'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="24205b6c" class="cell" data-execution_count="16">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a></a>start_time <span class="op">=</span> time.time()</span>
+<span id="cb20-2"><a></a></span>
+<span id="cb20-3"><a></a>kf <span class="op">=</span> KFold(n_splits <span class="op">=</span> <span class="dv">5</span>) </span>
+<span id="cb20-4"><a></a>kf_f1_scores <span class="op">=</span> cross_val_score(dtree, X_train_pca, y_train, cv <span class="op">=</span> kf, scoring <span class="op">=</span> <span class="st">'f1_weighted'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="41f9039b" class="cell" data-execution_count="17">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a></a>kf_f1_average <span class="op">=</span> np.mean(kf_f1_scores)</span>
-<span id="cb20-2"><a></a><span class="bu">print</span>(<span class="ss">f"k-Fold F1-Score: </span><span class="sc">{</span>kf_f1_average<span class="sc">:.2f}</span><span class="ss">"</span>)</span>
-<span id="cb20-3"><a></a>kfold_time <span class="op">=</span> time.time() <span class="op">-</span> start_time</span>
-<span id="cb20-4"><a></a><span class="bu">print</span>(<span class="ss">f"k-Fold CV took </span><span class="sc">{</span>kfold_time<span class="sc">:.2f}</span><span class="ss"> seconds"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="821201da" class="cell" data-execution_count="17">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a></a>kf_f1_average <span class="op">=</span> np.mean(kf_f1_scores)</span>
+<span id="cb21-2"><a></a><span class="bu">print</span>(<span class="ss">f"k-Fold F1-Score: </span><span class="sc">{</span>kf_f1_average<span class="sc">:.2f}</span><span class="ss">"</span>)</span>
+<span id="cb21-3"><a></a>kfold_time <span class="op">=</span> time.time() <span class="op">-</span> start_time</span>
+<span id="cb21-4"><a></a><span class="bu">print</span>(<span class="ss">f"k-Fold CV took </span><span class="sc">{</span>kfold_time<span class="sc">:.2f}</span><span class="ss"> seconds"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>k-Fold F1-Score: 0.48
 k-Fold CV took 0.13 seconds</code></pre>
@@ -1194,25 +1178,25 @@ k-Fold CV took 0.13 seconds</code></pre>
 </div>
 </div>
 <div id="tabset-11-3">
-<div id="fd52cba1" class="cell" data-execution_count="18">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a></a>start_time <span class="op">=</span> time.time()</span>
-<span id="cb22-2"><a></a>n_iterations <span class="op">=</span> <span class="dv">100</span>  </span>
-<span id="cb22-3"><a></a>n_size <span class="op">=</span> <span class="bu">int</span>(<span class="bu">len</span>(X_train_pca) <span class="op">*</span> <span class="fl">0.50</span>)  </span>
-<span id="cb22-4"><a></a>bootstrap_f1_scores <span class="op">=</span> []</span>
-<span id="cb22-5"><a></a></span>
-<span id="cb22-6"><a></a><span class="cf">for</span> _ <span class="kw">in</span> <span class="bu">range</span>(n_iterations):</span>
-<span id="cb22-7"><a></a>    X_sample, y_sample <span class="op">=</span> resample(X_train_pca, y_train, n_samples<span class="op">=</span>n_size)</span>
-<span id="cb22-8"><a></a>    dtree.fit(X_sample, y_sample)</span>
-<span id="cb22-9"><a></a></span>
-<span id="cb22-10"><a></a>    predictions <span class="op">=</span> dtree.predict(X_test_pca)</span>
-<span id="cb22-11"><a></a>    f1 <span class="op">=</span> f1_score(y_test, predictions, average<span class="op">=</span><span class="st">'weighted'</span>)</span>
-<span id="cb22-12"><a></a>    bootstrap_f1_scores.append(f1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="f592af2c" class="cell" data-execution_count="18">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a></a>start_time <span class="op">=</span> time.time()</span>
+<span id="cb23-2"><a></a>n_iterations <span class="op">=</span> <span class="dv">100</span>  </span>
+<span id="cb23-3"><a></a>n_size <span class="op">=</span> <span class="bu">int</span>(<span class="bu">len</span>(X_train_pca) <span class="op">*</span> <span class="fl">0.50</span>)  </span>
+<span id="cb23-4"><a></a>bootstrap_f1_scores <span class="op">=</span> []</span>
+<span id="cb23-5"><a></a></span>
+<span id="cb23-6"><a></a><span class="cf">for</span> _ <span class="kw">in</span> <span class="bu">range</span>(n_iterations):</span>
+<span id="cb23-7"><a></a>    X_sample, y_sample <span class="op">=</span> resample(X_train_pca, y_train, n_samples<span class="op">=</span>n_size)</span>
+<span id="cb23-8"><a></a>    dtree.fit(X_sample, y_sample)</span>
+<span id="cb23-9"><a></a></span>
+<span id="cb23-10"><a></a>    predictions <span class="op">=</span> dtree.predict(X_test_pca)</span>
+<span id="cb23-11"><a></a>    f1 <span class="op">=</span> f1_score(y_test, predictions, average<span class="op">=</span><span class="st">'weighted'</span>)</span>
+<span id="cb23-12"><a></a>    bootstrap_f1_scores.append(f1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="f07efe3f" class="cell" data-execution_count="19">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a></a>bootstrap_f1_average <span class="op">=</span> np.mean(bootstrap_f1_scores)</span>
-<span id="cb23-2"><a></a><span class="bu">print</span>(<span class="ss">f"Bootstrap F1-Score: </span><span class="sc">{</span>bootstrap_f1_average<span class="sc">:.2f}</span><span class="ss">"</span>)</span>
-<span id="cb23-3"><a></a>bootstrap_time <span class="op">=</span> time.time() <span class="op">-</span> start_time</span>
-<span id="cb23-4"><a></a><span class="bu">print</span>(<span class="ss">f"Bootstrap Method took </span><span class="sc">{</span>bootstrap_time<span class="sc">:.2f}</span><span class="ss"> seconds"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="74f6c546" class="cell" data-execution_count="19">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a></a>bootstrap_f1_average <span class="op">=</span> np.mean(bootstrap_f1_scores)</span>
+<span id="cb24-2"><a></a><span class="bu">print</span>(<span class="ss">f"Bootstrap F1-Score: </span><span class="sc">{</span>bootstrap_f1_average<span class="sc">:.2f}</span><span class="ss">"</span>)</span>
+<span id="cb24-3"><a></a>bootstrap_time <span class="op">=</span> time.time() <span class="op">-</span> start_time</span>
+<span id="cb24-4"><a></a><span class="bu">print</span>(<span class="ss">f"Bootstrap Method took </span><span class="sc">{</span>bootstrap_time<span class="sc">:.2f}</span><span class="ss"> seconds"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Bootstrap F1-Score: 0.48
 Bootstrap Method took 1.23 seconds</code></pre>
@@ -1220,17 +1204,17 @@ Bootstrap Method took 1.23 seconds</code></pre>
 </div>
 </div>
 <div id="tabset-11-4">
-<div id="bc5c3477" class="cell" data-execution_count="20">
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a></a>ratio <span class="op">=</span> kfold_time <span class="op">/</span> loocv_time</span>
-<span id="cb25-2"><a></a><span class="bu">print</span>(<span class="ss">f"Ratio of k-Fold time to LOOCV time: </span><span class="sc">{</span>ratio<span class="sc">:.4f}</span><span class="ss">"</span>)</span>
-<span id="cb25-3"><a></a>ratio <span class="op">=</span> bootstrap_time <span class="op">/</span> loocv_time</span>
-<span id="cb25-4"><a></a><span class="bu">print</span>(<span class="ss">f"Ratio of Bootstrap time to LOOCV time: </span><span class="sc">{</span>ratio<span class="sc">:.4f}</span><span class="ss">"</span>)</span>
-<span id="cb25-5"><a></a>ratio <span class="op">=</span> kfold_time <span class="op">/</span> bootstrap_time</span>
-<span id="cb25-6"><a></a><span class="bu">print</span>(<span class="ss">f"Ratio of k-Fold time to Bootstrap time: </span><span class="sc">{</span>ratio<span class="sc">:.4f}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="6acca870" class="cell" data-execution_count="20">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a></a>ratio <span class="op">=</span> kfold_time <span class="op">/</span> loocv_time</span>
+<span id="cb26-2"><a></a><span class="bu">print</span>(<span class="ss">f"Ratio of k-Fold time to LOOCV time: </span><span class="sc">{</span>ratio<span class="sc">:.4f}</span><span class="ss">"</span>)</span>
+<span id="cb26-3"><a></a>ratio <span class="op">=</span> bootstrap_time <span class="op">/</span> loocv_time</span>
+<span id="cb26-4"><a></a><span class="bu">print</span>(<span class="ss">f"Ratio of Bootstrap time to LOOCV time: </span><span class="sc">{</span>ratio<span class="sc">:.4f}</span><span class="ss">"</span>)</span>
+<span id="cb26-5"><a></a>ratio <span class="op">=</span> kfold_time <span class="op">/</span> bootstrap_time</span>
+<span id="cb26-6"><a></a><span class="bu">print</span>(<span class="ss">f"Ratio of k-Fold time to Bootstrap time: </span><span class="sc">{</span>ratio<span class="sc">:.4f}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Ratio of k-Fold time to LOOCV time: 0.0005
-Ratio of Bootstrap time to LOOCV time: 0.0050
-Ratio of k-Fold time to Bootstrap time: 0.1038</code></pre>
+<pre><code>Ratio of k-Fold time to LOOCV time: 0.0006
+Ratio of Bootstrap time to LOOCV time: 0.0053
+Ratio of k-Fold time to Bootstrap time: 0.1049</code></pre>
 </div>
 </div>
 </div>
@@ -1254,40 +1238,40 @@ Ratio of k-Fold time to Bootstrap time: 0.1038</code></pre>
 <ul id="tabset-12" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-12-1">Define models</a></li><li><a href="#tabset-12-2">k-Fold CV</a></li><li><a href="#tabset-12-3">F1-Scores</a></li></ul>
 <div class="tab-content">
 <div id="tabset-12-1">
-<div id="0288a588" class="cell" data-execution_count="21">
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a></a><span class="co"># Logistic Regression</span></span>
-<span id="cb27-2"><a></a>ord_log_reg <span class="op">=</span> m.LogisticAT(alpha <span class="op">=</span> <span class="dv">1</span>)  </span>
-<span id="cb27-3"><a></a></span>
-<span id="cb27-4"><a></a><span class="co"># KNN</span></span>
-<span id="cb27-5"><a></a>knn <span class="op">=</span> KNeighborsClassifier(n_neighbors <span class="op">=</span> <span class="dv">5</span>)</span>
-<span id="cb27-6"><a></a></span>
-<span id="cb27-7"><a></a><span class="co"># Decision Tree</span></span>
-<span id="cb27-8"><a></a>dtree <span class="op">=</span> DecisionTreeClassifier()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="01255c73" class="cell" data-execution_count="21">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a></a><span class="co"># Logistic Regression</span></span>
+<span id="cb28-2"><a></a>ord_log_reg <span class="op">=</span> m.LogisticAT(alpha <span class="op">=</span> <span class="dv">1</span>)  </span>
+<span id="cb28-3"><a></a></span>
+<span id="cb28-4"><a></a><span class="co"># KNN</span></span>
+<span id="cb28-5"><a></a>knn <span class="op">=</span> KNeighborsClassifier(n_neighbors <span class="op">=</span> <span class="dv">5</span>)</span>
+<span id="cb28-6"><a></a></span>
+<span id="cb28-7"><a></a><span class="co"># Decision Tree</span></span>
+<span id="cb28-8"><a></a>dtree <span class="op">=</span> DecisionTreeClassifier()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 <div id="tabset-12-2">
-<div id="3cb846f6" class="cell" data-execution_count="22">
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a></a><span class="co"># Define the number of folds</span></span>
-<span id="cb28-2"><a></a>k <span class="op">=</span> <span class="dv">5</span></span>
-<span id="cb28-3"><a></a></span>
-<span id="cb28-4"><a></a><span class="co"># Logistic Regression</span></span>
-<span id="cb28-5"><a></a>ord_log_reg_scores <span class="op">=</span> cross_val_score(ord_log_reg, X_train_pca, y_train, cv <span class="op">=</span> k, scoring <span class="op">=</span> <span class="st">'f1_weighted'</span>)</span>
-<span id="cb28-6"><a></a>ord_log_reg_f1_average <span class="op">=</span> np.mean(ord_log_reg_scores)</span>
-<span id="cb28-7"><a></a></span>
-<span id="cb28-8"><a></a><span class="co"># KNN</span></span>
-<span id="cb28-9"><a></a>knn_scores <span class="op">=</span> cross_val_score(knn, X_train_pca, y_train, cv <span class="op">=</span> k, scoring <span class="op">=</span> <span class="st">'f1_weighted'</span>)</span>
-<span id="cb28-10"><a></a>knn_f1_average <span class="op">=</span> np.mean(knn_scores)</span>
-<span id="cb28-11"><a></a></span>
-<span id="cb28-12"><a></a><span class="co"># Decision Tree</span></span>
-<span id="cb28-13"><a></a>dtree_scores <span class="op">=</span> cross_val_score(dtree, X_train_pca, y_train, cv <span class="op">=</span> k, scoring <span class="op">=</span> <span class="st">'f1_weighted'</span>)</span>
-<span id="cb28-14"><a></a>dtree_f1_average <span class="op">=</span> np.mean(dtree_scores)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="b1dc1686" class="cell" data-execution_count="22">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a></a><span class="co"># Define the number of folds</span></span>
+<span id="cb29-2"><a></a>k <span class="op">=</span> <span class="dv">5</span></span>
+<span id="cb29-3"><a></a></span>
+<span id="cb29-4"><a></a><span class="co"># Logistic Regression</span></span>
+<span id="cb29-5"><a></a>ord_log_reg_scores <span class="op">=</span> cross_val_score(ord_log_reg, X_train_pca, y_train, cv <span class="op">=</span> k, scoring <span class="op">=</span> <span class="st">'f1_weighted'</span>)</span>
+<span id="cb29-6"><a></a>ord_log_reg_f1_average <span class="op">=</span> np.mean(ord_log_reg_scores)</span>
+<span id="cb29-7"><a></a></span>
+<span id="cb29-8"><a></a><span class="co"># KNN</span></span>
+<span id="cb29-9"><a></a>knn_scores <span class="op">=</span> cross_val_score(knn, X_train_pca, y_train, cv <span class="op">=</span> k, scoring <span class="op">=</span> <span class="st">'f1_weighted'</span>)</span>
+<span id="cb29-10"><a></a>knn_f1_average <span class="op">=</span> np.mean(knn_scores)</span>
+<span id="cb29-11"><a></a></span>
+<span id="cb29-12"><a></a><span class="co"># Decision Tree</span></span>
+<span id="cb29-13"><a></a>dtree_scores <span class="op">=</span> cross_val_score(dtree, X_train_pca, y_train, cv <span class="op">=</span> k, scoring <span class="op">=</span> <span class="st">'f1_weighted'</span>)</span>
+<span id="cb29-14"><a></a>dtree_f1_average <span class="op">=</span> np.mean(dtree_scores)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 <div id="tabset-12-3">
-<div id="4cb26442" class="cell" data-execution_count="23">
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a></a><span class="bu">print</span>(<span class="ss">f"Average F1-Score for Ordinal Logistic Regression: </span><span class="sc">{</span>ord_log_reg_f1_average<span class="sc">:.2f}</span><span class="ss">"</span>)</span>
-<span id="cb29-2"><a></a><span class="bu">print</span>(<span class="ss">f"Average F1-Score for KNN: </span><span class="sc">{</span>knn_f1_average<span class="sc">:.2f}</span><span class="ss">"</span>)</span>
-<span id="cb29-3"><a></a><span class="bu">print</span>(<span class="ss">f"Average F1-Score for Decision Tree: </span><span class="sc">{</span>dtree_f1_average<span class="sc">:.2f}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="ff029ee3" class="cell" data-execution_count="23">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a></a><span class="bu">print</span>(<span class="ss">f"Average F1-Score for Ordinal Logistic Regression: </span><span class="sc">{</span>ord_log_reg_f1_average<span class="sc">:.2f}</span><span class="ss">"</span>)</span>
+<span id="cb30-2"><a></a><span class="bu">print</span>(<span class="ss">f"Average F1-Score for KNN: </span><span class="sc">{</span>knn_f1_average<span class="sc">:.2f}</span><span class="ss">"</span>)</span>
+<span id="cb30-3"><a></a><span class="bu">print</span>(<span class="ss">f"Average F1-Score for Decision Tree: </span><span class="sc">{</span>dtree_f1_average<span class="sc">:.2f}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Average F1-Score for Ordinal Logistic Regression: 0.39
 Average F1-Score for KNN: 0.49
@@ -1318,7 +1302,7 @@ Average F1-Score for Decision Tree: 0.48</code></pre>
 <section id="in-class-exercise" class="slide level2">
 <h2>In-class Exercise</h2>
 <div class="task">
-<p>Go to <a href="https://https://info523-fall25-101-201.github.io/exercises/ex-06.html">ex-06</a> and perform the tasks</p>
+<p>Go to <a href="https://datamineaz.org/exercises/ex-06.html">ex-06</a> and perform the tasks</p>
 </div>
 
 
@@ -1327,7 +1311,7 @@ Average F1-Score for Decision Tree: 0.48</code></pre>
   <div class="quarto-auto-generated-content" style="display: none;">
 <p><img src="../logo.png" class="slide-logo"></p>
 <div class="footer footer-default">
-<p><a href="https://info523-fall25-101-201.github.io/">🔗 github.io</a></p>
+<p><a href="https://datamineaz.org/">🔗 datamineaz.org</a></p>
 </div>
 </div></div>
 
