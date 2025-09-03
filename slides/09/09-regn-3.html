@@ -10,7 +10,6 @@
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-ea385d0e468b0dd5ea5bf0780b1290d9.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.7.33">
 
-  <meta name="author" content="John Chen">
   <title>INFO 523 – Regressions III</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -194,7 +193,7 @@
   
   <script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 <meta property="og:title" content="Regressions III – INFO 523">
-<meta property="og:description" content="Lecture 9">
+<meta property="og:description" content="Data Mining and Discovery">
 <meta property="og:site_name" content="INFO 523">
 </head>
 <body class="quarto-light">
@@ -203,31 +202,11 @@
 
 <section id="title-slide" data-background-image="../minedata-bg.png" data-background-size="600px, cover" data-slide-number="none" class="quarto-title-block center">
   <h1 class="title">Regressions III</h1>
-  <p class="subtitle">Lecture 9</p>
+  <p class="subtitle">Data Mining and Discovery</p>
 
 <div class="quarto-title-authors">
-<div class="quarto-title-author">
-<div class="quarto-title-author-name">
-John Chen 
-</div>
-        <p class="quarto-title-affiliation">
-            University of Arizona <br> INFO 523 - Fall 2025
-          </p>
-    </div>
 </div>
 
-</section>
-<section>
-<section id="warm-up" class="title-slide slide level1 center">
-<h1>Warm up</h1>
-
-</section>
-<section id="announcements" class="slide level2">
-<h2>Announcements</h2>
-<ul>
-<li><p>RQ 4 is due Wed Apr 10, 11:59pm</p></li>
-<li><p>HW 05 is due Fri Apr 12, 11:59pm</p></li>
-</ul>
 </section>
 <section id="setup" class="slide level2 smaller">
 <h2>Setup</h2>
@@ -274,11 +253,6 @@ John Chen
 <span id="cb1-40"><a></a><span class="co"># Increase font size of all Seaborn plot elements</span></span>
 <span id="cb1-41"><a></a>sns.<span class="bu">set</span>(font_scale <span class="op">=</span> <span class="fl">1.25</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</section></section>
-<section>
-<section id="regressions-iii" class="title-slide slide level1 center">
-<h1>Regressions III</h1>
-
 </section>
 <section id="our-data-tucson-daily-average-temps" class="slide level2 smaller">
 <h2>Our data: Tucson daily average temps</h2>
@@ -286,11 +260,11 @@ John Chen
 <ul id="tabset-1" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-1-1">Read + head</a></li><li><a href="#tabset-1-2">Metadata</a></li><li><a href="#tabset-1-3">Info</a></li><li><a href="#tabset-1-4">Describe</a></li><li><a href="#tabset-1-5">Missing values</a></li><li><a href="#tabset-1-6">Visualize</a></li></ul>
 <div class="tab-content">
 <div id="tabset-1-1">
-<div id="dc75e7c2" class="cell" data-execution_count="2">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a></a><span class="im">from</span> skimpy <span class="im">import</span> clean_columns</span>
+<div id="f9f3f78b" class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a></a><span class="im">import</span> janitor</span>
 <span id="cb2-2"><a></a></span>
 <span id="cb2-3"><a></a>tucsonTemp <span class="op">=</span> pd.read_csv(<span class="st">"data/tucsonWeather.csv"</span>, encoding <span class="op">=</span> <span class="st">'iso-8859-1'</span>)[[<span class="st">"STATION"</span>, <span class="st">"NAME"</span>, <span class="st">"DATE"</span>, <span class="st">"TAVG"</span>]]</span>
-<span id="cb2-4"><a></a>tucsonTemp <span class="op">=</span> clean_columns(tucsonTemp)</span>
+<span id="cb2-4"><a></a>tucsonTemp <span class="op">=</span> janitor.clean_names(tucsonTemp)</span>
 <span id="cb2-5"><a></a>tucsonTemp[<span class="st">'date'</span>] <span class="op">=</span> pd.to_datetime(tucsonTemp[<span class="st">'date'</span>])</span>
 <span id="cb2-6"><a></a>tucsonTemp[<span class="st">'date_numeric'</span>] <span class="op">=</span> (tucsonTemp[<span class="st">'date'</span>] <span class="op">-</span> tucsonTemp[<span class="st">'date'</span>].<span class="bu">min</span>()).dt.days</span>
 <span id="cb2-7"><a></a></span>
@@ -409,7 +383,7 @@ John Chen
 </table>
 </div>
 <div id="tabset-1-3">
-<div id="eab79c9f" class="cell" data-execution_count="3">
+<div id="d1de9031" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a></a>tucsonTemp.info()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>&lt;class 'pandas.core.frame.DataFrame'&gt;
@@ -428,13 +402,13 @@ memory usage: 1.8+ MB</code></pre>
 </div>
 </div>
 <div id="tabset-1-4">
-<div id="12a67a80" class="cell" data-execution_count="4">
+<div id="d76ee137" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a></a>tucsonTemp.describe()</span>
 <span id="cb5-2"><a></a>tucsonTemp <span class="op">=</span> tucsonTemp[tucsonTemp[<span class="st">'tavg'</span>] <span class="op">&gt;</span> <span class="dv">0</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 <div id="tabset-1-5">
-<div id="630369b2" class="cell" data-execution_count="5">
+<div id="8037bd15" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a></a>tusconTemp <span class="op">=</span> tucsonTemp.dropna()</span>
 <span id="cb6-2"><a></a>tusconTemp.info()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -454,7 +428,7 @@ memory usage: 33.7+ KB</code></pre>
 </div>
 </div>
 <div id="tabset-1-6">
-<div id="c1514ea1" class="cell" data-execution_count="6">
+<div id="e2fd2526" class="cell" data-execution_count="6">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -502,7 +476,7 @@ memory usage: 33.7+ KB</code></pre>
 <ul id="tabset-2" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-2-1">Visual</a></li><li><a href="#tabset-2-2">Formula</a></li><li><a href="#tabset-2-3">Key points</a></li></ul>
 <div class="tab-content">
 <div id="tabset-2-1">
-<div id="36e05326" class="cell" data-execution_count="7">
+<div id="2b4ea322" class="cell" data-execution_count="7">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -541,7 +515,7 @@ memory usage: 33.7+ KB</code></pre>
 <ul id="tabset-3" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-3-1">Model summary</a></li><li><a href="#tabset-3-2">Polynomial fit</a></li><li><a href="#tabset-3-3">Residual plot</a></li></ul>
 <div class="tab-content">
 <div id="tabset-3-1">
-<div id="5b50e92c" class="cell" data-execution_count="8">
+<div id="2c81dc34" class="cell" data-execution_count="8">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a></a>X <span class="op">=</span> tucsonTemp[[<span class="st">'date_numeric'</span>]].values</span>
@@ -565,17 +539,17 @@ memory usage: 33.7+ KB</code></pre>
 <span id="cb8-19"><a></a><span class="co"># Calculate and print the MSE and R-squared</span></span>
 <span id="cb8-20"><a></a>mse_initial <span class="op">=</span> mean_squared_error(y_test, y_pred)</span>
 <span id="cb8-21"><a></a>r2_initial <span class="op">=</span> r2_score(y_test, y_pred)</span>
-<span id="cb8-22"><a></a><span class="bu">print</span>(<span class="ss">f'Mean Squared Error: </span><span class="sc">{</span><span class="bu">round</span>(mse_initial, <span class="dv">2</span>)<span class="sc">}</span><span class="ss">'</span>)</span>
-<span id="cb8-23"><a></a><span class="bu">print</span>(<span class="ss">f'R-squared: </span><span class="sc">{</span><span class="bu">round</span>(r2_initial, <span class="dv">2</span>)<span class="sc">}</span><span class="ss">'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb8-22"><a></a><span class="bu">print</span>(<span class="ss">f'Mean Squared Error: </span><span class="sc">{</span>mse_initial<span class="sc">}</span><span class="ss">'</span>)</span>
+<span id="cb8-23"><a></a><span class="bu">print</span>(<span class="ss">f'R-squared: </span><span class="sc">{</span>r2_initial<span class="sc">}</span><span class="ss">'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>Mean Squared Error: 55.6
-R-squared: 0.76</code></pre>
+<pre><code>Mean Squared Error: 55.59733350802896
+R-squared: 0.7613929340063216</code></pre>
 </div>
 </div>
 </div>
 <div id="tabset-3-2">
-<div id="6833776f" class="cell" data-execution_count="9">
+<div id="b295ffd6" class="cell" data-execution_count="9">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a></a><span class="co"># Scatter plot of the actual data points</span></span>
@@ -613,7 +587,7 @@ R-squared: 0.76</code></pre>
 </div>
 </div>
 <div id="tabset-3-3">
-<div id="575b135b" class="cell" data-execution_count="10">
+<div id="34defc68" class="cell" data-execution_count="10">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a></a>residuals <span class="op">=</span> y_test <span class="op">-</span> y_pred</span>
@@ -641,7 +615,7 @@ R-squared: 0.76</code></pre>
 <ul id="tabset-4" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-4-1">Applied</a></li><li><a href="#tabset-4-2">Re-evaluate model</a></li><li><a href="#tabset-4-3">Polynomial fits</a></li><li><a href="#tabset-4-4">Residuals</a></li></ul>
 <div class="tab-content">
 <div id="tabset-4-1">
-<div id="983e7e33" class="cell" data-execution_count="11">
+<div id="7cdd6354" class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a></a><span class="co"># Exploring different polynomial degrees to find the best fit</span></span>
 <span id="cb12-2"><a></a>degrees <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>]</span>
 <span id="cb12-3"><a></a>mse_scores <span class="op">=</span> []</span>
@@ -661,18 +635,18 @@ R-squared: 0.76</code></pre>
 <span id="cb12-17"><a></a></span>
 <span id="cb12-18"><a></a><span class="co"># Display the MSE and R-squared for each degree</span></span>
 <span id="cb12-19"><a></a><span class="cf">for</span> degree, mse, r2 <span class="kw">in</span> <span class="bu">zip</span>(degrees, mse_scores, r2_scores):</span>
-<span id="cb12-20"><a></a>    <span class="bu">print</span>(<span class="ss">f'Degree: </span><span class="sc">{</span>degree<span class="sc">}</span><span class="ss">, MSE: </span><span class="sc">{</span><span class="bu">round</span>(mse, <span class="dv">3</span>)<span class="sc">}</span><span class="ss">, R-squared: </span><span class="sc">{</span><span class="bu">round</span>(r2, <span class="dv">4</span>)<span class="sc">}</span><span class="ss">'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb12-20"><a></a>    <span class="bu">print</span>(<span class="ss">f'Degree: </span><span class="sc">{</span>degree<span class="sc">}</span><span class="ss">, MSE: </span><span class="sc">{</span>mse<span class="sc">}</span><span class="ss">, R-squared: </span><span class="sc">{</span>r2<span class="sc">}</span><span class="ss">'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Degree: 1, MSE: 222.653, R-squared: 0.0444
-Degree: 2, MSE: 55.597, R-squared: 0.7614
-Degree: 3, MSE: 38.106, R-squared: 0.8365
-Degree: 4, MSE: 26.386, R-squared: 0.8868
-Degree: 5, MSE: 26.067, R-squared: 0.8881</code></pre>
+<pre><code>Degree: 1, MSE: 222.6527514813582, R-squared: 0.04444122740680767
+Degree: 2, MSE: 55.59733350802896, R-squared: 0.7613929340063216
+Degree: 3, MSE: 38.10593683628896, R-squared: 0.83646075788627
+Degree: 4, MSE: 26.38560491598588, R-squared: 0.8867609042336072
+Degree: 5, MSE: 26.066518240099665, R-squared: 0.8881303284618374</code></pre>
 </div>
 </div>
 </div>
 <div id="tabset-4-2">
-<div id="d1669b00" class="cell" data-execution_count="12">
+<div id="6128f7a5" class="cell" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a></a><span class="co"># Selecting the best degree based on previous step</span></span>
 <span id="cb14-2"><a></a>best_degree <span class="op">=</span> degrees[np.argmin(mse_scores)]</span>
 <span id="cb14-3"><a></a></span>
@@ -691,14 +665,14 @@ Degree: 5, MSE: 26.067, R-squared: 0.8881</code></pre>
 <span id="cb14-16"><a></a><span class="co"># Calculate new MSE and R-squared</span></span>
 <span id="cb14-17"><a></a>mse_best <span class="op">=</span> mean_squared_error(y_test, y_pred_best)</span>
 <span id="cb14-18"><a></a>r2_best <span class="op">=</span> r2_score(y_test, y_pred_best)</span>
-<span id="cb14-19"><a></a><span class="bu">print</span>(<span class="ss">f'Best Degree: </span><span class="sc">{</span>best_degree<span class="sc">}</span><span class="ss">, MSE: </span><span class="sc">{</span><span class="bu">round</span>(mse_best, <span class="dv">3</span>)<span class="sc">}</span><span class="ss">, R-squared: </span><span class="sc">{</span><span class="bu">round</span>(r2_best, <span class="dv">4</span>)<span class="sc">}</span><span class="ss">'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb14-19"><a></a><span class="bu">print</span>(<span class="ss">f'Best Degree: </span><span class="sc">{</span>best_degree<span class="sc">}</span><span class="ss">, MSE: </span><span class="sc">{</span>mse_best<span class="sc">}</span><span class="ss">, R-squared: </span><span class="sc">{</span>r2_best<span class="sc">}</span><span class="ss">'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Best Degree: 5, MSE: 26.067, R-squared: 0.8881</code></pre>
+<pre><code>Best Degree: 5, MSE: 26.066518240099665, R-squared: 0.8881303284618374</code></pre>
 </div>
 </div>
 </div>
 <div id="tabset-4-3">
-<div id="c67143f7" class="cell" data-execution_count="13">
+<div id="2694d617" class="cell" data-execution_count="13">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a></a><span class="co"># Generate a sequence of X values for plotting</span></span>
@@ -744,7 +718,7 @@ Degree: 5, MSE: 26.067, R-squared: 0.8881</code></pre>
 </div>
 </div>
 <div id="tabset-4-4">
-<div id="4127b80c" class="cell" data-execution_count="14">
+<div id="41e6d7a3" class="cell" data-execution_count="14">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a></a>residuals_best <span class="op">=</span> y_test <span class="op">-</span> y_pred_best</span>
@@ -773,7 +747,7 @@ Degree: 5, MSE: 26.067, R-squared: 0.8881</code></pre>
 <ul id="tabset-5" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-5-1">Visual</a></li><li><a href="#tabset-5-2">Formula</a></li><li><a href="#tabset-5-3">Key points</a></li></ul>
 <div class="tab-content">
 <div id="tabset-5-1">
-<div id="b8faf1a8" class="cell" data-execution_count="15">
+<div id="5c0b113c" class="cell" data-execution_count="15">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -808,7 +782,7 @@ Degree: 5, MSE: 26.067, R-squared: 0.8881</code></pre>
 <ul id="tabset-6" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-6-1">Model summary</a></li><li><a href="#tabset-6-2">Step function fit</a></li></ul>
 <div class="tab-content">
 <div id="tabset-6-1">
-<div id="fcaa54b6" class="cell" data-execution_count="16">
+<div id="75f0fd44" class="cell" data-execution_count="16">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a></a><span class="co"># Define the step function intervals</span></span>
@@ -838,7 +812,7 @@ R-squared: 0.77</code></pre>
 </div>
 </div>
 <div id="tabset-6-2">
-<div id="e6c5cbe9" class="cell" data-execution_count="17">
+<div id="c9bbba98" class="cell" data-execution_count="17">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a></a><span class="co"># Plotting the step function fit</span></span>
@@ -873,7 +847,7 @@ R-squared: 0.77</code></pre>
 <ul id="tabset-7" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-7-1">Visual</a></li><li><a href="#tabset-7-2">Formula</a></li><li><a href="#tabset-7-3">Key points</a></li></ul>
 <div class="tab-content">
 <div id="tabset-7-1">
-<div id="05ffac09" class="cell" data-execution_count="18">
+<div id="a225b374" class="cell" data-execution_count="18">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -918,7 +892,7 @@ R-squared: 0.77</code></pre>
 <ul id="tabset-8" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-8-1">Model summary</a></li><li><a href="#tabset-8-2">Basis function fit</a></li><li><a href="#tabset-8-3">Residual plot</a></li></ul>
 <div class="tab-content">
 <div id="tabset-8-1">
-<div id="a19d0885" class="cell" data-execution_count="19">
+<div id="3dab7acc" class="cell" data-execution_count="19">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a></a><span class="co"># Splitting the dataset</span></span>
@@ -949,7 +923,7 @@ R-squared: 0.60</code></pre>
 </div>
 </div>
 <div id="tabset-8-2">
-<div id="ce8b7857" class="cell" data-execution_count="20">
+<div id="54fc2816" class="cell" data-execution_count="20">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a></a><span class="co"># Predict on a grid for a smooth line</span></span>
@@ -980,7 +954,7 @@ R-squared: 0.60</code></pre>
 </div>
 </div>
 <div id="tabset-8-3">
-<div id="509a8372" class="cell" data-execution_count="21">
+<div id="a4ac4088" class="cell" data-execution_count="21">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a></a><span class="co"># Calculating residuals</span></span>
@@ -1129,7 +1103,7 @@ R-squared: 0.60</code></pre>
 <ul id="tabset-12" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-12-1">Applied</a></li><li><a href="#tabset-12-2">Compare with previous model</a></li><li><a href="#tabset-12-3">Residuals</a></li></ul>
 <div class="tab-content">
 <div id="tabset-12-1">
-<div id="64ce97e7" class="cell" data-execution_count="22">
+<div id="bfa7a9eb" class="cell" data-execution_count="22">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a></a><span class="co"># First search: random Search to narrow down the range for hyperparameters</span></span>
@@ -1195,33 +1169,33 @@ R-squared: 0.60</code></pre>
 <span id="cb25-61"><a></a><span class="co"># Calculate R-squared and Mean Squared Error (MSE) with the best model</span></span>
 <span id="cb25-62"><a></a>r2_best <span class="op">=</span> r2_score(y_test, y_pred_best)</span>
 <span id="cb25-63"><a></a>mse_best <span class="op">=</span> mean_squared_error(y_test, y_pred_best)</span>
-<span id="cb25-64"><a></a><span class="bu">print</span>(<span class="ss">f'Mean Squared Error: </span><span class="sc">{</span><span class="bu">round</span>(mse_best, <span class="dv">3</span>)<span class="sc">}</span><span class="ss">'</span>)</span>
-<span id="cb25-65"><a></a><span class="bu">print</span>(<span class="ss">f'R-squared: </span><span class="sc">{</span><span class="bu">round</span>(r2_best, <span class="dv">4</span>)<span class="sc">}</span><span class="ss">'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb25-64"><a></a><span class="bu">print</span>(<span class="ss">f'Mean Squared Error: </span><span class="sc">{</span>mse_best<span class="sc">}</span><span class="ss">'</span>)</span>
+<span id="cb25-65"><a></a><span class="bu">print</span>(<span class="ss">f'R-squared: </span><span class="sc">{</span>r2_best<span class="sc">}</span><span class="ss">'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>Best parameters after Grid Search: {'rbfsampler__gamma': np.float64(0.0016250000000000001), 'rbfsampler__n_components': np.int64(350)}
-Mean Squared Error: 20.12
-R-squared: 0.9136</code></pre>
+Mean Squared Error: 20.120452568590636
+R-squared: 0.9136490574109445</code></pre>
 </div>
 </div>
 </div>
 <div id="tabset-12-2">
-<div id="d7af4a5a" class="cell" data-execution_count="23">
+<div id="a30c72ea" class="cell" data-execution_count="23">
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a></a><span class="co"># Calculate the original MSE and r-squared scored</span></span>
 <span id="cb27-2"><a></a>mse_initial <span class="op">=</span> mean_squared_error(y_test, y_pred)</span>
 <span id="cb27-3"><a></a>r2_initial <span class="op">=</span> r2_score(y_test, y_pred)</span>
 <span id="cb27-4"><a></a></span>
 <span id="cb27-5"><a></a><span class="co"># Print comparison</span></span>
-<span id="cb27-6"><a></a><span class="bu">print</span>(<span class="ss">f'Initial MSE: </span><span class="sc">{</span><span class="bu">round</span>(mse_initial, <span class="dv">3</span>)<span class="sc">}</span><span class="ss">, Best Parameters MSE: </span><span class="sc">{</span><span class="bu">round</span>(mse_best, <span class="dv">3</span>)<span class="sc">}</span><span class="ss">'</span>)</span>
-<span id="cb27-7"><a></a><span class="bu">print</span>(<span class="ss">f'Initial R-squared: </span><span class="sc">{</span><span class="bu">round</span>(r2_initial, <span class="dv">4</span>)<span class="sc">}</span><span class="ss">, Best Parameters R-squared: </span><span class="sc">{</span><span class="bu">round</span>(r2_best, <span class="dv">5</span>)<span class="sc">}</span><span class="ss">'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb27-6"><a></a><span class="bu">print</span>(<span class="ss">f'Initial MSE: </span><span class="sc">{</span>mse_initial<span class="sc">}</span><span class="ss">, Best Parameters MSE: </span><span class="sc">{</span>mse_best<span class="sc">}</span><span class="ss">'</span>)</span>
+<span id="cb27-7"><a></a><span class="bu">print</span>(<span class="ss">f'Initial R-squared: </span><span class="sc">{</span>r2_initial<span class="sc">}</span><span class="ss">, Best Parameters R-squared: </span><span class="sc">{</span>r2_best<span class="sc">}</span><span class="ss">'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Initial MSE: 93.762, Best Parameters MSE: 20.12
-Initial R-squared: 0.5976, Best Parameters R-squared: 0.91365</code></pre>
+<pre><code>Initial MSE: 93.76150871863946, Best Parameters MSE: 20.120452568590636
+Initial R-squared: 0.5976037502722241, Best Parameters R-squared: 0.9136490574109445</code></pre>
 </div>
 </div>
 </div>
 <div id="tabset-12-3">
-<div id="5c58dd12" class="cell" data-execution_count="24">
+<div id="6766451a" class="cell" data-execution_count="24">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a></a>residuals_best <span class="op">=</span> y_test <span class="op">-</span> y_pred_best</span>
@@ -1249,7 +1223,7 @@ Initial R-squared: 0.5976, Best Parameters R-squared: 0.91365</code></pre>
 <ul id="tabset-13" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-13-1">Visual</a></li><li><a href="#tabset-13-2">Formula</a></li><li><a href="#tabset-13-3">Key points</a></li></ul>
 <div class="tab-content">
 <div id="tabset-13-1">
-<div id="da2e9309" class="cell" data-execution_count="25">
+<div id="f46ab379" class="cell" data-execution_count="25">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -1291,7 +1265,7 @@ y(x) = \begin{cases} a_0 + a_1 x + a_2 x^2 + \dots + a_n x^n &amp; \text{for } x
 <ul id="tabset-14" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-14-1">Model summary</a></li><li><a href="#tabset-14-2">Piecewise polynomial fit</a></li><li><a href="#tabset-14-3">Residual plot</a></li></ul>
 <div class="tab-content">
 <div id="tabset-14-1">
-<div id="5a5dbb18" class="cell" data-execution_count="26">
+<div id="fd64aadc" class="cell" data-execution_count="26">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a></a><span class="co"># Assign variables</span></span>
@@ -1357,7 +1331,7 @@ R-squared: 0.93</code></pre>
 </div>
 </div>
 <div id="tabset-14-2">
-<div id="e766911d" class="cell" data-execution_count="27">
+<div id="15c4133e" class="cell" data-execution_count="27">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a></a><span class="co"># Visualization of the training and testing data</span></span>
@@ -1385,7 +1359,7 @@ R-squared: 0.93</code></pre>
 </div>
 </div>
 <div id="tabset-14-3">
-<div id="634273b9" class="cell" data-execution_count="28">
+<div id="034ea665" class="cell" data-execution_count="28">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a></a><span class="co"># Calculating residuals</span></span>
@@ -1465,9 +1439,7 @@ R-squared: 0.93</code></pre>
 </section>
 <section id="conclusions" class="slide level2 smaller">
 <h2>Conclusions</h2>
-</section>
-<section id="table" class="slide level2">
-<h2>Table</h2>
+<h3 id="table">Table</h3>
 <table class="caption-top">
 <colgroup>
 <col style="width: 69%">
@@ -1511,16 +1483,16 @@ R-squared: 0.93</code></pre>
 <section id="in-class-exercise" class="slide level2">
 <h2>In-class exercise</h2>
 <div class="task">
-<p>Go to <a href="https://https://info523-fall25-101-201.github.io/exercises/ex-09.html">ex-09</a> and perform the tasks</p>
+<p>Go to <a href="https://datamineaz.org/exercises/ex-09.html">ex-09</a> and perform the tasks</p>
 </div>
 
 
-</section></section>
+</section>
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
 <p><img src="../logo.png" class="slide-logo"></p>
 <div class="footer footer-default">
-<p><a href="https://info523-fall25-101-201.github.io/">🔗 github.io</a></p>
+<p><a href="https://datamineaz.org/">🔗 datamineaz.org</a></p>
 </div>
 </div></div>
 

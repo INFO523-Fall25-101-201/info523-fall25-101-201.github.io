@@ -76,9 +76,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-ea385d0e468b0dd5ea5bf0780b1290d9.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-0c0a0fd54d4eedb74a3c4d7362e20632.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-8ef5ba5aeca76531da08c00beb447ab0.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../site_libs/bootstrap/bootstrap-0c0a0fd54d4eedb74a3c4d7362e20632.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-05637a8b181e17c4fff429b952d234bb.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-c76ba504b02f2aed44de68198fe4e073.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-05637a8b181e17c4fff429b952d234bb.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -416,6 +416,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../computing/computing-python.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Setting up Python</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../computing/computing-git.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Setting up Git</span></a>
   </div>
@@ -433,7 +439,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../project/project-2.html" class="sidebar-item-text sidebar-link">
+  <a href="../project/project-2.qmd" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Final Project</span></a>
   </div>
 </li>
@@ -448,6 +454,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           </a> 
       </div>
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../homework/workflow.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Computing workflow</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../homework/codespaces.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Codespaces</span></a>
+  </div>
+</li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../homework/hw-01.html" class="sidebar-item-text sidebar-link">
@@ -493,6 +511,24 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <div class="sidebar-item-container"> 
   <a href="../exercises/ex-06.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Ex-06: Classifying Spam Emails</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../exercises/ex-08.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Ex-08: Analyzing Egg Production Trends</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../exercises/ex-09.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Ex-09: Time series analysis</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../exercises/ex-12.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Ex-12: Clustering Taylor Swift Songs</span></a>
   </div>
 </li>
       </ul>
@@ -543,17 +579,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>The project is very open ended. For instance, in creating a compelling stories(s) of your data in R, there is no limit on what tools or packages you may use. You do not need to mine all of the data at once. A single high quality analysis will receive a much higher grade than a large number of poor quality analyses.</p>
+<p>The project is very open ended. For instance, in creating a compelling visualization(s) of your data in Python, there is no limit on what tools or packages you may use. You do not need to visualize all of the data at once. A single high quality visualization will receive a much higher grade than a large number of poor quality visualizations.</p>
 <p>Before you finalize your write up, make sure the printing of code chunks is turned off with the option <code>echo: false</code>. In addition to code chunks, ensure all messages are turned off with the options <code>warning: false</code> and <code>message: false</code>.</p>
 <p>Finally, pay attention to details in your write-up and presentation. Neatness, coherency, and clarity will count.</p>
 <section id="tips" class="level1">
 <h1>Tips</h1>
 <ul>
 <li><p>Ask questions if any of the expectations are unclear.</p></li>
-<li><p><em>Code</em>: In your write up your code should be hidden (<code>echo: false</code>) so that your document is neat and easy to read. However your document should include all your code such that if I re-render your <code>.qmd</code> file I should be able to obtain the results you presented.</p>
+<li><p><em>Code</em>: In your write up your code should be hidden (<code>echo: false</code>) so that your document is neat and easy to read. However your document should include all your code such that if I re-render your qmd file I should be able to obtain the results you presented.</p>
 <ul>
 <li><strong>Exception:</strong> If you want to highlight something specific about a piece of code, you’re welcome to show that portion.</li>
 </ul></li>
+</ul>
+<!-- -->
+<ul>
 <li><p>Merge conflicts will happen, issues will arise, and that’s fine! Commit and push often, and ask questions when stuck.</p></li>
 <li><p>Make sure each team member is contributing, both in terms of quality and quantity of contribution (we will be reviewing commits from different team members).</p>
 <ul>
@@ -566,7 +605,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="suppress-code-and-warnings" class="level2">
 <h2 class="anchored" data-anchor-id="suppress-code-and-warnings">Suppress code and warnings</h2>
 <ul>
-<li>Include the following in the YAML of your <code>report.qmd</code> to suppress all code, warnings, and other messages.</li>
+<li>Include the following in the YAML of your <code>index.qmd</code> to suppress all code, warnings, and other messages.</li>
 </ul>
 <div class="sourceCode" id="cb1"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">execute</span><span class="kw">:</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">echo</span><span class="kw">:</span><span class="at"> </span><span class="ch">false</span></span>
@@ -601,7 +640,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="arranging-plots" class="level2">
 <h2 class="anchored" data-anchor-id="arranging-plots">Arranging plots</h2>
 <p>Arrange plots in a grid, instead of one after the other. This is especially useful when displaying plots for exploratory data analysis and to check assumptions.</p>
-<p>If you’re using <code>ggplot2</code> functions, the <a href="https://patchwork.data-imaginist.com/">patchwork package</a> makes it easy to arrange plots in a grid.</p>
+<p>If you’re using {matplotlib} or {seaborn} functions, the <a href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.subplot_mosaic.html"><code>subplot_mosaic()</code></a> function makes it straightforward to arrange plots in a grid.</p>
 
 
 </section>

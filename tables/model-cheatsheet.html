@@ -43,9 +43,9 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-ea385d0e468b0dd5ea5bf0780b1290d9.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-0c0a0fd54d4eedb74a3c4d7362e20632.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-8ef5ba5aeca76531da08c00beb447ab0.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../site_libs/bootstrap/bootstrap-0c0a0fd54d4eedb74a3c4d7362e20632.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-05637a8b181e17c4fff429b952d234bb.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-c76ba504b02f2aed44de68198fe4e073.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-05637a8b181e17c4fff429b952d234bb.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -383,6 +383,12 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../computing/computing-python.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Setting up Python</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../computing/computing-git.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Setting up Git</span></a>
   </div>
@@ -400,7 +406,7 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../project/project-2.html" class="sidebar-item-text sidebar-link">
+  <a href="../project/project-2.qmd" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Final Project</span></a>
   </div>
 </li>
@@ -415,6 +421,18 @@ ul.task-list li input[type="checkbox"] {
           </a> 
       </div>
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../homework/workflow.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Computing workflow</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../homework/codespaces.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Codespaces</span></a>
+  </div>
+</li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../homework/hw-01.html" class="sidebar-item-text sidebar-link">
@@ -462,6 +480,24 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">Ex-06: Classifying Spam Emails</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../exercises/ex-08.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Ex-08: Analyzing Egg Production Trends</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../exercises/ex-09.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Ex-09: Time series analysis</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../exercises/ex-12.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Ex-12: Clustering Taylor Swift Songs</span></a>
+  </div>
+</li>
       </ul>
   </li>
     </ul>
@@ -504,33 +540,49 @@ ul.task-list li input[type="checkbox"] {
 <section id="introduction" class="level2">
 <h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
 <p>Throughout the course, we will go over several supervised and unsupervised machine learning models. This page summarizes the models.</p>
+<div class="cell">
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in library(package, lib.loc = lib.loc, character.only = TRUE,
+logical.return = TRUE, : there is no package called 'pacman'</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+The downloaded binary packages are in
+    /var/folders/r0/k4l4y5td4vv9z4hb8qx7k45m0000gp/T//Rtmp90us59/downloaded_packages</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+The downloaded binary packages are in
+    /var/folders/r0/k4l4y5td4vv9z4hb8qx7k45m0000gp/T//Rtmp90us59/downloaded_packages</code></pre>
+</div>
+</div>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
 <ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" aria-current="page">Imputation</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">Classification</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false">Regression</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-4-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-4" role="tab" aria-controls="tabset-1-4" aria-selected="false">Clustering</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-5-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-5" role="tab" aria-controls="tabset-1-5" aria-selected="false">Unsupervised<br>Learning</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-6-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-6" role="tab" aria-controls="tabset-1-6" aria-selected="false">Association</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-7-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-7" role="tab" aria-controls="tabset-1-7" aria-selected="false">Model<br>Selection/<br>Validation</a></li></ul>
 <div class="tab-content">
 <div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
 <div class="cell">
 <div class="cell-output-display">
-<div id="qxlgqfavro" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="ewbnbuddzz" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>@import url("https://fonts.googleapis.com/css2?family=Chivo:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Chivo:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Chivo:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Cairo:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
-#qxlgqfavro table {
+#ewbnbuddzz table {
   font-family: Cairo, system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#qxlgqfavro thead, #qxlgqfavro tbody, #qxlgqfavro tfoot, #qxlgqfavro tr, #qxlgqfavro td, #qxlgqfavro th {
+#ewbnbuddzz thead, #ewbnbuddzz tbody, #ewbnbuddzz tfoot, #ewbnbuddzz tr, #ewbnbuddzz td, #ewbnbuddzz th {
   border-style: none;
 }
 
-#qxlgqfavro p {
+#ewbnbuddzz p {
   margin: 0;
   padding: 0;
 }
 
-#qxlgqfavro .gt_table {
+#ewbnbuddzz .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -556,12 +608,12 @@ ul.task-list li input[type="checkbox"] {
   border-left-color: #D3D3D3;
 }
 
-#qxlgqfavro .gt_caption {
+#ewbnbuddzz .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#qxlgqfavro .gt_title {
+#ewbnbuddzz .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -573,7 +625,7 @@ ul.task-list li input[type="checkbox"] {
   border-bottom-width: 0;
 }
 
-#qxlgqfavro .gt_subtitle {
+#ewbnbuddzz .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -585,7 +637,7 @@ ul.task-list li input[type="checkbox"] {
   border-top-width: 0;
 }
 
-#qxlgqfavro .gt_heading {
+#ewbnbuddzz .gt_heading {
   background-color: #FFFFFF;
   text-align: left;
   border-bottom-color: #FFFFFF;
@@ -597,13 +649,13 @@ ul.task-list li input[type="checkbox"] {
   border-right-color: #D3D3D3;
 }
 
-#qxlgqfavro .gt_bottom_border {
+#ewbnbuddzz .gt_bottom_border {
   border-bottom-style: none;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#qxlgqfavro .gt_col_headings {
+#ewbnbuddzz .gt_col_headings {
   border-top-style: none;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -618,7 +670,7 @@ ul.task-list li input[type="checkbox"] {
   border-right-color: #D3D3D3;
 }
 
-#qxlgqfavro .gt_col_heading {
+#ewbnbuddzz .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -638,7 +690,7 @@ ul.task-list li input[type="checkbox"] {
   overflow-x: hidden;
 }
 
-#qxlgqfavro .gt_column_spanner_outer {
+#ewbnbuddzz .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -650,15 +702,15 @@ ul.task-list li input[type="checkbox"] {
   padding-right: 4px;
 }
 
-#qxlgqfavro .gt_column_spanner_outer:first-child {
+#ewbnbuddzz .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#qxlgqfavro .gt_column_spanner_outer:last-child {
+#ewbnbuddzz .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#qxlgqfavro .gt_column_spanner {
+#ewbnbuddzz .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #000000;
@@ -670,11 +722,11 @@ ul.task-list li input[type="checkbox"] {
   width: 100%;
 }
 
-#qxlgqfavro .gt_spanner_row {
+#ewbnbuddzz .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#qxlgqfavro .gt_group_heading {
+#ewbnbuddzz .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -700,7 +752,7 @@ ul.task-list li input[type="checkbox"] {
   text-align: left;
 }
 
-#qxlgqfavro .gt_empty_group_heading {
+#ewbnbuddzz .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -715,15 +767,15 @@ ul.task-list li input[type="checkbox"] {
   vertical-align: middle;
 }
 
-#qxlgqfavro .gt_from_md > :first-child {
+#ewbnbuddzz .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#qxlgqfavro .gt_from_md > :last-child {
+#ewbnbuddzz .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#qxlgqfavro .gt_row {
+#ewbnbuddzz .gt_row {
   padding-top: 3px;
   padding-bottom: 3px;
   padding-left: 5px;
@@ -742,7 +794,7 @@ ul.task-list li input[type="checkbox"] {
   overflow-x: hidden;
 }
 
-#qxlgqfavro .gt_stub {
+#ewbnbuddzz .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -755,7 +807,7 @@ ul.task-list li input[type="checkbox"] {
   padding-right: 5px;
 }
 
-#qxlgqfavro .gt_stub_row_group {
+#ewbnbuddzz .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -769,15 +821,15 @@ ul.task-list li input[type="checkbox"] {
   vertical-align: top;
 }
 
-#qxlgqfavro .gt_row_group_first td {
+#ewbnbuddzz .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#qxlgqfavro .gt_row_group_first th {
+#ewbnbuddzz .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#qxlgqfavro .gt_summary_row {
+#ewbnbuddzz .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -787,16 +839,16 @@ ul.task-list li input[type="checkbox"] {
   padding-right: 5px;
 }
 
-#qxlgqfavro .gt_first_summary_row {
+#ewbnbuddzz .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#qxlgqfavro .gt_first_summary_row.thick {
+#ewbnbuddzz .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#qxlgqfavro .gt_last_summary_row {
+#ewbnbuddzz .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -806,7 +858,7 @@ ul.task-list li input[type="checkbox"] {
   border-bottom-color: #D3D3D3;
 }
 
-#qxlgqfavro .gt_grand_summary_row {
+#ewbnbuddzz .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -816,7 +868,7 @@ ul.task-list li input[type="checkbox"] {
   padding-right: 5px;
 }
 
-#qxlgqfavro .gt_first_grand_summary_row {
+#ewbnbuddzz .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -826,7 +878,7 @@ ul.task-list li input[type="checkbox"] {
   border-top-color: #D3D3D3;
 }
 
-#qxlgqfavro .gt_last_grand_summary_row_top {
+#ewbnbuddzz .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -836,11 +888,11 @@ ul.task-list li input[type="checkbox"] {
   border-bottom-color: #D3D3D3;
 }
 
-#qxlgqfavro .gt_striped {
+#ewbnbuddzz .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#qxlgqfavro .gt_table_body {
+#ewbnbuddzz .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -849,7 +901,7 @@ ul.task-list li input[type="checkbox"] {
   border-bottom-color: #D3D3D3;
 }
 
-#qxlgqfavro .gt_footnotes {
+#ewbnbuddzz .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -863,7 +915,7 @@ ul.task-list li input[type="checkbox"] {
   border-right-color: #D3D3D3;
 }
 
-#qxlgqfavro .gt_footnote {
+#ewbnbuddzz .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -872,7 +924,7 @@ ul.task-list li input[type="checkbox"] {
   padding-right: 5px;
 }
 
-#qxlgqfavro .gt_sourcenotes {
+#ewbnbuddzz .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -886,7 +938,7 @@ ul.task-list li input[type="checkbox"] {
   border-right-color: #D3D3D3;
 }
 
-#qxlgqfavro .gt_sourcenote {
+#ewbnbuddzz .gt_sourcenote {
   font-size: 12px;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -894,67 +946,76 @@ ul.task-list li input[type="checkbox"] {
   padding-right: 5px;
 }
 
-#qxlgqfavro .gt_left {
+#ewbnbuddzz .gt_left {
   text-align: left;
 }
 
-#qxlgqfavro .gt_center {
+#ewbnbuddzz .gt_center {
   text-align: center;
 }
 
-#qxlgqfavro .gt_right {
+#ewbnbuddzz .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#qxlgqfavro .gt_font_normal {
+#ewbnbuddzz .gt_font_normal {
   font-weight: normal;
 }
 
-#qxlgqfavro .gt_font_bold {
+#ewbnbuddzz .gt_font_bold {
   font-weight: bold;
 }
 
-#qxlgqfavro .gt_font_italic {
+#ewbnbuddzz .gt_font_italic {
   font-style: italic;
 }
 
-#qxlgqfavro .gt_super {
+#ewbnbuddzz .gt_super {
   font-size: 65%;
 }
 
-#qxlgqfavro .gt_footnote_marks {
+#ewbnbuddzz .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#qxlgqfavro .gt_asterisk {
+#ewbnbuddzz .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#qxlgqfavro .gt_indent_1 {
+#ewbnbuddzz .gt_indent_1 {
   text-indent: 5px;
 }
 
-#qxlgqfavro .gt_indent_2 {
+#ewbnbuddzz .gt_indent_2 {
   text-indent: 10px;
 }
 
-#qxlgqfavro .gt_indent_3 {
+#ewbnbuddzz .gt_indent_3 {
   text-indent: 15px;
 }
 
-#qxlgqfavro .gt_indent_4 {
+#ewbnbuddzz .gt_indent_4 {
   text-indent: 20px;
 }
 
-#qxlgqfavro .gt_indent_5 {
+#ewbnbuddzz .gt_indent_5 {
   text-indent: 25px;
 }
 
-tbody tr:last-child {
+#ewbnbuddzz .katex-display {
+  display: inline-flex !important;
+  margin-bottom: 0.75em !important;
+}
+
+#ewbnbuddzz div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
+}
+
+#ewbnbuddzz tbody tr:last-child {
   border-bottom: 2px solid #ffffff00;
 }
 </style>
@@ -972,217 +1033,185 @@ tbody tr:last-child {
 <th id="Method" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" style="border-top-width: 0px; border-top-style: solid; border-top-color: black; font-family: Chivo; font-size: 14px; vertical-align: bottom; font-weight: 200; text-transform: uppercase" scope="col">Method</th>
 <th id="Strengths" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" style="border-top-width: 0px; border-top-style: solid; border-top-color: black; font-family: Chivo; font-size: 14px; vertical-align: bottom; font-weight: 200; text-transform: uppercase" scope="col">Strengths</th>
 <th id="Limitations" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" style="border-top-width: 0px; border-top-style: solid; border-top-color: black; font-family: Chivo; font-size: 14px; vertical-align: bottom; font-weight: 200; text-transform: uppercase" scope="col">Limitations</th>
-<th id="Example Use Cases" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" style="border-top-width: 0px; border-top-style: solid; border-top-color: black; font-family: Chivo; font-size: 14px; vertical-align: bottom; font-weight: 200; text-transform: uppercase" scope="col">Example Use Cases</th>
+<th id="Example-Use-Cases" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" style="border-top-width: 0px; border-top-style: solid; border-top-color: black; font-family: Chivo; font-size: 14px; vertical-align: bottom; font-weight: 200; text-transform: uppercase" scope="col">Example Use Cases</th>
 <th id="Implementation" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" style="border-top-width: 0px; border-top-style: solid; border-top-color: black; font-family: Chivo; font-size: 14px; vertical-align: bottom; font-weight: 200; text-transform: uppercase" scope="col">Implementation</th>
 </tr>
 </thead>
 <tbody class="gt_table_body">
 <tr class="odd">
-<td class="gt_row gt_left" headers="Method"><div class="gt_from_md">
-<p><a href="https://en.wikipedia.org/wiki/Imputation_(statistics)#Mean_and_median_imputation">Simple Fill</a></p>
-</div></td>
-<td class="gt_row gt_left" headers="Strengths"><div class="gt_from_md">
+<td class="gt_row gt_left" headers="Method"><a href="https://en.wikipedia.org/wiki/Imputation_(statistics)#Mean_and_median_imputation">Simple Fill</a></td>
+<td class="gt_row gt_left" headers="Strengths">Simple and fastWorks well with small datasets
 <ul>
 <li>Simple and fast</li>
 <li>Works well with small datasets</li>
 </ul>
-</div></td>
-<td class="gt_row gt_left" headers="Limitations"><div class="gt_from_md">
+</td>
+<td class="gt_row gt_left" headers="Limitations">May not handle complex data relationshipsSensitive to outliers
 <ul>
 <li>May not handle complex data relationships</li>
 <li>Sensitive to outliers</li>
 </ul>
-</div></td>
-<td class="gt_row gt_left" headers="Example Use Cases"><div class="gt_from_md">
+</td>
+<td class="gt_row gt_left" headers="Example Use Cases">Basic data analysisQuick data cleaning
 <ul>
 <li>Basic data analysis</li>
 <li>Quick data cleaning</li>
 </ul>
-</div></td>
-<td class="gt_row gt_left" headers="Implementation"><div class="gt_from_md">
-<p><a href="https://scikit-learn.org/stable/modules/generated/sklearn.impute.SimpleImputer.html#sklearn.impute.SimpleImputer">Python</a></p>
-</div></td>
+</td>
+<td class="gt_row gt_left" headers="Implementation"><a href="https://scikit-learn.org/stable/modules/generated/sklearn.impute.SimpleImputer.html#sklearn.impute.SimpleImputer">Python</a></td>
 </tr>
 <tr class="even">
-<td class="gt_row gt_left" headers="Method"><div class="gt_from_md">
-<p><a href="https://machinelearningmastery.com/knn-imputation-for-missing-values-in-machine-learning/">KNN Imputation</a></p>
-</div></td>
-<td class="gt_row gt_left" headers="Strengths"><div class="gt_from_md">
+<td class="gt_row gt_left" headers="Method"><a href="https://machinelearningmastery.com/knn-imputation-for-missing-values-in-machine-learning/">KNN Imputation</a></td>
+<td class="gt_row gt_left" headers="Strengths">Can capture the relationships between featuresWorks well with moderately missing data
 <ul>
 <li>Can capture the relationships between features</li>
 <li>Works well with moderately missing data</li>
 </ul>
-</div></td>
-<td class="gt_row gt_left" headers="Limitations"><div class="gt_from_md">
+</td>
+<td class="gt_row gt_left" headers="Limitations">Computationally intensive for large datasetsSensitive to the choice of k
 <ul>
 <li>Computationally intensive for large datasets</li>
 <li>Sensitive to the choice of k</li>
 </ul>
-</div></td>
-<td class="gt_row gt_left" headers="Example Use Cases"><div class="gt_from_md">
+</td>
+<td class="gt_row gt_left" headers="Example Use Cases">Medical data analysisMarket research
 <ul>
 <li>Medical data analysis</li>
 <li>Market research</li>
 </ul>
-</div></td>
-<td class="gt_row gt_left" headers="Implementation"><div class="gt_from_md">
-<p><a href="https://scikit-learn.org/stable/modules/generated/sklearn.impute.KNNImputer.html">Python</a></p>
-</div></td>
+</td>
+<td class="gt_row gt_left" headers="Implementation"><a href="https://scikit-learn.org/stable/modules/generated/sklearn.impute.KNNImputer.html">Python</a></td>
 </tr>
 <tr class="odd">
-<td class="gt_row gt_left" headers="Method"><div class="gt_from_md">
-<p><a href="https://en.wikipedia.org/wiki/Matrix_completion">Soft Impute</a></p>
-</div></td>
-<td class="gt_row gt_left" headers="Strengths"><div class="gt_from_md">
+<td class="gt_row gt_left" headers="Method"><a href="https://en.wikipedia.org/wiki/Matrix_completion">Soft Impute</a></td>
+<td class="gt_row gt_left" headers="Strengths">Effective for matrix completion in large datasetsWorks well with low-rank data
 <ul>
 <li>Effective for matrix completion in large datasets</li>
 <li>Works well with low-rank data</li>
 </ul>
-</div></td>
-<td class="gt_row gt_left" headers="Limitations"><div class="gt_from_md">
+</td>
+<td class="gt_row gt_left" headers="Limitations">Assumes low-rank data structureCan be sensitive to hyperparameters
 <ul>
 <li>Assumes low-rank data structure</li>
 <li>Can be sensitive to hyperparameters</li>
 </ul>
-</div></td>
-<td class="gt_row gt_left" headers="Example Use Cases"><div class="gt_from_md">
+</td>
+<td class="gt_row gt_left" headers="Example Use Cases">Recommender systemsLarge-scale data projects
 <ul>
 <li>Recommender systems</li>
 <li>Large-scale data projects</li>
 </ul>
-</div></td>
-<td class="gt_row gt_left" headers="Implementation"><div class="gt_from_md">
-<p><a href="https://github.com/iskandr/fancyimpute">Python</a></p>
-</div></td>
+</td>
+<td class="gt_row gt_left" headers="Implementation"><a href="https://github.com/iskandr/fancyimpute">Python</a></td>
 </tr>
 <tr class="even">
-<td class="gt_row gt_left" headers="Method"><div class="gt_from_md">
-<p><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3074241/">Iterative Imputer</a></p>
-</div></td>
-<td class="gt_row gt_left" headers="Strengths"><div class="gt_from_md">
+<td class="gt_row gt_left" headers="Method"><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3074241/">Iterative Imputer</a></td>
+<td class="gt_row gt_left" headers="Strengths">Can model complex relationshipsSuitable for multiple imputation
 <ul>
 <li>Can model complex relationships</li>
 <li>Suitable for multiple imputation</li>
 </ul>
-</div></td>
-<td class="gt_row gt_left" headers="Limitations"><div class="gt_from_md">
+</td>
+<td class="gt_row gt_left" headers="Limitations">Computationally expensiveDepends on the choice of model
 <ul>
 <li>Computationally expensive</li>
 <li>Depends on the choice of model</li>
 </ul>
-</div></td>
-<td class="gt_row gt_left" headers="Example Use Cases"><div class="gt_from_md">
+</td>
+<td class="gt_row gt_left" headers="Example Use Cases">Complex datasets with multiple types of missing data
 <ul>
 <li>Complex datasets with multiple types of missing data</li>
 </ul>
-</div></td>
-<td class="gt_row gt_left" headers="Implementation"><div class="gt_from_md">
-<p><a href="https://scikit-learn.org/stable/modules/generated/sklearn.impute.IterativeImputer.html">Python</a></p>
-</div></td>
+</td>
+<td class="gt_row gt_left" headers="Implementation"><a href="https://scikit-learn.org/stable/modules/generated/sklearn.impute.IterativeImputer.html">Python</a></td>
 </tr>
 <tr class="odd">
-<td class="gt_row gt_left" headers="Method"><div class="gt_from_md">
-<p><a href="https://pubmed.ncbi.nlm.nih.gov/11395428/">Iterative SVD</a></p>
-</div></td>
-<td class="gt_row gt_left" headers="Strengths"><div class="gt_from_md">
+<td class="gt_row gt_left" headers="Method"><a href="https://pubmed.ncbi.nlm.nih.gov/11395428/">Iterative SVD</a></td>
+<td class="gt_row gt_left" headers="Strengths">Good for matrix completion with low-rank assumptionHandles larger datasets
 <ul>
 <li>Good for matrix completion with low-rank assumption</li>
 <li>Handles larger datasets</li>
 </ul>
-</div></td>
-<td class="gt_row gt_left" headers="Limitations"><div class="gt_from_md">
+</td>
+<td class="gt_row gt_left" headers="Limitations">Sensitive to rank selectionComputationally demanding
 <ul>
 <li>Sensitive to rank selection</li>
 <li>Computationally demanding</li>
 </ul>
-</div></td>
-<td class="gt_row gt_left" headers="Example Use Cases"><div class="gt_from_md">
+</td>
+<td class="gt_row gt_left" headers="Example Use Cases">Image and video data processingLarge datasets with structure
 <ul>
 <li>Image and video data processing</li>
 <li>Large datasets with structure</li>
 </ul>
-</div></td>
-<td class="gt_row gt_left" headers="Implementation"><div class="gt_from_md">
-<p><a href="https://github.com/iskandr/fancyimpute">Python</a></p>
-</div></td>
+</td>
+<td class="gt_row gt_left" headers="Implementation"><a href="https://github.com/iskandr/fancyimpute">Python</a></td>
 </tr>
 <tr class="even">
-<td class="gt_row gt_left" headers="Method"><div class="gt_from_md">
-<p><a href="https://en.wikipedia.org/wiki/Matrix_decomposition">Matrix Factorization</a></p>
-</div></td>
-<td class="gt_row gt_left" headers="Strengths"><div class="gt_from_md">
+<td class="gt_row gt_left" headers="Method"><a href="https://en.wikipedia.org/wiki/Matrix_decomposition">Matrix Factorization</a></td>
+<td class="gt_row gt_left" headers="Strengths">Useful for recommendation systemsCan handle large-scale problems
 <ul>
 <li>Useful for recommendation systems</li>
 <li>Can handle large-scale problems</li>
 </ul>
-</div></td>
-<td class="gt_row gt_left" headers="Limitations"><div class="gt_from_md">
+</td>
+<td class="gt_row gt_left" headers="Limitations">Requires careful tuningNot suitable for all types of data
 <ul>
 <li>Requires careful tuning</li>
 <li>Not suitable for all types of data</li>
 </ul>
-</div></td>
-<td class="gt_row gt_left" headers="Example Use Cases"><div class="gt_from_md">
+</td>
+<td class="gt_row gt_left" headers="Example Use Cases">Recommendation enginesUser preference analysis
 <ul>
 <li>Recommendation engines</li>
 <li>User preference analysis</li>
 </ul>
-</div></td>
-<td class="gt_row gt_left" headers="Implementation"><div class="gt_from_md">
-<p><a href="https://github.com/iskandr/fancyimpute">Python</a></p>
-</div></td>
+</td>
+<td class="gt_row gt_left" headers="Implementation"><a href="https://github.com/iskandr/fancyimpute">Python</a></td>
 </tr>
 <tr class="odd">
-<td class="gt_row gt_left" headers="Method"><div class="gt_from_md">
-<p><a href="https://arxiv.org/abs/0805.4471">Nuclear Norm Minimization</a></p>
-</div></td>
-<td class="gt_row gt_left" headers="Strengths"><div class="gt_from_md">
+<td class="gt_row gt_left" headers="Method"><a href="https://arxiv.org/abs/0805.4471">Nuclear Norm Minimization</a></td>
+<td class="gt_row gt_left" headers="Strengths">Theoretically strong for matrix completionFinds the lowest rank solution
 <ul>
 <li>Theoretically strong for matrix completion</li>
 <li>Finds the lowest rank solution</li>
 </ul>
-</div></td>
-<td class="gt_row gt_left" headers="Limitations"><div class="gt_from_md">
+</td>
+<td class="gt_row gt_left" headers="Limitations">Very computationally intensiveImpractical for very large datasets
 <ul>
 <li>Very computationally intensive</li>
 <li>Impractical for very large datasets</li>
 </ul>
-</div></td>
-<td class="gt_row gt_left" headers="Example Use Cases"><div class="gt_from_md">
+</td>
+<td class="gt_row gt_left" headers="Example Use Cases">Research in theoretical data completionSmall to medium datasets
 <ul>
 <li>Research in theoretical data completion</li>
 <li>Small to medium datasets</li>
 </ul>
-</div></td>
-<td class="gt_row gt_left" headers="Implementation"><div class="gt_from_md">
-<p><a href="https://github.com/iskandr/fancyimpute">Python</a></p>
-</div></td>
+</td>
+<td class="gt_row gt_left" headers="Implementation"><a href="https://github.com/iskandr/fancyimpute">Python</a></td>
 </tr>
 <tr class="even">
-<td class="gt_row gt_left" headers="Method"><div class="gt_from_md">
-<p><a href="https://arxiv.org/abs/1410.2596">BiScaler</a></p>
-</div></td>
-<td class="gt_row gt_left" headers="Strengths"><div class="gt_from_md">
+<td class="gt_row gt_left" headers="Method"><a href="https://arxiv.org/abs/1410.2596">BiScaler</a></td>
+<td class="gt_row gt_left" headers="Strengths">Normalizes data effectivelyOften used as a preprocessing step
 <ul>
 <li>Normalizes data effectively</li>
 <li>Often used as a preprocessing step</li>
 </ul>
-</div></td>
-<td class="gt_row gt_left" headers="Limitations"><div class="gt_from_md">
+</td>
+<td class="gt_row gt_left" headers="Limitations">Not an imputation method itselfDoesn’t always converge
 <ul>
 <li>Not an imputation method itself</li>
 <li>Doesn’t always converge</li>
 </ul>
-</div></td>
-<td class="gt_row gt_left" headers="Example Use Cases"><div class="gt_from_md">
+</td>
+<td class="gt_row gt_left" headers="Example Use Cases">Preprocessing for other imputation methodsData normalization
 <ul>
 <li>Preprocessing for other imputation methods</li>
 <li>Data normalization</li>
 </ul>
-</div></td>
-<td class="gt_row gt_left" headers="Implementation"><div class="gt_from_md">
-<p><a href="https://github.com/iskandr/fancyimpute">Python</a></p>
-</div></td>
+</td>
+<td class="gt_row gt_left" headers="Implementation"><a href="https://github.com/iskandr/fancyimpute">Python</a></td>
 </tr>
 </tbody>
 </table>
@@ -1194,27 +1223,27 @@ tbody tr:last-child {
 <div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
 <div class="cell">
 <div class="cell-output-display">
-<div id="rjsvntpznb" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="yhafdvgamj" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>@import url("https://fonts.googleapis.com/css2?family=Chivo:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Chivo:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Chivo:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Cairo:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
-#rjsvntpznb table {
+#yhafdvgamj table {
   font-family: Cairo, system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#rjsvntpznb thead, #rjsvntpznb tbody, #rjsvntpznb tfoot, #rjsvntpznb tr, #rjsvntpznb td, #rjsvntpznb th {
+#yhafdvgamj thead, #yhafdvgamj tbody, #yhafdvgamj tfoot, #yhafdvgamj tr, #yhafdvgamj td, #yhafdvgamj th {
   border-style: none;
 }
 
-#rjsvntpznb p {
+#yhafdvgamj p {
   margin: 0;
   padding: 0;
 }
 
-#rjsvntpznb .gt_table {
+#yhafdvgamj .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -1240,12 +1269,12 @@ tbody tr:last-child {
   border-left-color: #D3D3D3;
 }
 
-#rjsvntpznb .gt_caption {
+#yhafdvgamj .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#rjsvntpznb .gt_title {
+#yhafdvgamj .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -1257,7 +1286,7 @@ tbody tr:last-child {
   border-bottom-width: 0;
 }
 
-#rjsvntpznb .gt_subtitle {
+#yhafdvgamj .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -1269,7 +1298,7 @@ tbody tr:last-child {
   border-top-width: 0;
 }
 
-#rjsvntpznb .gt_heading {
+#yhafdvgamj .gt_heading {
   background-color: #FFFFFF;
   text-align: left;
   border-bottom-color: #FFFFFF;
@@ -1281,13 +1310,13 @@ tbody tr:last-child {
   border-right-color: #D3D3D3;
 }
 
-#rjsvntpznb .gt_bottom_border {
+#yhafdvgamj .gt_bottom_border {
   border-bottom-style: none;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#rjsvntpznb .gt_col_headings {
+#yhafdvgamj .gt_col_headings {
   border-top-style: none;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1302,7 +1331,7 @@ tbody tr:last-child {
   border-right-color: #D3D3D3;
 }
 
-#rjsvntpznb .gt_col_heading {
+#yhafdvgamj .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1322,7 +1351,7 @@ tbody tr:last-child {
   overflow-x: hidden;
 }
 
-#rjsvntpznb .gt_column_spanner_outer {
+#yhafdvgamj .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1334,15 +1363,15 @@ tbody tr:last-child {
   padding-right: 4px;
 }
 
-#rjsvntpznb .gt_column_spanner_outer:first-child {
+#yhafdvgamj .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#rjsvntpznb .gt_column_spanner_outer:last-child {
+#yhafdvgamj .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#rjsvntpznb .gt_column_spanner {
+#yhafdvgamj .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #000000;
@@ -1354,11 +1383,11 @@ tbody tr:last-child {
   width: 100%;
 }
 
-#rjsvntpznb .gt_spanner_row {
+#yhafdvgamj .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#rjsvntpznb .gt_group_heading {
+#yhafdvgamj .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1384,7 +1413,7 @@ tbody tr:last-child {
   text-align: left;
 }
 
-#rjsvntpznb .gt_empty_group_heading {
+#yhafdvgamj .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1399,15 +1428,15 @@ tbody tr:last-child {
   vertical-align: middle;
 }
 
-#rjsvntpznb .gt_from_md > :first-child {
+#yhafdvgamj .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#rjsvntpznb .gt_from_md > :last-child {
+#yhafdvgamj .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#rjsvntpznb .gt_row {
+#yhafdvgamj .gt_row {
   padding-top: 3px;
   padding-bottom: 3px;
   padding-left: 5px;
@@ -1426,7 +1455,7 @@ tbody tr:last-child {
   overflow-x: hidden;
 }
 
-#rjsvntpznb .gt_stub {
+#yhafdvgamj .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1439,7 +1468,7 @@ tbody tr:last-child {
   padding-right: 5px;
 }
 
-#rjsvntpznb .gt_stub_row_group {
+#yhafdvgamj .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1453,15 +1482,15 @@ tbody tr:last-child {
   vertical-align: top;
 }
 
-#rjsvntpznb .gt_row_group_first td {
+#yhafdvgamj .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#rjsvntpznb .gt_row_group_first th {
+#yhafdvgamj .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#rjsvntpznb .gt_summary_row {
+#yhafdvgamj .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1471,16 +1500,16 @@ tbody tr:last-child {
   padding-right: 5px;
 }
 
-#rjsvntpznb .gt_first_summary_row {
+#yhafdvgamj .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#rjsvntpznb .gt_first_summary_row.thick {
+#yhafdvgamj .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#rjsvntpznb .gt_last_summary_row {
+#yhafdvgamj .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1490,7 +1519,7 @@ tbody tr:last-child {
   border-bottom-color: #D3D3D3;
 }
 
-#rjsvntpznb .gt_grand_summary_row {
+#yhafdvgamj .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1500,7 +1529,7 @@ tbody tr:last-child {
   padding-right: 5px;
 }
 
-#rjsvntpznb .gt_first_grand_summary_row {
+#yhafdvgamj .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1510,7 +1539,7 @@ tbody tr:last-child {
   border-top-color: #D3D3D3;
 }
 
-#rjsvntpznb .gt_last_grand_summary_row_top {
+#yhafdvgamj .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1520,11 +1549,11 @@ tbody tr:last-child {
   border-bottom-color: #D3D3D3;
 }
 
-#rjsvntpznb .gt_striped {
+#yhafdvgamj .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#rjsvntpznb .gt_table_body {
+#yhafdvgamj .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1533,7 +1562,7 @@ tbody tr:last-child {
   border-bottom-color: #D3D3D3;
 }
 
-#rjsvntpznb .gt_footnotes {
+#yhafdvgamj .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1547,7 +1576,7 @@ tbody tr:last-child {
   border-right-color: #D3D3D3;
 }
 
-#rjsvntpznb .gt_footnote {
+#yhafdvgamj .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -1556,7 +1585,7 @@ tbody tr:last-child {
   padding-right: 5px;
 }
 
-#rjsvntpznb .gt_sourcenotes {
+#yhafdvgamj .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1570,7 +1599,7 @@ tbody tr:last-child {
   border-right-color: #D3D3D3;
 }
 
-#rjsvntpznb .gt_sourcenote {
+#yhafdvgamj .gt_sourcenote {
   font-size: 12px;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -1578,67 +1607,76 @@ tbody tr:last-child {
   padding-right: 5px;
 }
 
-#rjsvntpznb .gt_left {
+#yhafdvgamj .gt_left {
   text-align: left;
 }
 
-#rjsvntpznb .gt_center {
+#yhafdvgamj .gt_center {
   text-align: center;
 }
 
-#rjsvntpznb .gt_right {
+#yhafdvgamj .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#rjsvntpznb .gt_font_normal {
+#yhafdvgamj .gt_font_normal {
   font-weight: normal;
 }
 
-#rjsvntpznb .gt_font_bold {
+#yhafdvgamj .gt_font_bold {
   font-weight: bold;
 }
 
-#rjsvntpznb .gt_font_italic {
+#yhafdvgamj .gt_font_italic {
   font-style: italic;
 }
 
-#rjsvntpznb .gt_super {
+#yhafdvgamj .gt_super {
   font-size: 65%;
 }
 
-#rjsvntpznb .gt_footnote_marks {
+#yhafdvgamj .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#rjsvntpznb .gt_asterisk {
+#yhafdvgamj .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#rjsvntpznb .gt_indent_1 {
+#yhafdvgamj .gt_indent_1 {
   text-indent: 5px;
 }
 
-#rjsvntpznb .gt_indent_2 {
+#yhafdvgamj .gt_indent_2 {
   text-indent: 10px;
 }
 
-#rjsvntpznb .gt_indent_3 {
+#yhafdvgamj .gt_indent_3 {
   text-indent: 15px;
 }
 
-#rjsvntpznb .gt_indent_4 {
+#yhafdvgamj .gt_indent_4 {
   text-indent: 20px;
 }
 
-#rjsvntpznb .gt_indent_5 {
+#yhafdvgamj .gt_indent_5 {
   text-indent: 25px;
 }
 
-tbody tr:last-child {
+#yhafdvgamj .katex-display {
+  display: inline-flex !important;
+  margin-bottom: 0.75em !important;
+}
+
+#yhafdvgamj div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
+}
+
+#yhafdvgamj tbody tr:last-child {
   border-bottom: 2px solid #ffffff00;
 }
 </style>
@@ -1653,426 +1691,362 @@ tbody tr:last-child {
 </colgroup>
 <thead>
 <tr class="gt_col_headings header">
-<th id="Model Type" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" style="border-top-width: 0px; border-top-style: solid; border-top-color: black; font-family: Chivo; font-size: 14px; vertical-align: bottom; font-weight: 200; text-transform: uppercase" scope="col">Model Type</th>
+<th id="Model-Type" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" style="border-top-width: 0px; border-top-style: solid; border-top-color: black; font-family: Chivo; font-size: 14px; vertical-align: bottom; font-weight: 200; text-transform: uppercase" scope="col">Model Type</th>
 <th id="Strengths" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" style="border-top-width: 0px; border-top-style: solid; border-top-color: black; font-family: Chivo; font-size: 14px; vertical-align: bottom; font-weight: 200; text-transform: uppercase" scope="col">Strengths</th>
 <th id="Limitations" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" style="border-top-width: 0px; border-top-style: solid; border-top-color: black; font-family: Chivo; font-size: 14px; vertical-align: bottom; font-weight: 200; text-transform: uppercase" scope="col">Limitations</th>
-<th id="Example Use Cases" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" style="border-top-width: 0px; border-top-style: solid; border-top-color: black; font-family: Chivo; font-size: 14px; vertical-align: bottom; font-weight: 200; text-transform: uppercase" scope="col">Example Use Cases</th>
+<th id="Example-Use-Cases" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" style="border-top-width: 0px; border-top-style: solid; border-top-color: black; font-family: Chivo; font-size: 14px; vertical-align: bottom; font-weight: 200; text-transform: uppercase" scope="col">Example Use Cases</th>
 <th id="Implementation" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" style="border-top-width: 0px; border-top-style: solid; border-top-color: black; font-family: Chivo; font-size: 14px; vertical-align: bottom; font-weight: 200; text-transform: uppercase" scope="col">Implementation</th>
 </tr>
 </thead>
 <tbody class="gt_table_body">
 <tr class="odd">
-<td class="gt_row gt_left" headers="Model Type"><div class="gt_from_md">
-<p><a href="https://en.wikipedia.org/wiki/Logistic_regression">Logistic Regression</a></p>
-</div></td>
-<td class="gt_row gt_left" headers="Strengths"><div class="gt_from_md">
+<td class="gt_row gt_left" headers="Model Type"><a href="https://en.wikipedia.org/wiki/Logistic_regression">Logistic Regression</a></td>
+<td class="gt_row gt_left" headers="Strengths">Simple and interpretableFast to train
 <ul>
 <li>Simple and interpretable</li>
 <li>Fast to train</li>
 </ul>
-</div></td>
-<td class="gt_row gt_left" headers="Limitations"><div class="gt_from_md">
+</td>
+<td class="gt_row gt_left" headers="Limitations">Assumes linear boundariesNot suitable for complex relationships
 <ul>
 <li>Assumes linear boundaries</li>
 <li>Not suitable for complex relationships</li>
 </ul>
-</div></td>
-<td class="gt_row gt_left" headers="Example Use Cases"><div class="gt_from_md">
+</td>
+<td class="gt_row gt_left" headers="Example Use Cases">Credit approvalMedical diagnosis
 <ul>
 <li>Credit approval</li>
 <li>Medical diagnosis</li>
 </ul>
-</div></td>
-<td class="gt_row gt_left" headers="Implementation"><div class="gt_from_md">
-<p><a href="https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression">Python</a></p>
-</div></td>
+</td>
+<td class="gt_row gt_left" headers="Implementation"><a href="https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression">Python</a></td>
 </tr>
 <tr class="even">
-<td class="gt_row gt_left" headers="Model Type"><div class="gt_from_md">
-<p><a href="https://en.wikipedia.org/wiki/Decision_tree_learning">Decision Trees</a></p>
-</div></td>
-<td class="gt_row gt_left" headers="Strengths"><div class="gt_from_md">
+<td class="gt_row gt_left" headers="Model Type"><a href="https://en.wikipedia.org/wiki/Decision_tree_learning">Decision Trees</a></td>
+<td class="gt_row gt_left" headers="Strengths">IntuitiveCan model non-linear relationships
 <ul>
 <li>Intuitive</li>
 <li>Can model non-linear relationships</li>
 </ul>
-</div></td>
-<td class="gt_row gt_left" headers="Limitations"><div class="gt_from_md">
+</td>
+<td class="gt_row gt_left" headers="Limitations">Prone to overfittingSensitive to small changes in data
 <ul>
 <li>Prone to overfitting</li>
 <li>Sensitive to small changes in data</li>
 </ul>
-</div></td>
-<td class="gt_row gt_left" headers="Example Use Cases"><div class="gt_from_md">
+</td>
+<td class="gt_row gt_left" headers="Example Use Cases">Customer segmentationLoan default prediction
 <ul>
 <li>Customer segmentation</li>
 <li>Loan default prediction</li>
 </ul>
-</div></td>
-<td class="gt_row gt_left" headers="Implementation"><div class="gt_from_md">
-<p><a href="https://scikit-learn.org/stable/modules/tree.html">Python</a></p>
-</div></td>
+</td>
+<td class="gt_row gt_left" headers="Implementation"><a href="https://scikit-learn.org/stable/modules/tree.html">Python</a></td>
 </tr>
 <tr class="odd">
-<td class="gt_row gt_left" headers="Model Type"><div class="gt_from_md">
-<p><a href="https://en.wikipedia.org/wiki/Random_forest">Random Forest</a></p>
-</div></td>
-<td class="gt_row gt_left" headers="Strengths"><div class="gt_from_md">
+<td class="gt_row gt_left" headers="Model Type"><a href="https://en.wikipedia.org/wiki/Random_forest">Random Forest</a></td>
+<td class="gt_row gt_left" headers="Strengths">Handles overfittingCan model complex relationships
 <ul>
 <li>Handles overfitting</li>
 <li>Can model complex relationships</li>
 </ul>
-</div></td>
-<td class="gt_row gt_left" headers="Limitations"><div class="gt_from_md">
+</td>
+<td class="gt_row gt_left" headers="Limitations">Slower to train and predictBlack box model
 <ul>
 <li>Slower to train and predict</li>
 <li>Black box model</li>
 </ul>
-</div></td>
-<td class="gt_row gt_left" headers="Example Use Cases"><div class="gt_from_md">
+</td>
+<td class="gt_row gt_left" headers="Example Use Cases">Fraud detectionStock price movement prediction
 <ul>
 <li>Fraud detection</li>
 <li>Stock price movement prediction</li>
 </ul>
-</div></td>
-<td class="gt_row gt_left" headers="Implementation"><div class="gt_from_md">
-<p><a href="https://scikit-learn.org/stable/modules/ensemble.html#forest">Python</a></p>
-</div></td>
+</td>
+<td class="gt_row gt_left" headers="Implementation"><a href="https://scikit-learn.org/stable/modules/ensemble.html#forest">Python</a></td>
 </tr>
 <tr class="even">
-<td class="gt_row gt_left" headers="Model Type"><div class="gt_from_md">
-<p><a href="https://en.wikipedia.org/wiki/Support_vector_machine">Support Vector Machines (SVM)</a></p>
-</div></td>
-<td class="gt_row gt_left" headers="Strengths"><div class="gt_from_md">
+<td class="gt_row gt_left" headers="Model Type"><a href="https://en.wikipedia.org/wiki/Support_vector_machine">Support Vector Machines (SVM)</a></td>
+<td class="gt_row gt_left" headers="Strengths">Effective in high dimensional spacesWorks well with clear margin of separation
 <ul>
 <li>Effective in high dimensional spaces</li>
 <li>Works well with clear margin of separation</li>
 </ul>
-</div></td>
-<td class="gt_row gt_left" headers="Limitations"><div class="gt_from_md">
+</td>
+<td class="gt_row gt_left" headers="Limitations">Sensitive to kernel choiceSlow on large datasets
 <ul>
 <li>Sensitive to kernel choice</li>
 <li>Slow on large datasets</li>
 </ul>
-</div></td>
-<td class="gt_row gt_left" headers="Example Use Cases"><div class="gt_from_md">
+</td>
+<td class="gt_row gt_left" headers="Example Use Cases">Image classificationHandwriting recognition
 <ul>
 <li>Image classification</li>
 <li>Handwriting recognition</li>
 </ul>
-</div></td>
-<td class="gt_row gt_left" headers="Implementation"><div class="gt_from_md">
-<p><a href="https://scikit-learn.org/stable/modules/svm.html">Python</a></p>
-</div></td>
+</td>
+<td class="gt_row gt_left" headers="Implementation"><a href="https://scikit-learn.org/stable/modules/svm.html">Python</a></td>
 </tr>
 <tr class="odd">
-<td class="gt_row gt_left" headers="Model Type"><div class="gt_from_md">
-<p><a href="https://en.wikipedia.org/wiki/K-nearest_neighbors_algorithm">K-Nearest Neighbors (KNN)</a></p>
-</div></td>
-<td class="gt_row gt_left" headers="Strengths"><div class="gt_from_md">
+<td class="gt_row gt_left" headers="Model Type"><a href="https://en.wikipedia.org/wiki/K-nearest_neighbors_algorithm">K-Nearest Neighbors (KNN)</a></td>
+<td class="gt_row gt_left" headers="Strengths">Simple and intuitiveNo training phase
 <ul>
 <li>Simple and intuitive</li>
 <li>No training phase</li>
 </ul>
-</div></td>
-<td class="gt_row gt_left" headers="Limitations"><div class="gt_from_md">
+</td>
+<td class="gt_row gt_left" headers="Limitations">Slow during query phaseSensitive to irrelevant features and scale
 <ul>
 <li>Slow during query phase</li>
 <li>Sensitive to irrelevant features and scale</li>
 </ul>
-</div></td>
-<td class="gt_row gt_left" headers="Example Use Cases"><div class="gt_from_md">
+</td>
+<td class="gt_row gt_left" headers="Example Use Cases">Product recommendationDocument classification
 <ul>
 <li>Product recommendation</li>
 <li>Document classification</li>
 </ul>
-</div></td>
-<td class="gt_row gt_left" headers="Implementation"><div class="gt_from_md">
-<p><a href="https://scikit-learn.org/stable/modules/neighbors.html">Python</a></p>
-</div></td>
+</td>
+<td class="gt_row gt_left" headers="Implementation"><a href="https://scikit-learn.org/stable/modules/neighbors.html">Python</a></td>
 </tr>
 <tr class="even">
-<td class="gt_row gt_left" headers="Model Type"><div class="gt_from_md">
-<p><a href="https://en.wikipedia.org/wiki/Artificial_neural_network">Neural Networks</a></p>
-</div></td>
-<td class="gt_row gt_left" headers="Strengths"><div class="gt_from_md">
+<td class="gt_row gt_left" headers="Model Type"><a href="https://en.wikipedia.org/wiki/Artificial_neural_network">Neural Networks</a></td>
+<td class="gt_row gt_left" headers="Strengths">Capable of approximating complex functionsFlexible architecture Trainable with backpropagation
 <ul>
 <li>Capable of approximating complex functions</li>
 <li>Flexible architecture Trainable with backpropagation</li>
 </ul>
-</div></td>
-<td class="gt_row gt_left" headers="Limitations"><div class="gt_from_md">
+</td>
+<td class="gt_row gt_left" headers="Limitations">Can require a large number of parametersProne to overfitting on small data Training can be slow
 <ul>
 <li>Can require a large number of parameters</li>
 <li>Prone to overfitting on small data Training can be slow</li>
 </ul>
-</div></td>
-<td class="gt_row gt_left" headers="Example Use Cases"><div class="gt_from_md">
+</td>
+<td class="gt_row gt_left" headers="Example Use Cases">Pattern recognitionBasic image classificationFunction approximation
 <ul>
 <li>Pattern recognition</li>
 <li>Basic image classification</li>
 <li>Function approximation</li>
 </ul>
-</div></td>
-<td class="gt_row gt_left" headers="Implementation"><div class="gt_from_md">
-<p><a href="https://pytorch.org/tutorials/beginner/basics/buildmodel_tutorial.html">Python</a></p>
-</div></td>
+</td>
+<td class="gt_row gt_left" headers="Implementation"><a href="https://pytorch.org/tutorials/beginner/basics/buildmodel_tutorial.html">Python</a></td>
 </tr>
 <tr class="odd">
-<td class="gt_row gt_left" headers="Model Type"><div class="gt_from_md">
-<p><a href="https://en.wikipedia.org/wiki/Deep_learning">Deep Learning</a></p>
-</div></td>
-<td class="gt_row gt_left" headers="Strengths"><div class="gt_from_md">
+<td class="gt_row gt_left" headers="Model Type"><a href="https://en.wikipedia.org/wiki/Deep_learning">Deep Learning</a></td>
+<td class="gt_row gt_left" headers="Strengths">Can model highly complex relationshipsExcels with vast amounts of data State-of-the-art results in many domains
 <ul>
 <li>Can model highly complex relationships</li>
 <li>Excels with vast amounts of data State-of-the-art results in many domains</li>
 </ul>
-</div></td>
-<td class="gt_row gt_left" headers="Limitations"><div class="gt_from_md">
+</td>
+<td class="gt_row gt_left" headers="Limitations">Requires a lot of data Computationally intensiveInterpretability challenges
 <ul>
 <li>Requires a lot of data Computationally intensive</li>
 <li>Interpretability challenges</li>
 </ul>
-</div></td>
-<td class="gt_row gt_left" headers="Example Use Cases"><div class="gt_from_md">
+</td>
+<td class="gt_row gt_left" headers="Example Use Cases">Advanced image and speech recognitionMachine translationGame playing (like AlphaGo)
 <ul>
 <li>Advanced image and speech recognition</li>
 <li>Machine translation</li>
 <li>Game playing (like AlphaGo)</li>
 </ul>
-</div></td>
-<td class="gt_row gt_left" headers="Implementation"><div class="gt_from_md">
-<p><a href="https://pytorch.org/tutorials/beginner/nlp/deep_learning_tutorial.html">Python</a></p>
-</div></td>
+</td>
+<td class="gt_row gt_left" headers="Implementation"><a href="https://pytorch.org/tutorials/beginner/nlp/deep_learning_tutorial.html">Python</a></td>
 </tr>
 <tr class="even">
-<td class="gt_row gt_left" headers="Model Type"><div class="gt_from_md">
-<p><a href="https://en.wikipedia.org/wiki/Naive_Bayes_classifier">Naive Bayes</a></p>
-</div></td>
-<td class="gt_row gt_left" headers="Strengths"><div class="gt_from_md">
+<td class="gt_row gt_left" headers="Model Type"><a href="https://en.wikipedia.org/wiki/Naive_Bayes_classifier">Naive Bayes</a></td>
+<td class="gt_row gt_left" headers="Strengths">FastWorks well with large feature sets
 <ul>
 <li>Fast</li>
 <li>Works well with large feature sets</li>
 </ul>
-</div></td>
-<td class="gt_row gt_left" headers="Limitations"><div class="gt_from_md">
+</td>
+<td class="gt_row gt_left" headers="Limitations">Assumes feature independenceNot suitable for numerical input features
 <ul>
 <li>Assumes feature independence</li>
 <li>Not suitable for numerical input features</li>
 </ul>
-</div></td>
-<td class="gt_row gt_left" headers="Example Use Cases"><div class="gt_from_md">
+</td>
+<td class="gt_row gt_left" headers="Example Use Cases">Spam detectionSentiment analysis
 <ul>
 <li>Spam detection</li>
 <li>Sentiment analysis</li>
 </ul>
-</div></td>
-<td class="gt_row gt_left" headers="Implementation"><div class="gt_from_md">
-<p><a href="https://scikit-learn.org/stable/modules/naive_bayes.html">Python</a></p>
-</div></td>
+</td>
+<td class="gt_row gt_left" headers="Implementation"><a href="https://scikit-learn.org/stable/modules/naive_bayes.html">Python</a></td>
 </tr>
 <tr class="odd">
-<td class="gt_row gt_left" headers="Model Type"><div class="gt_from_md">
-<p><a href="https://en.wikipedia.org/wiki/Gradient_boosting">Gradient Boosting Machines (GBM)</a></p>
-</div></td>
-<td class="gt_row gt_left" headers="Strengths"><div class="gt_from_md">
+<td class="gt_row gt_left" headers="Model Type"><a href="https://en.wikipedia.org/wiki/Gradient_boosting">Gradient Boosting Machines (GBM)</a></td>
+<td class="gt_row gt_left" headers="Strengths">High performanceHandles non-linear relationships
 <ul>
 <li>High performance</li>
 <li>Handles non-linear relationships</li>
 </ul>
-</div></td>
-<td class="gt_row gt_left" headers="Limitations"><div class="gt_from_md">
+</td>
+<td class="gt_row gt_left" headers="Limitations">Prone to overfitting if not tunedSlow to train
 <ul>
 <li>Prone to overfitting if not tuned</li>
 <li>Slow to train</li>
 </ul>
-</div></td>
-<td class="gt_row gt_left" headers="Example Use Cases"><div class="gt_from_md">
+</td>
+<td class="gt_row gt_left" headers="Example Use Cases">Web search rankingEcology predictions
 <ul>
 <li>Web search ranking</li>
 <li>Ecology predictions</li>
 </ul>
-</div></td>
-<td class="gt_row gt_left" headers="Implementation"><div class="gt_from_md">
-<p><a href="https://scikit-learn.org/stable/modules/ensemble.html#gradient-tree-boosting">Python</a></p>
-</div></td>
+</td>
+<td class="gt_row gt_left" headers="Implementation"><a href="https://scikit-learn.org/stable/modules/ensemble.html#gradient-tree-boosting">Python</a></td>
 </tr>
 <tr class="even">
-<td class="gt_row gt_left" headers="Model Type"><div class="gt_from_md">
-<p><a href="https://en.wikipedia.org/wiki/Rule-based_machine_learning">Rule-Based Classification</a></p>
-</div></td>
-<td class="gt_row gt_left" headers="Strengths"><div class="gt_from_md">
+<td class="gt_row gt_left" headers="Model Type"><a href="https://en.wikipedia.org/wiki/Rule-based_machine_learning">Rule-Based Classification</a></td>
+<td class="gt_row gt_left" headers="Strengths">Transparent and explainableEasily updated and modified
 <ul>
 <li>Transparent and explainable</li>
 <li>Easily updated and modified</li>
 </ul>
-</div></td>
-<td class="gt_row gt_left" headers="Limitations"><div class="gt_from_md">
+</td>
+<td class="gt_row gt_left" headers="Limitations">Manual rule creation can be tediousMay not capture complex relationships
 <ul>
 <li>Manual rule creation can be tedious</li>
 <li>May not capture complex relationships</li>
 </ul>
-</div></td>
-<td class="gt_row gt_left" headers="Example Use Cases"><div class="gt_from_md">
+</td>
+<td class="gt_row gt_left" headers="Example Use Cases">Expert systemsBusiness rule enforcement
 <ul>
 <li>Expert systems</li>
 <li>Business rule enforcement</li>
 </ul>
-</div></td>
-<td class="gt_row gt_left" headers="Implementation"><div class="gt_from_md">
-<p><a href="https://www.geeksforgeeks.org/rule-based-classifier-machine-learning/">Python</a></p>
-</div></td>
+</td>
+<td class="gt_row gt_left" headers="Implementation"><a href="https://www.geeksforgeeks.org/rule-based-classifier-machine-learning/">Python</a></td>
 </tr>
 <tr class="odd">
-<td class="gt_row gt_left" headers="Model Type"><div class="gt_from_md">
-<p><a href="https://en.wikipedia.org/wiki/Bootstrap_aggregating">Bagging</a></p>
-</div></td>
-<td class="gt_row gt_left" headers="Strengths"><div class="gt_from_md">
+<td class="gt_row gt_left" headers="Model Type"><a href="https://en.wikipedia.org/wiki/Bootstrap_aggregating">Bagging</a></td>
+<td class="gt_row gt_left" headers="Strengths">Reduces varianceParallelizable
 <ul>
 <li>Reduces variance</li>
 <li>Parallelizable</li>
 </ul>
-</div></td>
-<td class="gt_row gt_left" headers="Limitations"><div class="gt_from_md">
+</td>
+<td class="gt_row gt_left" headers="Limitations">May not handle bias well
 <ul>
 <li>May not handle bias well</li>
 </ul>
-</div></td>
-<td class="gt_row gt_left" headers="Example Use Cases"><div class="gt_from_md">
+</td>
+<td class="gt_row gt_left" headers="Example Use Cases">Random Forest is a popular example
 <ul>
 <li>Random Forest is a popular example</li>
 </ul>
-</div></td>
-<td class="gt_row gt_left" headers="Implementation"><div class="gt_from_md">
-<p><a href="https://scikit-learn.org/stable/modules/ensemble.html#bagging-meta-estimator">Python</a></p>
-</div></td>
+</td>
+<td class="gt_row gt_left" headers="Implementation"><a href="https://scikit-learn.org/stable/modules/ensemble.html#bagging-meta-estimator">Python</a></td>
 </tr>
 <tr class="even">
-<td class="gt_row gt_left" headers="Model Type"><div class="gt_from_md">
-<p><a href="https://en.wikipedia.org/wiki/Boosting_(machine_learning)">Boosting</a></p>
-</div></td>
-<td class="gt_row gt_left" headers="Strengths"><div class="gt_from_md">
+<td class="gt_row gt_left" headers="Model Type"><a href="https://en.wikipedia.org/wiki/Boosting_(machine_learning)">Boosting</a></td>
+<td class="gt_row gt_left" headers="Strengths">Reduces biasCombines weak learners
 <ul>
 <li>Reduces bias</li>
 <li>Combines weak learners</li>
 </ul>
-</div></td>
-<td class="gt_row gt_left" headers="Limitations"><div class="gt_from_md">
+</td>
+<td class="gt_row gt_left" headers="Limitations">Sensitive to noisy data and outliers
 <ul>
 <li>Sensitive to noisy data and outliers</li>
 </ul>
-</div></td>
-<td class="gt_row gt_left" headers="Example Use Cases"><div class="gt_from_md">
+</td>
+<td class="gt_row gt_left" headers="Example Use Cases">AdaBoostGradient Boosting
 <ul>
 <li>AdaBoost</li>
 <li>Gradient Boosting</li>
 </ul>
-</div></td>
-<td class="gt_row gt_left" headers="Implementation"><div class="gt_from_md">
-<p><a href="https://scikit-learn.org/stable/modules/ensemble.html#boosting">Python</a></p>
-</div></td>
+</td>
+<td class="gt_row gt_left" headers="Implementation"><a href="https://scikit-learn.org/stable/modules/ensemble.html#boosting">Python</a></td>
 </tr>
 <tr class="odd">
-<td class="gt_row gt_left" headers="Model Type"><div class="gt_from_md">
-<p><a href="https://en.wikipedia.org/wiki/Xgboost">XGBoost</a></p>
-</div></td>
-<td class="gt_row gt_left" headers="Strengths"><div class="gt_from_md">
+<td class="gt_row gt_left" headers="Model Type"><a href="https://en.wikipedia.org/wiki/Xgboost">XGBoost</a></td>
+<td class="gt_row gt_left" headers="Strengths">Scalable and efficientRegularization
 <ul>
 <li>Scalable and efficient</li>
 <li>Regularization</li>
 </ul>
-</div></td>
-<td class="gt_row gt_left" headers="Limitations"><div class="gt_from_md">
+</td>
+<td class="gt_row gt_left" headers="Limitations">Requires careful tuningCan overfit if not used correctly
 <ul>
 <li>Requires careful tuning</li>
 <li>Can overfit if not used correctly</li>
 </ul>
-</div></td>
-<td class="gt_row gt_left" headers="Example Use Cases"><div class="gt_from_md">
+</td>
+<td class="gt_row gt_left" headers="Example Use Cases">Competitions on KaggleRetail prediction
 <ul>
 <li>Competitions on Kaggle</li>
 <li>Retail prediction</li>
 </ul>
-</div></td>
-<td class="gt_row gt_left" headers="Implementation"><div class="gt_from_md">
-<p><a href="https://xgboost.readthedocs.io/en/latest/">Python</a></p>
-</div></td>
+</td>
+<td class="gt_row gt_left" headers="Implementation"><a href="https://xgboost.readthedocs.io/en/latest/">Python</a></td>
 </tr>
 <tr class="even">
-<td class="gt_row gt_left" headers="Model Type"><div class="gt_from_md">
-<p><a href="https://en.wikipedia.org/wiki/Linear_discriminant_analysis">Linear Discriminant Analysis (LDA)</a></p>
-</div></td>
-<td class="gt_row gt_left" headers="Strengths"><div class="gt_from_md">
+<td class="gt_row gt_left" headers="Model Type"><a href="https://en.wikipedia.org/wiki/Linear_discriminant_analysis">Linear Discriminant Analysis (LDA)</a></td>
+<td class="gt_row gt_left" headers="Strengths">Dimensionality reductionSimple and interpretable
 <ul>
 <li>Dimensionality reduction</li>
 <li>Simple and interpretable</li>
 </ul>
-</div></td>
-<td class="gt_row gt_left" headers="Limitations"><div class="gt_from_md">
+</td>
+<td class="gt_row gt_left" headers="Limitations">Assumes Gaussian distributed data and equal class covariances
 <ul>
 <li>Assumes Gaussian distributed data and equal class covariances</li>
 </ul>
-</div></td>
-<td class="gt_row gt_left" headers="Example Use Cases"><div class="gt_from_md">
+</td>
+<td class="gt_row gt_left" headers="Example Use Cases">Face recognitionMarketing segmentation
 <ul>
 <li>Face recognition</li>
 <li>Marketing segmentation</li>
 </ul>
-</div></td>
-<td class="gt_row gt_left" headers="Implementation"><div class="gt_from_md">
-<p><a href="https://scikit-learn.org/stable/modules/lda_qda.html">Python</a></p>
-</div></td>
+</td>
+<td class="gt_row gt_left" headers="Implementation"><a href="https://scikit-learn.org/stable/modules/lda_qda.html">Python</a></td>
 </tr>
 <tr class="odd">
-<td class="gt_row gt_left" headers="Model Type"><div class="gt_from_md">
-<p><a href="https://en.wikipedia.org/wiki/Regularization_(mathematics)">Regularized Models (Shrinking)</a></p>
-</div></td>
-<td class="gt_row gt_left" headers="Strengths"><div class="gt_from_md">
+<td class="gt_row gt_left" headers="Model Type"><a href="https://en.wikipedia.org/wiki/Regularization_(mathematics)">Regularized Models (Shrinking)</a></td>
+<td class="gt_row gt_left" headers="Strengths">Prevents overfittingHandles collinearity
 <ul>
 <li>Prevents overfitting</li>
 <li>Handles collinearity</li>
 </ul>
-</div></td>
-<td class="gt_row gt_left" headers="Limitations"><div class="gt_from_md">
+</td>
+<td class="gt_row gt_left" headers="Limitations">Requires parameter tuningMay result in loss of interpretability
 <ul>
 <li>Requires parameter tuning</li>
 <li>May result in loss of interpretability</li>
 </ul>
-</div></td>
-<td class="gt_row gt_left" headers="Example Use Cases"><div class="gt_from_md">
+</td>
+<td class="gt_row gt_left" headers="Example Use Cases">Ridge and Lasso regression
 <ul>
 <li>Ridge and Lasso regression</li>
 </ul>
-</div></td>
-<td class="gt_row gt_left" headers="Implementation"><div class="gt_from_md">
-<p><a href="https://scikit-learn.org/stable/modules/linear_model.html#ridge-regression-and-classification">Python</a></p>
-</div></td>
+</td>
+<td class="gt_row gt_left" headers="Implementation"><a href="https://scikit-learn.org/stable/modules/linear_model.html#ridge-regression-and-classification">Python</a></td>
 </tr>
 <tr class="even">
-<td class="gt_row gt_left" headers="Model Type"><div class="gt_from_md">
-<p><a href="https://en.wikipedia.org/wiki/Ensemble_learning#Stacking">Stacking</a></p>
-</div></td>
-<td class="gt_row gt_left" headers="Strengths"><div class="gt_from_md">
+<td class="gt_row gt_left" headers="Model Type"><a href="https://en.wikipedia.org/wiki/Ensemble_learning#Stacking">Stacking</a></td>
+<td class="gt_row gt_left" headers="Strengths">Combines multiple modelsCan improve accuracy
 <ul>
 <li>Combines multiple models</li>
 <li>Can improve accuracy</li>
 </ul>
-</div></td>
-<td class="gt_row gt_left" headers="Limitations"><div class="gt_from_md">
+</td>
+<td class="gt_row gt_left" headers="Limitations">Increases model complexityRisk of overfitting if base models are correlated
 <ul>
 <li>Increases model complexity</li>
 <li>Risk of overfitting if base models are correlated</li>
 </ul>
-</div></td>
-<td class="gt_row gt_left" headers="Example Use Cases"><div class="gt_from_md">
+</td>
+<td class="gt_row gt_left" headers="Example Use Cases">Meta-modelingKaggle competitions
 <ul>
 <li>Meta-modeling</li>
 <li>Kaggle competitions</li>
 </ul>
-</div></td>
-<td class="gt_row gt_left" headers="Implementation"><div class="gt_from_md">
-<p><a href="https://scikit-learn.org/stable/modules/ensemble.html#stacked-generalization">Python</a></p>
-</div></td>
+</td>
+<td class="gt_row gt_left" headers="Implementation"><a href="https://scikit-learn.org/stable/modules/ensemble.html#stacked-generalization">Python</a></td>
 </tr>
 </tbody>
 </table>
@@ -2083,28 +2057,32 @@ tbody tr:last-child {
 </div>
 <div id="tabset-1-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-3-tab">
 <div class="cell">
+<div class="cell-output cell-output-stderr">
+<pre><code>Table has no assigned ID, using random ID 'stzdmgpbvg' to apply `gt::opt_css()`
+Avoid this message by assigning an ID: `gt(id = '')` or `gt_theme_538(quiet = TRUE)`</code></pre>
+</div>
 <div class="cell-output-display">
-<div id="zusnkzdevr" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="stzdmgpbvg" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>@import url("https://fonts.googleapis.com/css2?family=Chivo:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Chivo:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Chivo:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Cairo:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
-#zusnkzdevr table {
+#stzdmgpbvg table {
   font-family: Cairo, system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#zusnkzdevr thead, #zusnkzdevr tbody, #zusnkzdevr tfoot, #zusnkzdevr tr, #zusnkzdevr td, #zusnkzdevr th {
+#stzdmgpbvg thead, #stzdmgpbvg tbody, #stzdmgpbvg tfoot, #stzdmgpbvg tr, #stzdmgpbvg td, #stzdmgpbvg th {
   border-style: none;
 }
 
-#zusnkzdevr p {
+#stzdmgpbvg p {
   margin: 0;
   padding: 0;
 }
 
-#zusnkzdevr .gt_table {
+#stzdmgpbvg .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -2130,12 +2108,12 @@ tbody tr:last-child {
   border-left-color: #D3D3D3;
 }
 
-#zusnkzdevr .gt_caption {
+#stzdmgpbvg .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#zusnkzdevr .gt_title {
+#stzdmgpbvg .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -2147,7 +2125,7 @@ tbody tr:last-child {
   border-bottom-width: 0;
 }
 
-#zusnkzdevr .gt_subtitle {
+#stzdmgpbvg .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -2159,7 +2137,7 @@ tbody tr:last-child {
   border-top-width: 0;
 }
 
-#zusnkzdevr .gt_heading {
+#stzdmgpbvg .gt_heading {
   background-color: #FFFFFF;
   text-align: left;
   border-bottom-color: #FFFFFF;
@@ -2171,13 +2149,13 @@ tbody tr:last-child {
   border-right-color: #D3D3D3;
 }
 
-#zusnkzdevr .gt_bottom_border {
+#stzdmgpbvg .gt_bottom_border {
   border-bottom-style: none;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#zusnkzdevr .gt_col_headings {
+#stzdmgpbvg .gt_col_headings {
   border-top-style: none;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2192,7 +2170,7 @@ tbody tr:last-child {
   border-right-color: #D3D3D3;
 }
 
-#zusnkzdevr .gt_col_heading {
+#stzdmgpbvg .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2212,7 +2190,7 @@ tbody tr:last-child {
   overflow-x: hidden;
 }
 
-#zusnkzdevr .gt_column_spanner_outer {
+#stzdmgpbvg .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2224,15 +2202,15 @@ tbody tr:last-child {
   padding-right: 4px;
 }
 
-#zusnkzdevr .gt_column_spanner_outer:first-child {
+#stzdmgpbvg .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#zusnkzdevr .gt_column_spanner_outer:last-child {
+#stzdmgpbvg .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#zusnkzdevr .gt_column_spanner {
+#stzdmgpbvg .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #000000;
@@ -2244,11 +2222,11 @@ tbody tr:last-child {
   width: 100%;
 }
 
-#zusnkzdevr .gt_spanner_row {
+#stzdmgpbvg .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#zusnkzdevr .gt_group_heading {
+#stzdmgpbvg .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2274,7 +2252,7 @@ tbody tr:last-child {
   text-align: left;
 }
 
-#zusnkzdevr .gt_empty_group_heading {
+#stzdmgpbvg .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -2289,15 +2267,15 @@ tbody tr:last-child {
   vertical-align: middle;
 }
 
-#zusnkzdevr .gt_from_md > :first-child {
+#stzdmgpbvg .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#zusnkzdevr .gt_from_md > :last-child {
+#stzdmgpbvg .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#zusnkzdevr .gt_row {
+#stzdmgpbvg .gt_row {
   padding-top: 3px;
   padding-bottom: 3px;
   padding-left: 5px;
@@ -2316,7 +2294,7 @@ tbody tr:last-child {
   overflow-x: hidden;
 }
 
-#zusnkzdevr .gt_stub {
+#stzdmgpbvg .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2329,7 +2307,7 @@ tbody tr:last-child {
   padding-right: 5px;
 }
 
-#zusnkzdevr .gt_stub_row_group {
+#stzdmgpbvg .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2343,15 +2321,15 @@ tbody tr:last-child {
   vertical-align: top;
 }
 
-#zusnkzdevr .gt_row_group_first td {
+#stzdmgpbvg .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#zusnkzdevr .gt_row_group_first th {
+#stzdmgpbvg .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#zusnkzdevr .gt_summary_row {
+#stzdmgpbvg .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2361,16 +2339,16 @@ tbody tr:last-child {
   padding-right: 5px;
 }
 
-#zusnkzdevr .gt_first_summary_row {
+#stzdmgpbvg .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#zusnkzdevr .gt_first_summary_row.thick {
+#stzdmgpbvg .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#zusnkzdevr .gt_last_summary_row {
+#stzdmgpbvg .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2380,7 +2358,7 @@ tbody tr:last-child {
   border-bottom-color: #D3D3D3;
 }
 
-#zusnkzdevr .gt_grand_summary_row {
+#stzdmgpbvg .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2390,7 +2368,7 @@ tbody tr:last-child {
   padding-right: 5px;
 }
 
-#zusnkzdevr .gt_first_grand_summary_row {
+#stzdmgpbvg .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2400,7 +2378,7 @@ tbody tr:last-child {
   border-top-color: #D3D3D3;
 }
 
-#zusnkzdevr .gt_last_grand_summary_row_top {
+#stzdmgpbvg .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2410,11 +2388,11 @@ tbody tr:last-child {
   border-bottom-color: #D3D3D3;
 }
 
-#zusnkzdevr .gt_striped {
+#stzdmgpbvg .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#zusnkzdevr .gt_table_body {
+#stzdmgpbvg .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2423,7 +2401,7 @@ tbody tr:last-child {
   border-bottom-color: #D3D3D3;
 }
 
-#zusnkzdevr .gt_footnotes {
+#stzdmgpbvg .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2437,7 +2415,7 @@ tbody tr:last-child {
   border-right-color: #D3D3D3;
 }
 
-#zusnkzdevr .gt_footnote {
+#stzdmgpbvg .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -2446,7 +2424,7 @@ tbody tr:last-child {
   padding-right: 5px;
 }
 
-#zusnkzdevr .gt_sourcenotes {
+#stzdmgpbvg .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2460,7 +2438,7 @@ tbody tr:last-child {
   border-right-color: #D3D3D3;
 }
 
-#zusnkzdevr .gt_sourcenote {
+#stzdmgpbvg .gt_sourcenote {
   font-size: 12px;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -2468,67 +2446,76 @@ tbody tr:last-child {
   padding-right: 5px;
 }
 
-#zusnkzdevr .gt_left {
+#stzdmgpbvg .gt_left {
   text-align: left;
 }
 
-#zusnkzdevr .gt_center {
+#stzdmgpbvg .gt_center {
   text-align: center;
 }
 
-#zusnkzdevr .gt_right {
+#stzdmgpbvg .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#zusnkzdevr .gt_font_normal {
+#stzdmgpbvg .gt_font_normal {
   font-weight: normal;
 }
 
-#zusnkzdevr .gt_font_bold {
+#stzdmgpbvg .gt_font_bold {
   font-weight: bold;
 }
 
-#zusnkzdevr .gt_font_italic {
+#stzdmgpbvg .gt_font_italic {
   font-style: italic;
 }
 
-#zusnkzdevr .gt_super {
+#stzdmgpbvg .gt_super {
   font-size: 65%;
 }
 
-#zusnkzdevr .gt_footnote_marks {
+#stzdmgpbvg .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#zusnkzdevr .gt_asterisk {
+#stzdmgpbvg .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#zusnkzdevr .gt_indent_1 {
+#stzdmgpbvg .gt_indent_1 {
   text-indent: 5px;
 }
 
-#zusnkzdevr .gt_indent_2 {
+#stzdmgpbvg .gt_indent_2 {
   text-indent: 10px;
 }
 
-#zusnkzdevr .gt_indent_3 {
+#stzdmgpbvg .gt_indent_3 {
   text-indent: 15px;
 }
 
-#zusnkzdevr .gt_indent_4 {
+#stzdmgpbvg .gt_indent_4 {
   text-indent: 20px;
 }
 
-#zusnkzdevr .gt_indent_5 {
+#stzdmgpbvg .gt_indent_5 {
   text-indent: 25px;
 }
 
-tbody tr:last-child {
+#stzdmgpbvg .katex-display {
+  display: inline-flex !important;
+  margin-bottom: 0.75em !important;
+}
+
+#stzdmgpbvg div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
+}
+
+#stzdmgpbvg tbody tr:last-child {
   border-bottom: 2px solid #ffffff00;
 }
 </style>
@@ -2543,259 +2530,219 @@ tbody tr:last-child {
 </colgroup>
 <thead>
 <tr class="gt_col_headings header">
-<th id="Model Type" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" style="border-top-width: 0px; border-top-style: solid; border-top-color: black; font-family: Chivo; font-size: 14px; vertical-align: bottom; font-weight: 200; text-transform: uppercase" scope="col">Model Type</th>
+<th id="Model-Type" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" style="border-top-width: 0px; border-top-style: solid; border-top-color: black; font-family: Chivo; font-size: 14px; vertical-align: bottom; font-weight: 200; text-transform: uppercase" scope="col">Model Type</th>
 <th id="Strengths" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" style="border-top-width: 0px; border-top-style: solid; border-top-color: black; font-family: Chivo; font-size: 14px; vertical-align: bottom; font-weight: 200; text-transform: uppercase" scope="col">Strengths</th>
 <th id="Limitations" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" style="border-top-width: 0px; border-top-style: solid; border-top-color: black; font-family: Chivo; font-size: 14px; vertical-align: bottom; font-weight: 200; text-transform: uppercase" scope="col">Limitations</th>
-<th id="Example Use Cases" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" style="border-top-width: 0px; border-top-style: solid; border-top-color: black; font-family: Chivo; font-size: 14px; vertical-align: bottom; font-weight: 200; text-transform: uppercase" scope="col">Example Use Cases</th>
+<th id="Example-Use-Cases" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" style="border-top-width: 0px; border-top-style: solid; border-top-color: black; font-family: Chivo; font-size: 14px; vertical-align: bottom; font-weight: 200; text-transform: uppercase" scope="col">Example Use Cases</th>
 <th id="Implementation" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" style="border-top-width: 0px; border-top-style: solid; border-top-color: black; font-family: Chivo; font-size: 14px; vertical-align: bottom; font-weight: 200; text-transform: uppercase" scope="col">Implementation</th>
 </tr>
 </thead>
 <tbody class="gt_table_body">
 <tr class="odd">
-<td class="gt_row gt_left" headers="Model Type"><div class="gt_from_md">
-<p><a href="https://en.wikipedia.org/wiki/Linear_regression">Linear Regression</a></p>
-</div></td>
-<td class="gt_row gt_left" headers="Strengths"><div class="gt_from_md">
+<td class="gt_row gt_left" headers="Model Type"><a href="https://en.wikipedia.org/wiki/Linear_regression">Linear Regression</a></td>
+<td class="gt_row gt_left" headers="Strengths">Simple and interpretable
 <ul>
 <li>Simple and interpretable</li>
 </ul>
-</div></td>
-<td class="gt_row gt_left" headers="Limitations"><div class="gt_from_md">
+</td>
+<td class="gt_row gt_left" headers="Limitations">Assumes linear relationshipSensitive to outliers
 <ul>
 <li>Assumes linear relationship</li>
 <li>Sensitive to outliers</li>
 </ul>
-</div></td>
-<td class="gt_row gt_left" headers="Example Use Cases"><div class="gt_from_md">
+</td>
+<td class="gt_row gt_left" headers="Example Use Cases">Sales forecastingRisk assessment
 <ul>
 <li>Sales forecasting</li>
 <li>Risk assessment</li>
 </ul>
-</div></td>
-<td class="gt_row gt_left" headers="Implementation"><div class="gt_from_md">
-<p><a href="https://scikit-learn.org/stable/modules/linear_model.html#ordinary-least-squares">Python</a></p>
-</div></td>
+</td>
+<td class="gt_row gt_left" headers="Implementation"><a href="https://scikit-learn.org/stable/modules/linear_model.html#ordinary-least-squares">Python</a></td>
 </tr>
 <tr class="even">
-<td class="gt_row gt_left" headers="Model Type"><div class="gt_from_md">
-<p><a href="https://en.wikipedia.org/wiki/Polynomial_regression">Polynomial Regression</a></p>
-</div></td>
-<td class="gt_row gt_left" headers="Strengths"><div class="gt_from_md">
+<td class="gt_row gt_left" headers="Model Type"><a href="https://en.wikipedia.org/wiki/Polynomial_regression">Polynomial Regression</a></td>
+<td class="gt_row gt_left" headers="Strengths">Can model non-linear relationships
 <ul>
 <li>Can model non-linear relationships</li>
 </ul>
-</div></td>
-<td class="gt_row gt_left" headers="Limitations"><div class="gt_from_md">
+</td>
+<td class="gt_row gt_left" headers="Limitations">Can overfit with high degrees
 <ul>
 <li>Can overfit with high degrees</li>
 </ul>
-</div></td>
-<td class="gt_row gt_left" headers="Example Use Cases"><div class="gt_from_md">
+</td>
+<td class="gt_row gt_left" headers="Example Use Cases">Growth predictionNon-linear trend modeling
 <ul>
 <li>Growth prediction</li>
 <li>Non-linear trend modeling</li>
 </ul>
-</div></td>
-<td class="gt_row gt_left" headers="Implementation"><div class="gt_from_md">
-<p><a href="https://scikit-learn.org/stable/modules/linear_model.html#polynomial-regression">Python</a></p>
-</div></td>
+</td>
+<td class="gt_row gt_left" headers="Implementation"><a href="https://scikit-learn.org/stable/modules/linear_model.html#polynomial-regression">Python</a></td>
 </tr>
 <tr class="odd">
-<td class="gt_row gt_left" headers="Model Type"><div class="gt_from_md">
-<p><a href="https://en.wikipedia.org/wiki/Tikhonov_regularization">Ridge Regression</a></p>
-</div></td>
-<td class="gt_row gt_left" headers="Strengths"><div class="gt_from_md">
+<td class="gt_row gt_left" headers="Model Type"><a href="https://en.wikipedia.org/wiki/Tikhonov_regularization">Ridge Regression</a></td>
+<td class="gt_row gt_left" headers="Strengths">Prevents overfittingRegularizes the model
 <ul>
 <li>Prevents overfitting</li>
 <li>Regularizes the model</li>
 </ul>
-</div></td>
-<td class="gt_row gt_left" headers="Limitations"><div class="gt_from_md">
+</td>
+<td class="gt_row gt_left" headers="Limitations">Does not perform feature selection
 <ul>
 <li>Does not perform feature selection</li>
 </ul>
-</div></td>
-<td class="gt_row gt_left" headers="Example Use Cases"><div class="gt_from_md">
+</td>
+<td class="gt_row gt_left" headers="Example Use Cases">High-dimensional dataPreventing overfitting
 <ul>
 <li>High-dimensional data</li>
 <li>Preventing overfitting</li>
 </ul>
-</div></td>
-<td class="gt_row gt_left" headers="Implementation"><div class="gt_from_md">
-<p><a href="https://scikit-learn.org/stable/modules/linear_model.html#ridge-regression-and-classification">Python</a></p>
-</div></td>
+</td>
+<td class="gt_row gt_left" headers="Implementation"><a href="https://scikit-learn.org/stable/modules/linear_model.html#ridge-regression-and-classification">Python</a></td>
 </tr>
 <tr class="even">
-<td class="gt_row gt_left" headers="Model Type"><div class="gt_from_md">
-<p><a href="https://en.wikipedia.org/wiki/Lasso_(statistics)">Lasso Regression</a></p>
-</div></td>
-<td class="gt_row gt_left" headers="Strengths"><div class="gt_from_md">
+<td class="gt_row gt_left" headers="Model Type"><a href="https://en.wikipedia.org/wiki/Lasso_(statistics)">Lasso Regression</a></td>
+<td class="gt_row gt_left" headers="Strengths">Feature selectionRegularizes the model
 <ul>
 <li>Feature selection</li>
 <li>Regularizes the model</li>
 </ul>
-</div></td>
-<td class="gt_row gt_left" headers="Limitations"><div class="gt_from_md">
+</td>
+<td class="gt_row gt_left" headers="Limitations">May exclude useful variables
 <ul>
 <li>May exclude useful variables</li>
 </ul>
-</div></td>
-<td class="gt_row gt_left" headers="Example Use Cases"><div class="gt_from_md">
+</td>
+<td class="gt_row gt_left" headers="Example Use Cases">Feature selectionHigh-dimensional datasets
 <ul>
 <li>Feature selection</li>
 <li>High-dimensional datasets</li>
 </ul>
-</div></td>
-<td class="gt_row gt_left" headers="Implementation"><div class="gt_from_md">
-<p><a href="https://scikit-learn.org/stable/modules/linear_model.html#lasso">Python</a></p>
-</div></td>
+</td>
+<td class="gt_row gt_left" headers="Implementation"><a href="https://scikit-learn.org/stable/modules/linear_model.html#lasso">Python</a></td>
 </tr>
 <tr class="odd">
-<td class="gt_row gt_left" headers="Model Type"><div class="gt_from_md">
-<p><a href="https://en.wikipedia.org/wiki/Elastic_net_regularization">Elastic Net Regression</a></p>
-</div></td>
-<td class="gt_row gt_left" headers="Strengths"><div class="gt_from_md">
+<td class="gt_row gt_left" headers="Model Type"><a href="https://en.wikipedia.org/wiki/Elastic_net_regularization">Elastic Net Regression</a></td>
+<td class="gt_row gt_left" headers="Strengths">Balance between Ridge and Lasso
 <ul>
 <li>Balance between Ridge and Lasso</li>
 </ul>
-</div></td>
-<td class="gt_row gt_left" headers="Limitations"><div class="gt_from_md">
+</td>
+<td class="gt_row gt_left" headers="Limitations">Requires tuning for mixing parameter
 <ul>
 <li>Requires tuning for mixing parameter</li>
 </ul>
-</div></td>
-<td class="gt_row gt_left" headers="Example Use Cases"><div class="gt_from_md">
+</td>
+<td class="gt_row gt_left" headers="Example Use Cases">High-dimensional datasets with correlated features
 <ul>
 <li>High-dimensional datasets with correlated features</li>
 </ul>
-</div></td>
-<td class="gt_row gt_left" headers="Implementation"><div class="gt_from_md">
-<p><a href="https://scikit-learn.org/stable/modules/linear_model.html#elastic-net">Python</a></p>
-</div></td>
+</td>
+<td class="gt_row gt_left" headers="Implementation"><a href="https://scikit-learn.org/stable/modules/linear_model.html#elastic-net">Python</a></td>
 </tr>
 <tr class="even">
-<td class="gt_row gt_left" headers="Model Type"><div class="gt_from_md">
-<p><a href="https://en.wikipedia.org/wiki/Quantile_regression">Quantile Regression</a></p>
-</div></td>
-<td class="gt_row gt_left" headers="Strengths"><div class="gt_from_md">
+<td class="gt_row gt_left" headers="Model Type"><a href="https://en.wikipedia.org/wiki/Quantile_regression">Quantile Regression</a></td>
+<td class="gt_row gt_left" headers="Strengths">Models the median or other quantiles
 <ul>
 <li>Models the median or other quantiles</li>
 </ul>
-</div></td>
-<td class="gt_row gt_left" headers="Limitations"><div class="gt_from_md">
+</td>
+<td class="gt_row gt_left" headers="Limitations">Less interpretable than ordinary regression
 <ul>
 <li>Less interpretable than ordinary regression</li>
 </ul>
-</div></td>
-<td class="gt_row gt_left" headers="Example Use Cases"><div class="gt_from_md">
+</td>
+<td class="gt_row gt_left" headers="Example Use Cases">Median house price predictionFinancial quantiles modeling
 <ul>
 <li>Median house price prediction</li>
 <li>Financial quantiles modeling</li>
 </ul>
-</div></td>
-<td class="gt_row gt_left" headers="Implementation"><div class="gt_from_md">
-<p><a href="https://www.statsmodels.org/stable/quantile_regression.html">Python</a></p>
-</div></td>
+</td>
+<td class="gt_row gt_left" headers="Implementation"><a href="https://www.statsmodels.org/stable/quantile_regression.html">Python</a></td>
 </tr>
 <tr class="odd">
-<td class="gt_row gt_left" headers="Model Type"><div class="gt_from_md">
-<p><a href="https://en.wikipedia.org/wiki/Support_vector_machine#Regression">Support Vector Regression (SVR)</a></p>
-</div></td>
-<td class="gt_row gt_left" headers="Strengths"><div class="gt_from_md">
+<td class="gt_row gt_left" headers="Model Type"><a href="https://en.wikipedia.org/wiki/Support_vector_machine#Regression">Support Vector Regression (SVR)</a></td>
+<td class="gt_row gt_left" headers="Strengths">FlexibleCan handle non-linear relationships
 <ul>
 <li>Flexible</li>
 <li>Can handle non-linear relationships</li>
 </ul>
-</div></td>
-<td class="gt_row gt_left" headers="Limitations"><div class="gt_from_md">
+</td>
+<td class="gt_row gt_left" headers="Limitations">Sensitive to kernel and hyperparameters
 <ul>
 <li>Sensitive to kernel and hyperparameters</li>
 </ul>
-</div></td>
-<td class="gt_row gt_left" headers="Example Use Cases"><div class="gt_from_md">
+</td>
+<td class="gt_row gt_left" headers="Example Use Cases">Stock price predictionNon-linear trend modeling
 <ul>
 <li>Stock price prediction</li>
 <li>Non-linear trend modeling</li>
 </ul>
-</div></td>
-<td class="gt_row gt_left" headers="Implementation"><div class="gt_from_md">
-<p><a href="https://scikit-learn.org/stable/modules/svm.html#regression">Python</a></p>
-</div></td>
+</td>
+<td class="gt_row gt_left" headers="Implementation"><a href="https://scikit-learn.org/stable/modules/svm.html#regression">Python</a></td>
 </tr>
 <tr class="even">
-<td class="gt_row gt_left" headers="Model Type"><div class="gt_from_md">
-<p><a href="https://en.wikipedia.org/wiki/Decision_tree_learning">Decision Tree Regression</a></p>
-</div></td>
-<td class="gt_row gt_left" headers="Strengths"><div class="gt_from_md">
+<td class="gt_row gt_left" headers="Model Type"><a href="https://en.wikipedia.org/wiki/Decision_tree_learning">Decision Tree Regression</a></td>
+<td class="gt_row gt_left" headers="Strengths">Handles non-linear dataInterpretable
 <ul>
 <li>Handles non-linear data</li>
 <li>Interpretable</li>
 </ul>
-</div></td>
-<td class="gt_row gt_left" headers="Limitations"><div class="gt_from_md">
+</td>
+<td class="gt_row gt_left" headers="Limitations">Can overfit on noisy data
 <ul>
 <li>Can overfit on noisy data</li>
 </ul>
-</div></td>
-<td class="gt_row gt_left" headers="Example Use Cases"><div class="gt_from_md">
+</td>
+<td class="gt_row gt_left" headers="Example Use Cases">Price predictionQuality assessment
 <ul>
 <li>Price prediction</li>
 <li>Quality assessment</li>
 </ul>
-</div></td>
-<td class="gt_row gt_left" headers="Implementation"><div class="gt_from_md">
-<p><a href="https://scikit-learn.org/stable/modules/tree.html#regression">Python</a></p>
-</div></td>
+</td>
+<td class="gt_row gt_left" headers="Implementation"><a href="https://scikit-learn.org/stable/modules/tree.html#regression">Python</a></td>
 </tr>
 <tr class="odd">
-<td class="gt_row gt_left" headers="Model Type"><div class="gt_from_md">
-<p><a href="https://en.wikipedia.org/wiki/Random_forest">Random Forest Regression</a></p>
-</div></td>
-<td class="gt_row gt_left" headers="Strengths"><div class="gt_from_md">
+<td class="gt_row gt_left" headers="Model Type"><a href="https://en.wikipedia.org/wiki/Random_forest">Random Forest Regression</a></td>
+<td class="gt_row gt_left" headers="Strengths">Handles large datasetsReduces overfitting
 <ul>
 <li>Handles large datasets</li>
 <li>Reduces overfitting</li>
 </ul>
-</div></td>
-<td class="gt_row gt_left" headers="Limitations"><div class="gt_from_md">
+</td>
+<td class="gt_row gt_left" headers="Limitations">Requires more computational resources
 <ul>
 <li>Requires more computational resources</li>
 </ul>
-</div></td>
-<td class="gt_row gt_left" headers="Example Use Cases"><div class="gt_from_md">
+</td>
+<td class="gt_row gt_left" headers="Example Use Cases">Large datasetsEnvironmental modeling
 <ul>
 <li>Large datasets</li>
 <li>Environmental modeling</li>
 </ul>
-</div></td>
-<td class="gt_row gt_left" headers="Implementation"><div class="gt_from_md">
-<p><a href="https://scikit-learn.org/stable/modules/ensemble.html#forest">Python</a></p>
-</div></td>
+</td>
+<td class="gt_row gt_left" headers="Implementation"><a href="https://scikit-learn.org/stable/modules/ensemble.html#forest">Python</a></td>
 </tr>
 <tr class="even">
-<td class="gt_row gt_left" headers="Model Type"><div class="gt_from_md">
-<p><a href="https://en.wikipedia.org/wiki/Gradient_boosting">Gradient Boosting Regression</a></p>
-</div></td>
-<td class="gt_row gt_left" headers="Strengths"><div class="gt_from_md">
+<td class="gt_row gt_left" headers="Model Type"><a href="https://en.wikipedia.org/wiki/Gradient_boosting">Gradient Boosting Regression</a></td>
+<td class="gt_row gt_left" headers="Strengths">High performanceCan handle non-linear relationships
 <ul>
 <li>High performance</li>
 <li>Can handle non-linear relationships</li>
 </ul>
-</div></td>
-<td class="gt_row gt_left" headers="Limitations"><div class="gt_from_md">
+</td>
+<td class="gt_row gt_left" headers="Limitations">Prone to overfitting if not tuned
 <ul>
 <li>Prone to overfitting if not tuned</li>
 </ul>
-</div></td>
-<td class="gt_row gt_left" headers="Example Use Cases"><div class="gt_from_md">
+</td>
+<td class="gt_row gt_left" headers="Example Use Cases">Web search rankingPrice prediction
 <ul>
 <li>Web search ranking</li>
 <li>Price prediction</li>
 </ul>
-</div></td>
-<td class="gt_row gt_left" headers="Implementation"><div class="gt_from_md">
-<p><a href="https://scikit-learn.org/stable/modules/ensemble.html#gradient-boosting">Python</a></p>
-</div></td>
+</td>
+<td class="gt_row gt_left" headers="Implementation"><a href="https://scikit-learn.org/stable/modules/ensemble.html#gradient-boosting">Python</a></td>
 </tr>
 </tbody>
 </table>
@@ -2806,28 +2753,32 @@ tbody tr:last-child {
 </div>
 <div id="tabset-1-4" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-4-tab">
 <div class="cell">
+<div class="cell-output cell-output-stderr">
+<pre><code>Table has no assigned ID, using random ID 'ttqsirhqwi' to apply `gt::opt_css()`
+Avoid this message by assigning an ID: `gt(id = '')` or `gt_theme_538(quiet = TRUE)`</code></pre>
+</div>
 <div class="cell-output-display">
-<div id="mllxqhdkpp" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="ttqsirhqwi" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>@import url("https://fonts.googleapis.com/css2?family=Chivo:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Chivo:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Chivo:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Cairo:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
-#mllxqhdkpp table {
+#ttqsirhqwi table {
   font-family: Cairo, system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#mllxqhdkpp thead, #mllxqhdkpp tbody, #mllxqhdkpp tfoot, #mllxqhdkpp tr, #mllxqhdkpp td, #mllxqhdkpp th {
+#ttqsirhqwi thead, #ttqsirhqwi tbody, #ttqsirhqwi tfoot, #ttqsirhqwi tr, #ttqsirhqwi td, #ttqsirhqwi th {
   border-style: none;
 }
 
-#mllxqhdkpp p {
+#ttqsirhqwi p {
   margin: 0;
   padding: 0;
 }
 
-#mllxqhdkpp .gt_table {
+#ttqsirhqwi .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -2853,12 +2804,12 @@ tbody tr:last-child {
   border-left-color: #D3D3D3;
 }
 
-#mllxqhdkpp .gt_caption {
+#ttqsirhqwi .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#mllxqhdkpp .gt_title {
+#ttqsirhqwi .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -2870,7 +2821,7 @@ tbody tr:last-child {
   border-bottom-width: 0;
 }
 
-#mllxqhdkpp .gt_subtitle {
+#ttqsirhqwi .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -2882,7 +2833,7 @@ tbody tr:last-child {
   border-top-width: 0;
 }
 
-#mllxqhdkpp .gt_heading {
+#ttqsirhqwi .gt_heading {
   background-color: #FFFFFF;
   text-align: left;
   border-bottom-color: #FFFFFF;
@@ -2894,13 +2845,13 @@ tbody tr:last-child {
   border-right-color: #D3D3D3;
 }
 
-#mllxqhdkpp .gt_bottom_border {
+#ttqsirhqwi .gt_bottom_border {
   border-bottom-style: none;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#mllxqhdkpp .gt_col_headings {
+#ttqsirhqwi .gt_col_headings {
   border-top-style: none;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2915,7 +2866,7 @@ tbody tr:last-child {
   border-right-color: #D3D3D3;
 }
 
-#mllxqhdkpp .gt_col_heading {
+#ttqsirhqwi .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2935,7 +2886,7 @@ tbody tr:last-child {
   overflow-x: hidden;
 }
 
-#mllxqhdkpp .gt_column_spanner_outer {
+#ttqsirhqwi .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2947,15 +2898,15 @@ tbody tr:last-child {
   padding-right: 4px;
 }
 
-#mllxqhdkpp .gt_column_spanner_outer:first-child {
+#ttqsirhqwi .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#mllxqhdkpp .gt_column_spanner_outer:last-child {
+#ttqsirhqwi .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#mllxqhdkpp .gt_column_spanner {
+#ttqsirhqwi .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #000000;
@@ -2967,11 +2918,11 @@ tbody tr:last-child {
   width: 100%;
 }
 
-#mllxqhdkpp .gt_spanner_row {
+#ttqsirhqwi .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#mllxqhdkpp .gt_group_heading {
+#ttqsirhqwi .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2997,7 +2948,7 @@ tbody tr:last-child {
   text-align: left;
 }
 
-#mllxqhdkpp .gt_empty_group_heading {
+#ttqsirhqwi .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -3012,15 +2963,15 @@ tbody tr:last-child {
   vertical-align: middle;
 }
 
-#mllxqhdkpp .gt_from_md > :first-child {
+#ttqsirhqwi .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#mllxqhdkpp .gt_from_md > :last-child {
+#ttqsirhqwi .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#mllxqhdkpp .gt_row {
+#ttqsirhqwi .gt_row {
   padding-top: 3px;
   padding-bottom: 3px;
   padding-left: 5px;
@@ -3039,7 +2990,7 @@ tbody tr:last-child {
   overflow-x: hidden;
 }
 
-#mllxqhdkpp .gt_stub {
+#ttqsirhqwi .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -3052,7 +3003,7 @@ tbody tr:last-child {
   padding-right: 5px;
 }
 
-#mllxqhdkpp .gt_stub_row_group {
+#ttqsirhqwi .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -3066,15 +3017,15 @@ tbody tr:last-child {
   vertical-align: top;
 }
 
-#mllxqhdkpp .gt_row_group_first td {
+#ttqsirhqwi .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#mllxqhdkpp .gt_row_group_first th {
+#ttqsirhqwi .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#mllxqhdkpp .gt_summary_row {
+#ttqsirhqwi .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -3084,16 +3035,16 @@ tbody tr:last-child {
   padding-right: 5px;
 }
 
-#mllxqhdkpp .gt_first_summary_row {
+#ttqsirhqwi .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#mllxqhdkpp .gt_first_summary_row.thick {
+#ttqsirhqwi .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#mllxqhdkpp .gt_last_summary_row {
+#ttqsirhqwi .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -3103,7 +3054,7 @@ tbody tr:last-child {
   border-bottom-color: #D3D3D3;
 }
 
-#mllxqhdkpp .gt_grand_summary_row {
+#ttqsirhqwi .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -3113,7 +3064,7 @@ tbody tr:last-child {
   padding-right: 5px;
 }
 
-#mllxqhdkpp .gt_first_grand_summary_row {
+#ttqsirhqwi .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -3123,7 +3074,7 @@ tbody tr:last-child {
   border-top-color: #D3D3D3;
 }
 
-#mllxqhdkpp .gt_last_grand_summary_row_top {
+#ttqsirhqwi .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -3133,11 +3084,11 @@ tbody tr:last-child {
   border-bottom-color: #D3D3D3;
 }
 
-#mllxqhdkpp .gt_striped {
+#ttqsirhqwi .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#mllxqhdkpp .gt_table_body {
+#ttqsirhqwi .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -3146,7 +3097,7 @@ tbody tr:last-child {
   border-bottom-color: #D3D3D3;
 }
 
-#mllxqhdkpp .gt_footnotes {
+#ttqsirhqwi .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -3160,7 +3111,7 @@ tbody tr:last-child {
   border-right-color: #D3D3D3;
 }
 
-#mllxqhdkpp .gt_footnote {
+#ttqsirhqwi .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -3169,7 +3120,7 @@ tbody tr:last-child {
   padding-right: 5px;
 }
 
-#mllxqhdkpp .gt_sourcenotes {
+#ttqsirhqwi .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -3183,7 +3134,7 @@ tbody tr:last-child {
   border-right-color: #D3D3D3;
 }
 
-#mllxqhdkpp .gt_sourcenote {
+#ttqsirhqwi .gt_sourcenote {
   font-size: 12px;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -3191,67 +3142,76 @@ tbody tr:last-child {
   padding-right: 5px;
 }
 
-#mllxqhdkpp .gt_left {
+#ttqsirhqwi .gt_left {
   text-align: left;
 }
 
-#mllxqhdkpp .gt_center {
+#ttqsirhqwi .gt_center {
   text-align: center;
 }
 
-#mllxqhdkpp .gt_right {
+#ttqsirhqwi .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#mllxqhdkpp .gt_font_normal {
+#ttqsirhqwi .gt_font_normal {
   font-weight: normal;
 }
 
-#mllxqhdkpp .gt_font_bold {
+#ttqsirhqwi .gt_font_bold {
   font-weight: bold;
 }
 
-#mllxqhdkpp .gt_font_italic {
+#ttqsirhqwi .gt_font_italic {
   font-style: italic;
 }
 
-#mllxqhdkpp .gt_super {
+#ttqsirhqwi .gt_super {
   font-size: 65%;
 }
 
-#mllxqhdkpp .gt_footnote_marks {
+#ttqsirhqwi .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#mllxqhdkpp .gt_asterisk {
+#ttqsirhqwi .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#mllxqhdkpp .gt_indent_1 {
+#ttqsirhqwi .gt_indent_1 {
   text-indent: 5px;
 }
 
-#mllxqhdkpp .gt_indent_2 {
+#ttqsirhqwi .gt_indent_2 {
   text-indent: 10px;
 }
 
-#mllxqhdkpp .gt_indent_3 {
+#ttqsirhqwi .gt_indent_3 {
   text-indent: 15px;
 }
 
-#mllxqhdkpp .gt_indent_4 {
+#ttqsirhqwi .gt_indent_4 {
   text-indent: 20px;
 }
 
-#mllxqhdkpp .gt_indent_5 {
+#ttqsirhqwi .gt_indent_5 {
   text-indent: 25px;
 }
 
-tbody tr:last-child {
+#ttqsirhqwi .katex-display {
+  display: inline-flex !important;
+  margin-bottom: 0.75em !important;
+}
+
+#ttqsirhqwi div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
+}
+
+#ttqsirhqwi tbody tr:last-child {
   border-bottom: 2px solid #ffffff00;
 }
 </style>
@@ -3266,192 +3226,164 @@ tbody tr:last-child {
 </colgroup>
 <thead>
 <tr class="gt_col_headings header">
-<th id="Model Type" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" style="border-top-width: 0px; border-top-style: solid; border-top-color: black; font-family: Chivo; font-size: 14px; vertical-align: bottom; font-weight: 200; text-transform: uppercase" scope="col">Model Type</th>
+<th id="Model-Type" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" style="border-top-width: 0px; border-top-style: solid; border-top-color: black; font-family: Chivo; font-size: 14px; vertical-align: bottom; font-weight: 200; text-transform: uppercase" scope="col">Model Type</th>
 <th id="Strengths" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" style="border-top-width: 0px; border-top-style: solid; border-top-color: black; font-family: Chivo; font-size: 14px; vertical-align: bottom; font-weight: 200; text-transform: uppercase" scope="col">Strengths</th>
 <th id="Limitations" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" style="border-top-width: 0px; border-top-style: solid; border-top-color: black; font-family: Chivo; font-size: 14px; vertical-align: bottom; font-weight: 200; text-transform: uppercase" scope="col">Limitations</th>
-<th id="Example Use Cases" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" style="border-top-width: 0px; border-top-style: solid; border-top-color: black; font-family: Chivo; font-size: 14px; vertical-align: bottom; font-weight: 200; text-transform: uppercase" scope="col">Example Use Cases</th>
+<th id="Example-Use-Cases" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" style="border-top-width: 0px; border-top-style: solid; border-top-color: black; font-family: Chivo; font-size: 14px; vertical-align: bottom; font-weight: 200; text-transform: uppercase" scope="col">Example Use Cases</th>
 <th id="Implementation" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" style="border-top-width: 0px; border-top-style: solid; border-top-color: black; font-family: Chivo; font-size: 14px; vertical-align: bottom; font-weight: 200; text-transform: uppercase" scope="col">Implementation</th>
 </tr>
 </thead>
 <tbody class="gt_table_body">
 <tr class="odd">
-<td class="gt_row gt_left" headers="Model Type"><div class="gt_from_md">
-<p><a href="https://en.wikipedia.org/wiki/K-means_clustering">K-Means Clustering</a></p>
-</div></td>
-<td class="gt_row gt_left" headers="Strengths"><div class="gt_from_md">
+<td class="gt_row gt_left" headers="Model Type"><a href="https://en.wikipedia.org/wiki/K-means_clustering">K-Means Clustering</a></td>
+<td class="gt_row gt_left" headers="Strengths">Simple and widely usedFast for large datasets
 <ul>
 <li>Simple and widely used</li>
 <li>Fast for large datasets</li>
 </ul>
-</div></td>
-<td class="gt_row gt_left" headers="Limitations"><div class="gt_from_md">
+</td>
+<td class="gt_row gt_left" headers="Limitations">Sensitive to initial conditionsRequires specifying the number of clusters
 <ul>
 <li>Sensitive to initial conditions</li>
 <li>Requires specifying the number of clusters</li>
 </ul>
-</div></td>
-<td class="gt_row gt_left" headers="Example Use Cases"><div class="gt_from_md">
+</td>
+<td class="gt_row gt_left" headers="Example Use Cases">Market segmentationImage compression
 <ul>
 <li>Market segmentation</li>
 <li>Image compression</li>
 </ul>
-</div></td>
-<td class="gt_row gt_left" headers="Implementation"><div class="gt_from_md">
-<p><a href="https://scikit-learn.org/stable/modules/clustering.html#k-means">Python</a></p>
-</div></td>
+</td>
+<td class="gt_row gt_left" headers="Implementation"><a href="https://scikit-learn.org/stable/modules/clustering.html#k-means">Python</a></td>
 </tr>
 <tr class="even">
-<td class="gt_row gt_left" headers="Model Type"><div class="gt_from_md">
-<p><a href="https://en.wikipedia.org/wiki/Hierarchical_clustering">Hierarchical Clustering</a></p>
-</div></td>
-<td class="gt_row gt_left" headers="Strengths"><div class="gt_from_md">
+<td class="gt_row gt_left" headers="Model Type"><a href="https://en.wikipedia.org/wiki/Hierarchical_clustering">Hierarchical Clustering</a></td>
+<td class="gt_row gt_left" headers="Strengths">Doesn’t require specifying the number of clustersProduces a dendrogram
 <ul>
 <li>Doesn’t require specifying the number of clusters</li>
 <li>Produces a dendrogram</li>
 </ul>
-</div></td>
-<td class="gt_row gt_left" headers="Limitations"><div class="gt_from_md">
+</td>
+<td class="gt_row gt_left" headers="Limitations">May be computationally expensive for large datasets
 <ul>
 <li>May be computationally expensive for large datasets</li>
 </ul>
-</div></td>
-<td class="gt_row gt_left" headers="Example Use Cases"><div class="gt_from_md">
+</td>
+<td class="gt_row gt_left" headers="Example Use Cases">TaxonomiesDetermining evolutionary relationships
 <ul>
 <li>Taxonomies</li>
 <li>Determining evolutionary relationships</li>
 </ul>
-</div></td>
-<td class="gt_row gt_left" headers="Implementation"><div class="gt_from_md">
-<p><a href="https://scikit-learn.org/stable/modules/clustering.html#hierarchical-clustering">Python</a></p>
-</div></td>
+</td>
+<td class="gt_row gt_left" headers="Implementation"><a href="https://scikit-learn.org/stable/modules/clustering.html#hierarchical-clustering">Python</a></td>
 </tr>
 <tr class="odd">
-<td class="gt_row gt_left" headers="Model Type"><div class="gt_from_md">
-<p><a href="https://en.wikipedia.org/wiki/DBSCAN">DBSCAN (Density-Based Clustering)</a></p>
-</div></td>
-<td class="gt_row gt_left" headers="Strengths"><div class="gt_from_md">
+<td class="gt_row gt_left" headers="Model Type"><a href="https://en.wikipedia.org/wiki/DBSCAN">DBSCAN (Density-Based Clustering)</a></td>
+<td class="gt_row gt_left" headers="Strengths">Can find arbitrarily shaped clustersDoesn’t require specifying the number of clusters
 <ul>
 <li>Can find arbitrarily shaped clusters</li>
 <li>Doesn’t require specifying the number of clusters</li>
 </ul>
-</div></td>
-<td class="gt_row gt_left" headers="Limitations"><div class="gt_from_md">
+</td>
+<td class="gt_row gt_left" headers="Limitations">Sensitive to scaleRequires density parameters to be set
 <ul>
 <li>Sensitive to scale</li>
 <li>Requires density parameters to be set</li>
 </ul>
-</div></td>
-<td class="gt_row gt_left" headers="Example Use Cases"><div class="gt_from_md">
+</td>
+<td class="gt_row gt_left" headers="Example Use Cases">Noise detection and anomaly detection
 <ul>
 <li>Noise detection and anomaly detection</li>
 </ul>
-</div></td>
-<td class="gt_row gt_left" headers="Implementation"><div class="gt_from_md">
-<p><a href="https://scikit-learn.org/stable/modules/clustering.html#dbscan">Python</a></p>
-</div></td>
+</td>
+<td class="gt_row gt_left" headers="Implementation"><a href="https://scikit-learn.org/stable/modules/clustering.html#dbscan">Python</a></td>
 </tr>
 <tr class="even">
-<td class="gt_row gt_left" headers="Model Type"><div class="gt_from_md">
-<p><a href="https://en.wikipedia.org/wiki/Hierarchical_clustering#Agglomerative_clustering_example">Agglomerative Clustering</a></p>
-</div></td>
-<td class="gt_row gt_left" headers="Strengths"><div class="gt_from_md">
+<td class="gt_row gt_left" headers="Model Type"><a href="https://en.wikipedia.org/wiki/Hierarchical_clustering#Agglomerative_clustering_example">Agglomerative Clustering</a></td>
+<td class="gt_row gt_left" headers="Strengths">Variety of linkage criteriaProduces a hierarchy of clusters
 <ul>
 <li>Variety of linkage criteria</li>
 <li>Produces a hierarchy of clusters</li>
 </ul>
-</div></td>
-<td class="gt_row gt_left" headers="Limitations"><div class="gt_from_md">
+</td>
+<td class="gt_row gt_left" headers="Limitations">Not scalable for very large datasets
 <ul>
 <li>Not scalable for very large datasets</li>
 </ul>
-</div></td>
-<td class="gt_row gt_left" headers="Example Use Cases"><div class="gt_from_md">
+</td>
+<td class="gt_row gt_left" headers="Example Use Cases">Sociological hierarchiesTaxonomies
 <ul>
 <li>Sociological hierarchies</li>
 <li>Taxonomies</li>
 </ul>
-</div></td>
-<td class="gt_row gt_left" headers="Implementation"><div class="gt_from_md">
-<p><a href="https://scikit-learn.org/stable/modules/clustering.html#hierarchical-clustering">Python</a></p>
-</div></td>
+</td>
+<td class="gt_row gt_left" headers="Implementation"><a href="https://scikit-learn.org/stable/modules/clustering.html#hierarchical-clustering">Python</a></td>
 </tr>
 <tr class="odd">
-<td class="gt_row gt_left" headers="Model Type"><div class="gt_from_md">
-<p><a href="https://en.wikipedia.org/wiki/Mean_shift">Mean Shift Clustering</a></p>
-</div></td>
-<td class="gt_row gt_left" headers="Strengths"><div class="gt_from_md">
+<td class="gt_row gt_left" headers="Model Type"><a href="https://en.wikipedia.org/wiki/Mean_shift">Mean Shift Clustering</a></td>
+<td class="gt_row gt_left" headers="Strengths">No need to specify number of clustersCan find arbitrarily shaped clusters
 <ul>
 <li>No need to specify number of clusters</li>
 <li>Can find arbitrarily shaped clusters</li>
 </ul>
-</div></td>
-<td class="gt_row gt_left" headers="Limitations"><div class="gt_from_md">
+</td>
+<td class="gt_row gt_left" headers="Limitations">Computationally expensiveBandwidth parameter selection is crucial
 <ul>
 <li>Computationally expensive</li>
 <li>Bandwidth parameter selection is crucial</li>
 </ul>
-</div></td>
-<td class="gt_row gt_left" headers="Example Use Cases"><div class="gt_from_md">
+</td>
+<td class="gt_row gt_left" headers="Example Use Cases">Image analysisComputer vision tasks
 <ul>
 <li>Image analysis</li>
 <li>Computer vision tasks</li>
 </ul>
-</div></td>
-<td class="gt_row gt_left" headers="Implementation"><div class="gt_from_md">
-<p><a href="https://scikit-learn.org/stable/modules/clustering.html#mean-shift">Python</a></p>
-</div></td>
+</td>
+<td class="gt_row gt_left" headers="Implementation"><a href="https://scikit-learn.org/stable/modules/clustering.html#mean-shift">Python</a></td>
 </tr>
 <tr class="even">
-<td class="gt_row gt_left" headers="Model Type"><div class="gt_from_md">
-<p><a href="https://en.wikipedia.org/wiki/Affinity_propagation">Affinity Propagation</a></p>
-</div></td>
-<td class="gt_row gt_left" headers="Strengths"><div class="gt_from_md">
+<td class="gt_row gt_left" headers="Model Type"><a href="https://en.wikipedia.org/wiki/Affinity_propagation">Affinity Propagation</a></td>
+<td class="gt_row gt_left" headers="Strengths">Automatically determines the number of clustersGood for data with lots of exemplars
 <ul>
 <li>Automatically determines the number of clusters</li>
 <li>Good for data with lots of exemplars</li>
 </ul>
-</div></td>
-<td class="gt_row gt_left" headers="Limitations"><div class="gt_from_md">
+</td>
+<td class="gt_row gt_left" headers="Limitations">High computational complexityPreference parameter can be difficult to choose
 <ul>
 <li>High computational complexity</li>
 <li>Preference parameter can be difficult to choose</li>
 </ul>
-</div></td>
-<td class="gt_row gt_left" headers="Example Use Cases"><div class="gt_from_md">
+</td>
+<td class="gt_row gt_left" headers="Example Use Cases">Image recognitionData with many similar exemplars
 <ul>
 <li>Image recognition</li>
 <li>Data with many similar exemplars</li>
 </ul>
-</div></td>
-<td class="gt_row gt_left" headers="Implementation"><div class="gt_from_md">
-<p><a href="https://scikit-learn.org/stable/modules/clustering.html#affinity-propagation">Python</a></p>
-</div></td>
+</td>
+<td class="gt_row gt_left" headers="Implementation"><a href="https://scikit-learn.org/stable/modules/clustering.html#affinity-propagation">Python</a></td>
 </tr>
 <tr class="odd">
-<td class="gt_row gt_left" headers="Model Type"><div class="gt_from_md">
-<p><a href="https://en.wikipedia.org/wiki/Spectral_clustering">Spectral Clustering</a></p>
-</div></td>
-<td class="gt_row gt_left" headers="Strengths"><div class="gt_from_md">
+<td class="gt_row gt_left" headers="Model Type"><a href="https://en.wikipedia.org/wiki/Spectral_clustering">Spectral Clustering</a></td>
+<td class="gt_row gt_left" headers="Strengths">Can capture complex cluster structuresCan be used with various affinity matrices
 <ul>
 <li>Can capture complex cluster structures</li>
 <li>Can be used with various affinity matrices</li>
 </ul>
-</div></td>
-<td class="gt_row gt_left" headers="Limitations"><div class="gt_from_md">
+</td>
+<td class="gt_row gt_left" headers="Limitations">Choice of affinity matrix is crucialCan be computationally expensive
 <ul>
 <li>Choice of affinity matrix is crucial</li>
 <li>Can be computationally expensive</li>
 </ul>
-</div></td>
-<td class="gt_row gt_left" headers="Example Use Cases"><div class="gt_from_md">
+</td>
+<td class="gt_row gt_left" headers="Example Use Cases">Image and speech processingGraph-based clustering
 <ul>
 <li>Image and speech processing</li>
 <li>Graph-based clustering</li>
 </ul>
-</div></td>
-<td class="gt_row gt_left" headers="Implementation"><div class="gt_from_md">
-<p><a href="https://scikit-learn.org/stable/modules/clustering.html#spectral-clustering">Python</a></p>
-</div></td>
+</td>
+<td class="gt_row gt_left" headers="Implementation"><a href="https://scikit-learn.org/stable/modules/clustering.html#spectral-clustering">Python</a></td>
 </tr>
 </tbody>
 </table>
@@ -3462,28 +3394,32 @@ tbody tr:last-child {
 </div>
 <div id="tabset-1-5" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-5-tab">
 <div class="cell">
+<div class="cell-output cell-output-stderr">
+<pre><code>Table has no assigned ID, using random ID 'pyuvciujpc' to apply `gt::opt_css()`
+Avoid this message by assigning an ID: `gt(id = '')` or `gt_theme_538(quiet = TRUE)`</code></pre>
+</div>
 <div class="cell-output-display">
-<div id="vxbhmhefjk" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="pyuvciujpc" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>@import url("https://fonts.googleapis.com/css2?family=Chivo:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Chivo:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Chivo:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Cairo:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
-#vxbhmhefjk table {
+#pyuvciujpc table {
   font-family: Cairo, system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#vxbhmhefjk thead, #vxbhmhefjk tbody, #vxbhmhefjk tfoot, #vxbhmhefjk tr, #vxbhmhefjk td, #vxbhmhefjk th {
+#pyuvciujpc thead, #pyuvciujpc tbody, #pyuvciujpc tfoot, #pyuvciujpc tr, #pyuvciujpc td, #pyuvciujpc th {
   border-style: none;
 }
 
-#vxbhmhefjk p {
+#pyuvciujpc p {
   margin: 0;
   padding: 0;
 }
 
-#vxbhmhefjk .gt_table {
+#pyuvciujpc .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -3509,12 +3445,12 @@ tbody tr:last-child {
   border-left-color: #D3D3D3;
 }
 
-#vxbhmhefjk .gt_caption {
+#pyuvciujpc .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#vxbhmhefjk .gt_title {
+#pyuvciujpc .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -3526,7 +3462,7 @@ tbody tr:last-child {
   border-bottom-width: 0;
 }
 
-#vxbhmhefjk .gt_subtitle {
+#pyuvciujpc .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -3538,7 +3474,7 @@ tbody tr:last-child {
   border-top-width: 0;
 }
 
-#vxbhmhefjk .gt_heading {
+#pyuvciujpc .gt_heading {
   background-color: #FFFFFF;
   text-align: left;
   border-bottom-color: #FFFFFF;
@@ -3550,13 +3486,13 @@ tbody tr:last-child {
   border-right-color: #D3D3D3;
 }
 
-#vxbhmhefjk .gt_bottom_border {
+#pyuvciujpc .gt_bottom_border {
   border-bottom-style: none;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#vxbhmhefjk .gt_col_headings {
+#pyuvciujpc .gt_col_headings {
   border-top-style: none;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -3571,7 +3507,7 @@ tbody tr:last-child {
   border-right-color: #D3D3D3;
 }
 
-#vxbhmhefjk .gt_col_heading {
+#pyuvciujpc .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -3591,7 +3527,7 @@ tbody tr:last-child {
   overflow-x: hidden;
 }
 
-#vxbhmhefjk .gt_column_spanner_outer {
+#pyuvciujpc .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -3603,15 +3539,15 @@ tbody tr:last-child {
   padding-right: 4px;
 }
 
-#vxbhmhefjk .gt_column_spanner_outer:first-child {
+#pyuvciujpc .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#vxbhmhefjk .gt_column_spanner_outer:last-child {
+#pyuvciujpc .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#vxbhmhefjk .gt_column_spanner {
+#pyuvciujpc .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #000000;
@@ -3623,11 +3559,11 @@ tbody tr:last-child {
   width: 100%;
 }
 
-#vxbhmhefjk .gt_spanner_row {
+#pyuvciujpc .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#vxbhmhefjk .gt_group_heading {
+#pyuvciujpc .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -3653,7 +3589,7 @@ tbody tr:last-child {
   text-align: left;
 }
 
-#vxbhmhefjk .gt_empty_group_heading {
+#pyuvciujpc .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -3668,15 +3604,15 @@ tbody tr:last-child {
   vertical-align: middle;
 }
 
-#vxbhmhefjk .gt_from_md > :first-child {
+#pyuvciujpc .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#vxbhmhefjk .gt_from_md > :last-child {
+#pyuvciujpc .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#vxbhmhefjk .gt_row {
+#pyuvciujpc .gt_row {
   padding-top: 3px;
   padding-bottom: 3px;
   padding-left: 5px;
@@ -3695,7 +3631,7 @@ tbody tr:last-child {
   overflow-x: hidden;
 }
 
-#vxbhmhefjk .gt_stub {
+#pyuvciujpc .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -3708,7 +3644,7 @@ tbody tr:last-child {
   padding-right: 5px;
 }
 
-#vxbhmhefjk .gt_stub_row_group {
+#pyuvciujpc .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -3722,15 +3658,15 @@ tbody tr:last-child {
   vertical-align: top;
 }
 
-#vxbhmhefjk .gt_row_group_first td {
+#pyuvciujpc .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#vxbhmhefjk .gt_row_group_first th {
+#pyuvciujpc .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#vxbhmhefjk .gt_summary_row {
+#pyuvciujpc .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -3740,16 +3676,16 @@ tbody tr:last-child {
   padding-right: 5px;
 }
 
-#vxbhmhefjk .gt_first_summary_row {
+#pyuvciujpc .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#vxbhmhefjk .gt_first_summary_row.thick {
+#pyuvciujpc .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#vxbhmhefjk .gt_last_summary_row {
+#pyuvciujpc .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -3759,7 +3695,7 @@ tbody tr:last-child {
   border-bottom-color: #D3D3D3;
 }
 
-#vxbhmhefjk .gt_grand_summary_row {
+#pyuvciujpc .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -3769,7 +3705,7 @@ tbody tr:last-child {
   padding-right: 5px;
 }
 
-#vxbhmhefjk .gt_first_grand_summary_row {
+#pyuvciujpc .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -3779,7 +3715,7 @@ tbody tr:last-child {
   border-top-color: #D3D3D3;
 }
 
-#vxbhmhefjk .gt_last_grand_summary_row_top {
+#pyuvciujpc .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -3789,11 +3725,11 @@ tbody tr:last-child {
   border-bottom-color: #D3D3D3;
 }
 
-#vxbhmhefjk .gt_striped {
+#pyuvciujpc .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#vxbhmhefjk .gt_table_body {
+#pyuvciujpc .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -3802,7 +3738,7 @@ tbody tr:last-child {
   border-bottom-color: #D3D3D3;
 }
 
-#vxbhmhefjk .gt_footnotes {
+#pyuvciujpc .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -3816,7 +3752,7 @@ tbody tr:last-child {
   border-right-color: #D3D3D3;
 }
 
-#vxbhmhefjk .gt_footnote {
+#pyuvciujpc .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -3825,7 +3761,7 @@ tbody tr:last-child {
   padding-right: 5px;
 }
 
-#vxbhmhefjk .gt_sourcenotes {
+#pyuvciujpc .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -3839,7 +3775,7 @@ tbody tr:last-child {
   border-right-color: #D3D3D3;
 }
 
-#vxbhmhefjk .gt_sourcenote {
+#pyuvciujpc .gt_sourcenote {
   font-size: 12px;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -3847,67 +3783,76 @@ tbody tr:last-child {
   padding-right: 5px;
 }
 
-#vxbhmhefjk .gt_left {
+#pyuvciujpc .gt_left {
   text-align: left;
 }
 
-#vxbhmhefjk .gt_center {
+#pyuvciujpc .gt_center {
   text-align: center;
 }
 
-#vxbhmhefjk .gt_right {
+#pyuvciujpc .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#vxbhmhefjk .gt_font_normal {
+#pyuvciujpc .gt_font_normal {
   font-weight: normal;
 }
 
-#vxbhmhefjk .gt_font_bold {
+#pyuvciujpc .gt_font_bold {
   font-weight: bold;
 }
 
-#vxbhmhefjk .gt_font_italic {
+#pyuvciujpc .gt_font_italic {
   font-style: italic;
 }
 
-#vxbhmhefjk .gt_super {
+#pyuvciujpc .gt_super {
   font-size: 65%;
 }
 
-#vxbhmhefjk .gt_footnote_marks {
+#pyuvciujpc .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#vxbhmhefjk .gt_asterisk {
+#pyuvciujpc .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#vxbhmhefjk .gt_indent_1 {
+#pyuvciujpc .gt_indent_1 {
   text-indent: 5px;
 }
 
-#vxbhmhefjk .gt_indent_2 {
+#pyuvciujpc .gt_indent_2 {
   text-indent: 10px;
 }
 
-#vxbhmhefjk .gt_indent_3 {
+#pyuvciujpc .gt_indent_3 {
   text-indent: 15px;
 }
 
-#vxbhmhefjk .gt_indent_4 {
+#pyuvciujpc .gt_indent_4 {
   text-indent: 20px;
 }
 
-#vxbhmhefjk .gt_indent_5 {
+#pyuvciujpc .gt_indent_5 {
   text-indent: 25px;
 }
 
-tbody tr:last-child {
+#pyuvciujpc .katex-display {
+  display: inline-flex !important;
+  margin-bottom: 0.75em !important;
+}
+
+#pyuvciujpc div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
+}
+
+#pyuvciujpc tbody tr:last-child {
   border-bottom: 2px solid #ffffff00;
 }
 </style>
@@ -3925,166 +3870,142 @@ tbody tr:last-child {
 <th id="Method" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" style="border-top-width: 0px; border-top-style: solid; border-top-color: black; font-family: Chivo; font-size: 14px; vertical-align: bottom; font-weight: 200; text-transform: uppercase" scope="col">Method</th>
 <th id="Strengths" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" style="border-top-width: 0px; border-top-style: solid; border-top-color: black; font-family: Chivo; font-size: 14px; vertical-align: bottom; font-weight: 200; text-transform: uppercase" scope="col">Strengths</th>
 <th id="Limitations" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" style="border-top-width: 0px; border-top-style: solid; border-top-color: black; font-family: Chivo; font-size: 14px; vertical-align: bottom; font-weight: 200; text-transform: uppercase" scope="col">Limitations</th>
-<th id="Example Use Cases" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" style="border-top-width: 0px; border-top-style: solid; border-top-color: black; font-family: Chivo; font-size: 14px; vertical-align: bottom; font-weight: 200; text-transform: uppercase" scope="col">Example Use Cases</th>
+<th id="Example-Use-Cases" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" style="border-top-width: 0px; border-top-style: solid; border-top-color: black; font-family: Chivo; font-size: 14px; vertical-align: bottom; font-weight: 200; text-transform: uppercase" scope="col">Example Use Cases</th>
 <th id="Implementation" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" style="border-top-width: 0px; border-top-style: solid; border-top-color: black; font-family: Chivo; font-size: 14px; vertical-align: bottom; font-weight: 200; text-transform: uppercase" scope="col">Implementation</th>
 </tr>
 </thead>
 <tbody class="gt_table_body">
 <tr class="odd">
-<td class="gt_row gt_left" headers="Method"><div class="gt_from_md">
-<p><a href="https://en.wikipedia.org/wiki/Principal_component_analysis">PCA</a></p>
-</div></td>
-<td class="gt_row gt_left" headers="Strengths"><div class="gt_from_md">
+<td class="gt_row gt_left" headers="Method"><a href="https://en.wikipedia.org/wiki/Principal_component_analysis">PCA</a></td>
+<td class="gt_row gt_left" headers="Strengths">Dimensionality reductionPreserves variance
 <ul>
 <li>Dimensionality reduction</li>
 <li>Preserves variance</li>
 </ul>
-</div></td>
-<td class="gt_row gt_left" headers="Limitations"><div class="gt_from_md">
+</td>
+<td class="gt_row gt_left" headers="Limitations">Linear methodNot for categorical data
 <ul>
 <li>Linear method</li>
 <li>Not for categorical data</li>
 </ul>
-</div></td>
-<td class="gt_row gt_left" headers="Example Use Cases"><div class="gt_from_md">
+</td>
+<td class="gt_row gt_left" headers="Example Use Cases">Feature extractionData compression
 <ul>
 <li>Feature extraction</li>
 <li>Data compression</li>
 </ul>
-</div></td>
-<td class="gt_row gt_left" headers="Implementation"><div class="gt_from_md">
-<p><a href="https://scikit-learn.org/stable/modules/generated/sklearn.decomposition.PCA.html">Python</a></p>
-</div></td>
+</td>
+<td class="gt_row gt_left" headers="Implementation"><a href="https://scikit-learn.org/stable/modules/generated/sklearn.decomposition.PCA.html">Python</a></td>
 </tr>
 <tr class="even">
-<td class="gt_row gt_left" headers="Method"><div class="gt_from_md">
-<p><a href="https://en.wikipedia.org/wiki/T-distributed_stochastic_neighbor_embedding">t-SNE</a></p>
-</div></td>
-<td class="gt_row gt_left" headers="Strengths"><div class="gt_from_md">
+<td class="gt_row gt_left" headers="Method"><a href="https://en.wikipedia.org/wiki/T-distributed_stochastic_neighbor_embedding">t-SNE</a></td>
+<td class="gt_row gt_left" headers="Strengths">Captures non-linear structuresGood for visualization
 <ul>
 <li>Captures non-linear structures</li>
 <li>Good for visualization</li>
 </ul>
-</div></td>
-<td class="gt_row gt_left" headers="Limitations"><div class="gt_from_md">
+</td>
+<td class="gt_row gt_left" headers="Limitations">Computationally expensiveNot for high-dimensional data
 <ul>
 <li>Computationally expensive</li>
 <li>Not for high-dimensional data</li>
 </ul>
-</div></td>
-<td class="gt_row gt_left" headers="Example Use Cases"><div class="gt_from_md">
+</td>
+<td class="gt_row gt_left" headers="Example Use Cases">Data visualizationExploratory analysis
 <ul>
 <li>Data visualization</li>
 <li>Exploratory analysis</li>
 </ul>
-</div></td>
-<td class="gt_row gt_left" headers="Implementation"><div class="gt_from_md">
-<p><a href="https://scikit-learn.org/stable/modules/generated/sklearn.manifold.TSNE.html">Python</a></p>
-</div></td>
+</td>
+<td class="gt_row gt_left" headers="Implementation"><a href="https://scikit-learn.org/stable/modules/generated/sklearn.manifold.TSNE.html">Python</a></td>
 </tr>
 <tr class="odd">
-<td class="gt_row gt_left" headers="Method"><div class="gt_from_md">
-<p><a href="https://en.wikipedia.org/wiki/Autoencoder">Autoencoders</a></p>
-</div></td>
-<td class="gt_row gt_left" headers="Strengths"><div class="gt_from_md">
+<td class="gt_row gt_left" headers="Method"><a href="https://en.wikipedia.org/wiki/Autoencoder">Autoencoders</a></td>
+<td class="gt_row gt_left" headers="Strengths">Dimensionality reductionNon-linear relationships
 <ul>
 <li>Dimensionality reduction</li>
 <li>Non-linear relationships</li>
 </ul>
-</div></td>
-<td class="gt_row gt_left" headers="Limitations"><div class="gt_from_md">
+</td>
+<td class="gt_row gt_left" headers="Limitations">Neural network knowledgeComputationally intensive
 <ul>
 <li>Neural network knowledge</li>
 <li>Computationally intensive</li>
 </ul>
-</div></td>
-<td class="gt_row gt_left" headers="Example Use Cases"><div class="gt_from_md">
+</td>
+<td class="gt_row gt_left" headers="Example Use Cases">Feature learningNoise reduction
 <ul>
 <li>Feature learning</li>
 <li>Noise reduction</li>
 </ul>
-</div></td>
-<td class="gt_row gt_left" headers="Implementation"><div class="gt_from_md">
-<p><a href="https://www.tensorflow.org/api_docs/python/tf/keras/layers/Dense">Python</a></p>
-</div></td>
+</td>
+<td class="gt_row gt_left" headers="Implementation"><a href="https://www.tensorflow.org/api_docs/python/tf/keras/layers/Dense">Python</a></td>
 </tr>
 <tr class="even">
-<td class="gt_row gt_left" headers="Method"><div class="gt_from_md">
-<p><a href="https://en.wikipedia.org/wiki/Isolation_forest">Isolation Forest</a></p>
-</div></td>
-<td class="gt_row gt_left" headers="Strengths"><div class="gt_from_md">
+<td class="gt_row gt_left" headers="Method"><a href="https://en.wikipedia.org/wiki/Isolation_forest">Isolation Forest</a></td>
+<td class="gt_row gt_left" headers="Strengths">Effective for high-dimensional dataFast and scalable
 <ul>
 <li>Effective for high-dimensional data</li>
 <li>Fast and scalable</li>
 </ul>
-</div></td>
-<td class="gt_row gt_left" headers="Limitations"><div class="gt_from_md">
+</td>
+<td class="gt_row gt_left" headers="Limitations">RandomizedMay miss some anomalies
 <ul>
 <li>Randomized</li>
 <li>May miss some anomalies</li>
 </ul>
-</div></td>
-<td class="gt_row gt_left" headers="Example Use Cases"><div class="gt_from_md">
+</td>
+<td class="gt_row gt_left" headers="Example Use Cases">Fraud detectionNetwork security
 <ul>
 <li>Fraud detection</li>
 <li>Network security</li>
 </ul>
-</div></td>
-<td class="gt_row gt_left" headers="Implementation"><div class="gt_from_md">
-<p><a href="https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.IsolationForest.html">Python</a></p>
-</div></td>
+</td>
+<td class="gt_row gt_left" headers="Implementation"><a href="https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.IsolationForest.html">Python</a></td>
 </tr>
 <tr class="odd">
-<td class="gt_row gt_left" headers="Method"><div class="gt_from_md">
-<p><a href="https://en.wikipedia.org/wiki/Singular_value_decomposition">SVD</a></p>
-</div></td>
-<td class="gt_row gt_left" headers="Strengths"><div class="gt_from_md">
+<td class="gt_row gt_left" headers="Method"><a href="https://en.wikipedia.org/wiki/Singular_value_decomposition">SVD</a></td>
+<td class="gt_row gt_left" headers="Strengths">Matrix factorizationEfficient for large datasets
 <ul>
 <li>Matrix factorization</li>
 <li>Efficient for large datasets</li>
 </ul>
-</div></td>
-<td class="gt_row gt_left" headers="Limitations"><div class="gt_from_md">
+</td>
+<td class="gt_row gt_left" headers="Limitations">Assumes linear relationshipsSensitive to scaling
 <ul>
 <li>Assumes linear relationships</li>
 <li>Sensitive to scaling</li>
 </ul>
-</div></td>
-<td class="gt_row gt_left" headers="Example Use Cases"><div class="gt_from_md">
+</td>
+<td class="gt_row gt_left" headers="Example Use Cases">Recommender systemsLatent semantic analysis
 <ul>
 <li>Recommender systems</li>
 <li>Latent semantic analysis</li>
 </ul>
-</div></td>
-<td class="gt_row gt_left" headers="Implementation"><div class="gt_from_md">
-<p><a href="https://scikit-learn.org/stable/modules/generated/sklearn.decomposition.TruncatedSVD.html">Python</a></p>
-</div></td>
+</td>
+<td class="gt_row gt_left" headers="Implementation"><a href="https://scikit-learn.org/stable/modules/generated/sklearn.decomposition.TruncatedSVD.html">Python</a></td>
 </tr>
 <tr class="even">
-<td class="gt_row gt_left" headers="Method"><div class="gt_from_md">
-<p><a href="https://en.wikipedia.org/wiki/Independent_component_analysis">ICA</a></p>
-</div></td>
-<td class="gt_row gt_left" headers="Strengths"><div class="gt_from_md">
+<td class="gt_row gt_left" headers="Method"><a href="https://en.wikipedia.org/wiki/Independent_component_analysis">ICA</a></td>
+<td class="gt_row gt_left" headers="Strengths">Identifies independent componentsSignal separation
 <ul>
 <li>Identifies independent components</li>
 <li>Signal separation</li>
 </ul>
-</div></td>
-<td class="gt_row gt_left" headers="Limitations"><div class="gt_from_md">
+</td>
+<td class="gt_row gt_left" headers="Limitations">Non-Gaussian componentsSensitive to noise
 <ul>
 <li>Non-Gaussian components</li>
 <li>Sensitive to noise</li>
 </ul>
-</div></td>
-<td class="gt_row gt_left" headers="Example Use Cases"><div class="gt_from_md">
+</td>
+<td class="gt_row gt_left" headers="Example Use Cases">Blind signal separationFeature extraction
 <ul>
 <li>Blind signal separation</li>
 <li>Feature extraction</li>
 </ul>
-</div></td>
-<td class="gt_row gt_left" headers="Implementation"><div class="gt_from_md">
-<p><a href="https://scikit-learn.org/stable/modules/generated/sklearn.decomposition.FastICA.html">Python</a></p>
-</div></td>
+</td>
+<td class="gt_row gt_left" headers="Implementation"><a href="https://scikit-learn.org/stable/modules/generated/sklearn.decomposition.FastICA.html">Python</a></td>
 </tr>
 </tbody>
 </table>
@@ -4095,28 +4016,32 @@ tbody tr:last-child {
 </div>
 <div id="tabset-1-6" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-6-tab">
 <div class="cell">
+<div class="cell-output cell-output-stderr">
+<pre><code>Table has no assigned ID, using random ID 'psrwzbbijj' to apply `gt::opt_css()`
+Avoid this message by assigning an ID: `gt(id = '')` or `gt_theme_538(quiet = TRUE)`</code></pre>
+</div>
 <div class="cell-output-display">
-<div id="jfuzexiueh" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="psrwzbbijj" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>@import url("https://fonts.googleapis.com/css2?family=Chivo:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Chivo:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Chivo:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Cairo:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
-#jfuzexiueh table {
+#psrwzbbijj table {
   font-family: Cairo, system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#jfuzexiueh thead, #jfuzexiueh tbody, #jfuzexiueh tfoot, #jfuzexiueh tr, #jfuzexiueh td, #jfuzexiueh th {
+#psrwzbbijj thead, #psrwzbbijj tbody, #psrwzbbijj tfoot, #psrwzbbijj tr, #psrwzbbijj td, #psrwzbbijj th {
   border-style: none;
 }
 
-#jfuzexiueh p {
+#psrwzbbijj p {
   margin: 0;
   padding: 0;
 }
 
-#jfuzexiueh .gt_table {
+#psrwzbbijj .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -4142,12 +4067,12 @@ tbody tr:last-child {
   border-left-color: #D3D3D3;
 }
 
-#jfuzexiueh .gt_caption {
+#psrwzbbijj .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#jfuzexiueh .gt_title {
+#psrwzbbijj .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -4159,7 +4084,7 @@ tbody tr:last-child {
   border-bottom-width: 0;
 }
 
-#jfuzexiueh .gt_subtitle {
+#psrwzbbijj .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -4171,7 +4096,7 @@ tbody tr:last-child {
   border-top-width: 0;
 }
 
-#jfuzexiueh .gt_heading {
+#psrwzbbijj .gt_heading {
   background-color: #FFFFFF;
   text-align: left;
   border-bottom-color: #FFFFFF;
@@ -4183,13 +4108,13 @@ tbody tr:last-child {
   border-right-color: #D3D3D3;
 }
 
-#jfuzexiueh .gt_bottom_border {
+#psrwzbbijj .gt_bottom_border {
   border-bottom-style: none;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#jfuzexiueh .gt_col_headings {
+#psrwzbbijj .gt_col_headings {
   border-top-style: none;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -4204,7 +4129,7 @@ tbody tr:last-child {
   border-right-color: #D3D3D3;
 }
 
-#jfuzexiueh .gt_col_heading {
+#psrwzbbijj .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -4224,7 +4149,7 @@ tbody tr:last-child {
   overflow-x: hidden;
 }
 
-#jfuzexiueh .gt_column_spanner_outer {
+#psrwzbbijj .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -4236,15 +4161,15 @@ tbody tr:last-child {
   padding-right: 4px;
 }
 
-#jfuzexiueh .gt_column_spanner_outer:first-child {
+#psrwzbbijj .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#jfuzexiueh .gt_column_spanner_outer:last-child {
+#psrwzbbijj .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#jfuzexiueh .gt_column_spanner {
+#psrwzbbijj .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #000000;
@@ -4256,11 +4181,11 @@ tbody tr:last-child {
   width: 100%;
 }
 
-#jfuzexiueh .gt_spanner_row {
+#psrwzbbijj .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#jfuzexiueh .gt_group_heading {
+#psrwzbbijj .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -4286,7 +4211,7 @@ tbody tr:last-child {
   text-align: left;
 }
 
-#jfuzexiueh .gt_empty_group_heading {
+#psrwzbbijj .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -4301,15 +4226,15 @@ tbody tr:last-child {
   vertical-align: middle;
 }
 
-#jfuzexiueh .gt_from_md > :first-child {
+#psrwzbbijj .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#jfuzexiueh .gt_from_md > :last-child {
+#psrwzbbijj .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#jfuzexiueh .gt_row {
+#psrwzbbijj .gt_row {
   padding-top: 3px;
   padding-bottom: 3px;
   padding-left: 5px;
@@ -4328,7 +4253,7 @@ tbody tr:last-child {
   overflow-x: hidden;
 }
 
-#jfuzexiueh .gt_stub {
+#psrwzbbijj .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -4341,7 +4266,7 @@ tbody tr:last-child {
   padding-right: 5px;
 }
 
-#jfuzexiueh .gt_stub_row_group {
+#psrwzbbijj .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -4355,15 +4280,15 @@ tbody tr:last-child {
   vertical-align: top;
 }
 
-#jfuzexiueh .gt_row_group_first td {
+#psrwzbbijj .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#jfuzexiueh .gt_row_group_first th {
+#psrwzbbijj .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#jfuzexiueh .gt_summary_row {
+#psrwzbbijj .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -4373,16 +4298,16 @@ tbody tr:last-child {
   padding-right: 5px;
 }
 
-#jfuzexiueh .gt_first_summary_row {
+#psrwzbbijj .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#jfuzexiueh .gt_first_summary_row.thick {
+#psrwzbbijj .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#jfuzexiueh .gt_last_summary_row {
+#psrwzbbijj .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -4392,7 +4317,7 @@ tbody tr:last-child {
   border-bottom-color: #D3D3D3;
 }
 
-#jfuzexiueh .gt_grand_summary_row {
+#psrwzbbijj .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -4402,7 +4327,7 @@ tbody tr:last-child {
   padding-right: 5px;
 }
 
-#jfuzexiueh .gt_first_grand_summary_row {
+#psrwzbbijj .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -4412,7 +4337,7 @@ tbody tr:last-child {
   border-top-color: #D3D3D3;
 }
 
-#jfuzexiueh .gt_last_grand_summary_row_top {
+#psrwzbbijj .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -4422,11 +4347,11 @@ tbody tr:last-child {
   border-bottom-color: #D3D3D3;
 }
 
-#jfuzexiueh .gt_striped {
+#psrwzbbijj .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#jfuzexiueh .gt_table_body {
+#psrwzbbijj .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -4435,7 +4360,7 @@ tbody tr:last-child {
   border-bottom-color: #D3D3D3;
 }
 
-#jfuzexiueh .gt_footnotes {
+#psrwzbbijj .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -4449,7 +4374,7 @@ tbody tr:last-child {
   border-right-color: #D3D3D3;
 }
 
-#jfuzexiueh .gt_footnote {
+#psrwzbbijj .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -4458,7 +4383,7 @@ tbody tr:last-child {
   padding-right: 5px;
 }
 
-#jfuzexiueh .gt_sourcenotes {
+#psrwzbbijj .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -4472,7 +4397,7 @@ tbody tr:last-child {
   border-right-color: #D3D3D3;
 }
 
-#jfuzexiueh .gt_sourcenote {
+#psrwzbbijj .gt_sourcenote {
   font-size: 12px;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -4480,67 +4405,76 @@ tbody tr:last-child {
   padding-right: 5px;
 }
 
-#jfuzexiueh .gt_left {
+#psrwzbbijj .gt_left {
   text-align: left;
 }
 
-#jfuzexiueh .gt_center {
+#psrwzbbijj .gt_center {
   text-align: center;
 }
 
-#jfuzexiueh .gt_right {
+#psrwzbbijj .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#jfuzexiueh .gt_font_normal {
+#psrwzbbijj .gt_font_normal {
   font-weight: normal;
 }
 
-#jfuzexiueh .gt_font_bold {
+#psrwzbbijj .gt_font_bold {
   font-weight: bold;
 }
 
-#jfuzexiueh .gt_font_italic {
+#psrwzbbijj .gt_font_italic {
   font-style: italic;
 }
 
-#jfuzexiueh .gt_super {
+#psrwzbbijj .gt_super {
   font-size: 65%;
 }
 
-#jfuzexiueh .gt_footnote_marks {
+#psrwzbbijj .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#jfuzexiueh .gt_asterisk {
+#psrwzbbijj .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#jfuzexiueh .gt_indent_1 {
+#psrwzbbijj .gt_indent_1 {
   text-indent: 5px;
 }
 
-#jfuzexiueh .gt_indent_2 {
+#psrwzbbijj .gt_indent_2 {
   text-indent: 10px;
 }
 
-#jfuzexiueh .gt_indent_3 {
+#psrwzbbijj .gt_indent_3 {
   text-indent: 15px;
 }
 
-#jfuzexiueh .gt_indent_4 {
+#psrwzbbijj .gt_indent_4 {
   text-indent: 20px;
 }
 
-#jfuzexiueh .gt_indent_5 {
+#psrwzbbijj .gt_indent_5 {
   text-indent: 25px;
 }
 
-tbody tr:last-child {
+#psrwzbbijj .katex-display {
+  display: inline-flex !important;
+  margin-bottom: 0.75em !important;
+}
+
+#psrwzbbijj div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
+}
+
+#psrwzbbijj tbody tr:last-child {
   border-bottom: 2px solid #ffffff00;
 }
 </style>
@@ -4558,140 +4492,120 @@ tbody tr:last-child {
 <th id="Method" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" style="border-top-width: 0px; border-top-style: solid; border-top-color: black; font-family: Chivo; font-size: 14px; vertical-align: bottom; font-weight: 200; text-transform: uppercase" scope="col">Method</th>
 <th id="Strengths" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" style="border-top-width: 0px; border-top-style: solid; border-top-color: black; font-family: Chivo; font-size: 14px; vertical-align: bottom; font-weight: 200; text-transform: uppercase" scope="col">Strengths</th>
 <th id="Limitations" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" style="border-top-width: 0px; border-top-style: solid; border-top-color: black; font-family: Chivo; font-size: 14px; vertical-align: bottom; font-weight: 200; text-transform: uppercase" scope="col">Limitations</th>
-<th id="Example Use Cases" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" style="border-top-width: 0px; border-top-style: solid; border-top-color: black; font-family: Chivo; font-size: 14px; vertical-align: bottom; font-weight: 200; text-transform: uppercase" scope="col">Example Use Cases</th>
+<th id="Example-Use-Cases" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" style="border-top-width: 0px; border-top-style: solid; border-top-color: black; font-family: Chivo; font-size: 14px; vertical-align: bottom; font-weight: 200; text-transform: uppercase" scope="col">Example Use Cases</th>
 <th id="Implementation" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" style="border-top-width: 0px; border-top-style: solid; border-top-color: black; font-family: Chivo; font-size: 14px; vertical-align: bottom; font-weight: 200; text-transform: uppercase" scope="col">Implementation</th>
 </tr>
 </thead>
 <tbody class="gt_table_body">
 <tr class="odd">
-<td class="gt_row gt_left" headers="Method"><div class="gt_from_md">
-<p><a href="https://en.wikipedia.org/wiki/Apriori_algorithm">Apriori Algorithm</a></p>
-</div></td>
-<td class="gt_row gt_left" headers="Strengths"><div class="gt_from_md">
+<td class="gt_row gt_left" headers="Method"><a href="https://en.wikipedia.org/wiki/Apriori_algorithm">Apriori Algorithm</a></td>
+<td class="gt_row gt_left" headers="Strengths">Well-known and widely usedEasy to understand and implement
 <ul>
 <li>Well-known and widely used</li>
 <li>Easy to understand and implement</li>
 </ul>
-</div></td>
-<td class="gt_row gt_left" headers="Limitations"><div class="gt_from_md">
+</td>
+<td class="gt_row gt_left" headers="Limitations">Can be slow on large datasetsGenerates a large number of candidate sets
 <ul>
 <li>Can be slow on large datasets</li>
 <li>Generates a large number of candidate sets</li>
 </ul>
-</div></td>
-<td class="gt_row gt_left" headers="Example Use Cases"><div class="gt_from_md">
+</td>
+<td class="gt_row gt_left" headers="Example Use Cases">Market basket analysisCross-marketing strategies
 <ul>
 <li>Market basket analysis</li>
 <li>Cross-marketing strategies</li>
 </ul>
-</div></td>
-<td class="gt_row gt_left" headers="Implementation"><div class="gt_from_md">
-<p><a href="http://rasbt.github.io/mlxtend/user_guide/frequent_patterns/apriori/">Python</a></p>
-</div></td>
+</td>
+<td class="gt_row gt_left" headers="Implementation"><a href="http://rasbt.github.io/mlxtend/user_guide/frequent_patterns/apriori/">Python</a></td>
 </tr>
 <tr class="even">
-<td class="gt_row gt_left" headers="Method"><div class="gt_from_md">
-<p><a href="https://en.wikipedia.org/wiki/Association_rule_learning#FP-growth_algorithm">FP-Growth Algorithm</a></p>
-</div></td>
-<td class="gt_row gt_left" headers="Strengths"><div class="gt_from_md">
+<td class="gt_row gt_left" headers="Method"><a href="https://en.wikipedia.org/wiki/Association_rule_learning#FP-growth_algorithm">FP-Growth Algorithm</a></td>
+<td class="gt_row gt_left" headers="Strengths">Faster than AprioriEfficient for large datasets
 <ul>
 <li>Faster than Apriori</li>
 <li>Efficient for large datasets</li>
 </ul>
-</div></td>
-<td class="gt_row gt_left" headers="Limitations"><div class="gt_from_md">
+</td>
+<td class="gt_row gt_left" headers="Limitations">Memory intensiveCan be complex to implement
 <ul>
 <li>Memory intensive</li>
 <li>Can be complex to implement</li>
 </ul>
-</div></td>
-<td class="gt_row gt_left" headers="Example Use Cases"><div class="gt_from_md">
+</td>
+<td class="gt_row gt_left" headers="Example Use Cases">Frequent itemset mining in large databasesCustomer purchase patterns
 <ul>
 <li>Frequent itemset mining in large databases</li>
 <li>Customer purchase patterns</li>
 </ul>
-</div></td>
-<td class="gt_row gt_left" headers="Implementation"><div class="gt_from_md">
-<p><a href="http://rasbt.github.io/mlxtend/user_guide/frequent_patterns/fpgrowth/">Python</a></p>
-</div></td>
+</td>
+<td class="gt_row gt_left" headers="Implementation"><a href="http://rasbt.github.io/mlxtend/user_guide/frequent_patterns/fpgrowth/">Python</a></td>
 </tr>
 <tr class="odd">
-<td class="gt_row gt_left" headers="Method"><div class="gt_from_md">
-<p><a href="https://en.wikipedia.org/wiki/Eclat_algorithm">Eclat Algorithm</a></p>
-</div></td>
-<td class="gt_row gt_left" headers="Strengths"><div class="gt_from_md">
+<td class="gt_row gt_left" headers="Method"><a href="https://en.wikipedia.org/wiki/Eclat_algorithm">Eclat Algorithm</a></td>
+<td class="gt_row gt_left" headers="Strengths">Faster than AprioriScalable and easy to parallelize
 <ul>
 <li>Faster than Apriori</li>
 <li>Scalable and easy to parallelize</li>
 </ul>
-</div></td>
-<td class="gt_row gt_left" headers="Limitations"><div class="gt_from_md">
+</td>
+<td class="gt_row gt_left" headers="Limitations">Limited to binary attributesGenerates many candidate itemsets
 <ul>
 <li>Limited to binary attributes</li>
 <li>Generates many candidate itemsets</li>
 </ul>
-</div></td>
-<td class="gt_row gt_left" headers="Example Use Cases"><div class="gt_from_md">
+</td>
+<td class="gt_row gt_left" headers="Example Use Cases">Market basket analysisBinary classification tasks
 <ul>
 <li>Market basket analysis</li>
 <li>Binary classification tasks</li>
 </ul>
-</div></td>
-<td class="gt_row gt_left" headers="Implementation"><div class="gt_from_md">
-<p><a href="https://github.com/tommyod/Efficient-Apriori">Python</a></p>
-</div></td>
+</td>
+<td class="gt_row gt_left" headers="Implementation"><a href="https://github.com/tommyod/Efficient-Apriori">Python</a></td>
 </tr>
 <tr class="even">
-<td class="gt_row gt_left" headers="Method"><div class="gt_from_md">
-<p><a href="https://en.wikipedia.org/wiki/Sequential_Pattern_Mining#GSP_(Generalized_Sequential_Pattern)_Algorithm">GSP (Generalized Sequential Pattern)</a></p>
-</div></td>
-<td class="gt_row gt_left" headers="Strengths"><div class="gt_from_md">
+<td class="gt_row gt_left" headers="Method"><a href="https://en.wikipedia.org/wiki/Sequential_Pattern_Mining#GSP_(Generalized_Sequential_Pattern)_Algorithm">GSP (Generalized Sequential Pattern)</a></td>
+<td class="gt_row gt_left" headers="Strengths">Identifies sequential patternsFlexible for various datasets
 <ul>
 <li>Identifies sequential patterns</li>
 <li>Flexible for various datasets</li>
 </ul>
-</div></td>
-<td class="gt_row gt_left" headers="Limitations"><div class="gt_from_md">
+</td>
+<td class="gt_row gt_left" headers="Limitations">Can be computationally expensiveNot as efficient for very large databases
 <ul>
 <li>Can be computationally expensive</li>
 <li>Not as efficient for very large databases</li>
 </ul>
-</div></td>
-<td class="gt_row gt_left" headers="Example Use Cases"><div class="gt_from_md">
+</td>
+<td class="gt_row gt_left" headers="Example Use Cases">Customer purchase sequence analysisEvent sequence analysis
 <ul>
 <li>Customer purchase sequence analysis</li>
 <li>Event sequence analysis</li>
 </ul>
-</div></td>
-<td class="gt_row gt_left" headers="Implementation"><div class="gt_from_md">
-<p><a href="https://github.com/jacksonpradolima/gsp-py">Python</a></p>
-</div></td>
+</td>
+<td class="gt_row gt_left" headers="Implementation"><a href="https://github.com/jacksonpradolima/gsp-py">Python</a></td>
 </tr>
 <tr class="odd">
-<td class="gt_row gt_left" headers="Method"><div class="gt_from_md">
-<p><a href="https://www.philippe-fournier-viger.com/spmf/rulegrowth.pdf">RuleGrowth Algorithm</a></p>
-</div></td>
-<td class="gt_row gt_left" headers="Strengths"><div class="gt_from_md">
+<td class="gt_row gt_left" headers="Method"><a href="https://www.philippe-fournier-viger.com/spmf/rulegrowth.pdf">RuleGrowth Algorithm</a></td>
+<td class="gt_row gt_left" headers="Strengths">Efficient for mining sequential rulesWorks well with sparse datasets
 <ul>
 <li>Efficient for mining sequential rules</li>
 <li>Works well with sparse datasets</li>
 </ul>
-</div></td>
-<td class="gt_row gt_left" headers="Limitations"><div class="gt_from_md">
+</td>
+<td class="gt_row gt_left" headers="Limitations">Requires careful parameter settingLess known and used than Apriori or FP-Growth
 <ul>
 <li>Requires careful parameter setting</li>
 <li>Less known and used than Apriori or FP-Growth</li>
 </ul>
-</div></td>
-<td class="gt_row gt_left" headers="Example Use Cases"><div class="gt_from_md">
+</td>
+<td class="gt_row gt_left" headers="Example Use Cases">Analyzing customer shopping sequencesDetecting patterns in web browsing data
 <ul>
 <li>Analyzing customer shopping sequences</li>
 <li>Detecting patterns in web browsing data</li>
 </ul>
-</div></td>
-<td class="gt_row gt_left" headers="Implementation"><div class="gt_from_md">
-<p><a href="https://pypi.org/project/spmf/">Python</a></p>
-</div></td>
+</td>
+<td class="gt_row gt_left" headers="Implementation"><a href="https://pypi.org/project/spmf/">Python</a></td>
 </tr>
 </tbody>
 </table>
@@ -4702,28 +4616,32 @@ tbody tr:last-child {
 </div>
 <div id="tabset-1-7" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-7-tab">
 <div class="cell">
+<div class="cell-output cell-output-stderr">
+<pre><code>Table has no assigned ID, using random ID 'jixcdguqgx' to apply `gt::opt_css()`
+Avoid this message by assigning an ID: `gt(id = '')` or `gt_theme_538(quiet = TRUE)`</code></pre>
+</div>
 <div class="cell-output-display">
-<div id="pdjqjlrsfa" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="jixcdguqgx" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>@import url("https://fonts.googleapis.com/css2?family=Chivo:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Chivo:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Chivo:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Cairo:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
-#pdjqjlrsfa table {
+#jixcdguqgx table {
   font-family: Cairo, system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#pdjqjlrsfa thead, #pdjqjlrsfa tbody, #pdjqjlrsfa tfoot, #pdjqjlrsfa tr, #pdjqjlrsfa td, #pdjqjlrsfa th {
+#jixcdguqgx thead, #jixcdguqgx tbody, #jixcdguqgx tfoot, #jixcdguqgx tr, #jixcdguqgx td, #jixcdguqgx th {
   border-style: none;
 }
 
-#pdjqjlrsfa p {
+#jixcdguqgx p {
   margin: 0;
   padding: 0;
 }
 
-#pdjqjlrsfa .gt_table {
+#jixcdguqgx .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -4749,12 +4667,12 @@ tbody tr:last-child {
   border-left-color: #D3D3D3;
 }
 
-#pdjqjlrsfa .gt_caption {
+#jixcdguqgx .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#pdjqjlrsfa .gt_title {
+#jixcdguqgx .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -4766,7 +4684,7 @@ tbody tr:last-child {
   border-bottom-width: 0;
 }
 
-#pdjqjlrsfa .gt_subtitle {
+#jixcdguqgx .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -4778,7 +4696,7 @@ tbody tr:last-child {
   border-top-width: 0;
 }
 
-#pdjqjlrsfa .gt_heading {
+#jixcdguqgx .gt_heading {
   background-color: #FFFFFF;
   text-align: left;
   border-bottom-color: #FFFFFF;
@@ -4790,13 +4708,13 @@ tbody tr:last-child {
   border-right-color: #D3D3D3;
 }
 
-#pdjqjlrsfa .gt_bottom_border {
+#jixcdguqgx .gt_bottom_border {
   border-bottom-style: none;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#pdjqjlrsfa .gt_col_headings {
+#jixcdguqgx .gt_col_headings {
   border-top-style: none;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -4811,7 +4729,7 @@ tbody tr:last-child {
   border-right-color: #D3D3D3;
 }
 
-#pdjqjlrsfa .gt_col_heading {
+#jixcdguqgx .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -4831,7 +4749,7 @@ tbody tr:last-child {
   overflow-x: hidden;
 }
 
-#pdjqjlrsfa .gt_column_spanner_outer {
+#jixcdguqgx .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -4843,15 +4761,15 @@ tbody tr:last-child {
   padding-right: 4px;
 }
 
-#pdjqjlrsfa .gt_column_spanner_outer:first-child {
+#jixcdguqgx .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#pdjqjlrsfa .gt_column_spanner_outer:last-child {
+#jixcdguqgx .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#pdjqjlrsfa .gt_column_spanner {
+#jixcdguqgx .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #000000;
@@ -4863,11 +4781,11 @@ tbody tr:last-child {
   width: 100%;
 }
 
-#pdjqjlrsfa .gt_spanner_row {
+#jixcdguqgx .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#pdjqjlrsfa .gt_group_heading {
+#jixcdguqgx .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -4893,7 +4811,7 @@ tbody tr:last-child {
   text-align: left;
 }
 
-#pdjqjlrsfa .gt_empty_group_heading {
+#jixcdguqgx .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -4908,15 +4826,15 @@ tbody tr:last-child {
   vertical-align: middle;
 }
 
-#pdjqjlrsfa .gt_from_md > :first-child {
+#jixcdguqgx .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#pdjqjlrsfa .gt_from_md > :last-child {
+#jixcdguqgx .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#pdjqjlrsfa .gt_row {
+#jixcdguqgx .gt_row {
   padding-top: 3px;
   padding-bottom: 3px;
   padding-left: 5px;
@@ -4935,7 +4853,7 @@ tbody tr:last-child {
   overflow-x: hidden;
 }
 
-#pdjqjlrsfa .gt_stub {
+#jixcdguqgx .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -4948,7 +4866,7 @@ tbody tr:last-child {
   padding-right: 5px;
 }
 
-#pdjqjlrsfa .gt_stub_row_group {
+#jixcdguqgx .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -4962,15 +4880,15 @@ tbody tr:last-child {
   vertical-align: top;
 }
 
-#pdjqjlrsfa .gt_row_group_first td {
+#jixcdguqgx .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#pdjqjlrsfa .gt_row_group_first th {
+#jixcdguqgx .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#pdjqjlrsfa .gt_summary_row {
+#jixcdguqgx .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -4980,16 +4898,16 @@ tbody tr:last-child {
   padding-right: 5px;
 }
 
-#pdjqjlrsfa .gt_first_summary_row {
+#jixcdguqgx .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#pdjqjlrsfa .gt_first_summary_row.thick {
+#jixcdguqgx .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#pdjqjlrsfa .gt_last_summary_row {
+#jixcdguqgx .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -4999,7 +4917,7 @@ tbody tr:last-child {
   border-bottom-color: #D3D3D3;
 }
 
-#pdjqjlrsfa .gt_grand_summary_row {
+#jixcdguqgx .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -5009,7 +4927,7 @@ tbody tr:last-child {
   padding-right: 5px;
 }
 
-#pdjqjlrsfa .gt_first_grand_summary_row {
+#jixcdguqgx .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -5019,7 +4937,7 @@ tbody tr:last-child {
   border-top-color: #D3D3D3;
 }
 
-#pdjqjlrsfa .gt_last_grand_summary_row_top {
+#jixcdguqgx .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -5029,11 +4947,11 @@ tbody tr:last-child {
   border-bottom-color: #D3D3D3;
 }
 
-#pdjqjlrsfa .gt_striped {
+#jixcdguqgx .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#pdjqjlrsfa .gt_table_body {
+#jixcdguqgx .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -5042,7 +4960,7 @@ tbody tr:last-child {
   border-bottom-color: #D3D3D3;
 }
 
-#pdjqjlrsfa .gt_footnotes {
+#jixcdguqgx .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -5056,7 +4974,7 @@ tbody tr:last-child {
   border-right-color: #D3D3D3;
 }
 
-#pdjqjlrsfa .gt_footnote {
+#jixcdguqgx .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -5065,7 +4983,7 @@ tbody tr:last-child {
   padding-right: 5px;
 }
 
-#pdjqjlrsfa .gt_sourcenotes {
+#jixcdguqgx .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -5079,7 +4997,7 @@ tbody tr:last-child {
   border-right-color: #D3D3D3;
 }
 
-#pdjqjlrsfa .gt_sourcenote {
+#jixcdguqgx .gt_sourcenote {
   font-size: 12px;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -5087,67 +5005,76 @@ tbody tr:last-child {
   padding-right: 5px;
 }
 
-#pdjqjlrsfa .gt_left {
+#jixcdguqgx .gt_left {
   text-align: left;
 }
 
-#pdjqjlrsfa .gt_center {
+#jixcdguqgx .gt_center {
   text-align: center;
 }
 
-#pdjqjlrsfa .gt_right {
+#jixcdguqgx .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#pdjqjlrsfa .gt_font_normal {
+#jixcdguqgx .gt_font_normal {
   font-weight: normal;
 }
 
-#pdjqjlrsfa .gt_font_bold {
+#jixcdguqgx .gt_font_bold {
   font-weight: bold;
 }
 
-#pdjqjlrsfa .gt_font_italic {
+#jixcdguqgx .gt_font_italic {
   font-style: italic;
 }
 
-#pdjqjlrsfa .gt_super {
+#jixcdguqgx .gt_super {
   font-size: 65%;
 }
 
-#pdjqjlrsfa .gt_footnote_marks {
+#jixcdguqgx .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#pdjqjlrsfa .gt_asterisk {
+#jixcdguqgx .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#pdjqjlrsfa .gt_indent_1 {
+#jixcdguqgx .gt_indent_1 {
   text-indent: 5px;
 }
 
-#pdjqjlrsfa .gt_indent_2 {
+#jixcdguqgx .gt_indent_2 {
   text-indent: 10px;
 }
 
-#pdjqjlrsfa .gt_indent_3 {
+#jixcdguqgx .gt_indent_3 {
   text-indent: 15px;
 }
 
-#pdjqjlrsfa .gt_indent_4 {
+#jixcdguqgx .gt_indent_4 {
   text-indent: 20px;
 }
 
-#pdjqjlrsfa .gt_indent_5 {
+#jixcdguqgx .gt_indent_5 {
   text-indent: 25px;
 }
 
-tbody tr:last-child {
+#jixcdguqgx .katex-display {
+  display: inline-flex !important;
+  margin-bottom: 0.75em !important;
+}
+
+#jixcdguqgx div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
+}
+
+#jixcdguqgx tbody tr:last-child {
   border-bottom: 2px solid #ffffff00;
 }
 </style>
@@ -5165,270 +5092,230 @@ tbody tr:last-child {
 <th id="Technique" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" style="border-top-width: 0px; border-top-style: solid; border-top-color: black; font-family: Chivo; font-size: 14px; vertical-align: bottom; font-weight: 200; text-transform: uppercase" scope="col">Technique</th>
 <th id="Strengths" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" style="border-top-width: 0px; border-top-style: solid; border-top-color: black; font-family: Chivo; font-size: 14px; vertical-align: bottom; font-weight: 200; text-transform: uppercase" scope="col">Strengths</th>
 <th id="Limitations" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" style="border-top-width: 0px; border-top-style: solid; border-top-color: black; font-family: Chivo; font-size: 14px; vertical-align: bottom; font-weight: 200; text-transform: uppercase" scope="col">Limitations</th>
-<th id="Example Use Cases" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" style="border-top-width: 0px; border-top-style: solid; border-top-color: black; font-family: Chivo; font-size: 14px; vertical-align: bottom; font-weight: 200; text-transform: uppercase" scope="col">Example Use Cases</th>
+<th id="Example-Use-Cases" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" style="border-top-width: 0px; border-top-style: solid; border-top-color: black; font-family: Chivo; font-size: 14px; vertical-align: bottom; font-weight: 200; text-transform: uppercase" scope="col">Example Use Cases</th>
 <th id="Implementation" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" style="border-top-width: 0px; border-top-style: solid; border-top-color: black; font-family: Chivo; font-size: 14px; vertical-align: bottom; font-weight: 200; text-transform: uppercase" scope="col">Implementation</th>
 </tr>
 </thead>
 <tbody class="gt_table_body">
 <tr class="odd">
-<td class="gt_row gt_left" headers="Technique"><div class="gt_from_md">
-<p><a href="https://en.wikipedia.org/wiki/Accuracy_and_precision#In_binary_classification">Accuracy</a></p>
-</div></td>
-<td class="gt_row gt_left" headers="Strengths"><div class="gt_from_md">
+<td class="gt_row gt_left" headers="Technique"><a href="https://en.wikipedia.org/wiki/Accuracy_and_precision#In_binary_classification">Accuracy</a></td>
+<td class="gt_row gt_left" headers="Strengths">Simple and intuitiveEffective for balanced datasets
 <ul>
 <li>Simple and intuitive</li>
 <li>Effective for balanced datasets</li>
 </ul>
-</div></td>
-<td class="gt_row gt_left" headers="Limitations"><div class="gt_from_md">
+</td>
+<td class="gt_row gt_left" headers="Limitations">Misleading for imbalanced datasetsDoesn’t reflect true positives/negatives
 <ul>
 <li>Misleading for imbalanced datasets</li>
 <li>Doesn’t reflect true positives/negatives</li>
 </ul>
-</div></td>
-<td class="gt_row gt_left" headers="Example Use Cases"><div class="gt_from_md">
+</td>
+<td class="gt_row gt_left" headers="Example Use Cases">General classification problemsComparing baseline models
 <ul>
 <li>General classification problems</li>
 <li>Comparing baseline models</li>
 </ul>
-</div></td>
-<td class="gt_row gt_left" headers="Implementation"><div class="gt_from_md">
-<p><a href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.accuracy_score.html">Python</a></p>
-</div></td>
+</td>
+<td class="gt_row gt_left" headers="Implementation"><a href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.accuracy_score.html">Python</a></td>
 </tr>
 <tr class="even">
-<td class="gt_row gt_left" headers="Technique"><div class="gt_from_md">
-<p><a href="https://en.wikipedia.org/wiki/Receiver_operating_characteristic#Area_under_the_curve">AUC-ROC</a></p>
-</div></td>
-<td class="gt_row gt_left" headers="Strengths"><div class="gt_from_md">
+<td class="gt_row gt_left" headers="Technique"><a href="https://en.wikipedia.org/wiki/Receiver_operating_characteristic#Area_under_the_curve">AUC-ROC</a></td>
+<td class="gt_row gt_left" headers="Strengths">Effective for binary classificationGood for imbalanced datasets
 <ul>
 <li>Effective for binary classification</li>
 <li>Good for imbalanced datasets</li>
 </ul>
-</div></td>
-<td class="gt_row gt_left" headers="Limitations"><div class="gt_from_md">
+</td>
+<td class="gt_row gt_left" headers="Limitations">Can be overly optimistic in imbalanced dataNot threshold-specific
 <ul>
 <li>Can be overly optimistic in imbalanced data</li>
 <li>Not threshold-specific</li>
 </ul>
-</div></td>
-<td class="gt_row gt_left" headers="Example Use Cases"><div class="gt_from_md">
+</td>
+<td class="gt_row gt_left" headers="Example Use Cases">Medical diagnosis classificationFraud detection models
 <ul>
 <li>Medical diagnosis classification</li>
 <li>Fraud detection models</li>
 </ul>
-</div></td>
-<td class="gt_row gt_left" headers="Implementation"><div class="gt_from_md">
-<p><a href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_auc_score.html">Python</a></p>
-</div></td>
+</td>
+<td class="gt_row gt_left" headers="Implementation"><a href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_auc_score.html">Python</a></td>
 </tr>
 <tr class="odd">
-<td class="gt_row gt_left" headers="Technique"><div class="gt_from_md">
-<p><a href="https://en.wikipedia.org/wiki/Precision_and_recall#Precision">Precision</a></p>
-</div></td>
-<td class="gt_row gt_left" headers="Strengths"><div class="gt_from_md">
+<td class="gt_row gt_left" headers="Technique"><a href="https://en.wikipedia.org/wiki/Precision_and_recall#Precision">Precision</a></td>
+<td class="gt_row gt_left" headers="Strengths">Focuses on positive classReduces false positives
 <ul>
 <li>Focuses on positive class</li>
 <li>Reduces false positives</li>
 </ul>
-</div></td>
-<td class="gt_row gt_left" headers="Limitations"><div class="gt_from_md">
+</td>
+<td class="gt_row gt_left" headers="Limitations">Ignores false negativesNot useful alone in imbalanced datasets
 <ul>
 <li>Ignores false negatives</li>
 <li>Not useful alone in imbalanced datasets</li>
 </ul>
-</div></td>
-<td class="gt_row gt_left" headers="Example Use Cases"><div class="gt_from_md">
+</td>
+<td class="gt_row gt_left" headers="Example Use Cases">Spam detectionContent moderation systems
 <ul>
 <li>Spam detection</li>
 <li>Content moderation systems</li>
 </ul>
-</div></td>
-<td class="gt_row gt_left" headers="Implementation"><div class="gt_from_md">
-<p><a href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.precision_score.html">Python</a></p>
-</div></td>
+</td>
+<td class="gt_row gt_left" headers="Implementation"><a href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.precision_score.html">Python</a></td>
 </tr>
 <tr class="even">
-<td class="gt_row gt_left" headers="Technique"><div class="gt_from_md">
-<p><a href="https://en.wikipedia.org/wiki/Precision_and_recall#Recall">Recall</a></p>
-</div></td>
-<td class="gt_row gt_left" headers="Strengths"><div class="gt_from_md">
+<td class="gt_row gt_left" headers="Technique"><a href="https://en.wikipedia.org/wiki/Precision_and_recall#Recall">Recall</a></td>
+<td class="gt_row gt_left" headers="Strengths">Identifies actual positives wellMinimizes false negatives
 <ul>
 <li>Identifies actual positives well</li>
 <li>Minimizes false negatives</li>
 </ul>
-</div></td>
-<td class="gt_row gt_left" headers="Limitations"><div class="gt_from_md">
+</td>
+<td class="gt_row gt_left" headers="Limitations">Ignores false positivesCan be misleading if positives are rare
 <ul>
 <li>Ignores false positives</li>
 <li>Can be misleading if positives are rare</li>
 </ul>
-</div></td>
-<td class="gt_row gt_left" headers="Example Use Cases"><div class="gt_from_md">
+</td>
+<td class="gt_row gt_left" headers="Example Use Cases">Disease outbreak detectionRecall-focused tasks
 <ul>
 <li>Disease outbreak detection</li>
 <li>Recall-focused tasks</li>
 </ul>
-</div></td>
-<td class="gt_row gt_left" headers="Implementation"><div class="gt_from_md">
-<p><a href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.recall_score.html">Python</a></p>
-</div></td>
+</td>
+<td class="gt_row gt_left" headers="Implementation"><a href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.recall_score.html">Python</a></td>
 </tr>
 <tr class="odd">
-<td class="gt_row gt_left" headers="Technique"><div class="gt_from_md">
-<p><a href="https://en.wikipedia.org/wiki/F-score">F1-Score</a></p>
-</div></td>
-<td class="gt_row gt_left" headers="Strengths"><div class="gt_from_md">
+<td class="gt_row gt_left" headers="Technique"><a href="https://en.wikipedia.org/wiki/F-score">F1-Score</a></td>
+<td class="gt_row gt_left" headers="Strengths">Balances precision and recallUseful for imbalanced datasets
 <ul>
 <li>Balances precision and recall</li>
 <li>Useful for imbalanced datasets</li>
 </ul>
-</div></td>
-<td class="gt_row gt_left" headers="Limitations"><div class="gt_from_md">
+</td>
+<td class="gt_row gt_left" headers="Limitations">May not reflect true model performanceDepends on balance of precision and recall
 <ul>
 <li>May not reflect true model performance</li>
 <li>Depends on balance of precision and recall</li>
 </ul>
-</div></td>
-<td class="gt_row gt_left" headers="Example Use Cases"><div class="gt_from_md">
+</td>
+<td class="gt_row gt_left" headers="Example Use Cases">Customer churn predictionSentiment analysis
 <ul>
 <li>Customer churn prediction</li>
 <li>Sentiment analysis</li>
 </ul>
-</div></td>
-<td class="gt_row gt_left" headers="Implementation"><div class="gt_from_md">
-<p><a href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.f1_score.html">Python</a></p>
-</div></td>
+</td>
+<td class="gt_row gt_left" headers="Implementation"><a href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.f1_score.html">Python</a></td>
 </tr>
 <tr class="even">
-<td class="gt_row gt_left" headers="Technique"><div class="gt_from_md">
-<p><a href="https://en.wikipedia.org/wiki/Cross-validation_(statistics)">Cross-Validation</a></p>
-</div></td>
-<td class="gt_row gt_left" headers="Strengths"><div class="gt_from_md">
+<td class="gt_row gt_left" headers="Technique"><a href="https://en.wikipedia.org/wiki/Cross-validation_(statistics)">Cross-Validation</a></td>
+<td class="gt_row gt_left" headers="Strengths">Reduces overfittingProvides robust model evaluation
 <ul>
 <li>Reduces overfitting</li>
 <li>Provides robust model evaluation</li>
 </ul>
-</div></td>
-<td class="gt_row gt_left" headers="Limitations"><div class="gt_from_md">
+</td>
+<td class="gt_row gt_left" headers="Limitations">Computationally expensiveMay not be ideal for very large datasets
 <ul>
 <li>Computationally expensive</li>
 <li>May not be ideal for very large datasets</li>
 </ul>
-</div></td>
-<td class="gt_row gt_left" headers="Example Use Cases"><div class="gt_from_md">
+</td>
+<td class="gt_row gt_left" headers="Example Use Cases">General model evaluationComparing multiple models
 <ul>
 <li>General model evaluation</li>
 <li>Comparing multiple models</li>
 </ul>
-</div></td>
-<td class="gt_row gt_left" headers="Implementation"><div class="gt_from_md">
-<p><a href="https://scikit-learn.org/stable/modules/cross_validation.html">Python</a></p>
-</div></td>
+</td>
+<td class="gt_row gt_left" headers="Implementation"><a href="https://scikit-learn.org/stable/modules/cross_validation.html">Python</a></td>
 </tr>
 <tr class="odd">
-<td class="gt_row gt_left" headers="Technique"><div class="gt_from_md">
-<p><a href="https://en.wikipedia.org/wiki/Training,_validation,_and_test_sets">The Validation Set Approach</a></p>
-</div></td>
-<td class="gt_row gt_left" headers="Strengths"><div class="gt_from_md">
+<td class="gt_row gt_left" headers="Technique"><a href="https://en.wikipedia.org/wiki/Training,_validation,_and_test_sets">The Validation Set Approach</a></td>
+<td class="gt_row gt_left" headers="Strengths">Simple and easy to implementGood for initial model assessment
 <ul>
 <li>Simple and easy to implement</li>
 <li>Good for initial model assessment</li>
 </ul>
-</div></td>
-<td class="gt_row gt_left" headers="Limitations"><div class="gt_from_md">
+</td>
+<td class="gt_row gt_left" headers="Limitations">Can lead to overfittingDependent on the split
 <ul>
 <li>Can lead to overfitting</li>
 <li>Dependent on the split</li>
 </ul>
-</div></td>
-<td class="gt_row gt_left" headers="Example Use Cases"><div class="gt_from_md">
+</td>
+<td class="gt_row gt_left" headers="Example Use Cases">Quick model prototypingSmall datasets
 <ul>
 <li>Quick model prototyping</li>
 <li>Small datasets</li>
 </ul>
-</div></td>
-<td class="gt_row gt_left" headers="Implementation"><div class="gt_from_md">
-<p><a href="https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.train_test_split.html">Python</a></p>
-</div></td>
+</td>
+<td class="gt_row gt_left" headers="Implementation"><a href="https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.train_test_split.html">Python</a></td>
 </tr>
 <tr class="even">
-<td class="gt_row gt_left" headers="Technique"><div class="gt_from_md">
-<p><a href="https://en.wikipedia.org/wiki/Cross-validation_(statistics)#Leave-one-out_cross-validation">Leave-One-Out Cross-Validation</a></p>
-</div></td>
-<td class="gt_row gt_left" headers="Strengths"><div class="gt_from_md">
+<td class="gt_row gt_left" headers="Technique"><a href="https://en.wikipedia.org/wiki/Cross-validation_(statistics)#Leave-one-out_cross-validation">Leave-One-Out Cross-Validation</a></td>
+<td class="gt_row gt_left" headers="Strengths">Very detailedEach observation used for validation exactly once
 <ul>
 <li>Very detailed</li>
 <li>Each observation used for validation exactly once</li>
 </ul>
-</div></td>
-<td class="gt_row gt_left" headers="Limitations"><div class="gt_from_md">
+</td>
+<td class="gt_row gt_left" headers="Limitations">Computationally intensiveNot suitable for large datasets
 <ul>
 <li>Computationally intensive</li>
 <li>Not suitable for large datasets</li>
 </ul>
-</div></td>
-<td class="gt_row gt_left" headers="Example Use Cases"><div class="gt_from_md">
+</td>
+<td class="gt_row gt_left" headers="Example Use Cases">Small but rich datasetsHighly sensitive models
 <ul>
 <li>Small but rich datasets</li>
 <li>Highly sensitive models</li>
 </ul>
-</div></td>
-<td class="gt_row gt_left" headers="Implementation"><div class="gt_from_md">
-<p><a href="https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.LeaveOneOut.html">Python</a></p>
-</div></td>
+</td>
+<td class="gt_row gt_left" headers="Implementation"><a href="https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.LeaveOneOut.html">Python</a></td>
 </tr>
 <tr class="odd">
-<td class="gt_row gt_left" headers="Technique"><div class="gt_from_md">
-<p><a href="https://en.wikipedia.org/wiki/Cross-validation_(statistics)#k-fold_cross-validation">k-Fold Cross-Validation</a></p>
-</div></td>
-<td class="gt_row gt_left" headers="Strengths"><div class="gt_from_md">
+<td class="gt_row gt_left" headers="Technique"><a href="https://en.wikipedia.org/wiki/Cross-validation_(statistics)#k-fold_cross-validation">k-Fold Cross-Validation</a></td>
+<td class="gt_row gt_left" headers="Strengths">Balances computational cost and validation accuracySuitable for various data sizes
 <ul>
 <li>Balances computational cost and validation accuracy</li>
 <li>Suitable for various data sizes</li>
 </ul>
-</div></td>
-<td class="gt_row gt_left" headers="Limitations"><div class="gt_from_md">
+</td>
+<td class="gt_row gt_left" headers="Limitations">Variability in results depending on how data is dividedChoice of ‘k’ can impact results
 <ul>
 <li>Variability in results depending on how data is divided</li>
 <li>Choice of ‘k’ can impact results</li>
 </ul>
-</div></td>
-<td class="gt_row gt_left" headers="Example Use Cases"><div class="gt_from_md">
+</td>
+<td class="gt_row gt_left" headers="Example Use Cases">Medium-sized datasetsModel selection
 <ul>
 <li>Medium-sized datasets</li>
 <li>Model selection</li>
 </ul>
-</div></td>
-<td class="gt_row gt_left" headers="Implementation"><div class="gt_from_md">
-<p><a href="https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.KFold.html">Python</a></p>
-</div></td>
+</td>
+<td class="gt_row gt_left" headers="Implementation"><a href="https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.KFold.html">Python</a></td>
 </tr>
 <tr class="even">
-<td class="gt_row gt_left" headers="Technique"><div class="gt_from_md">
-<p><a href="https://en.wikipedia.org/wiki/Bootstrapping_(statistics)">The Bootstrap Method</a></p>
-</div></td>
-<td class="gt_row gt_left" headers="Strengths"><div class="gt_from_md">
+<td class="gt_row gt_left" headers="Technique"><a href="https://en.wikipedia.org/wiki/Bootstrapping_(statistics)">The Bootstrap Method</a></td>
+<td class="gt_row gt_left" headers="Strengths">Good for estimating model accuracyEffective for small datasets
 <ul>
 <li>Good for estimating model accuracy</li>
 <li>Effective for small datasets</li>
 </ul>
-</div></td>
-<td class="gt_row gt_left" headers="Limitations"><div class="gt_from_md">
+</td>
+<td class="gt_row gt_left" headers="Limitations">Results can be sensitive to outliersMay overestimate accuracy for small datasets
 <ul>
 <li>Results can be sensitive to outliers</li>
 <li>May overestimate accuracy for small datasets</li>
 </ul>
-</div></td>
-<td class="gt_row gt_left" headers="Example Use Cases"><div class="gt_from_md">
+</td>
+<td class="gt_row gt_left" headers="Example Use Cases">Small or medium-sized datasetsUncertainty estimation
 <ul>
 <li>Small or medium-sized datasets</li>
 <li>Uncertainty estimation</li>
 </ul>
-</div></td>
-<td class="gt_row gt_left" headers="Implementation"><div class="gt_from_md">
-<p><a href="https://scikit-learn.org/stable/modules/generated/sklearn.utils.resample.html">Python</a></p>
-</div></td>
+</td>
+<td class="gt_row gt_left" headers="Implementation"><a href="https://scikit-learn.org/stable/modules/generated/sklearn.utils.resample.html">Python</a></td>
 </tr>
 </tbody>
 </table>

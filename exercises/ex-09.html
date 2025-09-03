@@ -64,6 +64,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
+<link href="../exercises/ex-12.html" rel="next">
+<link href="../exercises/ex-08.html" rel="prev">
 <link href="..//images/logo.png" rel="icon" type="image/png">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
@@ -76,9 +78,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-ea385d0e468b0dd5ea5bf0780b1290d9.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-0c0a0fd54d4eedb74a3c4d7362e20632.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-8ef5ba5aeca76531da08c00beb447ab0.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../site_libs/bootstrap/bootstrap-0c0a0fd54d4eedb74a3c4d7362e20632.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-05637a8b181e17c4fff429b952d234bb.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-c76ba504b02f2aed44de68198fe4e073.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-05637a8b181e17c4fff429b952d234bb.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -284,7 +286,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Ex-09: Time series analysis</li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../exercises/ex-06.html">Exercises</a></li><li class="breadcrumb-item"><a href="../exercises/ex-09.html">Ex-09: Time series analysis</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -416,6 +418,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../computing/computing-python.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Setting up Python</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../computing/computing-git.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Setting up Git</span></a>
   </div>
@@ -433,7 +441,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../project/project-2.html" class="sidebar-item-text sidebar-link">
+  <a href="../project/project-2.qmd" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Final Project</span></a>
   </div>
 </li>
@@ -448,6 +456,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           </a> 
       </div>
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../homework/workflow.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Computing workflow</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../homework/codespaces.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Codespaces</span></a>
+  </div>
+</li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../homework/hw-01.html" class="sidebar-item-text sidebar-link">
@@ -482,17 +502,35 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
  <span class="menu-text">Exercises</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../exercises/ex-06.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Ex-06: Classifying Spam Emails</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../exercises/ex-08.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Ex-08: Analyzing Egg Production Trends</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../exercises/ex-09.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Ex-09: Time series analysis</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../exercises/ex-12.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Ex-12: Clustering Taylor Swift Songs</span></a>
   </div>
 </li>
       </ul>
@@ -531,7 +569,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../exercises/ex-06.html">Exercises</a></li><li class="breadcrumb-item"><a href="../exercises/ex-09.html">Ex-09: Time series analysis</a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title">Ex-09: Time series analysis</h1>
 </div>
@@ -676,7 +714,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><p>Convert the <code>aqi_value</code> column as needed.</p></li>
 <li><p>Plot the <strong><code>aqi_value</code></strong> time series to visually inspect the data.</p></li>
 </ol>
-<div id="4568cdec" class="cell" data-execution_count="1">
+<div id="448175df" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> skimpy <span class="im">import</span> clean_columns</span>
@@ -707,7 +745,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><p>Use <strong><code>seasonal_decompose</code></strong> from the <strong><code>statsmodels</code></strong> package to decompose the time series into trend, seasonal, and residual components.</p></li>
 <li><p>Plot the decomposed components to understand the underlying patterns.</p></li>
 </ol>
-<div id="9d6bb852" class="cell" data-execution_count="2">
+<div id="3af4e5ee" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> statsmodels.tsa.seasonal <span class="im">import</span> seasonal_decompose</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Decompose the time series</span></span>
@@ -724,7 +762,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><p>Perform an <a href="https://en.wikipedia.org/wiki/Augmented_Dickey%E2%80%93Fuller_test">Augmented Dickey-Fuller</a> (ADF) test to check the stationarity of the time series.</p></li>
 <li><p>If the series is not stationary, apply differencing to make it stationary.</p></li>
 </ol>
-<div id="e3d264ea" class="cell" data-execution_count="3">
+<div id="692e1ce2" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> statsmodels.tsa.stattools <span class="im">import</span> adfuller</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Perform Augmented Dickey-Fuller test</span></span>
@@ -746,7 +784,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><p>Fit an ARIMA model with the identified parameters.</p></li>
 <li><p>Plot the original vs.&nbsp;fitted values to assess the model’s performance.</p></li>
 </ol>
-<div id="a3db889d" class="cell" data-execution_count="4">
+<div id="5a2b846b" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pmdarima <span class="im">import</span> auto_arima</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Identify the optimal ARIMA model</span></span>
@@ -780,7 +818,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><p>Forecast AQI values for the next 30 days using the fitted ARIMA model.</p></li>
 <li><p>Plot the forecasted values alongside the historical data to visualize the forecast.</p></li>
 </ol>
-<div id="966da3bb" class="cell" data-execution_count="5">
+<div id="869c4ae2" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Forecast the next 30 days</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>forecast, conf_int <span class="op">=</span> model.predict(n_periods <span class="op">=</span> <span class="dv">30</span>, return_conf_int <span class="op">=</span> <span class="va">True</span>)</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -800,7 +838,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><p>Explore different detrending methods (e.g., subtracting a moving average, polynomial detrending) using the <strong><code>detrend_aqi</code></strong> and <strong><code>poly_trend</code></strong> columns.</p></li>
 <li><p>Analyze seasonality patterns in the detrended data.</p></li>
 </ol>
-<div id="d9868aa1" class="cell" data-execution_count="6">
+<div id="32e2e46c" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Detrending using moving average</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'moving_avg'</span>] <span class="op">=</span> df[<span class="st">'aqi_value'</span>].rolling(window <span class="op">=</span> <span class="dv">12</span>).mean()</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'detrended'</span>] <span class="op">=</span> df[<span class="st">'aqi_value'</span>] <span class="op">-</span> df[<span class="st">'moving_avg'</span>]</span>
@@ -1235,6 +1273,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     }
   });
   </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../exercises/ex-08.html" class="pagination-link" aria-label="Ex-08: Analyzing Egg Production Trends">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Ex-08: Analyzing Egg Production Trends</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../exercises/ex-12.html" class="pagination-link" aria-label="Ex-12: Clustering Taylor Swift Songs">
+        <span class="nav-page-text">Ex-12: Clustering Taylor Swift Songs</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">

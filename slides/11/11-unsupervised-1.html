@@ -10,7 +10,6 @@
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-ea385d0e468b0dd5ea5bf0780b1290d9.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.7.33">
 
-  <meta name="author" content="John Chen">
   <title>INFO 523 – Unsupervised Learning I</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -194,7 +193,7 @@
   
   <script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 <meta property="og:title" content="UnsupervisedLearning I – INFO 523">
-<meta property="og:description" content="Lecture 11">
+<meta property="og:description" content="Data Mining and Discovery">
 <meta property="og:site_name" content="INFO 523">
 </head>
 <body class="quarto-light">
@@ -203,30 +202,11 @@
 
 <section id="title-slide" data-background-image="../minedata-bg.png" data-background-size="600px, cover" data-slide-number="none" class="quarto-title-block center">
   <h1 class="title">Unsupervised<br>Learning I</h1>
-  <p class="subtitle">Lecture 11</p>
+  <p class="subtitle">Data Mining and Discovery</p>
 
 <div class="quarto-title-authors">
-<div class="quarto-title-author">
-<div class="quarto-title-author-name">
-John Chen 
-</div>
-        <p class="quarto-title-affiliation">
-            University of Arizona <br> INFO 523 - Fall 2025
-          </p>
-    </div>
 </div>
 
-</section>
-<section>
-<section id="warm-up" class="title-slide slide level1 center">
-<h1>Warm up</h1>
-
-</section>
-<section id="announcements" class="slide level2">
-<h2>Announcements</h2>
-<ul>
-<li>HW 05 is due Fri Apr 26, 11:59pm</li>
-</ul>
 </section>
 <section id="setup" class="slide level2 smaller">
 <h2>Setup</h2>
@@ -261,7 +241,7 @@ John Chen
 <span id="cb1-28"><a></a><span class="co"># Increase font size of all Seaborn plot elements</span></span>
 <span id="cb1-29"><a></a>sns.<span class="bu">set</span>(font_scale <span class="op">=</span> <span class="fl">1.25</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</section></section>
+</section>
 <section>
 <section id="unsupervised-learning" class="title-slide slide level1 center">
 <h1>Unsupervised Learning</h1>
@@ -317,7 +297,7 @@ John Chen
 <ul id="tabset-1" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-1-1">Read + Head</a></li><li><a href="#tabset-1-2">Metadata</a></li><li><a href="#tabset-1-3">Info</a></li><li><a href="#tabset-1-4">Categories</a></li><li><a href="#tabset-1-5">Describe</a></li></ul>
 <div class="tab-content">
 <div id="tabset-1-1">
-<div id="752669b0" class="cell" data-execution_count="2">
+<div id="ac198abb" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a></a>mlb_players_18 <span class="op">=</span> pd.read_csv(<span class="st">"data/mlb_players_18.csv"</span>, encoding <span class="op">=</span> <span class="st">'iso-8859-1'</span>)</span>
 <span id="cb2-2"><a></a></span>
 <span id="cb2-3"><a></a>mlb_players_18.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -486,7 +466,7 @@ John Chen
 </div>
 </div>
 <div id="tabset-1-3">
-<div id="23175a10" class="cell" data-execution_count="3">
+<div id="390dce97" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a></a>mlb_players_18.info()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>&lt;class 'pandas.core.frame.DataFrame'&gt;
@@ -519,7 +499,7 @@ memory usage: 188.6+ KB</code></pre>
 </div>
 </div>
 <div id="tabset-1-4">
-<div id="004421e3" class="cell" data-execution_count="4">
+<div id="44d47f85" class="cell" data-execution_count="4">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a></a><span class="co"># Assign data</span></span>
@@ -1645,7 +1625,7 @@ Name: proportion, Length: 443, dtype: float64
 </div>
 </div>
 <div id="tabset-1-5">
-<div id="0ccf4690" class="cell" data-execution_count="5">
+<div id="dc3aba4d" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a></a>mlb_players_18.describe()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="5">
 <div>
@@ -1854,14 +1834,14 @@ Name: proportion, Length: 443, dtype: float64
 <ul id="tabset-2" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-2-1">Define columns</a></li><li><a href="#tabset-2-2">Prepare steps</a></li><li><a href="#tabset-2-3">Transformations</a></li></ul>
 <div class="tab-content">
 <div id="tabset-2-1">
-<div id="0feeb62d" class="cell" data-execution_count="6">
+<div id="4f6cc2e2" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a></a><span class="co"># Define the columns based on their type for preprocessing</span></span>
 <span id="cb8-2"><a></a>categorical_features <span class="op">=</span> [<span class="st">'team'</span>, <span class="st">'position'</span>]</span>
 <span id="cb8-3"><a></a>numerical_features <span class="op">=</span> [<span class="st">'games'</span>, <span class="st">'AB'</span>, <span class="st">'R'</span>, <span class="st">'H'</span>, <span class="st">'doubles'</span>, <span class="st">'triples'</span>, <span class="st">'HR'</span>, <span class="st">'RBI'</span>, <span class="st">'walks'</span>, <span class="st">'strike_outs'</span>, <span class="st">'stolen_bases'</span>, <span class="st">'caught_stealing_base'</span>, <span class="st">'AVG'</span>, <span class="st">'OBP'</span>, <span class="st">'SLG'</span>, <span class="st">'OPS'</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 <div id="tabset-2-2">
-<div id="5bb6e0dc" class="cell" data-execution_count="7">
+<div id="14d0c5c1" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a></a><span class="co"># Handling missing values: Impute missing values if any</span></span>
 <span id="cb9-2"><a></a><span class="co"># For numerical features, replace missing values with the median of the column</span></span>
 <span id="cb9-3"><a></a><span class="co"># For categorical features, replace missing values with the most frequent value of the column</span></span>
@@ -1878,7 +1858,7 @@ Name: proportion, Length: 443, dtype: float64
 </div>
 </div>
 <div id="tabset-2-3">
-<div id="5da4ff70" class="cell" data-execution_count="8">
+<div id="a3208d6e" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a></a><span class="co"># Apply the transformations to the dataset</span></span>
 <span id="cb10-2"><a></a>mlb_preprocessed <span class="op">=</span> preprocessor.fit_transform(mlb_players_18)</span>
 <span id="cb10-3"><a></a></span>
@@ -2212,7 +2192,7 @@ Name: proportion, Length: 443, dtype: float64
 <div id="tabset-4-5">
 <div class="columns">
 <div class="column" style="width:50%;">
-<div id="ee9fba7d" class="cell" data-execution_count="9">
+<div id="19e9cb9e" class="cell" data-execution_count="9">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -2241,7 +2221,7 @@ Name: proportion, Length: 443, dtype: float64
 <section id="clustering-methods" class="slide level2">
 <h2>Clustering methods</h2>
 <div style="text-align: center;">
-<iframe width="1200" height="400" src="https://https://info523-fall25-101-201.github.io/tables/model-cheatsheet.html" frameborder="1" style="background:white;"></iframe>
+<iframe width="1200" height="400" src="https://datamineaz.org/tables/model-cheatsheet.html" frameborder="1" style="background:white;"></iframe>
 </div>
 </section>
 <section id="k-means-clustering" class="slide level2 smaller">
@@ -2250,7 +2230,7 @@ Name: proportion, Length: 443, dtype: float64
 <ul id="tabset-5" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-5-1">Visual</a></li><li><a href="#tabset-5-2">Formula</a></li><li><a href="#tabset-5-3">Key points</a></li></ul>
 <div class="tab-content">
 <div id="tabset-5-1">
-<div id="be6d68fb" class="cell" data-execution_count="10">
+<div id="62c8161d" class="cell" data-execution_count="10">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -2295,7 +2275,7 @@ Name: proportion, Length: 443, dtype: float64
 <ul id="tabset-6" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-6-1">Visual</a></li><li><a href="#tabset-6-2">Formula</a></li><li><a href="#tabset-6-3">Key points</a></li></ul>
 <div class="tab-content">
 <div id="tabset-6-1">
-<div id="ecc1fc83" class="cell" data-execution_count="11">
+<div id="8a774caa" class="cell" data-execution_count="11">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -2379,7 +2359,7 @@ Name: proportion, Length: 443, dtype: float64
 <ul id="tabset-7" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-7-1">Visual</a></li><li><a href="#tabset-7-2">Pros + Cons</a></li></ul>
 <div class="tab-content">
 <div id="tabset-7-1">
-<div id="519944ed" class="cell" data-execution_count="12">
+<div id="c22c899e" class="cell" data-execution_count="12">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -2413,7 +2393,7 @@ Name: proportion, Length: 443, dtype: float64
 <ul id="tabset-8" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-8-1">Visual</a></li><li><a href="#tabset-8-2">Formula</a></li><li><a href="#tabset-8-3">Pros + Cons</a></li></ul>
 <div class="tab-content">
 <div id="tabset-8-1">
-<div id="14c4b0cf" class="cell" data-execution_count="13">
+<div id="95594823" class="cell" data-execution_count="13">
 <div class="cell-output cell-output-stdout">
 <pre><code>For 3 clusters Silhouetter Score: 0.551</code></pre>
 </div>
@@ -2454,7 +2434,7 @@ Name: proportion, Length: 443, dtype: float64
 <ul id="tabset-9" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-9-1">Visual</a></li><li><a href="#tabset-9-2">Formula</a></li><li><a href="#tabset-9-3">Pros + Cons</a></li></ul>
 <div class="tab-content">
 <div id="tabset-9-1">
-<div id="dbb38fe5" class="cell" data-execution_count="14">
+<div id="ede0459d" class="cell" data-execution_count="14">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -2497,7 +2477,7 @@ Name: proportion, Length: 443, dtype: float64
 <ul id="tabset-10" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-10-1">Visual</a></li><li><a href="#tabset-10-2">Formula</a></li><li><a href="#tabset-10-3">Pros + cons</a></li></ul>
 <div class="tab-content">
 <div id="tabset-10-1">
-<div id="24ec6db3" class="cell" data-execution_count="15">
+<div id="7b3d0451" class="cell" data-execution_count="15">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -2542,7 +2522,7 @@ Name: proportion, Length: 443, dtype: float64
 <ul id="tabset-11" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-11-1">Visual</a></li><li><a href="#tabset-11-2">Formula</a></li><li><a href="#tabset-11-3">Pros + cons</a></li></ul>
 <div class="tab-content">
 <div id="tabset-11-1">
-<div id="fdea2416" class="cell" data-execution_count="16">
+<div id="098b9446" class="cell" data-execution_count="16">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -2678,7 +2658,7 @@ Name: proportion, Length: 443, dtype: float64
 <ul id="tabset-14" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-14-1">Model summary</a></li><li><a href="#tabset-14-2">Visualize results</a></li></ul>
 <div class="tab-content">
 <div id="tabset-14-1">
-<div id="9841da08" class="cell" data-execution_count="17">
+<div id="4e3b1e56" class="cell" data-execution_count="17">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a></a><span class="co"># K-Means Clustering</span></span>
@@ -2775,7 +2755,7 @@ Cluster Centers:
 </div>
 </div>
 <div id="tabset-14-2">
-<div id="5ec1f1ca" class="cell" data-execution_count="18">
+<div id="df6d2e53" class="cell" data-execution_count="18">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a></a>pca <span class="op">=</span> PCA(n_components <span class="op">=</span> <span class="dv">2</span>)</span>
@@ -2801,7 +2781,7 @@ Cluster Centers:
 </section>
 <section id="live-coding-apply-k-medians-clustering" class="slide level2 smaller">
 <h2>Live coding: apply K-Medians Clustering</h2>
-<div id="0c435616" class="cell" data-execution_count="19">
+<div id="92d092b3" class="cell" data-execution_count="19">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a></a><span class="im">from</span> sklearn_extra.cluster <span class="im">import</span> KMedoids</span>
@@ -2863,7 +2843,7 @@ Cluster Centers:
   <div class="quarto-auto-generated-content" style="display: none;">
 <p><img src="../logo.png" class="slide-logo"></p>
 <div class="footer footer-default">
-<p><a href="https://info523-fall25-101-201.github.io/">🔗 github.io</a></p>
+<p><a href="https://datamineaz.org/">🔗 datamineaz.org</a></p>
 </div>
 </div></div>
 

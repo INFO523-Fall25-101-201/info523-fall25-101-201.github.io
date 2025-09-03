@@ -1,9 +1,6 @@
 ---
 title: Association
-subtitle: Lecture 13
-author: "{{< var slides.author >}}"
-institute: "{{< var slides.institute >}}"
-footer: "{{< var slides.footer >}}"
+subtitle: Data Mining and Discovery
 title-slide-attributes:
   data-background-image: ../minedata-bg.png
   data-background-size: 600px, cover
@@ -15,13 +12,6 @@ execute:
   error: false
 auto-stretch: false
 ---
-
-# Warm up
-
-## Announcements
-
--   RQ 05 is due Today, 11:59pm
--   Final Project Presentations are Mon May 06, 1pm
 
 ## Setup {.smaller}
 
@@ -305,7 +295,7 @@ $\text{Conviction}(A \rightarrow B) = \frac{1 - Support(B)}{1 - Confidence(A \ri
 
 ## Mining association rules {.smaller}
 
-::: columns
+:::::: columns
 ::: {.column width="50%"}
 | **TID** | **Items**                 |
 |---------|---------------------------|
@@ -316,7 +306,7 @@ $\text{Conviction}(A \rightarrow B) = \frac{1 - Support(B)}{1 - Confidence(A \ri
 | 5       | Bread, Milk, Diaper, Coke |
 :::
 
-::: {.column width="50%"}
+:::: {.column width="50%"}
 ::: fragment
 {Milk,Diaper} $\rightarrow$ {Beer} (s=0.4, c=0.67)
 
@@ -330,8 +320,8 @@ $\text{Conviction}(A \rightarrow B) = \frac{1 - Support(B)}{1 - Confidence(A \ri
 
 {Milk} $\rightarrow$ {Diaper,Beer} (s=0.4, c=0.5)
 :::
-:::
-:::
+::::
+::::::
 
 **Observations**:
 
@@ -365,7 +355,7 @@ Given $d$ items, there are $2^d$ itemsets:
 
 ## Apriori method {.smaller}
 
-::: panel-tabset
+:::::::: panel-tabset
 ## Visual
 
 All subsets of a frequent itemset must also be frequent.
@@ -421,7 +411,7 @@ Pros:**
 
 -   **Redundant Computations:** Generates many candidates, leading to unnecessary computations.
 :::
-:::
+::::::::
 
 ## Apriori method: applied {.smaller}
 
@@ -463,19 +453,19 @@ print("Association Rules from Apriori:\n", rules_apriori.head())
 
 ECLAT uses vertical data layout to store a list of transaction ids for each item:
 
-::: columns
+:::::: columns
 ::: {.column width="60%"}
 ![](images/eclat.png){width="561"}
 :::
 
-::: {.column width="40%"}
+:::: {.column width="40%"}
 ::: incremental
 -   **Advantage**: very fast support counting
 
 -   **Disadvantage**: intermediate tid-lists may become too large for memory
 :::
-:::
-:::
+::::
+::::::
 
 ## Frequent itemset generation: FP-Growth {.smaller}
 
@@ -794,29 +784,29 @@ After constructing the conditional FP-tree, we generate frequent itemsets for ea
 
 All the frequent itemsets derived from the conditional fp-trees have been tabulated below.
 
-|          |                                    |                         |                                         |
-|----------|------------------------------------|-------------------------|-----------------------------------------|
-| **Item** | **Pattern Base**                   | **Conditional FP Tree** | **Frequent itemsets**                   |
-| `I1`     | `{I3}:1,{I3, I5}:2`                | `{I3:3, I5:2}`          | `{I1, I3}:3,{I1, I5}:2,{I1, I3, I5}:2`  |
-| `I2`     | `{I3, I5}:1,{I3, I5, I1}:1,{I5}:1` | `{I3:2, I5:3}`          | `{I2, I3}:2, {I2, I5}:3,{I2, I3, I5}:2` |
-| `I5`     | `{I3}:3`                           | `{I3:3}`                | `{I3, I5}:3`                            |
+|  |  |  |  |
+|----|----|----|----|
+| **Item** | **Pattern Base** | **Conditional FP Tree** | **Frequent itemsets** |
+| `I1` | `{I3}:1,{I3, I5}:2` | `{I3:3, I5:2}` | `{I1, I3}:3,{I1, I5}:2,{I1, I3, I5}:2` |
+| `I2` | `{I3, I5}:1,{I3, I5, I1}:1,{I5}:1` | `{I3:2, I5:3}` | `{I2, I3}:2, {I2, I5}:3,{I2, I3, I5}:2` |
+| `I5` | `{I3}:3` | `{I3:3}` | `{I3, I5}:3` |
 
 ## Frequent itemset generation: FP-Growth {.smaller}
 
 **Step 7:** Generate Association Rules, e.g.:
 
-|                |                                                                                                  |
-|----------------|--------------------------------------------------------------------------------------------------|
-| **Itemset**    | **Association Rules**                                                                            |
-| `{I1}`         | `x`                                                                                              |
-| `{I2}`         | `x`                                                                                              |
-| `{I3}`         | `x`                                                                                              |
-| `{I5}`         | `x`                                                                                              |
-| `{I1,I3}`      | `{I1}->{I3}, {I3}->{I1}`                                                                         |
-| `{I1,I5}`      | `{I1}->{I5}, {I5}->{I1}`                                                                         |
-| `{I2,I3}`      | `{I2}->{I3}, {I3}->{I2}`                                                                         |
-| `{I2,I5}`      | `{I2}->{I5}, {I5}->{I2}`                                                                         |
-| `{I3,I5}`      | `{I3}->{I5}, {I5}->{I3}`                                                                         |
+|  |  |
+|----|----|
+| **Itemset** | **Association Rules** |
+| `{I1}` | `x` |
+| `{I2}` | `x` |
+| `{I3}` | `x` |
+| `{I5}` | `x` |
+| `{I1,I3}` | `{I1}->{I3}, {I3}->{I1}` |
+| `{I1,I5}` | `{I1}->{I5}, {I5}->{I1}` |
+| `{I2,I3}` | `{I2}->{I3}, {I3}->{I2}` |
+| `{I2,I5}` | `{I2}->{I5}, {I5}->{I2}` |
+| `{I3,I5}` | `{I3}->{I5}, {I5}->{I3}` |
 | `{I2, I3, I5}` | `{I2}->{I3, I5}, {I3}->{I2, I5}, {I5}->{I2, I3}, {I2, I3}->{I5}, {I2, I5}->{I3}, {I3, I5}->{I2}` |
 | `{I1, I3, I5}` | `{I1}->{I3, I5}, {I3}->{I1, I5}, {I5}->{I1, I3}, {I1, I3}->{I5}, {I1, I5}->{I3}, {I3, I5}->{I1}` |
 
@@ -970,5 +960,5 @@ The semester is over!!! 😭
 ## In-class Exercise
 
 ::: task
-Go to [ex-13](https://{{< var website.url >}}/exercises/ex-13.html) and perform the tasks
+Go to [ex-13](https://datamineaz.org/exercises/ex-13.html) and perform the tasks
 :::

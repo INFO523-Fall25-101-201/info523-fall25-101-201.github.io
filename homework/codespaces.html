@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Homework 2 – INFO 523</title>
+<title>Working with Codespaces – INFO 523</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,6 +20,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -29,6 +64,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
+<link href="../homework/hw-01.html" rel="next">
+<link href="../homework/workflow.html" rel="prev">
 <link href="..//images/logo.png" rel="icon" type="image/png">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
@@ -41,9 +78,9 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-ea385d0e468b0dd5ea5bf0780b1290d9.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-0c0a0fd54d4eedb74a3c4d7362e20632.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-8ef5ba5aeca76531da08c00beb447ab0.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../site_libs/bootstrap/bootstrap-0c0a0fd54d4eedb74a3c4d7362e20632.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-05637a8b181e17c4fff429b952d234bb.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-c76ba504b02f2aed44de68198fe4e073.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-05637a8b181e17c4fff429b952d234bb.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -73,7 +110,7 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 
 
-<meta property="og:title" content="Homework 2 – INFO 523">
+<meta property="og:title" content="Working with Codespaces – INFO 523">
 <meta property="og:description" content="Homepage for INFO 523 - Data Mining and Discovery at The University of Arizona, Fall 2025.">
 <meta property="og:site_name" content="INFO 523">
 </head>
@@ -249,7 +286,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Homework 2</li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../homework/workflow.html">Homework</a></li><li class="breadcrumb-item"><a href="../homework/codespaces.html">Codespaces</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -381,6 +418,12 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../computing/computing-python.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Setting up Python</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../computing/computing-git.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Setting up Git</span></a>
   </div>
@@ -398,7 +441,7 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../project/project-2.html" class="sidebar-item-text sidebar-link">
+  <a href="../project/project-2.qmd" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Final Project</span></a>
   </div>
 </li>
@@ -406,13 +449,25 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
  <span class="menu-text">Homework</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../homework/workflow.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Computing workflow</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../homework/codespaces.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Codespaces</span></a>
+  </div>
+</li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../homework/hw-01.html" class="sidebar-item-text sidebar-link">
@@ -460,6 +515,24 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">Ex-06: Classifying Spam Emails</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../exercises/ex-08.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Ex-08: Analyzing Egg Production Trends</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../exercises/ex-09.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Ex-09: Time series analysis</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../exercises/ex-12.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Ex-12: Clustering Taylor Swift Songs</span></a>
+  </div>
+</li>
       </ul>
   </li>
     </ul>
@@ -472,36 +545,30 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#exploratory-data-analysis-and-data-preprocessing-exercise" id="toc-exploratory-data-analysis-and-data-preprocessing-exercise" class="nav-link active" data-scroll-target="#exploratory-data-analysis-and-data-preprocessing-exercise">Exploratory Data Analysis and Data Preprocessing Exercise</a>
+  <li><a href="#getting-started-with-homework-in-codespaces" id="toc-getting-started-with-homework-in-codespaces" class="nav-link active" data-scroll-target="#getting-started-with-homework-in-codespaces">Getting Started with Homework in Codespaces</a>
   <ul class="collapse">
-  <li><a href="#objective" id="toc-objective" class="nav-link" data-scroll-target="#objective">Objective</a></li>
-  <li><a href="#dataset" id="toc-dataset" class="nav-link" data-scroll-target="#dataset">Dataset</a></li>
-  <li><a href="#part-1-exploratory-data-analysis" id="toc-part-1-exploratory-data-analysis" class="nav-link" data-scroll-target="#part-1-exploratory-data-analysis">Part 1: Exploratory Data Analysis</a>
-  <ul class="collapse">
-  <li><a href="#task-1-data-overview" id="toc-task-1-data-overview" class="nav-link" data-scroll-target="#task-1-data-overview">Task 1: Data Overview</a></li>
-  <li><a href="#task-2-univariate-analysis" id="toc-task-2-univariate-analysis" class="nav-link" data-scroll-target="#task-2-univariate-analysis">Task 2: Univariate Analysis</a></li>
-  <li><a href="#task-3-bivariate-analysis" id="toc-task-3-bivariate-analysis" class="nav-link" data-scroll-target="#task-3-bivariate-analysis">Task 3: Bivariate Analysis</a></li>
-  <li><a href="#task-4-missing-data-and-outliers" id="toc-task-4-missing-data-and-outliers" class="nav-link" data-scroll-target="#task-4-missing-data-and-outliers">Task 4: Missing Data and Outliers</a></li>
-  </ul></li>
-  <li><a href="#part-2-data-preprocessing" id="toc-part-2-data-preprocessing" class="nav-link" data-scroll-target="#part-2-data-preprocessing">Part 2: Data Preprocessing</a>
-  <ul class="collapse">
-  <li><a href="#task-1-handling-missing-values" id="toc-task-1-handling-missing-values" class="nav-link" data-scroll-target="#task-1-handling-missing-values">Task 1: Handling Missing Values</a></li>
-  <li><a href="#task-2-dealing-with-outliers" id="toc-task-2-dealing-with-outliers" class="nav-link" data-scroll-target="#task-2-dealing-with-outliers">Task 2: Dealing with Outliers</a></li>
-  <li><a href="#task-3-feature-engineering" id="toc-task-3-feature-engineering" class="nav-link" data-scroll-target="#task-3-feature-engineering">Task 3: Feature Engineering</a></li>
-  <li><a href="#task-4-data-transformation" id="toc-task-4-data-transformation" class="nav-link" data-scroll-target="#task-4-data-transformation">Task 4: Data Transformation</a></li>
-  </ul></li>
+  <li><a href="#launching-a-codespace" id="toc-launching-a-codespace" class="nav-link" data-scroll-target="#launching-a-codespace">1. Launching a Codespace</a></li>
+  <li><a href="#opening-your-notebook" id="toc-opening-your-notebook" class="nav-link" data-scroll-target="#opening-your-notebook">2. Opening Your Notebook</a></li>
+  <li><a href="#saving-your-work" id="toc-saving-your-work" class="nav-link" data-scroll-target="#saving-your-work">3. Saving Your Work</a></li>
+  <li><a href="#submission-autograding" id="toc-submission-autograding" class="nav-link" data-scroll-target="#submission-autograding">4. Submission &amp; Autograding</a></li>
+  <li><a href="#shutting-down-safely" id="toc-shutting-down-safely" class="nav-link" data-scroll-target="#shutting-down-safely">5. Shutting Down Safely</a></li>
+  <li><a href="#common-commands" id="toc-common-commands" class="nav-link" data-scroll-target="#common-commands">Common Commands</a></li>
+  <li><a href="#submission-checklist" id="toc-submission-checklist" class="nav-link" data-scroll-target="#submission-checklist">✅ Submission Checklist</a></li>
   </ul></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/info523-fall25-101-201/website/edit/main/homework/hw-02-new.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/info523-fall25-101-201/website/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/info523-fall25-101-201/website/edit/main/homework/codespaces.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/info523-fall25-101-201/website/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../homework/workflow.html">Homework</a></li><li class="breadcrumb-item"><a href="../homework/codespaces.html">Codespaces</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Homework 2</h1>
-</div>
+<h1 class="title">Working with Codespaces</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">Homework</div>
+  </div>
+  </div>
 
 
 
@@ -517,193 +584,111 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>For any exercise where you’re writing code, insert a code chunk and make sure to label the chunk. Do not suppress the code or output.</p>
-<section id="exploratory-data-analysis-and-data-preprocessing-exercise" class="level1">
-<h1>Exploratory Data Analysis and Data Preprocessing Exercise</h1>
-<p>Welcome to your Exploratory Data Analysis and Data Preprocessing Exercise. This assignment is crucial for anyone diving into the field of data mining and data analysis. Your main objective in this exercise will be to conduct thorough exploratory data analysis (EDA) followed by meticulous data preprocessing on a given dataset. The dataset will be provided to you, and it will require a combination of Python and its powerful libraries, NumPy and Pandas, to uncover insights and prepare the data for any subsequent modeling tasks.</p>
-<p>You will be expected to read in a dataset from the #<a href="https://github.com/rfordatascience/tidytuesday/tree/master/data/2023">TidyTuesday 2023 datasets</a> for the purpose of exploratory data analysis and preprocessing.</p>
-<section id="objective" class="level3">
-<h3 class="anchored" data-anchor-id="objective">Objective</h3>
-<p>Investigate the relationship between regional socioeconomic categories and the allocation of daily hours across countries. Analyze how the uncertainty in these allocations correlates with regional demographics and population sizes.</p>
-</section>
-<section id="dataset" class="level3">
-<h3 class="anchored" data-anchor-id="dataset">Dataset</h3>
-<ul>
-<li><a href="https://github.com/rfordatascience/tidytuesday/tree/master/data/2023/2023-09-12"><strong>Global Human Day</strong></a></li>
-<li>Use at least datasets <code>all_countries.csv</code> and <code>country_regions.csv</code>.</li>
-</ul>
-<p>The completion of this exercise is divided into two main parts:</p>
-<ul>
-<li><strong>Part 1: Exploratory Data Analysis</strong></li>
-<li><strong>Part 2: Data Preprocessing</strong></li>
-</ul>
-<p>Before you start, ensure you have the latest versions of <code>Python</code>, <code>NumPy</code>, and <code>Pandas</code> installed on your system. Good documentation and commenting of your code are mandatory to make your code easy to understand.</p>
+<section id="getting-started-with-homework-in-codespaces" class="level2">
+<h2 class="anchored" data-anchor-id="getting-started-with-homework-in-codespaces">Getting Started with Homework in Codespaces</h2>
+<p>This guide walks you through using GitHub Codespaces to complete and submit your homework assignments using Jupyter notebooks. Everything runs in the cloud—no need to install anything locally!</p>
+<hr>
+<section id="launching-a-codespace" class="level3">
+<h3 class="anchored" data-anchor-id="launching-a-codespace">1. Launching a Codespace</h3>
+<ol type="1">
+<li>Visit your GitHub homework repository.</li>
+<li>Click the green <strong>Code</strong> button → <strong>Codespaces</strong>.</li>
+<li>If none exists, click <strong>Create codespace on main</strong>.</li>
+<li>Wait for it to finish setting up (usually 1–2 minutes).</li>
+</ol>
 <hr>
 </section>
-<section id="part-1-exploratory-data-analysis" class="level2">
-<h2 class="anchored" data-anchor-id="part-1-exploratory-data-analysis">Part 1: Exploratory Data Analysis</h2>
-<p>In this section, you will perform an exploratory data analysis on the provided dataset. You will identify patterns, detect outliers, and generate insights based on your findings.</p>
-<section id="task-1-data-overview" class="level3">
-<h3 class="anchored" data-anchor-id="task-1-data-overview">Task 1: Data Overview</h3>
-<ul>
-<li>Load the dataset into a Pandas DataFrame and display the first few rows.</li>
-<li>Provide a basic description of the dataset, including its shape, columns, and data types.</li>
-</ul>
-<details>
-<summary>
-<h3 class="anchored">
-<b>Hint</b>
-</h3>
-</summary>
-<ul>
-<li>Use functions like <code>.head()</code>, <code>.shape</code>, <code>.columns</code>, and <code>.dtypes</code> to get an overview of your DataFrame.</li>
-<li>Remember that <code>.info()</code> can be used to get a concise summary of the DataFrame including the non-null count and type of each column.</li>
-</ul>
-</details>
-</section>
-<section id="task-2-univariate-analysis" class="level3">
-<h3 class="anchored" data-anchor-id="task-2-univariate-analysis">Task 2: Univariate Analysis</h3>
-<ul>
-<li>For numerical features, calculate descriptive statistics and create histograms.</li>
-<li>For categorical features, count unique values and create bar plots.</li>
-</ul>
-<details>
-<summary>
-<h3 class="anchored">
-<b>Hint</b>
-</h3>
-</summary>
-<ul>
-<li>Use <code>.describe()</code> for a quick statistical summary of the numerical features.</li>
-<li>Utilize <code>matplotlib</code> or <code>seaborn</code> libraries to create histograms (<code>hist()</code> or <code>sns.histplot()</code>).</li>
-<li>For categorical data, <code>value_counts()</code> can help in understanding the distribution of classes, and you can plot the results using <code>bar()</code> or <code>sns.countplot()</code>.</li>
-</ul>
-</details>
-</section>
-<section id="task-3-bivariate-analysis" class="level3">
-<h3 class="anchored" data-anchor-id="task-3-bivariate-analysis">Task 3: Bivariate Analysis</h3>
-<ul>
-<li>Choose three pairs of numerical variables and create scatter plots to explore their relationships.</li>
-<li>Create boxplots for one numerical variable grouped by a categorical variable.</li>
-</ul>
-<details>
-<summary>
-<h3 class="anchored">
-<b>Hint</b>
-</h3>
-</summary>
-<ul>
-<li>When creating scatter plots with <code>plt.scatter()</code> or <code>sns.scatterplot()</code>, it might be helpful to color points by a third categorical variable using the hue parameter in Seaborn.</li>
-<li>Use <code>sns.boxplot()</code> to create boxplots. Consider using the hue parameter if you have sub-categories within your categorical variable.</li>
-</ul>
-</details>
-</section>
-<section id="task-4-missing-data-and-outliers" class="level3">
-<h3 class="anchored" data-anchor-id="task-4-missing-data-and-outliers">Task 4: Missing Data and Outliers</h3>
-<ul>
-<li>Identify any missing values in the dataset.</li>
-<li>Detect outliers in the numerical features using an appropriate method (e.g., Z-score, IQR).</li>
-</ul>
-<details>
-<summary>
-<h3 class="anchored">
-<b>Hint</b>
-</h3>
-</summary>
-<ul>
-<li>The <code>.isnull()</code> method chained with <code>.sum()</code> can help identify missing values.</li>
-<li>Consider using the <code>scipy.stats</code> module for Z-score computation or the <code>IQR</code> which is the range between the first and third quartile of your data distribution for outlier detection.</li>
-</ul>
-</details>
-</section>
-</section>
-<section id="part-2-data-preprocessing" class="level2">
-<h2 class="anchored" data-anchor-id="part-2-data-preprocessing">Part 2: Data Preprocessing</h2>
-<p>This section will focus on cleaning and preparing the dataset for modeling. You will correct any issues you found during the EDA phase.</p>
-<section id="task-1-handling-missing-values" class="level3">
-<h3 class="anchored" data-anchor-id="task-1-handling-missing-values">Task 1: Handling Missing Values</h3>
-<ul>
-<li>Choose appropriate methods to handle the missing data (e.g., imputation, removal).</li>
-</ul>
-<details>
-<summary>
-<h3 class="anchored">
-<b>Hint</b>
-</h3>
-</summary>
-<ul>
-<li>Imputation methods could involve using <code>.fillna()</code> with measures like mean (<code>data.mean()</code>) for numerical columns and mode (<code>data.mode().iloc[0]</code>) for categorical columns.</li>
-<li>For removal, <code>.dropna()</code> is straightforward but consider the impact on your dataset size.</li>
-</ul>
-</details>
-</section>
-<section id="task-2-dealing-with-outliers" class="level3">
-<h3 class="anchored" data-anchor-id="task-2-dealing-with-outliers">Task 2: Dealing with Outliers</h3>
-<ul>
-<li>Treat or remove the outliers identified earlier based on your chosen methodology.</li>
-</ul>
-<details>
-<summary>
-<h3 class="anchored">
-<b>Hint</b>
-</h3>
-</summary>
-<ul>
-<li>For outlier removal, you may use boolean indexing based on Z-scores or IQR to filter your data.</li>
-<li>If you don’t want to remove outliers, consider transforming them using methods such as log transformation.</li>
-</ul>
-</details>
-</section>
-<section id="task-3-feature-engineering" class="level3">
-<h3 class="anchored" data-anchor-id="task-3-feature-engineering">Task 3: Feature Engineering</h3>
-<ul>
-<li>Create at least one new feature that could be useful for a data mining task.</li>
-</ul>
-<details>
-<summary>
-<h3 class="anchored">
-<b>Hint</b>
-</h3>
-</summary>
-<ul>
-<li>Think about the domain knowledge related to your dataset that could suggest new features. For instance, if you have date-time information, extracting the day of the week could be useful.</li>
-<li>Also, combining features, if relevant, to create ratios or differences can often reveal useful insights.</li>
-</ul>
-</details>
-</section>
-<section id="task-4-data-transformation" class="level3">
-<h3 class="anchored" data-anchor-id="task-4-data-transformation">Task 4: Data Transformation</h3>
-<ul>
-<li>Standardize or normalize numerical features.</li>
-<li>Perform any additional transformations you deem necessary (e.g., encoding categorical variables, binning, etc.).</li>
-</ul>
-<details>
-<summary>
-<h3 class="anchored">
-<b>Hint</b>
-</h3>
-</summary>
-<ul>
-<li>For scaling, <code>StandardScaler</code> or <code>MinMaxScaler</code> from <code>sklearn.preprocessing</code> can be applied to numerical features.</li>
-<li>For normalization, <code>np.log1p()</code> (log(1+x)) can help in managing skewed data.</li>
-<li>Use <code>pd.get_dummies()</code> or <code>LabelEncoder</code>/<code>OneHotEncoder</code> from <code>sklearn.preprocessing</code> for encoding categorical variables.</li>
-</ul>
-</details>
+<section id="opening-your-notebook" class="level3">
+<h3 class="anchored" data-anchor-id="opening-your-notebook">2. Opening Your Notebook</h3>
+<ol type="1">
+<li>In the left <strong>Explorer</strong> pane, find your assignment file (e.g., <code>release/hw-01.ipynb</code>).</li>
+<li>Click to open it. It will launch in a Jupyter interface directly inside Codespaces.</li>
+<li>Click the <strong>▶ Run Cell</strong> button or use <strong>Run All</strong> from the top menu.</li>
+</ol>
+<blockquote class="blockquote">
+<p>✅ <strong>Reminder:</strong> Answer all parts of the question and run each code cell before submission.</p>
+</blockquote>
 <hr>
-<p><strong>Deliverables:</strong> - A Quarto Notebook containing all code and visualizations. - A written report summarizing your findings from the EDA, the decisions you made during preprocessing, and the rationale behind your choices.</p>
-<p><strong>Submission Guidelines:</strong></p>
-<p>Push your Quarto Notebook to your GitHub repository. Ensure your commit messages are descriptive.</p>
-<p><strong>Grading Rubric:</strong></p>
-<p>Your work will be evaluated based on the following criteria:<br>
-Correctness and completeness of the codeQuality and clarity of the visualizations and summary reportProper use of comments and documentation in the codeAdherence to the submission guidelinesIf Generative AI is used:<br>
-Clear indication of which parts were generated by which AI modelUse comments to document the prompts you used (can be multiple rounds)Use comments for your reflection/critique on the AI resultsOtherwise:<br>
-At the beginning of the submission, a comment stating “No AI usage in this submission.”</p>
-<p><strong>Points Distribution:</strong></p>
-<p>Each task is allocated a specific number of points. Points will be awarded based on the completeness and correctness of the work submitted.</p>
-<p>Good luck, and may your insights be profound!</p>
-
-
 </section>
+<section id="saving-your-work" class="level3">
+<h3 class="anchored" data-anchor-id="saving-your-work">3. Saving Your Work</h3>
+<p>Your notebook saves automatically, but you still need to <strong>commit</strong> your changes to submit:</p>
+<ol type="1">
+<li><p><strong>Stage your work</strong>: ```bash git add .</p></li>
+<li><p><strong>Commit with a message</strong>:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"Completed Homework 1"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li><p><strong>Push to GitHub</strong>:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push origin main</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+</ol>
+<blockquote class="blockquote">
+<p>🚨 <strong>Important:</strong> Your instructor will only see work that is pushed to GitHub.</p>
+</blockquote>
+<hr>
+</section>
+<section id="submission-autograding" class="level3">
+<h3 class="anchored" data-anchor-id="submission-autograding">4. Submission &amp; Autograding</h3>
+<ul>
+<li>Autograding runs automatically every time you push to GitHub.</li>
+<li>You’ll receive feedback as a GitHub Issue in your repository titled <strong>“Homework X Feedback”</strong>.</li>
+<li><strong>Deadlines are enforced</strong>: If you push after the due time, your score may be penalized.</li>
+</ul>
+<blockquote class="blockquote">
+<p>⏰ <strong>Tip:</strong> Push before the deadline to avoid any late penalties. Only the latest commit before the deadline counts as “on time.”</p>
+</blockquote>
+<hr>
+</section>
+<section id="shutting-down-safely" class="level3">
+<h3 class="anchored" data-anchor-id="shutting-down-safely">5. Shutting Down Safely</h3>
+<ul>
+<li>When you’re done, click the green <strong>Codespaces</strong> icon in the lower-left → <strong>Stop Codespace</strong>.</li>
+<li>To return later, go back to the <strong>Codespaces</strong> tab on GitHub and reopen your environment.</li>
+</ul>
+<hr>
+</section>
+<section id="common-commands" class="level3">
+<h3 class="anchored" data-anchor-id="common-commands">Common Commands</h3>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Task</th>
+<th>Command</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Stage changes</td>
+<td><code>git add .</code></td>
+</tr>
+<tr class="even">
+<td>Commit changes</td>
+<td><code>git commit -m "Done with HW"</code></td>
+</tr>
+<tr class="odd">
+<td>Push to GitHub</td>
+<td><code>git push origin main</code></td>
+</tr>
+<tr class="even">
+<td>Check Python</td>
+<td><code>python3 --version</code></td>
+</tr>
+<tr class="odd">
+<td>Install packages*</td>
+<td><code>pip install -r requirements.txt</code></td>
+</tr>
+</tbody>
+</table>
+<p>* Usually preinstalled in Codespaces, but available if needed.</p>
+<hr>
+</section>
+<section id="submission-checklist" class="level3">
+<h3 class="anchored" data-anchor-id="submission-checklist">✅ Submission Checklist</h3>
+<ul class="task-list">
+<li><label><input type="checkbox">All code cells are run and complete</label></li>
+<li><label><input type="checkbox">Notebook is saved and committed</label></li>
+<li><label><input type="checkbox">You pushed your changes to GitHub before the deadline</label></li>
+</ul>
+
+
 </section>
 </section>
 
@@ -1120,6 +1105,18 @@ At the beginning of the submission, a comment stating “No AI usage in this sub
     }
   });
   </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../homework/workflow.html" class="pagination-link" aria-label="Computing workflow">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Computing workflow</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../homework/hw-01.html" class="pagination-link" aria-label="HW 01">
+        <span class="nav-page-text">HW 01</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
@@ -1128,7 +1125,7 @@ At the beginning of the submission, a comment stating “No AI usage in this sub
 </div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/info523-fall25-101-201/website/edit/main/homework/hw-02-new.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/info523-fall25-101-201/website/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/info523-fall25-101-201/website/edit/main/homework/codespaces.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/info523-fall25-101-201/website/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
 <p>This page is built with 💛 and <a href="https://quarto.org/">Quarto</a>.</p>
 </div>

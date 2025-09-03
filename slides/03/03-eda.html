@@ -10,7 +10,6 @@
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-ea385d0e468b0dd5ea5bf0780b1290d9.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.7.33">
 
-  <meta name="author" content="John Chen">
   <title>INFO 523 – Exploratory Data Analysis + Data Visualization</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -194,7 +193,7 @@
   
   <script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 <meta property="og:title" content="Exploratory Data Analysis + Data Visualization – INFO 523">
-<meta property="og:description" content="Lecture 3">
+<meta property="og:description" content="Data Mining and Discovery">
 <meta property="og:site_name" content="INFO 523">
 </head>
 <body class="quarto-light">
@@ -203,32 +202,11 @@
 
 <section id="title-slide" data-background-image="../minedata-bg.png" data-background-size="600px, cover" data-slide-number="none" class="quarto-title-block center">
   <h1 class="title">Exploratory Data Analysis + Data Visualization</h1>
-  <p class="subtitle">Lecture 3</p>
+  <p class="subtitle">Data Mining and Discovery</p>
 
 <div class="quarto-title-authors">
-<div class="quarto-title-author">
-<div class="quarto-title-author-name">
-John Chen 
-</div>
-        <p class="quarto-title-affiliation">
-            University of Arizona <br> INFO 523 - Fall 2025
-          </p>
-    </div>
 </div>
 
-</section>
-<section>
-<section id="warm-up" class="title-slide slide level1 center">
-<h1>Warm up</h1>
-
-</section>
-<section id="announcements" class="slide level2">
-<h2>Announcements</h2>
-<ul>
-<li><p>HW 01 is due tonight, 11:59pm</p></li>
-<li><p>RQ #2 is due Feb 07, 11:59pm</p></li>
-<li><p>Project 01 peer-review is Feb 07, first round proposals are due before class</p></li>
-</ul>
 </section>
 <section id="setup" class="slide level2">
 <h2>Setup</h2>
@@ -255,7 +233,7 @@ John Chen
 <span id="cb1-20"><a></a><span class="co"># Set seed</span></span>
 <span id="cb1-21"><a></a>random.seed(<span class="dv">123</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</section></section>
+</section>
 <section>
 <section id="exploratory-data-analysis" class="title-slide slide level1 center">
 <h1>Exploratory Data Analysis</h1>
@@ -270,7 +248,7 @@ John Chen
 <section id="what-is-exploratory-data-analysis-1" class="slide level2 smaller">
 <h2>What is exploratory data analysis?</h2>
 <div>
-<div id="e1742e78" class="cell" data-execution_count="2">
+<div id="bcd92a22" class="cell" data-execution_count="2">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -287,7 +265,7 @@ John Chen
 <ul id="tabset-1" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-1-1">Head</a></li><li><a href="#tabset-1-2">Info</a></li><li><a href="#tabset-1-3">Describe</a></li></ul>
 <div class="tab-content">
 <div id="tabset-1-1">
-<div id="5b5e24d0" class="cell" data-execution_count="3">
+<div id="debdaec6" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a></a>births14.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="3">
 <div>
@@ -413,7 +391,7 @@ John Chen
 </div>
 </div>
 <div id="tabset-1-2">
-<div id="9f36cb32" class="cell" data-execution_count="4">
+<div id="526c2677" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a></a>births14.info()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>&lt;class 'pandas.core.frame.DataFrame'&gt;
@@ -440,7 +418,7 @@ memory usage: 101.7+ KB</code></pre>
 </div>
 </div>
 <div id="tabset-1-3">
-<div id="d8cb3c4b" class="cell" data-execution_count="5">
+<div id="32015fe5" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a></a>births14.describe()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="5">
 <div>
@@ -558,7 +536,7 @@ memory usage: 101.7+ KB</code></pre>
 </section>
 <section id="group-descriptive-statistics" class="slide level2 smaller">
 <h2>Group descriptive statistics</h2>
-<div id="45612729" class="cell" data-execution_count="6">
+<div id="7722f2f1" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a></a><span class="co"># Example with the premie column</span></span>
 <span id="cb6-2"><a></a>groups <span class="op">=</span> births14.groupby(<span class="st">'premie'</span>).describe().unstack(<span class="dv">1</span>)</span>
 <span id="cb6-3"><a></a></span>
@@ -680,7 +658,7 @@ weight  count  full term    876.000000
 </section>
 <section id="assess-outliers-visually" class="slide level2 smaller">
 <h2>Assess outliers visually</h2>
-<div id="846e3866" class="cell" data-execution_count="7">
+<div id="502eac79" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a></a><span class="co"># Change theme to "white"</span></span>
 <span id="cb8-2"><a></a>sns.set_style(<span class="st">"white"</span>)</span>
 <span id="cb8-3"><a></a></span>
@@ -702,7 +680,7 @@ weight  count  full term    876.000000
 <ul id="tabset-2" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-2-1">Output</a></li><li><a href="#tabset-2-2">Code</a></li></ul>
 <div class="tab-content">
 <div id="tabset-2-1">
-<div id="b9730ba2" class="cell" data-execution_count="8">
+<div id="97c7e206" class="cell" data-execution_count="8">
 <div class="cell-output cell-output-stdout">
 <pre><code> 
 fage q25 = 26.0 q75 = 35.0 IQR = 9.0
@@ -732,7 +710,7 @@ Number of Outliers:  32</code></pre>
 </div>
 </div>
 <div id="tabset-2-2">
-<div id="96da2fde" class="cell" data-execution_count="9">
+<div id="00d820bf" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a></a><span class="co"># Make a copy of the births14 data </span></span>
 <span id="cb10-2"><a></a>dataCopy <span class="op">=</span> births14.copy()</span>
 <span id="cb10-3"><a></a></span>
@@ -788,7 +766,7 @@ Number of Outliers:  32</code></pre>
 <ul id="tabset-3" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-3-1">Cleaning</a></li><li><a href="#tabset-3-2">Plot</a></li></ul>
 <div class="tab-content">
 <div id="tabset-3-1">
-<div id="9a6104af" class="cell" data-execution_count="10">
+<div id="6adb2958" class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb11" data-code-line-numbers="1-14|2|4|6,7,8|10,11|13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a></a><span class="co"># Select numerical columns</span></span>
 <span id="cb11-2"><a></a>numerical_cols <span class="op">=</span> births14.select_dtypes(include <span class="op">=</span> [<span class="st">'number'</span>]).columns</span>
 <span id="cb11-3"><a></a></span>
@@ -805,7 +783,7 @@ Number of Outliers:  32</code></pre>
 </div>
 </div>
 <div id="tabset-3-2">
-<div id="ba248360" class="cell" data-execution_count="11">
+<div id="84a47926" class="cell" data-execution_count="11">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -823,7 +801,7 @@ Number of Outliers:  32</code></pre>
 </section>
 <section id="missing-values-nan" class="slide level2">
 <h2>Missing values (<code>NaN</code>)</h2>
-<div id="dd298b20" class="cell" data-execution_count="12">
+<div id="619ef5b4" class="cell" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a></a><span class="co"># Sum of NAs in each column (should be the same, 10% of all)   </span></span>
 <span id="cb12-2"><a></a>births14.isnull().<span class="bu">sum</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="11">
@@ -850,7 +828,7 @@ dtype: int64</code></pre>
 <ul id="tabset-4" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-4-1">Bar plot</a></li><li><a href="#tabset-4-2">Matrix</a></li></ul>
 <div class="tab-content">
 <div id="tabset-4-1">
-<div id="150e60a4" class="cell" data-execution_count="13">
+<div id="ccb72375" class="cell" data-execution_count="13">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a></a>msno.bar(births14, figsize <span class="op">=</span> (<span class="dv">7</span>, <span class="dv">5</span>), fontsize <span class="op">=</span> <span class="dv">10</span>)</span>
 <span id="cb14-2"><a></a>plt.tight_layout()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
@@ -863,7 +841,7 @@ dtype: int64</code></pre>
 </div>
 </div>
 <div id="tabset-4-2">
-<div id="b5492a5f" class="cell" data-execution_count="14">
+<div id="dd2369a1" class="cell" data-execution_count="14">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a></a>msno.matrix(births14, figsize <span class="op">=</span> (<span class="dv">7</span>, <span class="dv">5</span>), fontsize <span class="op">=</span> <span class="dv">10</span>)</span>
 <span id="cb15-2"><a></a>plt.tight_layout()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
@@ -884,7 +862,7 @@ dtype: int64</code></pre>
 <ul id="tabset-5" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-5-1">Describe</a></li><li><a href="#tabset-5-2">Unique levels</a></li><li><a href="#tabset-5-3">Code</a></li></ul>
 <div class="tab-content">
 <div id="tabset-5-1">
-<div id="ed9ce7af" class="cell" data-execution_count="15">
+<div id="389041aa" class="cell" data-execution_count="15">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a></a>births14.describe(exclude <span class="op">=</span> [np.number])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="14">
 <div>
@@ -964,7 +942,7 @@ dtype: int64</code></pre>
 </div>
 </div>
 <div id="tabset-5-2">
-<div id="e8aef0fe" class="cell" data-execution_count="16">
+<div id="d6ff1a2a" class="cell" data-execution_count="16">
 <div class="cell-output cell-output-stdout">
 <pre><code>Analysis for mature:
 
@@ -1096,7 +1074,7 @@ Name: proportion, dtype: float64
 </div>
 </div>
 <div id="tabset-5-3">
-<div id="2fa6fd44" class="cell" data-execution_count="17">
+<div id="fa525df7" class="cell" data-execution_count="17">
 <div class="sourceCode cell-code" id="cb18" data-code-line-numbers="1-26|2|5|8-11|14-17|21-26"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a></a><span class="co"># Select categorical columns</span></span>
 <span id="cb18-2"><a></a>categorical_cols <span class="op">=</span> births14.select_dtypes(include <span class="op">=</span> [<span class="st">'object'</span>, <span class="st">'category'</span>]).columns</span>
 <span id="cb18-3"><a></a></span>
@@ -1130,7 +1108,7 @@ Name: proportion, dtype: float64
 </section>
 <section id="conditions-of-normality" class="slide level2 smaller">
 <h2>Conditions of normality</h2>
-<div id="8d999e06" class="cell" data-execution_count="18">
+<div id="d7d9a270" class="cell" data-execution_count="18">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -1150,11 +1128,11 @@ Name: proportion, dtype: float64
 </section>
 <section id="skewness" class="slide level2 smaller">
 <h2>Skewness</h2>
-<div id="da03d435" class="cell" data-execution_count="19">
+<div id="84007df2" class="cell" data-execution_count="19">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="03-eda_files/figure-revealjs/cell-20-output-1.png" class="quarto-figure quarto-figure-center" width="964" height="391"></p>
+<p><img data-src="03-eda_files/figure-revealjs/cell-20-output-1.png" class="quarto-figure quarto-figure-center" width="968" height="391"></p>
 </figure>
 </div>
 </div>
@@ -1170,7 +1148,7 @@ Name: proportion, dtype: float64
 </section>
 <section id="kurtosis" class="slide level2 smaller">
 <h2>Kurtosis</h2>
-<div id="fa61c0de" class="cell" data-execution_count="20">
+<div id="6ca29240" class="cell" data-execution_count="20">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -1193,7 +1171,7 @@ Name: proportion, dtype: float64
 <ul id="tabset-6" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-6-1">Normal</a></li><li><a href="#tabset-6-2">Negative skew</a></li><li><a href="#tabset-6-3">Positive skew</a></li></ul>
 <div class="tab-content">
 <div id="tabset-6-1">
-<div id="8e742ee4" class="cell" data-fig.asp="0.618" data-fig.width="10" data-execution_count="22">
+<div id="bedb1357" class="cell" data-fig.asp="0.618" data-fig.width="10" data-execution_count="22">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -1204,18 +1182,18 @@ Name: proportion, dtype: float64
 </div>
 </div>
 <div id="tabset-6-2">
-<div id="feaadd31" class="cell" data-fig.asp="0.618" data-fig.width="10" data-execution_count="23">
+<div id="d6d4c7a9" class="cell" data-fig.asp="0.618" data-fig.width="10" data-execution_count="23">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="03-eda_files/figure-revealjs/cell-24-output-1.png" class="quarto-figure quarto-figure-center" width="820" height="442"></p>
+<p><img data-src="03-eda_files/figure-revealjs/cell-24-output-1.png" class="quarto-figure quarto-figure-center" width="836" height="442"></p>
 </figure>
 </div>
 </div>
 </div>
 </div>
 <div id="tabset-6-3">
-<div id="e4c8b730" class="cell" data-fig.asp="0.618" data-fig.width="10" data-execution_count="24">
+<div id="ed0a75f3" class="cell" data-fig.asp="0.618" data-fig.width="10" data-execution_count="24">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -1234,7 +1212,7 @@ Name: proportion, dtype: float64
 <ul id="tabset-7" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-7-1">One column</a></li><li><a href="#tabset-7-2">Multiple columns</a></li></ul>
 <div class="tab-content">
 <div id="tabset-7-1">
-<div id="505957c9" class="cell" data-execution_count="25">
+<div id="95172951" class="cell" data-execution_count="25">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb19" data-code-line-numbers="1-24|2,5|8|11|14|17,18|21-24"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a></a><span class="co"># Change theme to "white"</span></span>
@@ -1275,7 +1253,7 @@ Name: proportion, dtype: float64
 </div>
 </div>
 <div id="tabset-7-2">
-<div id="78d8b3e4" class="cell" data-execution_count="26">
+<div id="71da7bc2" class="cell" data-execution_count="26">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb20" data-code-line-numbers="1-24|2|5,8|11,13|16,17|20,21|23,24"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a></a><span class="co"># Change theme to "white"</span></span>
@@ -1417,7 +1395,7 @@ Name: proportion, dtype: float64
 </section>
 <section id="aircraft-wildlife-collisions-1" class="slide level2 smaller">
 <h2>Aircraft-Wildlife Collisions</h2>
-<div id="d326c592" class="cell" data-execution_count="27">
+<div id="b93b2a2a" class="cell" data-execution_count="27">
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a></a>birds <span class="op">=</span> pd.read_csv(<span class="st">"data/birds.csv"</span>)</span>
 <span id="cb21-2"><a></a>birds[<span class="st">'date'</span>] <span class="op">=</span> pd.to_datetime(birds[<span class="st">'date'</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -1425,7 +1403,7 @@ Name: proportion, dtype: float64
 <ul id="tabset-8" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-8-1">Head</a></li><li><a href="#tabset-8-2">Info</a></li><li><a href="#tabset-8-3">Describe</a></li></ul>
 <div class="tab-content">
 <div id="tabset-8-1">
-<div id="898a2d3a" class="cell" data-execution_count="28">
+<div id="80d46c59" class="cell" data-execution_count="28">
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a></a>birds.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="26">
 <div>
@@ -1575,7 +1553,7 @@ Name: proportion, dtype: float64
 </div>
 </div>
 <div id="tabset-8-2">
-<div id="81832b05" class="cell" data-execution_count="29">
+<div id="bdff9789" class="cell" data-execution_count="29">
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a></a>birds.info()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>&lt;class 'pandas.core.frame.DataFrame'&gt;
@@ -1606,7 +1584,7 @@ memory usage: 2.5+ MB</code></pre>
 </div>
 </div>
 <div id="tabset-8-3">
-<div id="dc908455" class="cell" data-execution_count="30">
+<div id="5c5c8be4" class="cell" data-execution_count="30">
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a></a>birds.describe().<span class="bu">round</span>(<span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="28">
 <div>
@@ -1782,7 +1760,7 @@ memory usage: 2.5+ MB</code></pre>
 </section>
 <section id="histograms" class="slide level2 smaller">
 <h2>Histograms</h2>
-<div id="7f3e8378" class="cell" data-execution_count="31">
+<div id="9ec87fa6" class="cell" data-execution_count="31">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb26" data-code-line-numbers="1-6|1,2|4,6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
@@ -1803,7 +1781,7 @@ memory usage: 2.5+ MB</code></pre>
 </section>
 <section id="histograms-bins" class="slide level2 smaller">
 <h2>Histograms: bins</h2>
-<div id="9631a8fa" class="cell" data-execution_count="32">
+<div id="12c7dd9b" class="cell" data-execution_count="32">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb27" data-code-line-numbers="1-4|2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a></a>sns.displot(data <span class="op">=</span> birds, x <span class="op">=</span> <span class="st">"speed"</span>, </span>
@@ -1822,7 +1800,7 @@ memory usage: 2.5+ MB</code></pre>
 </section>
 <section id="density-plot" class="slide level2 smaller">
 <h2>Density Plot</h2>
-<div id="47ffe450" class="cell" data-execution_count="33">
+<div id="ed25c901" class="cell" data-execution_count="33">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb28" data-code-line-numbers="1-4|2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a></a>sns.displot(data <span class="op">=</span> birds, x <span class="op">=</span> <span class="st">"speed"</span>, </span>
@@ -1878,7 +1856,7 @@ memory usage: 2.5+ MB</code></pre>
 </section>
 <section id="scatterplots" class="slide level2 smaller">
 <h2>Scatterplots</h2>
-<div id="2ac59e23" class="cell" data-execution_count="34">
+<div id="fb8566bb" class="cell" data-execution_count="34">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb29" data-code-line-numbers="1-5|3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a></a>sns.set_theme(style <span class="op">=</span> <span class="st">"whitegrid"</span>)</span>
@@ -1898,7 +1876,7 @@ memory usage: 2.5+ MB</code></pre>
 </section>
 <section id="scatterplots---color" class="slide level2 smaller">
 <h2>Scatterplots - color</h2>
-<div id="94d7bbaa" class="cell" data-execution_count="35">
+<div id="c4e8ecf8" class="cell" data-execution_count="35">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb30" data-code-line-numbers="1-6|4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a></a>sns.set_theme(style <span class="op">=</span> <span class="st">"whitegrid"</span>)</span>
@@ -1919,7 +1897,7 @@ memory usage: 2.5+ MB</code></pre>
 </section>
 <section id="scatterplots---size-color" class="slide level2 smaller">
 <h2>Scatterplots - size + color</h2>
-<div id="0205c92b" class="cell" data-execution_count="36">
+<div id="1910c3d6" class="cell" data-execution_count="36">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb31" data-code-line-numbers="1-6|4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a></a>sns.set_theme(style <span class="op">=</span> <span class="st">"whitegrid"</span>)</span>
@@ -1940,7 +1918,7 @@ memory usage: 2.5+ MB</code></pre>
 </section>
 <section id="scatterplots---linear-relationships" class="slide level2 smaller">
 <h2>Scatterplots - linear relationships</h2>
-<div id="8511ce6d" class="cell" data-execution_count="37">
+<div id="29aea0a1" class="cell" data-execution_count="37">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb32" data-code-line-numbers="1-4|1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a></a>sns.lmplot(data <span class="op">=</span> birds, x <span class="op">=</span> <span class="st">"speed"</span>, y <span class="op">=</span> <span class="st">"height"</span>,</span>
@@ -1959,7 +1937,7 @@ memory usage: 2.5+ MB</code></pre>
 </section>
 <section id="scatterplots---grouped-relationships" class="slide level2 smaller">
 <h2>Scatterplots - grouped relationships</h2>
-<div id="a820c6ad" class="cell" data-execution_count="38">
+<div id="a3043cbb" class="cell" data-execution_count="38">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb33" data-code-line-numbers="1-4|1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a></a>sns.lmplot(data <span class="op">=</span> birds, x <span class="op">=</span> <span class="st">"speed"</span>, y <span class="op">=</span> <span class="st">"height"</span>,</span>
@@ -1978,7 +1956,7 @@ memory usage: 2.5+ MB</code></pre>
 </section>
 <section id="d-density-plots" class="slide level2 smaller">
 <h2>2D Density Plots</h2>
-<div id="ccc048c7" class="cell" data-execution_count="39">
+<div id="6b1cd625" class="cell" data-execution_count="39">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb34" data-code-line-numbers="1-4|2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a></a>sns.histplot(data <span class="op">=</span> birds, x <span class="op">=</span> <span class="st">"speed"</span>, y <span class="op">=</span> <span class="st">"height"</span>, </span>
@@ -1997,7 +1975,7 @@ memory usage: 2.5+ MB</code></pre>
 </section>
 <section id="d-density-plots-contours" class="slide level2 smaller">
 <h2>2D Density plots: contours</h2>
-<div id="72df8cba" class="cell" data-execution_count="40">
+<div id="0fb2e188" class="cell" data-execution_count="40">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb35" data-code-line-numbers="1-4|1,2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a></a>sns.kdeplot(data <span class="op">=</span> birds, x <span class="op">=</span> <span class="st">"speed"</span>, y <span class="op">=</span> np.log(birds[<span class="st">'height'</span>] <span class="op">+</span> <span class="dv">1</span>), </span>
@@ -2016,7 +1994,7 @@ memory usage: 2.5+ MB</code></pre>
 </section>
 <section id="d-density-plots-filled-contours" class="slide level2 smaller">
 <h2>2D Density plots: filled contours</h2>
-<div id="cf8f0050" class="cell" data-execution_count="41">
+<div id="0e572f8e" class="cell" data-execution_count="41">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb36" data-code-line-numbers="1-4|1,2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a></a>sns.kdeplot(data <span class="op">=</span> birds, x <span class="op">=</span> <span class="st">"speed"</span>, y <span class="op">=</span> np.log(birds[<span class="st">'height'</span>] <span class="op">+</span> <span class="dv">1</span>), </span>
@@ -2072,7 +2050,7 @@ memory usage: 2.5+ MB</code></pre>
 </section>
 <section id="line-plot" class="slide level2 smaller">
 <h2>Line Plot</h2>
-<div id="8e05eacc" class="cell" data-execution_count="42">
+<div id="74d1f3ce" class="cell" data-execution_count="42">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb37" data-code-line-numbers="1-6|3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a></a>sns.set_theme(style <span class="op">=</span> <span class="st">"whitegrid"</span>)</span>
@@ -2092,7 +2070,7 @@ memory usage: 2.5+ MB</code></pre>
 </section>
 <section id="line-plot-grouped-lines" class="slide level2">
 <h2>Line Plot: grouped lines</h2>
-<div id="546a2e14" class="cell" data-execution_count="43">
+<div id="ef4b0fab" class="cell" data-execution_count="43">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb38" data-code-line-numbers="1-4|2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a></a>sns.lineplot(data <span class="op">=</span> birds, x <span class="op">=</span> <span class="st">"date"</span>, y <span class="op">=</span> <span class="st">"speed"</span>,</span>
@@ -2148,7 +2126,7 @@ memory usage: 2.5+ MB</code></pre>
 </section>
 <section id="barplot" class="slide level2 smaller">
 <h2>Barplot</h2>
-<div id="a9b90a13" class="cell" data-execution_count="44">
+<div id="a1e9049d" class="cell" data-execution_count="44">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb39" data-code-line-numbers="1-6|3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a></a>sns.set_theme(style <span class="op">=</span> <span class="st">"white"</span>)</span>
@@ -2170,7 +2148,7 @@ memory usage: 2.5+ MB</code></pre>
 <section id="pie-chart" class="slide level2 smaller">
 <h2>Pie Chart</h2>
 <p>Can’t use {seaborn}</p>
-<div id="3e5e683f" class="cell" data-execution_count="45">
+<div id="87b30fca" class="cell" data-execution_count="45">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb40" data-code-line-numbers="1-9|1|3-5|7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a></a>category_counts <span class="op">=</span> birds[<span class="st">'sky'</span>].value_counts()</span>
@@ -2231,7 +2209,7 @@ memory usage: 2.5+ MB</code></pre>
 </section>
 <section id="boxplots" class="slide level2 smaller">
 <h2>Boxplots</h2>
-<div id="e7988d3b" class="cell" data-execution_count="46">
+<div id="4b023550" class="cell" data-execution_count="46">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb41" data-code-line-numbers="1-6|1|3,4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a></a>sns.set_style(<span class="st">"whitegrid"</span>)</span>
@@ -2252,7 +2230,7 @@ memory usage: 2.5+ MB</code></pre>
 </section>
 <section id="trim-axes" class="slide level2 smaller">
 <h2>Trim axes</h2>
-<div id="74f17ffa" class="cell" data-execution_count="47">
+<div id="8c06b09d" class="cell" data-execution_count="47">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb42" data-code-line-numbers="1-8|6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a></a>sns.set_style(<span class="st">"whitegrid"</span>)</span>
@@ -2275,7 +2253,7 @@ memory usage: 2.5+ MB</code></pre>
 </section>
 <section id="violin-plots" class="slide level2 smaller">
 <h2>Violin Plots</h2>
-<div id="a679cd08" class="cell" data-execution_count="48">
+<div id="4a77b85e" class="cell" data-execution_count="48">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb43" data-code-line-numbers="1-6|3,4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a></a>sns.set_style(<span class="st">"white"</span>)</span>
@@ -2296,7 +2274,7 @@ memory usage: 2.5+ MB</code></pre>
 </section>
 <section id="violin-plots-paired" class="slide level2 smaller">
 <h2>Violin Plots: paired</h2>
-<div id="3f4dff2b" class="cell" data-execution_count="49">
+<div id="a5177a86" class="cell" data-execution_count="49">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb44" data-code-line-numbers="1-10|3,5|7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a></a>sns.set_style(<span class="st">"white"</span>)</span>
@@ -2321,7 +2299,7 @@ memory usage: 2.5+ MB</code></pre>
 </section>
 <section id="violin-plots-quartiles-split" class="slide level2 smaller">
 <h2>Violin Plots: quartiles + split</h2>
-<div id="725db1a6" class="cell" data-execution_count="50">
+<div id="18845ce8" class="cell" data-execution_count="50">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb45" data-code-line-numbers="1-7|5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a></a>sns.set_style(<span class="st">"white"</span>)</span>
@@ -2344,7 +2322,7 @@ memory usage: 2.5+ MB</code></pre>
 <section id="cleaning-up-our-plots" class="slide level2 smaller">
 <h2>Cleaning up our plots</h2>
 <h4 id="my-minimum-expectation"><strong>My minimum expectation:</strong></h4>
-<div id="6ceb0061" class="cell" data-execution_count="51">
+<div id="cf802959" class="cell" data-execution_count="51">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb46" data-code-line-numbers="1-11|6-9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb46-1"><a></a>sns.set_style(<span class="st">"white"</span>)</span>
@@ -2370,7 +2348,7 @@ memory usage: 2.5+ MB</code></pre>
 </section>
 <section id="aside-correlations" class="slide level2 smaller">
 <h2>Aside: Correlations</h2>
-<div id="d1f83a16" class="cell" data-execution_count="52">
+<div id="a4051ccc" class="cell" data-execution_count="52">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb47" data-code-line-numbers="1-16|3|5|7|9,11|13,14"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb47-1"><a></a>sns.set_theme(style <span class="op">=</span> <span class="st">"white"</span>)</span>
@@ -2401,7 +2379,7 @@ memory usage: 2.5+ MB</code></pre>
 </section>
 <section id="lastly-pairgrids" class="slide level2 smaller">
 <h2>Lastly: Pairgrids</h2>
-<div id="027430b6" class="cell" data-execution_count="53">
+<div id="5983377e" class="cell" data-execution_count="53">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb48" data-code-line-numbers="1-11|3|5-9|"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb48-1"><a></a>sns.set_theme(style <span class="op">=</span> <span class="st">"white"</span>)</span>
@@ -2430,8 +2408,8 @@ memory usage: 2.5+ MB</code></pre>
 <table class="caption-top">
 <colgroup>
 <col style="width: 23%">
-<col style="width: 14%">
-<col style="width: 61%">
+<col style="width: 23%">
+<col style="width: 52%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -2515,7 +2493,7 @@ memory usage: 2.5+ MB</code></pre>
 <ul id="tabset-9" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-9-1">Read in</a></li><li><a href="#tabset-9-2">Code</a></li></ul>
 <div class="tab-content">
 <div id="tabset-9-1">
-<div id="0ea1405a" class="cell" data-execution_count="54">
+<div id="1acabd17" class="cell" data-execution_count="54">
 <div class="sourceCode cell-code" id="cb49"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb49-1"><a></a>diwali <span class="op">=</span> pd.read_csv(<span class="st">'https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2023/2023-11-14/diwali_sales_data.csv'</span>, encoding <span class="op">=</span> <span class="st">'iso-8859-1'</span>)</span>
 <span id="cb49-2"><a></a>diwali.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="52">
@@ -2642,7 +2620,7 @@ memory usage: 2.5+ MB</code></pre>
 </div>
 </div>
 <div id="tabset-9-2">
-<div id="46585f55" class="cell" data-execution_count="55">
+<div id="6b59b8ea" class="cell" data-execution_count="55">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb50"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb50-1"><a></a><span class="co"># Examine data</span></span>
@@ -2740,7 +2718,7 @@ memory usage: 2.5+ MB</code></pre>
   <div class="quarto-auto-generated-content" style="display: none;">
 <p><img src="../logo.png" class="slide-logo"></p>
 <div class="footer footer-default">
-<p><a href="https://info523-fall25-101-201.github.io/">🔗 github.io</a></p>
+<p><a href="https://datamineaz.org/">🔗 datamineaz.org</a></p>
 </div>
 </div></div>
 

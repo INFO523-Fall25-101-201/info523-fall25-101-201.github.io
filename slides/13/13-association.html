@@ -10,7 +10,6 @@
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-ea385d0e468b0dd5ea5bf0780b1290d9.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.7.33">
 
-  <meta name="author" content="John Chen">
   <title>INFO 523 – Association</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -194,7 +193,7 @@
   
   <script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 <meta property="og:title" content="Association – INFO 523">
-<meta property="og:description" content="Lecture 13">
+<meta property="og:description" content="Data Mining and Discovery">
 <meta property="og:site_name" content="INFO 523">
 </head>
 <body class="quarto-light">
@@ -203,31 +202,11 @@
 
 <section id="title-slide" data-background-image="../minedata-bg.png" data-background-size="600px, cover" data-slide-number="none" class="quarto-title-block center">
   <h1 class="title">Association</h1>
-  <p class="subtitle">Lecture 13</p>
+  <p class="subtitle">Data Mining and Discovery</p>
 
 <div class="quarto-title-authors">
-<div class="quarto-title-author">
-<div class="quarto-title-author-name">
-John Chen 
-</div>
-        <p class="quarto-title-affiliation">
-            University of Arizona <br> INFO 523 - Fall 2025
-          </p>
-    </div>
 </div>
 
-</section>
-<section>
-<section id="warm-up" class="title-slide slide level1 center">
-<h1>Warm up</h1>
-
-</section>
-<section id="announcements" class="slide level2">
-<h2>Announcements</h2>
-<ul>
-<li>RQ 05 is due Today, 11:59pm</li>
-<li>Final Project Presentations are Mon May 06, 1pm</li>
-</ul>
 </section>
 <section id="setup" class="slide level2 smaller">
 <h2>Setup</h2>
@@ -269,10 +248,10 @@ John Chen
 <blockquote>
 <p>Market Basket Analysis (MBA) is a data mining technique used to discover associations between items within large datasets, typically used in retail to find associations between products purchased together.</p>
 </blockquote>
-<div id="2c318659" class="cell" data-execution_count="2">
+<div id="b3531a33" class="cell" data-execution_count="2">
 <div class="cell-output cell-output-stdout">
 <pre><code>Itemsets from records:
-{('milk',), ('eggs',), ('apple', 'milk'), ('apple', 'eggs'), ('apple', 'eggs', 'bread'), ('eggs', 'milk'), ('apple',), ('banana',), ('apple', 'banana'), ('banana', 'milk'), ('apple', 'banana', 'milk'), ('eggs', 'bread'), (), ('bread',), ('apple', 'bread')}
+{('banana',), ('apple', 'eggs', 'bread'), ('apple',), ('apple', 'milk'), ('apple', 'bread'), ('eggs', 'milk'), ('apple', 'banana', 'milk'), ('apple', 'eggs'), ('eggs', 'bread'), ('banana', 'milk'), ('apple', 'banana'), ('milk',), ('bread',), (), ('eggs',)}
 
 
 Itemsets from items:
@@ -291,7 +270,7 @@ Itemsets from items:
 </section>
 <section id="frequency-of-events" class="slide level2 smaller">
 <h2>Frequency of events</h2>
-<div id="0aef7091" class="cell" data-execution_count="3">
+<div id="f81854c2" class="cell" data-execution_count="3">
 <div class="cell-output cell-output-stdout">
 <pre><code>Frequency of the itemsets:
 ('apple',), 0.67
@@ -320,7 +299,7 @@ Itemsets from items:
 <blockquote>
 <p>“<a href="https://www.kaggle.com/datasets/mittalvasu95/the-bread-basket">The Bread Basket</a>” data set that belongs to a bakery located in Edinburgh and includes over 9000 transactions. You can download it from Kaggle.</p>
 </blockquote>
-<div id="7eeb5f24" class="cell" data-execution_count="4">
+<div id="70812d77" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a></a>basket <span class="op">=</span> pd.read_csv(<span class="st">"data/breadBasket.csv"</span>)</span>
 <span id="cb4-2"><a></a>basket.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="4">
@@ -399,7 +378,7 @@ Itemsets from items:
 </div>
 </div>
 <div id="tabset-1-2">
-<div id="a2c7a89b" class="cell" data-execution_count="5">
+<div id="d496641c" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a></a>basket.loc[basket[<span class="st">'Transaction'</span>]<span class="op">==</span><span class="dv">3</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="5">
 <div>
@@ -461,7 +440,7 @@ Itemsets from items:
 </div>
 </div>
 <div id="tabset-1-3">
-<div id="4af11d2a" class="cell" data-execution_count="6">
+<div id="381b407e" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a></a><span class="co"># Groupby by the Transaction Ids and count items</span></span>
 <span id="cb6-2"><a></a>basket <span class="op">=</span> basket.groupby(</span>
 <span id="cb6-3"><a></a>              by <span class="op">=</span> [<span class="st">'Transaction'</span>, </span>
@@ -753,7 +732,7 @@ Itemsets from items:
 <li class="fragment"><p>Less intuitive to understand and interpret for those new to association mining.</p></li>
 <li class="fragment"><p>Like lift, does not directly indicate the direction of the association.</p></li>
 </ul>
-</section></section>
+</section>
 <section>
 <section id="frequent-itemsets-mining" class="title-slide slide level1 center">
 <h1>Frequent itemsets mining</h1>
@@ -902,7 +881,7 @@ Pros:</strong></p>
 </section>
 <section id="apriori-method-applied" class="slide level2 smaller">
 <h2>Apriori method: applied</h2>
-<div id="4173e6b6" class="cell" data-execution_count="7">
+<div id="a9aed8e1" class="cell" data-execution_count="7">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a></a><span class="co"># Apply Apriori to find frequent itemsets</span></span>
@@ -1337,10 +1316,10 @@ Pros:</strong></p>
 <p>All the frequent itemsets derived from the conditional fp-trees have been tabulated below.</p>
 <table class="caption-top">
 <colgroup>
-<col style="width: 8%">
-<col style="width: 32%">
-<col style="width: 22%">
-<col style="width: 36%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
 </colgroup>
 <tbody>
 <tr class="odd">
@@ -1375,8 +1354,8 @@ Pros:</strong></p>
 <p><strong>Step 7:</strong> Generate Association Rules, e.g.:</p>
 <table class="caption-top">
 <colgroup>
-<col style="width: 14%">
-<col style="width: 85%">
+<col style="width: 50%">
+<col style="width: 50%">
 </colgroup>
 <tbody>
 <tr class="odd">
@@ -1432,7 +1411,7 @@ Pros:</strong></p>
 </section>
 <section id="fp-growth-applied" class="slide level2 smaller">
 <h2>FP-Growth: applied</h2>
-<div id="46213587" class="cell" data-execution_count="8">
+<div id="36185d6f" class="cell" data-execution_count="8">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a></a><span class="co"># Apply FP-Growth to find frequent itemsets</span></span>
@@ -1477,7 +1456,7 @@ Frequent Itemsets from FP-Growth:
 <ul id="tabset-4" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-4-1">Setup</a></li><li><a href="#tabset-4-2">Closed itemsets</a></li><li><a href="#tabset-4-3">Maximal itemsets</a></li></ul>
 <div class="tab-content">
 <div id="tabset-4-1">
-<div id="a972e5ac" class="cell" data-execution_count="9">
+<div id="9f58f4ae" class="cell" data-execution_count="9">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a></a><span class="im">import</span> time</span>
@@ -1496,12 +1475,12 @@ Frequent Itemsets from FP-Growth:
 <span id="cb11-14"><a></a>unique_supports <span class="op">=</span> frequent_itemsets[<span class="st">'support'</span>].unique()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>Time to find frequent itemset: 4.540992021560669 seconds</code></pre>
+<pre><code>Time to find frequent itemset: 6.50425910949707 seconds</code></pre>
 </div>
 </div>
 </div>
 <div id="tabset-4-2">
-<div id="1aa95c23" class="cell" data-execution_count="10">
+<div id="24c566bd" class="cell" data-execution_count="10">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a></a><span class="co"># Find closed itemsets</span></span>
@@ -1520,7 +1499,7 @@ Frequent Itemsets from FP-Growth:
 </div>
 </div>
 <div id="tabset-4-3">
-<div id="6d38de14" class="cell" data-execution_count="11">
+<div id="ddbfe472" class="cell" data-execution_count="11">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a></a><span class="co"># Find max itemsets</span></span>
@@ -1543,7 +1522,7 @@ Frequent Itemsets from FP-Growth:
 </section>
 <section id="correlations-from-association" class="slide level2 smaller">
 <h2>Correlations from association</h2>
-<div id="2b1332ee" class="cell" data-execution_count="12">
+<div id="f290f41e" class="cell" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a></a><span class="co"># Convert boolean values to integers for correlation analysis</span></span>
 <span id="cb17-2"><a></a>df_numeric <span class="op">=</span> basket.astype(<span class="bu">int</span>)</span>
 <span id="cb17-3"><a></a></span>
@@ -1560,7 +1539,7 @@ P-Value: 0.001</code></pre>
 </section>
 <section id="regression-analysis" class="slide level2 smaller">
 <h2>Regression analysis</h2>
-<div id="04c3f4d8" class="cell" data-execution_count="13">
+<div id="bde858ff" class="cell" data-execution_count="13">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a></a><span class="co"># Prepare the data</span></span>
@@ -1583,8 +1562,8 @@ P-Value: 0.001</code></pre>
 Dep. Variable:                 Coffee   No. Observations:                 9465
 Model:                          Logit   Df Residuals:                     9463
 Method:                           MLE   Df Model:                            1
-Date:                Wed, 20 Aug 2025   Pseudo R-squ.:               0.0007904
-Time:                        11:35:27   Log-Likelihood:                -6546.6
+Date:                Sat, 23 Aug 2025   Pseudo R-squ.:               0.0007904
+Time:                        12:25:23   Log-Likelihood:                -6546.6
 converged:                       True   LL-Null:                       -6551.8
 Covariance Type:            nonrobust   LLR p-value:                  0.001290
 ==============================================================================
@@ -1622,7 +1601,7 @@ Cake           0.2170      0.067      3.215      0.001       0.085       0.349
 <section id="in-class-exercise" class="slide level2">
 <h2>In-class Exercise</h2>
 <div class="task">
-<p>Go to <a href="https://https://info523-fall25-101-201.github.io/exercises/ex-13.html">ex-13</a> and perform the tasks</p>
+<p>Go to <a href="https://datamineaz.org/exercises/ex-13.html">ex-13</a> and perform the tasks</p>
 </div>
 
 
@@ -1631,7 +1610,7 @@ Cake           0.2170      0.067      3.215      0.001       0.085       0.349
   <div class="quarto-auto-generated-content" style="display: none;">
 <p><img src="../logo.png" class="slide-logo"></p>
 <div class="footer footer-default">
-<p><a href="https://info523-fall25-101-201.github.io/">🔗 github.io</a></p>
+<p><a href="https://datamineaz.org/">🔗 datamineaz.org</a></p>
 </div>
 </div></div>
 

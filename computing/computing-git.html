@@ -29,8 +29,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../project/project-2.html" rel="next">
-<link href="../computing/computing-cheatsheets.html" rel="prev">
+<link href="../project/project-2.qmd" rel="next">
+<link href="../computing/computing-python.html" rel="prev">
 <link href="..//images/logo.png" rel="icon" type="image/png">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
@@ -43,9 +43,9 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-ea385d0e468b0dd5ea5bf0780b1290d9.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-0c0a0fd54d4eedb74a3c4d7362e20632.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-8ef5ba5aeca76531da08c00beb447ab0.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../site_libs/bootstrap/bootstrap-0c0a0fd54d4eedb74a3c4d7362e20632.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-05637a8b181e17c4fff429b952d234bb.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-c76ba504b02f2aed44de68198fe4e073.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-05637a8b181e17c4fff429b952d234bb.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -383,6 +383,12 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../computing/computing-python.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Setting up Python</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../computing/computing-git.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Setting up Git</span></a>
   </div>
@@ -400,7 +406,7 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../project/project-2.html" class="sidebar-item-text sidebar-link">
+  <a href="../project/project-2.qmd" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Final Project</span></a>
   </div>
 </li>
@@ -415,6 +421,18 @@ ul.task-list li input[type="checkbox"] {
           </a> 
       </div>
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../homework/workflow.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Computing workflow</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../homework/codespaces.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Codespaces</span></a>
+  </div>
+</li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../homework/hw-01.html" class="sidebar-item-text sidebar-link">
@@ -462,6 +480,24 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">Ex-06: Classifying Spam Emails</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../exercises/ex-08.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Ex-08: Analyzing Egg Production Trends</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../exercises/ex-09.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Ex-09: Time series analysis</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../exercises/ex-12.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Ex-12: Clustering Taylor Swift Songs</span></a>
+  </div>
+</li>
       </ul>
   </li>
     </ul>
@@ -475,9 +511,9 @@ ul.task-list li input[type="checkbox"] {
    
   <ul>
   <li><a href="#git-vs.-github" id="toc-git-vs.-github" class="nav-link active" data-scroll-target="#git-vs.-github">Git vs.&nbsp;GitHub</a></li>
-  <li><a href="#installing-up-git" id="toc-installing-up-git" class="nav-link" data-scroll-target="#installing-up-git">Installing up Git</a>
+  <li><a href="#installing-git" id="toc-installing-git" class="nav-link" data-scroll-target="#installing-git">Installing Git</a>
   <ul class="collapse">
-  <li><a href="#for-mac" id="toc-for-mac" class="nav-link" data-scroll-target="#for-mac"><strong>For Mac:</strong></a></li>
+  <li><a href="#for-mac" id="toc-for-mac" class="nav-link" data-scroll-target="#for-mac">For Mac:</a></li>
   <li><a href="#windows-pc" id="toc-windows-pc" class="nav-link" data-scroll-target="#windows-pc">Windows (PC)</a></li>
   </ul></li>
   <li><a href="#setting-up-git" id="toc-setting-up-git" class="nav-link" data-scroll-target="#setting-up-git">Setting up Git</a>
@@ -515,10 +551,10 @@ ul.task-list li input[type="checkbox"] {
 <h2 class="anchored" data-anchor-id="git-vs.-github">Git vs.&nbsp;GitHub</h2>
 <p><a href="https://en.wikipedia.org/wiki/Git"><strong>Git</strong></a> is a distributed version control system that allows developers to track changes in their code, collaborate with others, and manage different versions of their projects. <a href="https://en.wikipedia.org/wiki/GitHub"><strong>GitHub</strong></a>, on the other hand, is a web-based platform built around Git’s functionality, offering a place to host repositories, collaborate with others, and provide tools for code review, project management, and community interaction. While Git provides the underlying version control capabilities, GitHub enhances these capabilities with a user-friendly interface and additional features. Together, they are crucial for modern software development, fostering collaboration, ensuring code integrity, and enabling the open-source movement.</p>
 </section>
-<section id="installing-up-git" class="level2">
-<h2 class="anchored" data-anchor-id="installing-up-git">Installing up Git</h2>
+<section id="installing-git" class="level2">
+<h2 class="anchored" data-anchor-id="installing-git">Installing Git</h2>
 <section id="for-mac" class="level3">
-<h3 class="anchored" data-anchor-id="for-mac"><strong>For Mac:</strong></h3>
+<h3 class="anchored" data-anchor-id="for-mac">For Mac:</h3>
 <ol type="1">
 <li><p><strong>Check Existing Installation</strong>: Since macOS might already have Git installed, open Terminal and type:</p>
 <pre class="{bash}"><code>git --version</code></pre>
@@ -1009,12 +1045,12 @@ git config --global user.email "youremail@example.com"</code></pre></li>
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../computing/computing-cheatsheets.html" class="pagination-link" aria-label="Cheatsheets">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Cheatsheets</span>
+      <a href="../computing/computing-python.html" class="pagination-link" aria-label="Setting up Python">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Setting up Python</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../project/project-2.html" class="pagination-link" aria-label="Final Project">
+      <a href="../project/project-2.qmd" class="pagination-link" aria-label="Final Project">
         <span class="nav-page-text">Final Project</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>

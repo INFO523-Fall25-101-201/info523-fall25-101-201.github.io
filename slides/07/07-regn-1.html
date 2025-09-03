@@ -10,7 +10,6 @@
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-ea385d0e468b0dd5ea5bf0780b1290d9.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.7.33">
 
-  <meta name="author" content="John Chen">
   <title>INFO 523 – Regressions I</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -194,7 +193,7 @@
   
   <script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 <meta property="og:title" content="Regressions I – INFO 523">
-<meta property="og:description" content="Lecture 7">
+<meta property="og:description" content="Data Mining and Discovery">
 <meta property="og:site_name" content="INFO 523">
 </head>
 <body class="quarto-light">
@@ -203,32 +202,11 @@
 
 <section id="title-slide" data-background-image="../minedata-bg.png" data-background-size="600px, cover" data-slide-number="none" class="quarto-title-block center">
   <h1 class="title">Regressions I</h1>
-  <p class="subtitle">Lecture 7</p>
+  <p class="subtitle">Data Mining and Discovery</p>
 
 <div class="quarto-title-authors">
-<div class="quarto-title-author">
-<div class="quarto-title-author-name">
-John Chen 
-</div>
-        <p class="quarto-title-affiliation">
-            University of Arizona <br> INFO 523 - Fall 2025
-          </p>
-    </div>
 </div>
 
-</section>
-<section>
-<section id="warm-up" class="title-slide slide level1 center">
-<h1>Warm up</h1>
-
-</section>
-<section id="announcements" class="slide level2">
-<h2>Announcements</h2>
-<ul>
-<li><p>RQ 3 is due today, 11:59pm</p></li>
-<li><p>HW 3 is due today, 11:59pm</p></li>
-<li><p>Final project peer-review is Wed Mar 27</p></li>
-</ul>
 </section>
 <section id="setup" class="slide level2 smaller">
 <h2>Setup</h2>
@@ -258,7 +236,7 @@ John Chen
 <span id="cb1-23"><a></a><span class="co"># Set Seaborn theme</span></span>
 <span id="cb1-24"><a></a>sns.set_theme(style <span class="op">=</span> <span class="st">"white"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</section></section>
+</section>
 <section>
 <section id="regressions" class="title-slide slide level1 center">
 <h1>Regressions</h1>
@@ -270,7 +248,7 @@ John Chen
 <ul id="tabset-1" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-1-1">Visual</a></li><li><a href="#tabset-1-2">Definition</a></li><li><a href="#tabset-1-3">Key points</a></li><li><a href="#tabset-1-4"></a></li></ul>
 <div class="tab-content">
 <div id="tabset-1-1">
-<div id="12815d37" class="cell" data-execution_count="2">
+<div id="27fba843" class="cell" data-execution_count="2">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -453,7 +431,7 @@ John Chen
 </ul>
 </div>
 <div id="tabset-2-5">
-<div id="7ef927ba" class="cell" data-execution_count="3">
+<div id="b92a485b" class="cell" data-execution_count="3">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -472,12 +450,12 @@ John Chen
 <ul id="tabset-3" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-3-1">Read</a></li><li><a href="#tabset-3-2">Info</a></li><li><a href="#tabset-3-3">Describe</a></li><li><a href="#tabset-3-4">Plot</a></li></ul>
 <div class="tab-content">
 <div id="tabset-3-1">
-<div id="e9288f9d" class="cell" data-execution_count="4">
+<div id="e5225540" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a></a>elmhurst <span class="op">=</span> pd.read_csv(<span class="st">"data/elmhurst.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 <div id="tabset-3-2">
-<div id="fd905fbc" class="cell" data-execution_count="5">
+<div id="788a9bc1" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a></a>elmhurst.info()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>&lt;class 'pandas.core.frame.DataFrame'&gt;
@@ -494,7 +472,7 @@ memory usage: 1.3 KB</code></pre>
 </div>
 </div>
 <div id="tabset-3-3">
-<div id="f5cdb4b0" class="cell" data-execution_count="6">
+<div id="0d6820a2" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a></a>elmhurst.describe()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="6">
 <div>
@@ -578,7 +556,7 @@ memory usage: 1.3 KB</code></pre>
 </div>
 </div>
 <div id="tabset-3-4">
-<div id="5b455861" class="cell" data-execution_count="7">
+<div id="7ce9a856" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a></a>sns.scatterplot(data <span class="op">=</span> elmhurst, x <span class="op">=</span> <span class="st">"family_income"</span>, y <span class="op">=</span> <span class="st">"gift_aid"</span>)</span>
 <span id="cb6-2"><a></a>plt.xlabel(<span class="st">"Family income ($)"</span>)</span>
 <span id="cb6-3"><a></a>plt.ylabel(<span class="st">"Gift aid from university ($)"</span>)</span>
@@ -601,7 +579,7 @@ memory usage: 1.3 KB</code></pre>
 <ul id="tabset-4" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-4-1">Model summary</a></li><li><a href="#tabset-4-2">Residual plot</a></li><li><a href="#tabset-4-3">Regression fit plot</a></li></ul>
 <div class="tab-content">
 <div id="tabset-4-1">
-<div id="8bdf5021" class="cell" data-execution_count="8">
+<div id="0284d51c" class="cell" data-execution_count="8">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb7" data-code-line-numbers="|1,2|4|5|7|9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a></a>X <span class="op">=</span> elmhurst[<span class="st">'family_income'</span>]  <span class="co"># Independent variable</span></span>
@@ -620,7 +598,7 @@ memory usage: 1.3 KB</code></pre>
 =================================================================
 Model:              OLS              Adj. R-squared:     0.205   
 Dependent Variable: gift_aid         AIC:                241.3545
-Date:               2025-08-20 11:30 BIC:                244.7323
+Date:               2025-09-03 10:10 BIC:                244.7323
 No. Observations:   40               Log-Likelihood:     -118.68 
 Df Model:           1                F-statistic:        11.05   
 Df Residuals:       38               Prob (F-statistic): 0.00197 
@@ -643,7 +621,7 @@ errors is correctly specified.</code></pre>
 </div>
 </div>
 <div id="tabset-4-2">
-<div id="c4182d70" class="cell" data-execution_count="9">
+<div id="0e3dd5e4" class="cell" data-execution_count="9">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb9" data-code-line-numbers="|1|2|3|5-9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a></a>X_test_with_const <span class="op">=</span> sm.add_constant(X_test)</span>
@@ -666,7 +644,7 @@ errors is correctly specified.</code></pre>
 </div>
 </div>
 <div id="tabset-4-3">
-<div id="308c96c0" class="cell" data-execution_count="10">
+<div id="748ebd83" class="cell" data-execution_count="10">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb10" data-code-line-numbers="|1|3,4|5|7-11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a></a>plt.scatter(X_test, y_test, label <span class="op">=</span> <span class="st">'Data'</span>)</span>
@@ -706,7 +684,7 @@ errors is correctly specified.</code></pre>
 <div id="tabset-5-1">
 <div class="columns">
 <div class="column" style="width:50%;">
-<div id="00fb18f2" class="cell" data-execution_count="11">
+<div id="a69b6106" class="cell" data-execution_count="11">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -716,7 +694,7 @@ errors is correctly specified.</code></pre>
 </div>
 </div>
 </div><div class="column" style="width:50%;">
-<div id="db0db60e" class="cell" data-execution_count="12">
+<div id="be3e7411" class="cell" data-execution_count="12">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -755,7 +733,7 @@ errors is correctly specified.</code></pre>
 </div>
 </div>
 <div id="tabset-6-2">
-<div id="212c1183" class="cell" data-execution_count="13">
+<div id="762ac2a9" class="cell" data-execution_count="13">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a></a>loans <span class="op">=</span> pd.read_csv(<span class="st">"data/loans.csv"</span>)</span>
 <span id="cb11-2"><a></a>loans.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="13">
@@ -979,7 +957,7 @@ errors is correctly specified.</code></pre>
 </table>
 </div>
 <div id="tabset-6-4">
-<div id="b8ffd259" class="cell" data-execution_count="14">
+<div id="550efecb" class="cell" data-execution_count="14">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a></a>loans.info()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>&lt;class 'pandas.core.frame.DataFrame'&gt;
@@ -1048,7 +1026,7 @@ memory usage: 4.2+ MB</code></pre>
 </div>
 </div>
 <div id="tabset-6-5">
-<div id="d2a99918" class="cell" data-execution_count="15">
+<div id="902c288b" class="cell" data-execution_count="15">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a></a>loans.describe()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="15">
 <div>
@@ -1295,7 +1273,7 @@ memory usage: 4.2+ MB</code></pre>
 </div>
 </div>
 <div id="tabset-6-6">
-<div id="dd542ae5" class="cell" data-execution_count="16">
+<div id="14abadf8" class="cell" data-execution_count="16">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a></a>sns.scatterplot(data <span class="op">=</span> loans, x <span class="op">=</span> <span class="st">"debt_to_income"</span>, y <span class="op">=</span> <span class="st">"interest_rate"</span>, hue <span class="op">=</span> <span class="st">"loan_purpose"</span>)</span>
@@ -1316,9 +1294,9 @@ memory usage: 4.2+ MB</code></pre>
 </div>
 </div>
 </section>
-<section id="our-data-preprocessed" class="slide level2">
+<section id="our-data-preprocessed" class="slide level2 smaller">
 <h2>Our data: preprocessed</h2>
-<div id="e3a60ed9" class="cell" data-execution_count="17">
+<div id="bc4db19c" class="cell" data-execution_count="17">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a></a>loans[<span class="st">'credit_util'</span>] <span class="op">=</span> loans[<span class="st">'total_credit_utilized'</span>] <span class="op">/</span> loans[<span class="st">'total_credit_limit'</span>]</span>
 <span id="cb16-2"><a></a>loans[<span class="st">'bankruptcy'</span>] <span class="op">=</span> (loans[<span class="st">'public_record_bankrupt'</span>] <span class="op">!=</span> <span class="dv">0</span>).astype(<span class="bu">int</span>)</span>
 <span id="cb16-3"><a></a>loans[<span class="st">'verified_income'</span>] <span class="op">=</span> loans[<span class="st">'verified_income'</span>].astype(<span class="st">'category'</span>).cat.remove_unused_categories()</span>
@@ -1333,7 +1311,7 @@ memory usage: 4.2+ MB</code></pre>
 <ul id="tabset-7" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-7-1">Model summary</a></li><li><a href="#tabset-7-2">Coefficients</a></li><li><a href="#tabset-7-3">Residual plot</a></li><li><a href="#tabset-7-4">Regression fit</a></li></ul>
 <div class="tab-content">
 <div id="tabset-7-1">
-<div id="2f3d9a52" class="cell" data-execution_count="18">
+<div id="09d588f0" class="cell" data-execution_count="18">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a></a>X <span class="op">=</span> loans[[<span class="st">'verified_income'</span>, <span class="st">'debt_to_income'</span>, <span class="st">'credit_util'</span>, <span class="st">'bankruptcy'</span>, <span class="st">'term'</span>, <span class="st">'credit_checks'</span>, <span class="st">'issue_month'</span>]]  </span>
@@ -1359,7 +1337,7 @@ memory usage: 4.2+ MB</code></pre>
 ==============================================================================
 Model:                   OLS                 Adj. R-squared:        0.191     
 Dependent Variable:      interest_rate       AIC:                   46653.7930
-Date:                    2025-08-20 11:30    BIC:                   46723.6650
+Date:                    2025-09-03 10:10    BIC:                   46723.6650
 No. Observations:        8000                Log-Likelihood:        -23317.   
 Df Model:                9                   F-statistic:           210.4     
 Df Residuals:            7990                Prob (F-statistic):    0.00      
@@ -1404,7 +1382,7 @@ correctly specified.</code></pre>
 \end{aligned}\]</span>
 </div>
 <div id="tabset-7-3">
-<div id="802c34f3" class="cell" data-execution_count="19">
+<div id="cfc18c60" class="cell" data-execution_count="19">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a></a>X_test_with_const <span class="op">=</span> sm.add_constant(X_test)</span>
@@ -1430,7 +1408,7 @@ correctly specified.</code></pre>
 </div>
 </div>
 <div id="tabset-7-4">
-<div id="37fc9923" class="cell" data-execution_count="20">
+<div id="aa7f8f52" class="cell" data-execution_count="20">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a></a>plt.scatter(predictions, y_test, label <span class="op">=</span> <span class="st">'Data'</span>)</span>
@@ -1651,7 +1629,7 @@ correctly specified.</code></pre>
 <ul id="tabset-11" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-11-1">Original</a></li><li><a href="#tabset-11-2">Implementing BSS</a></li><li><a href="#tabset-11-3">AIC</a></li><li><a href="#tabset-11-4">BIC</a></li><li><a href="#tabset-11-5"><span class="math inline">\(R^{2}_{adj}\)</span></a></li></ul>
 <div class="tab-content">
 <div id="tabset-11-1">
-<div id="dcc751f5" class="cell" data-execution_count="21">
+<div id="a94794aa" class="cell" data-execution_count="21">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a></a>X <span class="op">=</span> loans[[<span class="st">'verified_income'</span>, <span class="st">'debt_to_income'</span>, <span class="st">'credit_util'</span>, <span class="st">'bankruptcy'</span>, <span class="st">'term'</span>, <span class="st">'credit_checks'</span>, <span class="st">'issue_month'</span>]]  </span>
@@ -1677,7 +1655,7 @@ correctly specified.</code></pre>
 ==============================================================================
 Model:                   OLS                 Adj. R-squared:        0.191     
 Dependent Variable:      interest_rate       AIC:                   46653.7930
-Date:                    2025-08-20 11:30    BIC:                   46723.6650
+Date:                    2025-09-03 10:10    BIC:                   46723.6650
 No. Observations:        8000                Log-Likelihood:        -23317.   
 Df Model:                9                   F-statistic:           210.4     
 Df Residuals:            7990                Prob (F-statistic):    0.00      
@@ -1708,7 +1686,7 @@ correctly specified.</code></pre>
 </div>
 </div>
 <div id="tabset-11-2">
-<div id="674e9b8b" class="cell" data-execution_count="22">
+<div id="91c5e294" class="cell" data-execution_count="22">
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a></a><span class="kw">def</span> best_subset_selection(X, y):</span>
 <span id="cb23-2"><a></a>    results <span class="op">=</span> []</span>
 <span id="cb23-3"><a></a>    <span class="cf">for</span> k <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, <span class="bu">len</span>(X.columns) <span class="op">+</span> <span class="dv">1</span>):</span>
@@ -1722,7 +1700,7 @@ correctly specified.</code></pre>
 </div>
 </div>
 <div id="tabset-11-3">
-<div id="ec07f663" class="cell" data-execution_count="23">
+<div id="cbac0bcb" class="cell" data-execution_count="23">
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a></a>best_aic <span class="op">=</span> np.inf</span>
 <span id="cb24-2"><a></a>best_model_1 <span class="op">=</span> <span class="va">None</span></span>
 <span id="cb24-3"><a></a></span>
@@ -1732,7 +1710,7 @@ correctly specified.</code></pre>
 <span id="cb24-7"><a></a>        best_model_1 <span class="op">=</span> result</span>
 <span id="cb24-8"><a></a>        </span>
 <span id="cb24-9"><a></a><span class="bu">print</span>(<span class="st">"Best Model Predictors:"</span>, best_model_1[<span class="st">'predictors'</span>])</span>
-<span id="cb24-10"><a></a><span class="bu">print</span>(<span class="st">"Best Model AIC:"</span>, <span class="bu">round</span>(best_aic, <span class="dv">2</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb24-10"><a></a><span class="bu">print</span>(<span class="st">"Best Model AIC:"</span>, best_aic.<span class="bu">round</span>(<span class="dv">2</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Best Model Predictors: ('debt_to_income', 'credit_util', 'bankruptcy', 'term', 'credit_checks', 'verified_income_Source Verified', 'verified_income_Verified')
 Best Model AIC: 46650.23</code></pre>
@@ -1740,7 +1718,7 @@ Best Model AIC: 46650.23</code></pre>
 </div>
 </div>
 <div id="tabset-11-4">
-<div id="66e9ab54" class="cell" data-execution_count="24">
+<div id="6ff3f2b1" class="cell" data-execution_count="24">
 <div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a></a>best_bic <span class="op">=</span> np.inf</span>
 <span id="cb26-2"><a></a>best_model_2 <span class="op">=</span> <span class="va">None</span></span>
 <span id="cb26-3"><a></a></span>
@@ -1750,7 +1728,7 @@ Best Model AIC: 46650.23</code></pre>
 <span id="cb26-7"><a></a>        best_model_2 <span class="op">=</span> result</span>
 <span id="cb26-8"><a></a>        </span>
 <span id="cb26-9"><a></a><span class="bu">print</span>(<span class="st">"Best Model Predictors:"</span>, best_model_2[<span class="st">'predictors'</span>])</span>
-<span id="cb26-10"><a></a><span class="bu">print</span>(<span class="st">"Best Model BIC:"</span>, <span class="bu">round</span>(best_bic, <span class="dv">2</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb26-10"><a></a><span class="bu">print</span>(<span class="st">"Best Model BIC:"</span>, best_bic.<span class="bu">round</span>(<span class="dv">2</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Best Model Predictors: ('debt_to_income', 'credit_util', 'bankruptcy', 'term', 'credit_checks', 'verified_income_Source Verified', 'verified_income_Verified')
 Best Model BIC: 46706.13</code></pre>
@@ -1758,7 +1736,7 @@ Best Model BIC: 46706.13</code></pre>
 </div>
 </div>
 <div id="tabset-11-5">
-<div id="8c8d3f84" class="cell" data-execution_count="25">
+<div id="07fd544a" class="cell" data-execution_count="25">
 <div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a></a>best_r_sq_adj <span class="op">=</span> <span class="op">-</span>np.inf  </span>
 <span id="cb28-2"><a></a>best_model_3 <span class="op">=</span> <span class="va">None</span></span>
 <span id="cb28-3"><a></a></span>
@@ -1768,7 +1746,7 @@ Best Model BIC: 46706.13</code></pre>
 <span id="cb28-7"><a></a>        best_model_3 <span class="op">=</span> result</span>
 <span id="cb28-8"><a></a>        </span>
 <span id="cb28-9"><a></a><span class="bu">print</span>(<span class="st">"Best Model Predictors:"</span>, best_model_3[<span class="st">'predictors'</span>])</span>
-<span id="cb28-10"><a></a><span class="bu">print</span>(<span class="st">"Best Model Adjusted R-squared:"</span>, <span class="bu">round</span>(best_r_sq_adj, <span class="dv">2</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb28-10"><a></a><span class="bu">print</span>(<span class="st">"Best Model Adjusted R-squared:"</span>, best_r_sq_adj.<span class="bu">round</span>(<span class="dv">2</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Best Model Predictors: ('debt_to_income', 'credit_util', 'bankruptcy', 'term', 'credit_checks', 'verified_income_Source Verified', 'verified_income_Verified')
 Best Model Adjusted R-squared: 0.19</code></pre>
@@ -1784,7 +1762,7 @@ Best Model Adjusted R-squared: 0.19</code></pre>
 <ul id="tabset-12" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-12-1">Original</a></li><li><a href="#tabset-12-2">Forward selection</a></li><li><a href="#tabset-12-3">Backward selection</a></li></ul>
 <div class="tab-content">
 <div id="tabset-12-1">
-<div id="5f80c738" class="cell" data-execution_count="26">
+<div id="0ce89f62" class="cell" data-execution_count="26">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a></a>X <span class="op">=</span> loans[[<span class="st">'verified_income'</span>, <span class="st">'debt_to_income'</span>, <span class="st">'credit_util'</span>, <span class="st">'bankruptcy'</span>, <span class="st">'term'</span>, <span class="st">'credit_checks'</span>, <span class="st">'issue_month'</span>]]  </span>
@@ -1810,7 +1788,7 @@ Best Model Adjusted R-squared: 0.19</code></pre>
 ==============================================================================
 Model:                   OLS                 Adj. R-squared:        0.191     
 Dependent Variable:      interest_rate       AIC:                   46653.7930
-Date:                    2025-08-20 11:30    BIC:                   46723.6650
+Date:                    2025-09-03 10:10    BIC:                   46723.6650
 No. Observations:        8000                Log-Likelihood:        -23317.   
 Df Model:                9                   F-statistic:           210.4     
 Df Residuals:            7990                Prob (F-statistic):    0.00      
@@ -1841,7 +1819,7 @@ correctly specified.</code></pre>
 </div>
 </div>
 <div id="tabset-12-2">
-<div id="3126f2df" class="cell" data-execution_count="27">
+<div id="06569fcd" class="cell" data-execution_count="27">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a></a>lr <span class="op">=</span> LinearRegression()</span>
@@ -1882,9 +1860,9 @@ correctly specified.</code></pre>
 <span id="cb32-36"><a></a><span class="co"># Output the results</span></span>
 <span id="cb32-37"><a></a><span class="bu">print</span>(<span class="st">"Forward Selection Results"</span>)</span>
 <span id="cb32-38"><a></a><span class="bu">print</span>(<span class="st">"Selected predictors:"</span>, selected_features)</span>
-<span id="cb32-39"><a></a><span class="bu">print</span>(<span class="st">"AIC:"</span>, <span class="bu">round</span>(model_sm.aic, <span class="dv">3</span>))</span>
-<span id="cb32-40"><a></a><span class="bu">print</span>(<span class="st">"BIC:"</span>, <span class="bu">round</span>(model_sm.bic, <span class="dv">3</span>))</span>
-<span id="cb32-41"><a></a><span class="bu">print</span>(<span class="st">"Adjusted R-squared:"</span>, <span class="bu">round</span>(model_sm.rsquared_adj, <span class="dv">3</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb32-39"><a></a><span class="bu">print</span>(<span class="st">"AIC:"</span>, model_sm.aic.<span class="bu">round</span>(<span class="dv">3</span>))</span>
+<span id="cb32-40"><a></a><span class="bu">print</span>(<span class="st">"BIC:"</span>, model_sm.bic.<span class="bu">round</span>(<span class="dv">3</span>))</span>
+<span id="cb32-41"><a></a><span class="bu">print</span>(<span class="st">"Adjusted R-squared:"</span>, model_sm.rsquared_adj.<span class="bu">round</span>(<span class="dv">3</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>Forward Selection Results
@@ -1896,7 +1874,7 @@ Adjusted R-squared: 0.251</code></pre>
 </div>
 </div>
 <div id="tabset-12-3">
-<div id="7caa12d1" class="cell" data-execution_count="28">
+<div id="6d9501c9" class="cell" data-execution_count="28">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a></a><span class="co"># Initialize the linear regression model</span></span>
@@ -1938,9 +1916,9 @@ Adjusted R-squared: 0.251</code></pre>
 <span id="cb34-37"><a></a><span class="co"># Output the results</span></span>
 <span id="cb34-38"><a></a><span class="bu">print</span>(<span class="st">"Backward Selection Results"</span>)</span>
 <span id="cb34-39"><a></a><span class="bu">print</span>(<span class="st">"Selected predictors:"</span>, selected_features)</span>
-<span id="cb34-40"><a></a><span class="bu">print</span>(<span class="st">"AIC:"</span>, <span class="bu">round</span>(model_sm.aic, <span class="dv">3</span>))</span>
-<span id="cb34-41"><a></a><span class="bu">print</span>(<span class="st">"BIC:"</span>, <span class="bu">round</span>(model_sm.bic, <span class="dv">3</span>))</span>
-<span id="cb34-42"><a></a><span class="bu">print</span>(<span class="st">"Adjusted R-squared:"</span>, <span class="bu">round</span>(model_sm.rsquared_adj, <span class="dv">3</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb34-40"><a></a><span class="bu">print</span>(<span class="st">"AIC:"</span>, model_sm.aic.<span class="bu">round</span>(<span class="dv">3</span>))</span>
+<span id="cb34-41"><a></a><span class="bu">print</span>(<span class="st">"BIC:"</span>, model_sm.bic.<span class="bu">round</span>(<span class="dv">3</span>))</span>
+<span id="cb34-42"><a></a><span class="bu">print</span>(<span class="st">"Adjusted R-squared:"</span>, model_sm.rsquared_adj.<span class="bu">round</span>(<span class="dv">3</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>Backward Selection Results
@@ -1960,7 +1938,7 @@ Adjusted R-squared: 0.251</code></pre>
 <ul id="tabset-13" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-13-1">Best Subset Selection</a></li><li><a href="#tabset-13-2">Stepwise Selection</a></li><li><a href="#tabset-13-3">Model output</a></li></ul>
 <div class="tab-content">
 <div id="tabset-13-1">
-<div id="a889b409" class="cell" data-execution_count="29">
+<div id="a3a7926c" class="cell" data-execution_count="29">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a></a><span class="kw">def</span> best_subset_cv(X, y, max_features<span class="op">=</span><span class="dv">5</span>):</span>
@@ -2006,12 +1984,12 @@ Adjusted R-squared: 0.251</code></pre>
 <div class="cell-output cell-output-stdout">
 <pre><code>Best Subset: ('credit_util', 'term', 'credit_checks', 'verified_income_Source Verified', 'verified_income_Verified')
 Best CV Score (MSE): 18.664618422927752
-Computation Time: 3.66 seconds</code></pre>
+Computation Time: 3.15 seconds</code></pre>
 </div>
 </div>
 </div>
 <div id="tabset-13-2">
-<div id="ffcd1ec7" class="cell" data-execution_count="30">
+<div id="e5d5b695" class="cell" data-execution_count="30">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a></a><span class="co"># Initialize the linear regression model</span></span>
@@ -2045,12 +2023,12 @@ Computation Time: 3.66 seconds</code></pre>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>Selected predictors (forward selection): ['debt_to_income', 'credit_util', 'bankruptcy', 'term', 'credit_checks', 'verified_income_Source Verified', 'verified_income_Verified']
-Computation Time: 0.47 seconds</code></pre>
+Computation Time: 0.44 seconds</code></pre>
 </div>
 </div>
 </div>
 <div id="tabset-13-3">
-<div id="cb8f28d9" class="cell" data-execution_count="31">
+<div id="aa66690b" class="cell" data-execution_count="31">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a></a><span class="co"># Convert the DataFrame to numeric to ensure all features are numeric</span></span>
@@ -2084,7 +2062,7 @@ Computation Time: 0.47 seconds</code></pre>
 ============================================================================
 Model:                 OLS                 Adj. R-squared:        0.251     
 Dependent Variable:    interest_rate       AIC:                   46030.6466
-Date:                  2025-08-20 11:30    BIC:                   46086.5442
+Date:                  2025-09-03 10:10    BIC:                   46086.5442
 No. Observations:      8000                Log-Likelihood:        -23007.   
 Df Model:              7                   F-statistic:           384.2     
 Df Residuals:          7992                Prob (F-statistic):    0.00      
@@ -2127,243 +2105,6 @@ correctly specified.</code></pre>
 <li><p>Stepwise selection is faster</p></li>
 <li><p>Stepwise inflates Type I error with multiple testing…</p></li>
 </ul>
-</section>
-<section id="live-coding-indoor-air-pollution" class="slide level2">
-<h2>Live coding: Indoor air pollution</h2>
-<div class="panel-tabset">
-<ul id="tabset-14" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-14-1">Fuel access</a></li><li><a href="#tabset-14-2">Fuel GDP</a></li><li><a href="#tabset-14-3">Death source</a></li></ul>
-<div class="tab-content">
-<div id="tabset-14-1">
-<table class="caption-top">
-<colgroup>
-<col style="width: 23%">
-<col style="width: 23%">
-<col style="width: 52%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>variable</th>
-<th>class</th>
-<th>description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Entity</td>
-<td>character</td>
-<td>Country name</td>
-</tr>
-<tr class="even">
-<td>Code</td>
-<td>character</td>
-<td>Country code</td>
-</tr>
-<tr class="odd">
-<td>Year</td>
-<td>double</td>
-<td>Year</td>
-</tr>
-<tr class="even">
-<td>access_clean_perc</td>
-<td>double</td>
-<td>Access to clean fuels and technologies for cooking (% of population)</td>
-</tr>
-</tbody>
-</table>
-</div>
-<div id="tabset-14-2">
-<table class="caption-top">
-<colgroup>
-<col style="width: 24%">
-<col style="width: 24%">
-<col style="width: 50%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>variable</th>
-<th>class</th>
-<th>description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Entity</td>
-<td>character</td>
-<td>The country</td>
-</tr>
-<tr class="even">
-<td>Code</td>
-<td>character</td>
-<td>Country code</td>
-</tr>
-<tr class="odd">
-<td>Year</td>
-<td>double</td>
-<td>Year</td>
-</tr>
-<tr class="even">
-<td>access_clean_perc</td>
-<td>double</td>
-<td>% of population with access to clean cooking fuels</td>
-</tr>
-<tr class="odd">
-<td>GDP</td>
-<td>double</td>
-<td>GDP per capita, PPP (constant 2017 international $)</td>
-</tr>
-<tr class="even">
-<td>popn</td>
-<td>double</td>
-<td>Country population</td>
-</tr>
-<tr class="odd">
-<td>Continent</td>
-<td>character</td>
-<td>Continent the country resides on</td>
-</tr>
-</tbody>
-</table>
-</div>
-<div id="tabset-14-3">
-<table class="caption-top">
-<colgroup>
-<col style="width: 23%">
-<col style="width: 23%">
-<col style="width: 53%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>variable</th>
-<th>class</th>
-<th>description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Entity</td>
-<td>character</td>
-<td>The country</td>
-</tr>
-<tr class="even">
-<td>Code</td>
-<td>character</td>
-<td>Country code</td>
-</tr>
-<tr class="odd">
-<td>Year</td>
-<td>double</td>
-<td>Year</td>
-</tr>
-<tr class="even">
-<td>Death_Rate_ASP</td>
-<td>double</td>
-<td>Cause of death related to air pollution from solid fuels, standardized</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-</div>
-</section>
-<section id="live-coding" class="slide level2 smaller">
-<h2>Live coding</h2>
-<div id="8156b798" class="cell" data-execution_count="32">
-<details class="code-fold">
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a></a><span class="im">from</span> sklearn.impute <span class="im">import</span> SimpleImputer</span>
-<span id="cb42-2"><a></a><span class="im">from</span> feature_engine.imputation <span class="im">import</span> CategoricalImputer</span>
-<span id="cb42-3"><a></a></span>
-<span id="cb42-4"><a></a><span class="co"># Read in data</span></span>
-<span id="cb42-5"><a></a>fuel_access <span class="op">=</span> pd.read_csv(<span class="st">'data/fuel_access.csv'</span>)</span>
-<span id="cb42-6"><a></a>fuel_gdp <span class="op">=</span> pd.read_csv(<span class="st">'data/fuel_gdp.csv'</span>)</span>
-<span id="cb42-7"><a></a>death_source <span class="op">=</span> pd.read_csv(<span class="st">'data/death_source.csv'</span>)</span>
-<span id="cb42-8"><a></a></span>
-<span id="cb42-9"><a></a><span class="co"># Select relevant columns and rename for consistency if needed</span></span>
-<span id="cb42-10"><a></a>fuel_access <span class="op">=</span> fuel_access[[<span class="st">'Entity'</span>, <span class="st">'Year'</span>, <span class="st">'access_clean_perc'</span>]]</span>
-<span id="cb42-11"><a></a>fuel_gdp <span class="op">=</span> fuel_gdp[[<span class="st">'Entity'</span>, <span class="st">'Year'</span>, <span class="st">'GDP'</span>, <span class="st">'popn'</span>]]</span>
-<span id="cb42-12"><a></a>death_source <span class="op">=</span> death_source[[<span class="st">'Entity'</span>, <span class="st">'Year'</span>, <span class="st">'Death_Rate_ASP'</span>]]</span>
-<span id="cb42-13"><a></a></span>
-<span id="cb42-14"><a></a><span class="co"># Ensure 'Year' is an integer</span></span>
-<span id="cb42-15"><a></a>fuel_access[<span class="st">'Year'</span>] <span class="op">=</span> fuel_access[<span class="st">'Year'</span>].astype(<span class="bu">int</span>)</span>
-<span id="cb42-16"><a></a>fuel_gdp[<span class="st">'Year'</span>] <span class="op">=</span> fuel_gdp[<span class="st">'Year'</span>].astype(<span class="bu">int</span>)</span>
-<span id="cb42-17"><a></a>death_source[<span class="st">'Year'</span>] <span class="op">=</span> death_source[<span class="st">'Year'</span>].astype(<span class="bu">int</span>)</span>
-<span id="cb42-18"><a></a></span>
-<span id="cb42-19"><a></a><span class="co"># Merge datasets on 'Entity' and 'Year'</span></span>
-<span id="cb42-20"><a></a>merged_data <span class="op">=</span> pd.merge(fuel_access, fuel_gdp, on <span class="op">=</span> [<span class="st">'Entity'</span>, <span class="st">'Year'</span>], how <span class="op">=</span> <span class="st">'inner'</span>)</span>
-<span id="cb42-21"><a></a>merged_data <span class="op">=</span> pd.merge(merged_data, death_source, on <span class="op">=</span> [<span class="st">'Entity'</span>, <span class="st">'Year'</span>], how <span class="op">=</span> <span class="st">'inner'</span>)</span>
-<span id="cb42-22"><a></a></span>
-<span id="cb42-23"><a></a><span class="co"># Check for missing values</span></span>
-<span id="cb42-24"><a></a><span class="bu">print</span>(merged_data.isnull().<span class="bu">sum</span>())</span>
-<span id="cb42-25"><a></a></span>
-<span id="cb42-26"><a></a><span class="co"># Handle missing values if necessary (e.g., fill with mean or median, or drop)</span></span>
-<span id="cb42-27"><a></a>num_imputer <span class="op">=</span> SimpleImputer(strategy <span class="op">=</span> <span class="st">'mean'</span>)  <span class="co"># or 'median'</span></span>
-<span id="cb42-28"><a></a>numerical_cols <span class="op">=</span> merged_data.select_dtypes(include <span class="op">=</span> [<span class="st">'int64'</span>, <span class="st">'float64'</span>]).columns.tolist()</span>
-<span id="cb42-29"><a></a>merged_data[numerical_cols] <span class="op">=</span> num_imputer.fit_transform(merged_data[numerical_cols])</span>
-<span id="cb42-30"><a></a></span>
-<span id="cb42-31"><a></a>merged_data.dropna()</span>
-<span id="cb42-32"><a></a>merged_data[<span class="st">'Entity'</span>] <span class="op">=</span> pd.factorize(merged_data[<span class="st">'Entity'</span>])[<span class="dv">0</span>]</span>
-<span id="cb42-33"><a></a></span>
-<span id="cb42-34"><a></a><span class="co"># Final check for data types and missing values</span></span>
-<span id="cb42-35"><a></a><span class="bu">print</span>(merged_data.info())</span>
-<span id="cb42-36"><a></a><span class="bu">print</span>(merged_data.isnull().<span class="bu">sum</span>())</span>
-<span id="cb42-37"><a></a></span>
-<span id="cb42-38"><a></a><span class="co"># Optional: Standardize/normalize numerical columns if necessary</span></span>
-<span id="cb42-39"><a></a><span class="im">from</span> sklearn.preprocessing <span class="im">import</span> StandardScaler</span>
-<span id="cb42-40"><a></a></span>
-<span id="cb42-41"><a></a>scaler <span class="op">=</span> StandardScaler()</span>
-<span id="cb42-42"><a></a>numerical_columns <span class="op">=</span> [<span class="st">'access_clean_perc'</span>, <span class="st">'GDP'</span>, <span class="st">'popn'</span>]</span>
-<span id="cb42-43"><a></a>merged_data[numerical_columns] <span class="op">=</span> scaler.fit_transform(merged_data[numerical_columns])</span>
-<span id="cb42-44"><a></a>merged_data.to_csv()</span>
-<span id="cb42-45"><a></a><span class="co"># Define the predictor variables and the response variable</span></span>
-<span id="cb42-46"><a></a>X <span class="op">=</span> merged_data.drop([<span class="st">'Death_Rate_ASP'</span>], axis <span class="op">=</span> <span class="dv">1</span>)  <span class="co"># Assuming 'Death_Rate_ASP' is the response variable</span></span>
-<span id="cb42-47"><a></a>y <span class="op">=</span> merged_data[<span class="st">'Death_Rate_ASP'</span>]</span>
-<span id="cb42-48"><a></a></span>
-<span id="cb42-49"><a></a><span class="co"># Split the data into training and testing sets</span></span>
-<span id="cb42-50"><a></a>X_train, X_test, y_train, y_test <span class="op">=</span> train_test_split(X, y, test_size <span class="op">=</span> <span class="fl">0.2</span>, random_state <span class="op">=</span> <span class="dv">42</span>)</span>
-<span id="cb42-51"><a></a></span>
-<span id="cb42-52"><a></a><span class="co"># Initialize LinearRegression model</span></span>
-<span id="cb42-53"><a></a>lr <span class="op">=</span> LinearRegression()</span>
-<span id="cb42-54"><a></a></span>
-<span id="cb42-55"><a></a><span class="co"># Initialize SequentialFeatureSelector for forward selection with cross-validation</span></span>
-<span id="cb42-56"><a></a>sfs <span class="op">=</span> SFS(lr,</span>
-<span id="cb42-57"><a></a>          k_features <span class="op">=</span> <span class="st">'best'</span>,  <span class="co"># 'best' or specify a number with ('1, 10') for range</span></span>
-<span id="cb42-58"><a></a>          forward <span class="op">=</span> <span class="va">True</span>,  <span class="co"># Forward selection</span></span>
-<span id="cb42-59"><a></a>          floating <span class="op">=</span> <span class="va">False</span>,  <span class="co"># Set to True for stepwise selection</span></span>
-<span id="cb42-60"><a></a>          scoring <span class="op">=</span> <span class="st">'neg_mean_squared_error'</span>,  <span class="co"># Using negative MSE as scoring criterion</span></span>
-<span id="cb42-61"><a></a>          cv <span class="op">=</span> KFold(n_splits <span class="op">=</span> <span class="dv">5</span>, shuffle <span class="op">=</span> <span class="va">True</span>, random_state <span class="op">=</span> <span class="dv">42</span>))  <span class="co"># 5-fold cross-validation</span></span>
-<span id="cb42-62"><a></a></span>
-<span id="cb42-63"><a></a><span class="co"># Fit SFS on the training data</span></span>
-<span id="cb42-64"><a></a>sfs.fit(X_train, y_train)</span>
-<span id="cb42-65"><a></a></span>
-<span id="cb42-66"><a></a><span class="co"># Get the names of the selected features</span></span>
-<span id="cb42-67"><a></a>selected_features <span class="op">=</span> <span class="bu">list</span>(sfs.k_feature_names_)</span>
-<span id="cb42-68"><a></a></span>
-<span id="cb42-69"><a></a><span class="co"># Fit the final Linear Regression model using selected features</span></span>
-<span id="cb42-70"><a></a>final_model <span class="op">=</span> lr.fit(X_train[selected_features], y_train)</span>
-<span id="cb42-71"><a></a></span>
-<span id="cb42-72"><a></a><span class="co"># Evaluate the model performance on the test set</span></span>
-<span id="cb42-73"><a></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> mean_squared_error</span>
-<span id="cb42-74"><a></a></span>
-<span id="cb42-75"><a></a>y_pred <span class="op">=</span> final_model.predict(X_test[selected_features])</span>
-<span id="cb42-76"><a></a>mse <span class="op">=</span> mean_squared_error(y_test, y_pred)</span>
-<span id="cb42-77"><a></a></span>
-<span id="cb42-78"><a></a><span class="bu">print</span>(<span class="st">"Selected predictors (forward selection):"</span>, selected_features)</span>
-<span id="cb42-79"><a></a><span class="bu">print</span>(<span class="st">"Test MSE:"</span>, mse)</span>
-<span id="cb42-80"><a></a></span>
-<span id="cb42-81"><a></a><span class="co"># Extracting predictor variables (X) and the target variable (y)</span></span>
-<span id="cb42-82"><a></a>X <span class="op">=</span> merged_data[selected_features]</span>
-<span id="cb42-83"><a></a>Y <span class="op">=</span> merged_data[<span class="st">'Death_Rate_ASP'</span>]</span>
-<span id="cb42-84"><a></a></span>
-<span id="cb42-85"><a></a><span class="co"># Adding a constant for the intercept term</span></span>
-<span id="cb42-86"><a></a>X <span class="op">=</span> sm.add_constant(X)</span>
-<span id="cb42-87"><a></a></span>
-<span id="cb42-88"><a></a><span class="co"># Fit the regression model</span></span>
-<span id="cb42-89"><a></a>model <span class="op">=</span> sm.OLS(y, X).fit()</span>
-<span id="cb42-90"><a></a></span>
-<span id="cb42-91"><a></a>model_summary <span class="op">=</span> model.summary2()</span>
-<span id="cb42-92"><a></a><span class="bu">print</span>(model_summary)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-</div>
 
 
 </section></section>
@@ -2371,7 +2112,7 @@ correctly specified.</code></pre>
   <div class="quarto-auto-generated-content" style="display: none;">
 <p><img src="../logo.png" class="slide-logo"></p>
 <div class="footer footer-default">
-<p><a href="https://info523-fall25-101-201.github.io/">🔗 github.io</a></p>
+<p><a href="https://datamineaz.org/">🔗 datamineaz.org</a></p>
 </div>
 </div></div>
 

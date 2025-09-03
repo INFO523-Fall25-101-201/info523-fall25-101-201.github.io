@@ -10,7 +10,6 @@
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-ea385d0e468b0dd5ea5bf0780b1290d9.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.7.33">
 
-  <meta name="author" content="John Chen">
   <title>INFO 523 – Introduction to Data</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -194,7 +193,7 @@
   
   <script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 <meta property="og:title" content="Introduction to Data – INFO 523">
-<meta property="og:description" content="Lecture 2">
+<meta property="og:description" content="Data Mining and Discovery">
 <meta property="og:site_name" content="INFO 523">
 </head>
 <body class="quarto-light">
@@ -203,32 +202,12 @@
 
 <section id="title-slide" data-background-image="../minedata-bg.png" data-background-size="600px, cover" data-slide-number="none" class="quarto-title-block center">
   <h1 class="title">Introduction to Data</h1>
-  <p class="subtitle">Lecture 2</p>
+  <p class="subtitle">Data Mining and Discovery</p>
 
 <div class="quarto-title-authors">
-<div class="quarto-title-author">
-<div class="quarto-title-author-name">
-John Chen 
-</div>
-        <p class="quarto-title-affiliation">
-            University of Arizona <br> INFO 523 - Fall 2025
-          </p>
-    </div>
 </div>
 
 </section>
-<section>
-<section id="warm-up" class="title-slide slide level1 center">
-<h1>Warm up</h1>
-
-</section>
-<section id="announcements" class="slide level2">
-<h2>Announcements</h2>
-<ul>
-<li><p>Project 1 teams have been created</p></li>
-<li><p>HW 01 is due Wednesday, Jan 31, 11:59pm</p></li>
-</ul>
-</section></section>
 <section>
 <section id="hello-data" class="title-slide slide level1 center">
 <h1>Hello data</h1>
@@ -236,7 +215,7 @@ John Chen
 </section>
 <section id="setup" class="slide level2">
 <h2>Setup</h2>
-<div id="e7a2aa9c" class="cell" data-execution_count="1">
+<div id="d11aae27" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a></a><span class="co"># Import libraries</span></span>
 <span id="cb1-2"><a></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb1-3"><a></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
@@ -261,7 +240,7 @@ John Chen
 </div></aside></section>
 <section id="read-in-and-view-data" class="slide level2 smaller">
 <h2>Read in and view data</h2>
-<div id="5e741021" class="cell" data-execution_count="2">
+<div id="5382c0ab" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a></a>stent30 <span class="op">=</span> pd.read_csv(<span class="st">"data/stent30.csv"</span>)</span>
 <span id="cb2-2"><a></a>stent30.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="2">
@@ -345,7 +324,7 @@ John Chen
 <ul id="tabset-1" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-1-1">Frequency</a></li><li><a href="#tabset-1-2">Proportion</a></li></ul>
 <div class="tab-content">
 <div id="tabset-1-1">
-<div id="24674d0f" class="cell" data-execution_count="3">
+<div id="43dfb60c" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a></a><span class="co"># Create a frequency table for the 'group' and 'outcome' columns</span></span>
 <span id="cb3-2"><a></a>frequency_table <span class="op">=</span> pd.crosstab(index <span class="op">=</span> stent30[<span class="st">'group'</span>], columns <span class="op">=</span> stent30[<span class="st">'outcome'</span>])</span>
 <span id="cb3-3"><a></a></span>
@@ -398,7 +377,7 @@ John Chen
 </div>
 </div>
 <div id="tabset-1-2">
-<div id="16af3dcb" class="cell" data-execution_count="4">
+<div id="373d2b27" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a></a><span class="co"># Convert frequency table to a proportional table</span></span>
 <span id="cb4-2"><a></a>proportional_table <span class="op">=</span> frequency_table <span class="op">/</span> frequency_table.<span class="bu">sum</span>().<span class="bu">sum</span>()</span>
 <span id="cb4-3"><a></a></span>
@@ -459,12 +438,12 @@ John Chen
 <section id="chi-squared-test" class="slide level2">
 <h2>Chi-squared test</h2>
 <p>We need to test the relationship statistically:</p>
-<div id="2413e618" class="cell" data-execution_count="5">
+<div id="c2cf0cf3" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb5" data-code-line-numbers="1-9|2|4,5,6,7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a></a><span class="co"># Performing the Chi-Squared Test</span></span>
 <span id="cb5-2"><a></a>chi2, p, dof, expected <span class="op">=</span> chi2_contingency(frequency_table)</span>
 <span id="cb5-3"><a></a></span>
-<span id="cb5-4"><a></a><span class="bu">print</span>(<span class="ss">f"Chi-squared statistic: </span><span class="sc">{</span><span class="bu">round</span>(chi2, <span class="dv">2</span>)<span class="sc">}</span><span class="ss">"</span>)</span>
-<span id="cb5-5"><a></a><span class="bu">print</span>(<span class="ss">f"P-value: </span><span class="sc">{</span><span class="bu">round</span>(p, <span class="dv">3</span>)<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb5-4"><a></a><span class="bu">print</span>(<span class="ss">f"Chi-squared statistic: </span><span class="sc">{</span>chi2<span class="sc">.</span><span class="bu">round</span>(<span class="dv">2</span>)<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb5-5"><a></a><span class="bu">print</span>(<span class="ss">f"P-value: </span><span class="sc">{</span>p<span class="sc">.</span><span class="bu">round</span>(<span class="dv">3</span>)<span class="sc">}</span><span class="ss">"</span>)</span>
 <span id="cb5-6"><a></a><span class="bu">print</span>(<span class="ss">f"Degrees of freedom: </span><span class="sc">{</span>dof<span class="sc">}</span><span class="ss">"</span>)</span>
 <span id="cb5-7"><a></a><span class="bu">print</span>(<span class="ss">f"Expected frequencies:</span><span class="ch">\n</span><span class="sc">{</span>expected<span class="sc">.</span><span class="bu">round</span>(<span class="dv">2</span>)<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -494,7 +473,7 @@ Expected frequencies:
 </section>
 <section id="observations-variables-data-matrices" class="slide level2 smaller">
 <h2>Observations, variables, data matrices</h2>
-<div id="c8c37583" class="cell" data-execution_count="6">
+<div id="378f997d" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a></a>loan50 <span class="op">=</span> pd.read_csv(<span class="st">"data/loan50.csv"</span>)</span>
 <span id="cb7-2"><a></a>loan50.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="6">
@@ -662,8 +641,8 @@ Expected frequencies:
 <h2>Metadata</h2>
 <table class="caption-top">
 <colgroup>
-<col style="width: 19%">
-<col style="width: 80%">
+<col style="width: 25%">
+<col style="width: 75%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -713,7 +692,7 @@ Expected frequencies:
 </section>
 <section id="types-of-variables-1" class="slide level2">
 <h2>Types of variables</h2>
-<div id="8a3fea4a" class="cell" data-execution_count="7">
+<div id="bd5f9b85" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a></a>county <span class="op">=</span> pd.read_csv(<span class="st">"data/county.csv"</span>)</span>
 <span id="cb8-2"><a></a></span>
 <span id="cb8-3"><a></a>county.dtypes</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -769,7 +748,7 @@ dtype: object</code></pre>
 <h2>Associations</h2>
 <div class="columns">
 <div class="column" style="width:50%;">
-<div id="49f119d7" class="cell" data-execution_count="9">
+<div id="a80b2c9e" class="cell" data-execution_count="9">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -782,7 +761,7 @@ dtype: object</code></pre>
 <p>Associations can be <strong>negative</strong>…</p>
 </div>
 </div><div class="column" style="width:50%;">
-<div id="0e5cd1d7" class="cell" data-execution_count="10">
+<div id="a4748817" class="cell" data-execution_count="10">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -957,7 +936,7 @@ dtype: object</code></pre>
   <div class="quarto-auto-generated-content" style="display: none;">
 <p><img src="../logo.png" class="slide-logo"></p>
 <div class="footer footer-default">
-<p><a href="https://info523-fall25-101-201.github.io/">🔗 github.io</a></p>
+<p><a href="https://datamineaz.org/">🔗 datamineaz.org</a></p>
 </div>
 </div></div>
 

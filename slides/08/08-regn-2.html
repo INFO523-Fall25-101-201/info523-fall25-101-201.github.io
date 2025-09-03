@@ -10,7 +10,6 @@
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-ea385d0e468b0dd5ea5bf0780b1290d9.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.7.33">
 
-  <meta name="author" content="John Chen">
   <title>INFO 523 – Regressions II</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -194,7 +193,7 @@
   
   <script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 <meta property="og:title" content="Regressions II – INFO 523">
-<meta property="og:description" content="Lecture 8">
+<meta property="og:description" content="Data Mining and Discovery">
 <meta property="og:site_name" content="INFO 523">
 </head>
 <body class="quarto-light">
@@ -203,31 +202,11 @@
 
 <section id="title-slide" data-background-image="../minedata-bg.png" data-background-size="600px, cover" data-slide-number="none" class="quarto-title-block center">
   <h1 class="title">Regressions II</h1>
-  <p class="subtitle">Lecture 8</p>
+  <p class="subtitle">Data Mining and Discovery</p>
 
 <div class="quarto-title-authors">
-<div class="quarto-title-author">
-<div class="quarto-title-author-name">
-John Chen 
-</div>
-        <p class="quarto-title-affiliation">
-            University of Arizona <br> INFO 523 - Fall 2025
-          </p>
-    </div>
 </div>
 
-</section>
-<section>
-<section id="warm-up" class="title-slide slide level1 center">
-<h1>Warm up</h1>
-
-</section>
-<section id="announcements" class="slide level2">
-<h2>Announcements</h2>
-<ul>
-<li><p>HW 04 is due Apr 03, 11:59pm</p></li>
-<li><p>Final project proposals are due Wed Mar 27, 1pm for peer-review</p></li>
-</ul>
 </section>
 <section id="setup" class="slide level2 smaller">
 <h2>Setup</h2>
@@ -263,7 +242,7 @@ John Chen
 <span id="cb1-29"><a></a><span class="co"># Set Seaborn theme</span></span>
 <span id="cb1-30"><a></a>sns.set_theme(style <span class="op">=</span> <span class="st">"white"</span>, palette <span class="op">=</span> <span class="st">"colorblind"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</section></section>
+</section>
 <section>
 <section id="regressions-ii" class="title-slide slide level1 center">
 <h1>Regressions II</h1>
@@ -275,11 +254,11 @@ John Chen
 <ul id="tabset-1" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-1-1">Read + head</a></li><li><a href="#tabset-1-2">Metadata</a></li><li><a href="#tabset-1-3">Info</a></li><li><a href="#tabset-1-4">Describe</a></li><li><a href="#tabset-1-5">Missing values</a></li></ul>
 <div class="tab-content">
 <div id="tabset-1-1">
-<div id="e2a0ce50" class="cell" data-execution_count="2">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a></a><span class="im">from</span> skimpy <span class="im">import</span> clean_columns</span>
+<div id="17a9fd52" class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a></a><span class="im">import</span> janitor</span>
 <span id="cb2-2"><a></a></span>
 <span id="cb2-3"><a></a>pollution <span class="op">=</span> pd.read_csv(<span class="st">"data/merged_pollution.csv"</span>, encoding <span class="op">=</span> <span class="st">'iso-8859-1'</span>)</span>
-<span id="cb2-4"><a></a>pollution <span class="op">=</span> clean_columns(pollution)</span>
+<span id="cb2-4"><a></a>pollution <span class="op">=</span> janitor.clean_names(pollution)</span>
 <span id="cb2-5"><a></a></span>
 <span id="cb2-6"><a></a>pollution.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="2">
@@ -366,9 +345,9 @@ John Chen
 <div id="tabset-1-2">
 <table class="caption-top">
 <colgroup>
-<col style="width: 25%">
-<col style="width: 25%">
-<col style="width: 50%">
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -412,7 +391,7 @@ John Chen
 </table>
 </div>
 <div id="tabset-1-3">
-<div id="6ace25a1" class="cell" data-execution_count="3">
+<div id="41d77fa1" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a></a>pollution.info()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>&lt;class 'pandas.core.frame.DataFrame'&gt;
@@ -432,7 +411,7 @@ memory usage: 153.1 KB</code></pre>
 </div>
 </div>
 <div id="tabset-1-4">
-<div id="1f97c056" class="cell" data-execution_count="4">
+<div id="ebb32f58" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a></a>pollution.describe()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="4">
 <div>
@@ -543,7 +522,7 @@ memory usage: 153.1 KB</code></pre>
 </div>
 </div>
 <div id="tabset-1-5">
-<div id="6bb7c0a3" class="cell" data-execution_count="5">
+<div id="8dd78c07" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a></a>pollution.isnull().<span class="bu">sum</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="5">
 <pre><code>entity               0
@@ -561,7 +540,7 @@ dtype: int64</code></pre>
 </section>
 <section id="multiple-regression" class="slide level2">
 <h2>Multiple regression</h2>
-<div id="685585e9" class="cell" data-execution_count="6">
+<div id="07abaaa3" class="cell" data-execution_count="6">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a></a><span class="co"># Assuming pollution DataFrame is predefined</span></span>
@@ -659,15 +638,15 @@ R-squared: 0.8002</code></pre>
 </section>
 <section id="investigate-vif" class="slide level2">
 <h2>Investigate VIF</h2>
-<div id="f3829597" class="cell" data-execution_count="7">
+<div id="c2c63e20" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a></a>VIFs <span class="op">=</span> [variance_inflation_factor(X.values, i) <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(X.shape[<span class="dv">1</span>])]</span>
 <span id="cb10-2"><a></a><span class="cf">for</span> idx, vif <span class="kw">in</span> <span class="bu">enumerate</span>(VIFs):</span>
-<span id="cb10-3"><a></a>    <span class="bu">print</span>(<span class="ss">f"VIF for column </span><span class="sc">{</span>X<span class="sc">.</span>columns[idx]<span class="sc">}</span><span class="ss">: </span><span class="sc">{</span><span class="bu">round</span>(vif, <span class="dv">3</span>)<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb10-3"><a></a>    <span class="bu">print</span>(<span class="ss">f"VIF for column </span><span class="sc">{</span>X<span class="sc">.</span>columns[idx]<span class="sc">}</span><span class="ss">: </span><span class="sc">{</span>vif<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>VIF for column year: 1.0
-VIF for column access_clean_perc: 1.678
-VIF for column gdp: 1.679
-VIF for column popn: 1.001</code></pre>
+<pre><code>VIF for column year: 1.000000034024503
+VIF for column access_clean_perc: 1.6782080674029214
+VIF for column gdp: 1.6785951365989462
+VIF for column popn: 1.0005167748859174</code></pre>
 </div>
 </div>
 <ul>
@@ -681,7 +660,7 @@ VIF for column popn: 1.001</code></pre>
 <ul id="tabset-3" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-3-1">Model summary</a></li><li><a href="#tabset-3-2">Residual plot</a></li></ul>
 <div class="tab-content">
 <div id="tabset-3-1">
-<div id="570d525f" class="cell" data-execution_count="8">
+<div id="f0b53736" class="cell" data-execution_count="8">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a></a>X_train, X_test, y_train, y_test <span class="op">=</span> train_test_split(X, y, test_size <span class="op">=</span> <span class="fl">0.2</span>, random_state <span class="op">=</span> <span class="dv">42</span>)</span>
@@ -701,20 +680,20 @@ VIF for column popn: 1.001</code></pre>
 <span id="cb12-15"><a></a></span>
 <span id="cb12-16"><a></a><span class="co"># Calculate and print the MSE</span></span>
 <span id="cb12-17"><a></a>mse <span class="op">=</span> mean_squared_error(y_test, y_pred)</span>
-<span id="cb12-18"><a></a><span class="bu">print</span>(<span class="ss">f'Mean Squared Error: </span><span class="sc">{</span><span class="bu">round</span>(mse, <span class="dv">2</span>)<span class="sc">}</span><span class="ch">\n</span><span class="ss">'</span>)</span>
+<span id="cb12-18"><a></a><span class="bu">print</span>(<span class="ss">f'Mean Squared Error: </span><span class="sc">{</span>mse<span class="sc">}</span><span class="ch">\n</span><span class="ss">'</span>)</span>
 <span id="cb12-19"><a></a></span>
 <span id="cb12-20"><a></a><span class="co"># Since Ridge doesn't provide AIC, BIC directly, we focus on what's available</span></span>
-<span id="cb12-21"><a></a><span class="bu">print</span>(<span class="ss">f'R-squared: </span><span class="sc">{</span><span class="bu">round</span>(r2, <span class="dv">2</span>)<span class="sc">}</span><span class="ss">'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb12-21"><a></a><span class="bu">print</span>(<span class="ss">f'R-squared: </span><span class="sc">{</span>r2<span class="sc">}</span><span class="ss">'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>Mean Squared Error: 1526.71
+<pre><code>Mean Squared Error: 1526.7075294439708
 
-R-squared: 0.8</code></pre>
+R-squared: 0.8002256325350543</code></pre>
 </div>
 </div>
 </div>
 <div id="tabset-3-2">
-<div id="978e22f9" class="cell" data-execution_count="9">
+<div id="368fd218" class="cell" data-execution_count="9">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a></a>residuals <span class="op">=</span> y_test <span class="op">-</span> y_pred</span>
@@ -756,7 +735,7 @@ R-squared: 0.8</code></pre>
 <ul id="tabset-4" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-4-1">Applied</a></li><li><a href="#tabset-4-2">Re-evaluate model</a></li><li><a href="#tabset-4-3">Compare with previous model</a></li><li><a href="#tabset-4-4">Residuals</a></li></ul>
 <div class="tab-content">
 <div id="tabset-4-1">
-<div id="a4b942f5" class="cell" data-execution_count="10">
+<div id="ab46a765" class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a></a><span class="co"># Define a set of alpha values</span></span>
 <span id="cb15-2"><a></a>alphas <span class="op">=</span> np.logspace(<span class="op">-</span><span class="dv">6</span>, <span class="dv">6</span>, <span class="dv">13</span>)</span>
 <span id="cb15-3"><a></a></span>
@@ -781,37 +760,37 @@ R-squared: 0.8</code></pre>
 </div>
 </div>
 <div id="tabset-4-2">
-<div id="a31419c5" class="cell" data-execution_count="11">
+<div id="7632495e" class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a></a><span class="co"># Calculate R-squared</span></span>
 <span id="cb17-2"><a></a>r2_best <span class="op">=</span> r2_score(y_test, y_pred_best)</span>
-<span id="cb17-3"><a></a><span class="bu">print</span>(<span class="ss">f'R-squared with best alpha: </span><span class="sc">{</span><span class="bu">round</span>(r2_best, <span class="dv">4</span>)<span class="sc">}</span><span class="ss">'</span>)</span>
+<span id="cb17-3"><a></a><span class="bu">print</span>(<span class="ss">f'R-squared with best alpha: </span><span class="sc">{</span>r2_best<span class="sc">}</span><span class="ss">'</span>)</span>
 <span id="cb17-4"><a></a></span>
 <span id="cb17-5"><a></a><span class="co"># Calculate Mean Squared Error (MSE)</span></span>
 <span id="cb17-6"><a></a>mse_best <span class="op">=</span> mean_squared_error(y_test, y_pred_best)</span>
-<span id="cb17-7"><a></a><span class="bu">print</span>(<span class="ss">f'Mean Squared Error with best alpha: </span><span class="sc">{</span><span class="bu">round</span>(mse_best, <span class="dv">3</span>)<span class="sc">}</span><span class="ss">'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb17-7"><a></a><span class="bu">print</span>(<span class="ss">f'Mean Squared Error with best alpha: </span><span class="sc">{</span>mse_best<span class="sc">}</span><span class="ss">'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>R-squared with best alpha: 0.8002
-Mean Squared Error with best alpha: 1526.646</code></pre>
+<pre><code>R-squared with best alpha: 0.8002247655359724
+Mean Squared Error with best alpha: 1526.6464586641102</code></pre>
 </div>
 </div>
 </div>
 <div id="tabset-4-3">
-<div id="7bdb7d88" class="cell" data-execution_count="12">
+<div id="fb206357" class="cell" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a></a><span class="co"># Assuming `y_pred` are the predictions from the initial Ridge model</span></span>
 <span id="cb19-2"><a></a>mse_initial <span class="op">=</span> mean_squared_error(y_test, y_pred)</span>
 <span id="cb19-3"><a></a>r2_initial <span class="op">=</span> r2_score(y_test, y_pred)</span>
 <span id="cb19-4"><a></a></span>
 <span id="cb19-5"><a></a><span class="co"># Print comparison</span></span>
-<span id="cb19-6"><a></a><span class="bu">print</span>(<span class="ss">f'Initial MSE: </span><span class="sc">{</span><span class="bu">round</span>(mse_initial, <span class="dv">3</span>)<span class="sc">}</span><span class="ss">, Best Alpha MSE: </span><span class="sc">{</span><span class="bu">round</span>(mse_best, <span class="dv">3</span>)<span class="sc">}</span><span class="ss">'</span>)</span>
-<span id="cb19-7"><a></a><span class="bu">print</span>(<span class="ss">f'Initial R-squared: </span><span class="sc">{</span><span class="bu">round</span>(r2_initial, <span class="dv">4</span>)<span class="sc">}</span><span class="ss">, Best Alpha R-squared: </span><span class="sc">{</span><span class="bu">round</span>(r2_best, <span class="dv">5</span>)<span class="sc">}</span><span class="ss">'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb19-6"><a></a><span class="bu">print</span>(<span class="ss">f'Initial MSE: </span><span class="sc">{</span>mse_initial<span class="sc">}</span><span class="ss">, Best Alpha MSE: </span><span class="sc">{</span>mse_best<span class="sc">}</span><span class="ss">'</span>)</span>
+<span id="cb19-7"><a></a><span class="bu">print</span>(<span class="ss">f'Initial R-squared: </span><span class="sc">{</span>r2_initial<span class="sc">}</span><span class="ss">, Best Alpha R-squared: </span><span class="sc">{</span>r2_best<span class="sc">}</span><span class="ss">'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Initial MSE: 1526.708, Best Alpha MSE: 1526.646
-Initial R-squared: 0.8002, Best Alpha R-squared: 0.80022</code></pre>
+<pre><code>Initial MSE: 1526.7075294439708, Best Alpha MSE: 1526.6464586641102
+Initial R-squared: 0.8002167738825702, Best Alpha R-squared: 0.8002247655359724</code></pre>
 </div>
 </div>
 </div>
 <div id="tabset-4-4">
-<div id="9030a461" class="cell" data-execution_count="13">
+<div id="8a69f2f8" class="cell" data-execution_count="13">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a></a>residuals_best <span class="op">=</span> y_test <span class="op">-</span> y_pred_best</span>
@@ -875,7 +854,7 @@ Initial R-squared: 0.8002, Best Alpha R-squared: 0.80022</code></pre>
 <ul id="tabset-6" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-6-1">Model summary</a></li><li><a href="#tabset-6-2">Residual plot</a></li></ul>
 <div class="tab-content">
 <div id="tabset-6-1">
-<div id="6c242766" class="cell" data-execution_count="14">
+<div id="5e5f2697" class="cell" data-execution_count="14">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a></a><span class="co"># Prepare the data (assuming X and y are already defined)</span></span>
@@ -892,20 +871,20 @@ Initial R-squared: 0.8002, Best Alpha R-squared: 0.80022</code></pre>
 <span id="cb22-12"><a></a></span>
 <span id="cb22-13"><a></a><span class="co"># Calculate and print the MSE</span></span>
 <span id="cb22-14"><a></a>mse <span class="op">=</span> mean_squared_error(y_test, y_pred)</span>
-<span id="cb22-15"><a></a><span class="bu">print</span>(<span class="ss">f'Mean Squared Error: </span><span class="sc">{</span><span class="bu">round</span>(mse, <span class="dv">2</span>)<span class="sc">}</span><span class="ss">'</span>)</span>
+<span id="cb22-15"><a></a><span class="bu">print</span>(<span class="ss">f'Mean Squared Error: </span><span class="sc">{</span>mse<span class="sc">}</span><span class="ss">'</span>)</span>
 <span id="cb22-16"><a></a></span>
 <span id="cb22-17"><a></a><span class="co"># Since Lasso doesn't provide AIC, BIC directly, we focus on what's available</span></span>
 <span id="cb22-18"><a></a>r2 <span class="op">=</span> r2_score(y_test, y_pred)</span>
-<span id="cb22-19"><a></a><span class="bu">print</span>(<span class="ss">f'R-squared: </span><span class="sc">{</span><span class="bu">round</span>(r2, <span class="dv">2</span>)<span class="sc">}</span><span class="ss">'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb22-19"><a></a><span class="bu">print</span>(<span class="ss">f'R-squared: </span><span class="sc">{</span>r2<span class="sc">}</span><span class="ss">'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>Mean Squared Error: 1535.4
-R-squared: 0.8</code></pre>
+<pre><code>Mean Squared Error: 1535.3995053262377
+R-squared: 0.7990793517178111</code></pre>
 </div>
 </div>
 </div>
 <div id="tabset-6-2">
-<div id="f50a4e0a" class="cell" data-execution_count="15">
+<div id="f335f658" class="cell" data-execution_count="15">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a></a>residuals <span class="op">=</span> y_test <span class="op">-</span> y_pred</span>
@@ -933,7 +912,7 @@ R-squared: 0.8</code></pre>
 <ul id="tabset-7" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-7-1">Applied</a></li><li><a href="#tabset-7-2">Re-evaluate model</a></li><li><a href="#tabset-7-3">Compare with previous model</a></li><li><a href="#tabset-7-4">Residuals</a></li></ul>
 <div class="tab-content">
 <div id="tabset-7-1">
-<div id="2235d64c" class="cell" data-execution_count="16">
+<div id="478d2dda" class="cell" data-execution_count="16">
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a></a><span class="co"># Define a range of alpha values for Lasso</span></span>
 <span id="cb25-2"><a></a>alphas <span class="op">=</span> np.logspace(<span class="op">-</span><span class="dv">6</span>, <span class="dv">6</span>, <span class="dv">13</span>)</span>
 <span id="cb25-3"><a></a></span>
@@ -958,37 +937,37 @@ R-squared: 0.8</code></pre>
 </div>
 </div>
 <div id="tabset-7-2">
-<div id="7c107ba6" class="cell" data-execution_count="17">
+<div id="d12eaf40" class="cell" data-execution_count="17">
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a></a><span class="co"># Calculate R-squared with the best alpha</span></span>
 <span id="cb27-2"><a></a>r2_best <span class="op">=</span> r2_score(y_test, y_pred_best)</span>
-<span id="cb27-3"><a></a><span class="bu">print</span>(<span class="ss">f'R-squared with optimal alpha: </span><span class="sc">{</span><span class="bu">round</span>(r2_best, <span class="dv">4</span>)<span class="sc">}</span><span class="ss">'</span>)</span>
+<span id="cb27-3"><a></a><span class="bu">print</span>(<span class="ss">f'R-squared with optimal alpha: </span><span class="sc">{</span>r2_best<span class="sc">}</span><span class="ss">'</span>)</span>
 <span id="cb27-4"><a></a></span>
 <span id="cb27-5"><a></a><span class="co"># Calculate Mean Squared Error (MSE) with the best alpha</span></span>
 <span id="cb27-6"><a></a>mse_best <span class="op">=</span> mean_squared_error(y_test, y_pred_best)</span>
-<span id="cb27-7"><a></a><span class="bu">print</span>(<span class="ss">f'Mean Squared Error with optimal alpha: </span><span class="sc">{</span><span class="bu">round</span>(mse_best, <span class="dv">3</span>)<span class="sc">}</span><span class="ss">'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb27-7"><a></a><span class="bu">print</span>(<span class="ss">f'Mean Squared Error with optimal alpha: </span><span class="sc">{</span>mse_best<span class="sc">}</span><span class="ss">'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>R-squared with optimal alpha: 0.8002
-Mean Squared Error with optimal alpha: 1526.64</code></pre>
+<pre><code>R-squared with optimal alpha: 0.8002256319833501
+Mean Squared Error with optimal alpha: 1526.6398374288794</code></pre>
 </div>
 </div>
 </div>
 <div id="tabset-7-3">
-<div id="70b5ff66" class="cell" data-execution_count="18">
+<div id="5b5e6863" class="cell" data-execution_count="18">
 <div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a></a><span class="co"># Assuming `y_pred` are the predictions from the initial Lasso model</span></span>
 <span id="cb29-2"><a></a>mse_initial <span class="op">=</span> mean_squared_error(y_test, y_pred)</span>
 <span id="cb29-3"><a></a>r2_initial <span class="op">=</span> r2_score(y_test, y_pred)</span>
 <span id="cb29-4"><a></a></span>
 <span id="cb29-5"><a></a><span class="co"># Print comparison</span></span>
-<span id="cb29-6"><a></a><span class="bu">print</span>(<span class="ss">f'Initial MSE: </span><span class="sc">{</span><span class="bu">round</span>(mse_initial, <span class="dv">3</span>)<span class="sc">}</span><span class="ss">, Optimal Alpha MSE: </span><span class="sc">{</span><span class="bu">round</span>(mse_best, <span class="dv">3</span>)<span class="sc">}</span><span class="ss">'</span>)</span>
-<span id="cb29-7"><a></a><span class="bu">print</span>(<span class="ss">f'Initial R-squared: </span><span class="sc">{</span><span class="bu">round</span>(r2_initial, <span class="dv">4</span>)<span class="sc">}</span><span class="ss">, Optimal Alpha R-squared: </span><span class="sc">{</span><span class="bu">round</span>(r2_best, <span class="dv">4</span>)<span class="sc">}</span><span class="ss">'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb29-6"><a></a><span class="bu">print</span>(<span class="ss">f'Initial MSE: </span><span class="sc">{</span>mse_initial<span class="sc">}</span><span class="ss">, Optimal Alpha MSE: </span><span class="sc">{</span>mse_best<span class="sc">}</span><span class="ss">'</span>)</span>
+<span id="cb29-7"><a></a><span class="bu">print</span>(<span class="ss">f'Initial R-squared: </span><span class="sc">{</span>r2_initial<span class="sc">}</span><span class="ss">, Optimal Alpha R-squared: </span><span class="sc">{</span>r2_best<span class="sc">}</span><span class="ss">'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Initial MSE: 1535.4, Optimal Alpha MSE: 1526.64
-Initial R-squared: 0.7991, Optimal Alpha R-squared: 0.8002</code></pre>
+<pre><code>Initial MSE: 1535.3995053262377, Optimal Alpha MSE: 1526.6398374288794
+Initial R-squared: 0.7990793517178111, Optimal Alpha R-squared: 0.8002256319833501</code></pre>
 </div>
 </div>
 </div>
 <div id="tabset-7-4">
-<div id="28fda654" class="cell" data-execution_count="19">
+<div id="a6342963" class="cell" data-execution_count="19">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a></a>residuals_best <span class="op">=</span> y_test <span class="op">-</span> y_pred_best</span>
@@ -1054,7 +1033,7 @@ Initial R-squared: 0.7991, Optimal Alpha R-squared: 0.8002</code></pre>
 <ul id="tabset-9" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-9-1">Model summary</a></li><li><a href="#tabset-9-2">Residual plot</a></li></ul>
 <div class="tab-content">
 <div id="tabset-9-1">
-<div id="61b20f01" class="cell" data-execution_count="20">
+<div id="24949b52" class="cell" data-execution_count="20">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a></a><span class="co"># Assuming X and y are already defined and preprocessed</span></span>
@@ -1072,17 +1051,17 @@ Initial R-squared: 0.7991, Optimal Alpha R-squared: 0.8002</code></pre>
 <span id="cb32-13"><a></a><span class="co"># Calculate and print the MSE and R-squared</span></span>
 <span id="cb32-14"><a></a>mse <span class="op">=</span> mean_squared_error(y_test, y_pred)</span>
 <span id="cb32-15"><a></a>r2 <span class="op">=</span> r2_score(y_test, y_pred)</span>
-<span id="cb32-16"><a></a><span class="bu">print</span>(<span class="ss">f'Mean Squared Error: </span><span class="sc">{</span><span class="bu">round</span>(mse, <span class="dv">2</span>)<span class="sc">}</span><span class="ss">'</span>)</span>
-<span id="cb32-17"><a></a><span class="bu">print</span>(<span class="ss">f'R-squared: </span><span class="sc">{</span><span class="bu">round</span>(r2, <span class="dv">2</span>)<span class="sc">}</span><span class="ss">'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb32-16"><a></a><span class="bu">print</span>(<span class="ss">f'Mean Squared Error: </span><span class="sc">{</span>mse<span class="sc">}</span><span class="ss">'</span>)</span>
+<span id="cb32-17"><a></a><span class="bu">print</span>(<span class="ss">f'R-squared: </span><span class="sc">{</span>r2<span class="sc">}</span><span class="ss">'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>Mean Squared Error: 2258.21
-R-squared: 0.7</code></pre>
+<pre><code>Mean Squared Error: 2258.2143010254194
+R-squared: 0.7044926224424362</code></pre>
 </div>
 </div>
 </div>
 <div id="tabset-9-2">
-<div id="de9f6848" class="cell" data-execution_count="21">
+<div id="dc9ec823" class="cell" data-execution_count="21">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a></a>residuals <span class="op">=</span> y_test <span class="op">-</span> y_pred</span>
@@ -1110,7 +1089,7 @@ R-squared: 0.7</code></pre>
 <ul id="tabset-10" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-10-1">Applied</a></li><li><a href="#tabset-10-2">Re-evaluate model</a></li><li><a href="#tabset-10-3">Compare with previous model</a></li><li><a href="#tabset-10-4">Residuals</a></li></ul>
 <div class="tab-content">
 <div id="tabset-10-1">
-<div id="b9393157" class="cell" data-execution_count="22">
+<div id="e544a763" class="cell" data-execution_count="22">
 <div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a></a><span class="co"># Define a range of alpha values and l1_ratios for Elastic Net</span></span>
 <span id="cb35-2"><a></a>alphas <span class="op">=</span> np.logspace(<span class="op">-</span><span class="dv">6</span>, <span class="dv">6</span>, <span class="dv">13</span>)</span>
 <span id="cb35-3"><a></a>l1_ratios <span class="op">=</span> np.linspace(<span class="fl">0.1</span>, <span class="fl">0.9</span>, <span class="dv">9</span>)</span>
@@ -1138,35 +1117,35 @@ Optimal l1_ratio: 0.1</code></pre>
 </div>
 </div>
 <div id="tabset-10-2">
-<div id="bd682a33" class="cell" data-execution_count="23">
+<div id="af477e47" class="cell" data-execution_count="23">
 <div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a></a><span class="co"># Calculate R-squared with the best parameters</span></span>
 <span id="cb37-2"><a></a>r2_best <span class="op">=</span> r2_score(y_test, y_pred_best)</span>
-<span id="cb37-3"><a></a><span class="bu">print</span>(<span class="ss">f'R-squared with optimal parameters: </span><span class="sc">{</span><span class="bu">round</span>(r2_best, <span class="dv">4</span>)<span class="sc">}</span><span class="ss">'</span>)</span>
+<span id="cb37-3"><a></a><span class="bu">print</span>(<span class="ss">f'R-squared with optimal parameters: </span><span class="sc">{</span>r2_best<span class="sc">}</span><span class="ss">'</span>)</span>
 <span id="cb37-4"><a></a></span>
 <span id="cb37-5"><a></a><span class="co"># Calculate Mean Squared Error (MSE) with the best parameters</span></span>
 <span id="cb37-6"><a></a>mse_best <span class="op">=</span> mean_squared_error(y_test, y_pred_best)</span>
-<span id="cb37-7"><a></a><span class="bu">print</span>(<span class="ss">f'Mean Squared Error with optimal parameters: </span><span class="sc">{</span><span class="bu">round</span>(mse_best, <span class="dv">3</span>)<span class="sc">}</span><span class="ss">'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb37-7"><a></a><span class="bu">print</span>(<span class="ss">f'Mean Squared Error with optimal parameters: </span><span class="sc">{</span>mse_best<span class="sc">}</span><span class="ss">'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>R-squared with optimal parameters: 0.8002
-Mean Squared Error with optimal parameters: 1526.655</code></pre>
+<pre><code>R-squared with optimal parameters: 0.8002235829823968
+Mean Squared Error with optimal parameters: 1526.6554955261286</code></pre>
 </div>
 </div>
 </div>
 <div id="tabset-10-3">
-<div id="38dc5455" class="cell" data-execution_count="24">
+<div id="771f4dda" class="cell" data-execution_count="24">
 <div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a></a><span class="co"># Print comparison of MSE and R-squared before and after tuning</span></span>
 <span id="cb39-2"><a></a>mse_initial <span class="op">=</span> mean_squared_error(y_test, y_pred)</span>
 <span id="cb39-3"><a></a>r2_initial <span class="op">=</span> r2_score(y_test, y_pred)</span>
-<span id="cb39-4"><a></a><span class="bu">print</span>(<span class="ss">f'Initial MSE: </span><span class="sc">{</span><span class="bu">round</span>(mse_initial, <span class="dv">3</span>)<span class="sc">}</span><span class="ss">, Optimal Parameters MSE: </span><span class="sc">{</span><span class="bu">round</span>(mse_best, <span class="dv">3</span>)<span class="sc">}</span><span class="ss">'</span>)</span>
-<span id="cb39-5"><a></a><span class="bu">print</span>(<span class="ss">f'Initial R-squared: </span><span class="sc">{</span><span class="bu">round</span>(r2_initial, <span class="dv">4</span>)<span class="sc">}</span><span class="ss">, Optimal Parameters R-squared: </span><span class="sc">{</span><span class="bu">round</span>(r2_best, <span class="dv">4</span>)<span class="sc">}</span><span class="ss">'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb39-4"><a></a><span class="bu">print</span>(<span class="ss">f'Initial MSE: </span><span class="sc">{</span>mse_initial<span class="sc">}</span><span class="ss">, Optimal Parameters MSE: </span><span class="sc">{</span>mse_best<span class="sc">}</span><span class="ss">'</span>)</span>
+<span id="cb39-5"><a></a><span class="bu">print</span>(<span class="ss">f'Initial R-squared: </span><span class="sc">{</span>r2_initial<span class="sc">}</span><span class="ss">, Optimal Parameters R-squared: </span><span class="sc">{</span>r2_best<span class="sc">}</span><span class="ss">'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Initial MSE: 2258.214, Optimal Parameters MSE: 1526.655
-Initial R-squared: 0.7045, Optimal Parameters R-squared: 0.8002</code></pre>
+<pre><code>Initial MSE: 2258.2143010254194, Optimal Parameters MSE: 1526.6554955261286
+Initial R-squared: 0.7044926224424362, Optimal Parameters R-squared: 0.8002235829823968</code></pre>
 </div>
 </div>
 </div>
 <div id="tabset-10-4">
-<div id="a29421dd" class="cell" data-execution_count="25">
+<div id="af676ecb" class="cell" data-execution_count="25">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a></a>residuals_best <span class="op">=</span> y_test <span class="op">-</span> y_pred_best</span>
@@ -1279,7 +1258,7 @@ Initial R-squared: 0.7045, Optimal Parameters R-squared: 0.8002</code></pre>
 <ul id="tabset-12" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-12-1">Model summary</a></li><li><a href="#tabset-12-2">Residual plot</a></li></ul>
 <div class="tab-content">
 <div id="tabset-12-1">
-<div id="a3380f6b" class="cell" data-execution_count="26">
+<div id="b8da0e8b" class="cell" data-execution_count="26">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb42"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a></a><span class="co"># Assuming X and y are already defined</span></span>
@@ -1307,17 +1286,17 @@ Initial R-squared: 0.7045, Optimal Parameters R-squared: 0.8002</code></pre>
 <span id="cb42-23"><a></a>mse <span class="op">=</span> mean_squared_error(y_test, y_pred)</span>
 <span id="cb42-24"><a></a>r2 <span class="op">=</span> r2_score(y_test, y_pred)</span>
 <span id="cb42-25"><a></a></span>
-<span id="cb42-26"><a></a><span class="bu">print</span>(<span class="ss">f'Mean Squared Error: </span><span class="sc">{</span><span class="bu">round</span>(mse, <span class="dv">2</span>)<span class="sc">}</span><span class="ss">'</span>)</span>
-<span id="cb42-27"><a></a><span class="bu">print</span>(<span class="ss">f'R-squared: </span><span class="sc">{</span><span class="bu">round</span>(r2, <span class="dv">4</span>)<span class="sc">}</span><span class="ss">'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb42-26"><a></a><span class="bu">print</span>(<span class="ss">f'Mean Squared Error: </span><span class="sc">{</span>mse<span class="sc">}</span><span class="ss">'</span>)</span>
+<span id="cb42-27"><a></a><span class="bu">print</span>(<span class="ss">f'R-squared: </span><span class="sc">{</span>r2<span class="sc">}</span><span class="ss">'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>Mean Squared Error: 1526.64
-R-squared: 0.8002</code></pre>
+<pre><code>Mean Squared Error: 1526.639833212853
+R-squared: 0.8002256325350545</code></pre>
 </div>
 </div>
 </div>
 <div id="tabset-12-2">
-<div id="df08fdda" class="cell" data-execution_count="27">
+<div id="46752a0c" class="cell" data-execution_count="27">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb44"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a></a>residuals <span class="op">=</span> y_test <span class="op">-</span> y_pred</span>
@@ -1345,7 +1324,7 @@ R-squared: 0.8002</code></pre>
 <ul id="tabset-13" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-13-1">Applied</a></li><li><a href="#tabset-13-2">Compare with previous model</a></li><li><a href="#tabset-13-3">Residuals</a></li></ul>
 <div class="tab-content">
 <div id="tabset-13-1">
-<div id="a27cd2cd" class="cell" data-execution_count="28">
+<div id="e798f084" class="cell" data-execution_count="28">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a></a><span class="co"># Function to calculate MSE with cross-validation</span></span>
@@ -1375,29 +1354,29 @@ R-squared: 0.8002</code></pre>
 <span id="cb45-25"><a></a>mse_opt <span class="op">=</span> mean_squared_error(y_test, y_pred_opt)</span>
 <span id="cb45-26"><a></a>r2_opt <span class="op">=</span> r2_score(y_test, y_pred_opt)</span>
 <span id="cb45-27"><a></a></span>
-<span id="cb45-28"><a></a><span class="bu">print</span>(<span class="ss">f'Optimized Mean Squared Error: </span><span class="sc">{</span><span class="bu">round</span>(mse_opt, <span class="dv">2</span>)<span class="sc">}</span><span class="ss">'</span>)</span>
-<span id="cb45-29"><a></a><span class="bu">print</span>(<span class="ss">f'Optimized R-squared: </span><span class="sc">{</span><span class="bu">round</span>(r2_opt, <span class="dv">4</span>)<span class="sc">}</span><span class="ss">'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb45-28"><a></a><span class="bu">print</span>(<span class="ss">f'Optimized Mean Squared Error: </span><span class="sc">{</span>mse_opt<span class="sc">}</span><span class="ss">'</span>)</span>
+<span id="cb45-29"><a></a><span class="bu">print</span>(<span class="ss">f'Optimized R-squared: </span><span class="sc">{</span>r2_opt<span class="sc">}</span><span class="ss">'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>Optimal number of components: 4
-Optimized Mean Squared Error: 1526.64
-Optimized R-squared: 0.8002</code></pre>
+Optimized Mean Squared Error: 1526.639833212853
+Optimized R-squared: 0.8002256325350545</code></pre>
 </div>
 </div>
 </div>
 <div id="tabset-13-2">
-<div id="732ec712" class="cell" data-execution_count="29">
+<div id="c16d3064" class="cell" data-execution_count="29">
 <div class="sourceCode cell-code" id="cb47"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb47-1"><a></a><span class="co"># Comparing initial and optimized model performances</span></span>
-<span id="cb47-2"><a></a><span class="bu">print</span>(<span class="ss">f'Initial vs. Optimized MSE: </span><span class="sc">{</span><span class="bu">round</span>(mse, <span class="dv">2</span>)<span class="sc">}</span><span class="ss"> vs. </span><span class="sc">{</span><span class="bu">round</span>(mse_opt, <span class="dv">2</span>)<span class="sc">}</span><span class="ss">'</span>)</span>
-<span id="cb47-3"><a></a><span class="bu">print</span>(<span class="ss">f'Initial vs. Optimized R-squared: </span><span class="sc">{</span><span class="bu">round</span>(r2, <span class="dv">4</span>)<span class="sc">}</span><span class="ss"> vs. </span><span class="sc">{</span><span class="bu">round</span>(r2_opt, <span class="dv">4</span>)<span class="sc">}</span><span class="ss">'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb47-2"><a></a><span class="bu">print</span>(<span class="ss">f'Initial vs. Optimized MSE: </span><span class="sc">{</span>mse<span class="sc">}</span><span class="ss"> vs. </span><span class="sc">{</span>mse_opt<span class="sc">}</span><span class="ss">'</span>)</span>
+<span id="cb47-3"><a></a><span class="bu">print</span>(<span class="ss">f'Initial vs. Optimized R-squared: </span><span class="sc">{</span>r2<span class="sc">}</span><span class="ss"> vs. </span><span class="sc">{</span>r2_opt<span class="sc">}</span><span class="ss">'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Initial vs. Optimized MSE: 1526.64 vs. 1526.64
-Initial vs. Optimized R-squared: 0.8002 vs. 0.8002</code></pre>
+<pre><code>Initial vs. Optimized MSE: 1526.639833212853 vs. 1526.639833212853
+Initial vs. Optimized R-squared: 0.8002256325350545 vs. 0.8002256325350545</code></pre>
 </div>
 </div>
 </div>
 <div id="tabset-13-3">
-<div id="6db039b7" class="cell" data-execution_count="30">
+<div id="26bb7e40" class="cell" data-execution_count="30">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb49"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb49-1"><a></a>residuals_opt <span class="op">=</span> y_test <span class="op">-</span> y_pred_opt</span>
@@ -1464,7 +1443,7 @@ Initial vs. Optimized R-squared: 0.8002 vs. 0.8002</code></pre>
 <ul id="tabset-15" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-15-1">Model summary</a></li><li><a href="#tabset-15-2">Residual plot</a></li></ul>
 <div class="tab-content">
 <div id="tabset-15-1">
-<div id="5d5a6a8f" class="cell" data-execution_count="31">
+<div id="5dc5ef3d" class="cell" data-execution_count="31">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb50"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb50-1"><a></a><span class="co"># Assuming X and y are already defined</span></span>
@@ -1483,17 +1462,17 @@ Initial vs. Optimized R-squared: 0.8002 vs. 0.8002</code></pre>
 <span id="cb50-14"><a></a>mse <span class="op">=</span> mean_squared_error(y_test, y_pred)</span>
 <span id="cb50-15"><a></a>r2 <span class="op">=</span> r2_score(y_test, y_pred.flatten())  <span class="co"># Flatten if y_pred is 2D</span></span>
 <span id="cb50-16"><a></a></span>
-<span id="cb50-17"><a></a><span class="bu">print</span>(<span class="ss">f'Mean Squared Error: </span><span class="sc">{</span><span class="bu">round</span>(mse, <span class="dv">2</span>)<span class="sc">}</span><span class="ss">'</span>)</span>
-<span id="cb50-18"><a></a><span class="bu">print</span>(<span class="ss">f'R-squared: </span><span class="sc">{</span><span class="bu">round</span>(r2, <span class="dv">4</span>)<span class="sc">}</span><span class="ss">'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb50-17"><a></a><span class="bu">print</span>(<span class="ss">f'Mean Squared Error: </span><span class="sc">{</span>mse<span class="sc">}</span><span class="ss">'</span>)</span>
+<span id="cb50-18"><a></a><span class="bu">print</span>(<span class="ss">f'R-squared: </span><span class="sc">{</span>r2<span class="sc">}</span><span class="ss">'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>Mean Squared Error: 1534.9
-R-squared: 0.7991</code></pre>
+<pre><code>Mean Squared Error: 1534.9008172660479
+R-squared: 0.7991446094751546</code></pre>
 </div>
 </div>
 </div>
 <div id="tabset-15-2">
-<div id="7291f3e3" class="cell" data-execution_count="32">
+<div id="a019d70c" class="cell" data-execution_count="32">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb52"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb52-1"><a></a>residuals <span class="op">=</span> y_test <span class="op">-</span> y_pred.flatten()</span>
@@ -1521,7 +1500,7 @@ R-squared: 0.7991</code></pre>
 <ul id="tabset-16" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-16-1">Applied</a></li><li><a href="#tabset-16-2">Compare with previous model</a></li><li><a href="#tabset-16-3">Residuals</a></li></ul>
 <div class="tab-content">
 <div id="tabset-16-1">
-<div id="52dd168e" class="cell" data-execution_count="33">
+<div id="12d06855" class="cell" data-execution_count="33">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb53"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb53-1"><a></a><span class="co"># Function to perform cross-validation and calculate MSE</span></span>
@@ -1547,29 +1526,29 @@ R-squared: 0.7991</code></pre>
 <span id="cb53-21"><a></a>mse_opt <span class="op">=</span> mean_squared_error(y_test, y_pred_opt)</span>
 <span id="cb53-22"><a></a>r2_opt <span class="op">=</span> r2_score(y_test, y_pred_opt.flatten())</span>
 <span id="cb53-23"><a></a></span>
-<span id="cb53-24"><a></a><span class="bu">print</span>(<span class="ss">f'Optimized Mean Squared Error: </span><span class="sc">{</span><span class="bu">round</span>(mse_opt, <span class="dv">2</span>)<span class="sc">}</span><span class="ss">'</span>)</span>
-<span id="cb53-25"><a></a><span class="bu">print</span>(<span class="ss">f'Optimized R-squared: </span><span class="sc">{</span><span class="bu">round</span>(r2_opt, <span class="dv">4</span>)<span class="sc">}</span><span class="ss">'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb53-24"><a></a><span class="bu">print</span>(<span class="ss">f'Optimized Mean Squared Error: </span><span class="sc">{</span>mse_opt<span class="sc">}</span><span class="ss">'</span>)</span>
+<span id="cb53-25"><a></a><span class="bu">print</span>(<span class="ss">f'Optimized R-squared: </span><span class="sc">{</span>r2_opt<span class="sc">}</span><span class="ss">'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>Optimal number of components: 3
-Optimized Mean Squared Error: 1526.57
-Optimized R-squared: 0.8002</code></pre>
+Optimized Mean Squared Error: 1526.5692627318958
+Optimized R-squared: 0.8002348673086326</code></pre>
 </div>
 </div>
 </div>
 <div id="tabset-16-2">
-<div id="6fa1b53c" class="cell" data-execution_count="34">
+<div id="b8c73ece" class="cell" data-execution_count="34">
 <div class="sourceCode cell-code" id="cb55"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb55-1"><a></a><span class="co"># Comparing initial and optimized model performances</span></span>
-<span id="cb55-2"><a></a><span class="bu">print</span>(<span class="ss">f'Initial vs. Optimized MSE: </span><span class="sc">{</span><span class="bu">round</span>(mse, <span class="dv">2</span>)<span class="sc">}</span><span class="ss"> vs. </span><span class="sc">{</span><span class="bu">round</span>(mse_opt, <span class="dv">2</span>)<span class="sc">}</span><span class="ss">'</span>)</span>
-<span id="cb55-3"><a></a><span class="bu">print</span>(<span class="ss">f'Initial vs. Optimized R-squared: </span><span class="sc">{</span><span class="bu">round</span>(r2, <span class="dv">4</span>)<span class="sc">}</span><span class="ss"> vs. </span><span class="sc">{</span><span class="bu">round</span>(r2_opt, <span class="dv">4</span>)<span class="sc">}</span><span class="ss">'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb55-2"><a></a><span class="bu">print</span>(<span class="ss">f'Initial vs. Optimized MSE: </span><span class="sc">{</span>mse<span class="sc">}</span><span class="ss"> vs. </span><span class="sc">{</span>mse_opt<span class="sc">}</span><span class="ss">'</span>)</span>
+<span id="cb55-3"><a></a><span class="bu">print</span>(<span class="ss">f'Initial vs. Optimized R-squared: </span><span class="sc">{</span>r2<span class="sc">}</span><span class="ss"> vs. </span><span class="sc">{</span>r2_opt<span class="sc">}</span><span class="ss">'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Initial vs. Optimized MSE: 1534.9 vs. 1526.57
-Initial vs. Optimized R-squared: 0.7991 vs. 0.8002</code></pre>
+<pre><code>Initial vs. Optimized MSE: 1534.9008172660479 vs. 1526.5692627318958
+Initial vs. Optimized R-squared: 0.7991446094751546 vs. 0.8002348673086326</code></pre>
 </div>
 </div>
 </div>
 <div id="tabset-16-3">
-<div id="ea6ed37a" class="cell" data-execution_count="35">
+<div id="815bc3aa" class="cell" data-execution_count="35">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb57"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb57-1"><a></a>residuals_opt <span class="op">=</span> y_test <span class="op">-</span> y_pred_opt.flatten()</span>
@@ -1674,7 +1653,7 @@ Initial vs. Optimized R-squared: 0.7991 vs. 0.8002</code></pre>
 <section id="in-class-exercise" class="slide level2">
 <h2>In-class Exercise</h2>
 <div class="task">
-<p>Go to <a href="https://https://info523-fall25-101-201.github.io/exercises/ex-08.html">ex-08</a> and perform the tasks</p>
+<p>Go to <a href="https://datamineaz.org/exercises/ex-08.html">ex-08</a> and perform the tasks</p>
 </div>
 
 
@@ -1683,7 +1662,7 @@ Initial vs. Optimized R-squared: 0.7991 vs. 0.8002</code></pre>
   <div class="quarto-auto-generated-content" style="display: none;">
 <p><img src="../logo.png" class="slide-logo"></p>
 <div class="footer footer-default">
-<p><a href="https://info523-fall25-101-201.github.io/">🔗 github.io</a></p>
+<p><a href="https://datamineaz.org/">🔗 datamineaz.org</a></p>
 </div>
 </div></div>
 
