@@ -247,7 +247,7 @@
 <div class="column" style="width:50%;">
 <p><strong>Human Freedom Index</strong></p>
 <p>The Human Freedom Index is a report that attempts to summarize the idea of “freedom” through variables for many countries around the globe.</p>
-<div id="60d1cd3a" class="cell" data-execution_count="3">
+<div id="81a1c09b" class="cell" data-execution_count="3">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -259,7 +259,7 @@
 </div><div class="column" style="width:50%;">
 <p><strong>Environmental Sustainability</strong></p>
 <p>Countries are given an overall sustainability score as well as scores in each of several different environmental areas.</p>
-<div id="3b5c87c9" class="cell" data-execution_count="4">
+<div id="e481bef6" class="cell" data-execution_count="4">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -276,7 +276,7 @@
 </section>
 <section id="dataset-1-human-freedom-index" class="slide level2 smaller">
 <h2>Dataset #1: Human Freedom Index</h2>
-<div id="584479c7" class="cell" data-execution_count="5">
+<div id="3c32d83e" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a></a>hfi <span class="op">=</span> pd.read_csv(<span class="st">"data/hfi.csv"</span>)</span>
 <span id="cb2-2"><a></a>hfi.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="5">
@@ -457,7 +457,7 @@
 <ul id="tabset-1" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-1-1"><code>.info()</code></a></li><li><a href="#tabset-1-2"><code>.describe()</code></a></li></ul>
 <div class="tab-content">
 <div id="tabset-1-1">
-<div id="3de25c58" class="cell" data-execution_count="6">
+<div id="0eccc909" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a></a>hfi.info(verbose <span class="op">=</span> <span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>&lt;class 'pandas.core.frame.DataFrame'&gt;
@@ -594,7 +594,7 @@ memory usage: 1.4+ MB</code></pre>
 </div>
 </div>
 <div id="tabset-1-2">
-<div id="399ec15e" class="cell" data-execution_count="7">
+<div id="74d07f20" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a></a>hfi.describe()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="7">
 <div>
@@ -845,7 +845,7 @@ memory usage: 1.4+ MB</code></pre>
 </section>
 <section id="identifying-missing-values" class="slide level2 smaller">
 <h2>Identifying missing values</h2>
-<div id="1b224e9d" class="cell" data-execution_count="8">
+<div id="082e7433" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a></a>hfi.isna().<span class="bu">sum</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="8">
 <pre><code>year                   0
@@ -924,7 +924,7 @@ Length: 123, dtype: int64</code></pre>
 </div>
 </div>
 <div id="tabset-2-2">
-<div id="1cff5d5c" class="cell" data-fig.asp="0.625" data-execution_count="9">
+<div id="14be81bd" class="cell" data-fig.asp="0.625" data-execution_count="9">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -935,7 +935,7 @@ Length: 123, dtype: int64</code></pre>
 </div>
 </div>
 <div id="tabset-2-3">
-<div id="f107a161" class="cell" data-execution_count="10">
+<div id="90071b98" class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb8" data-code-line-numbers="1-12|1|3,4|6,8,10,12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a></a>hfi_copy <span class="op">=</span> hfi</span>
 <span id="cb8-2"><a></a></span>
 <span id="cb8-3"><a></a>mean_imputer <span class="op">=</span> SimpleImputer(strategy <span class="op">=</span> <span class="st">'mean'</span>)</span>
@@ -976,7 +976,7 @@ Length: 123, dtype: int64</code></pre>
 </div>
 </div>
 <div id="tabset-3-2">
-<div id="8a9617c1" class="cell" data-fig.asp="0.625" data-ref.label="mean_imp" data-execution_count="11">
+<div id="fb644fc6" class="cell" data-fig.asp="0.625" data-ref.label="mean_imp" data-execution_count="11">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -987,7 +987,7 @@ Length: 123, dtype: int64</code></pre>
 </div>
 </div>
 <div id="tabset-3-3">
-<div id="4040c266" class="cell" data-execution_count="12">
+<div id="9f61f3b1" class="cell" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb9" data-code-line-numbers="1-10|1,2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a></a>median_imputer <span class="op">=</span> SimpleImputer(strategy <span class="op">=</span> <span class="st">'median'</span>)</span>
 <span id="cb9-2"><a></a>hfi_copy[<span class="st">'median_pf_score'</span>] <span class="op">=</span> median_imputer.fit_transform(hfi_copy[[<span class="st">'pf_score'</span>]])</span>
 <span id="cb9-3"><a></a></span>
@@ -1024,7 +1024,7 @@ Length: 123, dtype: int64</code></pre>
 </div>
 </div>
 <div id="tabset-4-2">
-<div id="ba78dd2c" class="cell" data-fig.asp="0.625" data-execution_count="13">
+<div id="b6d2d0eb" class="cell" data-fig.asp="0.625" data-execution_count="13">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -1035,7 +1035,7 @@ Length: 123, dtype: int64</code></pre>
 </div>
 </div>
 <div id="tabset-4-3">
-<div id="bffbcf60" class="cell" data-ref.label="mean-imp" data-execution_count="14">
+<div id="7a5487f8" class="cell" data-ref.label="mean-imp" data-execution_count="14">
 <div class="sourceCode cell-code" id="cb10" data-code-line-numbers="1-12|1,2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a></a>mode_imputer <span class="op">=</span> SimpleImputer(strategy <span class="op">=</span> <span class="st">'most_frequent'</span>)</span>
 <span id="cb10-2"><a></a>hfi_copy[<span class="st">'mode_pf_score'</span>] <span class="op">=</span> mode_imputer.fit_transform(hfi_copy[[<span class="st">'pf_score'</span>]])</span>
 <span id="cb10-3"><a></a></span>
@@ -1071,7 +1071,7 @@ Length: 123, dtype: int64</code></pre>
 </div>
 </div>
 <div id="tabset-5-2">
-<div id="676fc21d" class="cell" data-fig.asp="0.625" data-execution_count="15">
+<div id="1680fe11" class="cell" data-fig.asp="0.625" data-execution_count="15">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -1082,7 +1082,7 @@ Length: 123, dtype: int64</code></pre>
 </div>
 </div>
 <div id="tabset-5-3">
-<div id="90d15b06" class="cell" data-execution_count="16">
+<div id="c724b838" class="cell" data-execution_count="16">
 <div class="sourceCode cell-code" id="cb11" data-code-line-numbers="1-12|1,2,4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a></a>upper_limit <span class="op">=</span> np.percentile(hfi_copy[<span class="st">'pf_score'</span>].dropna(), <span class="dv">95</span>)</span>
 <span id="cb11-2"><a></a>lower_limit <span class="op">=</span> np.percentile(hfi_copy[<span class="st">'pf_score'</span>].dropna(), <span class="dv">5</span>)</span>
 <span id="cb11-3"><a></a></span>
@@ -1103,12 +1103,12 @@ Length: 123, dtype: int64</code></pre>
 <section id="other-imputation-methods" class="slide level2 smaller">
 <h2>Other Imputation Methods</h2>
 <div style="text-align: center;">
-<iframe width="1200" height="400" src="https://datamineaz.org/tables/model-cheatsheet.html" frameborder="1" style="background:white;"></iframe>
+<iframe width="1200" height="400" src="https://https://info523-fall25-101-201.github.io/tables/model-cheatsheet.html" frameborder="1" style="background:white;"></iframe>
 </div>
 </section>
 <section id="data-type-conversion" class="slide level2 smaller">
 <h2>Data type conversion</h2>
-<div id="9d00d1eb" class="cell" data-execution_count="17">
+<div id="618d0197" class="cell" data-execution_count="17">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a></a>hfi[<span class="st">'year'</span>] <span class="op">=</span> pd.to_datetime(hfi[<span class="st">'year'</span>], <span class="bu">format</span><span class="op">=</span><span class="st">'%Y'</span>)</span>
 <span id="cb12-2"><a></a></span>
 <span id="cb12-3"><a></a>hfi.head(<span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1187,7 +1187,7 @@ Length: 123, dtype: int64</code></pre>
 </div>
 </div>
 </div>
-<div id="105d32e2" class="cell" data-execution_count="18">
+<div id="3f921251" class="cell" data-execution_count="18">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a></a>hfi.dtypes</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="14">
 <pre><code>year                 datetime64[ns]
@@ -1207,7 +1207,7 @@ Length: 127, dtype: object</code></pre>
 </section>
 <section id="removing-duplicates" class="slide level2 smaller">
 <h2>Removing duplicates</h2>
-<div id="a5b0d971" class="cell" data-execution_count="19">
+<div id="dbd396ef" class="cell" data-execution_count="19">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a></a>hfi.info()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>&lt;class 'pandas.core.frame.DataFrame'&gt;
@@ -1217,7 +1217,7 @@ dtypes: datetime64[ns](1), float64(123), object(3)
 memory usage: 1.4+ MB</code></pre>
 </div>
 </div>
-<div id="3218f5a6" class="cell" data-execution_count="20">
+<div id="a49a868b" class="cell" data-execution_count="20">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a></a>hfi.drop_duplicates(inplace <span class="op">=</span> <span class="va">True</span>)</span>
 <span id="cb17-2"><a></a>hfi.info()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -1241,7 +1241,7 @@ memory usage: 1.4+ MB</code></pre>
 <div class="tab-content">
 <div id="tabset-6-1">
 <p>Let’s look at USA, India, Canada, China</p>
-<div id="17b3056f" class="cell" data-execution_count="21">
+<div id="c35bfae4" class="cell" data-execution_count="21">
 <div class="sourceCode cell-code" id="cb19" data-code-line-numbers="1-6|1|2|5,6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a></a>options <span class="op">=</span> [<span class="st">'United States'</span>, <span class="st">'India'</span>, <span class="st">'Canada'</span>, <span class="st">'China'</span>]</span>
 <span id="cb19-2"><a></a></span>
 <span id="cb19-3"><a></a>filtered_hfi <span class="op">=</span> hfi[hfi[<span class="st">'countries'</span>].isin(options)]</span>
@@ -1255,7 +1255,7 @@ memory usage: 1.4+ MB</code></pre>
 </div>
 <div id="tabset-6-2">
 <p>Let’s look at <a href="https://www.investopedia.com/terms/i/index-of-economic-freedom.asp#:~:text=An%20index%20of%20economic%20freedom%20is%20a%20composite,criteria%20such%20as%20property%20rights%20and%20tax%20burden.">Economic Freedom</a> &gt; 75</p>
-<div id="44e52f90" class="cell" data-execution_count="22">
+<div id="3dfd01e2" class="cell" data-execution_count="22">
 <div class="sourceCode cell-code" id="cb21" data-code-line-numbers="1-3|1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a></a>filtered_hfi <span class="op">=</span> hfi[hfi[<span class="st">'pf_score'</span>] <span class="op">&gt;</span> <span class="dv">8</span>]</span>
 <span id="cb21-2"><a></a>sns.boxplot(filtered_hfi, x <span class="op">=</span> <span class="st">"pf_score"</span>, y <span class="op">=</span> <span class="st">"countries"</span>, palette <span class="op">=</span> <span class="st">"colorblind"</span>)</span>
 <span id="cb21-3"><a></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1282,7 +1282,7 @@ memory usage: 1.4+ MB</code></pre>
 <ul id="tabset-7" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-7-1">Standard Deviation</a></li><li><a href="#tabset-7-2">Z-Score Normalization</a></li></ul>
 <div class="tab-content">
 <div id="tabset-7-1">
-<div id="14a21c9e" class="cell" data-execution_count="23">
+<div id="7c299f34" class="cell" data-execution_count="23">
 <div class="cell-output cell-output-stdout">
 <pre><code>Mean: 5
 Standard Deviation: 2</code></pre>
@@ -1297,7 +1297,7 @@ Standard Deviation: 2</code></pre>
 </div>
 </div>
 <div id="tabset-7-2">
-<div id="0f645679" class="cell" data-execution_count="24">
+<div id="9b924fd7" class="cell" data-execution_count="24">
 <div class="sourceCode cell-code" id="cb23" data-code-line-numbers="1-6|3,4|5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a></a>hfi_copy <span class="op">=</span> hfi</span>
 <span id="cb23-2"><a></a></span>
 <span id="cb23-3"><a></a>scaler <span class="op">=</span> StandardScaler()</span>
@@ -1385,7 +1385,7 @@ Standard Deviation: 2</code></pre>
 <ul id="tabset-8" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-8-1">Q-Q Plot</a></li><li><a href="#tabset-8-2">Issues</a></li></ul>
 <div class="tab-content">
 <div id="tabset-8-1">
-<div id="1c47420a" class="cell" data-execution_count="25">
+<div id="63a7dafc" class="cell" data-execution_count="25">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a></a>hfi_clean <span class="op">=</span> hfi_copy.dropna(subset <span class="op">=</span> [<span class="st">'pf_score'</span>])</span>
@@ -1462,7 +1462,7 @@ Standard Deviation: 2</code></pre>
 <ul id="tabset-9" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-9-1">Original</a></li><li><a href="#tabset-9-2">Square-root</a></li><li><a href="#tabset-9-3">Log</a></li><li><a href="#tabset-9-4">Inverse</a></li><li><a href="#tabset-9-5">Squared</a></li><li><a href="#tabset-9-6">Cubed</a></li></ul>
 <div class="tab-content">
 <div id="tabset-9-1">
-<div id="d83733bd" class="cell" data-execution_count="26">
+<div id="ee180fe5" class="cell" data-execution_count="26">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -1476,7 +1476,7 @@ Standard Deviation: 2</code></pre>
 </div>
 </div>
 <div id="tabset-9-2">
-<div id="81a668a9" class="cell" data-execution_count="27">
+<div id="13866fb8" class="cell" data-execution_count="27">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb25" data-code-line-numbers="1-13|1|2,7,10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a></a>hfi_clean[<span class="st">'pf_score_sqrt'</span>] <span class="op">=</span> np.sqrt(hfi_clean[<span class="st">'pf_score'</span>])</span>
@@ -1503,7 +1503,7 @@ Standard Deviation: 2</code></pre>
 </div>
 </div>
 <div id="tabset-9-3">
-<div id="97fa95f6" class="cell" data-execution_count="28">
+<div id="de7d87ed" class="cell" data-execution_count="28">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb26" data-code-line-numbers="1-13|1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a></a>hfi_clean[<span class="st">'pf_score_log'</span>] <span class="op">=</span> np.log(hfi_clean[<span class="st">'pf_score'</span>] <span class="op">+</span> <span class="dv">1</span>)</span>
@@ -1530,7 +1530,7 @@ Standard Deviation: 2</code></pre>
 </div>
 </div>
 <div id="tabset-9-4">
-<div id="6cc126ab" class="cell" data-execution_count="29">
+<div id="61b6b0a2" class="cell" data-execution_count="29">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb27" data-code-line-numbers="1-13|1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a></a>hfi_clean[<span class="st">'pf_score_inv'</span>] <span class="op">=</span> <span class="dv">1</span><span class="op">/</span>hfi_clean.pf_score</span>
@@ -1557,7 +1557,7 @@ Standard Deviation: 2</code></pre>
 </div>
 </div>
 <div id="tabset-9-5">
-<div id="8a65388a" class="cell" data-execution_count="30">
+<div id="ba5e78f0" class="cell" data-execution_count="30">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb28" data-code-line-numbers="1-13|1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a></a>hfi_clean[<span class="st">'pf_score_square'</span>] <span class="op">=</span> <span class="bu">pow</span>(hfi_clean.pf_score, <span class="dv">2</span>)</span>
@@ -1584,7 +1584,7 @@ Standard Deviation: 2</code></pre>
 </div>
 </div>
 <div id="tabset-9-6">
-<div id="08951e1d" class="cell" data-execution_count="31">
+<div id="cf5c308a" class="cell" data-execution_count="31">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb29" data-code-line-numbers="1-13|1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a></a>hfi_clean[<span class="st">'pf_score_cube'</span>] <span class="op">=</span> <span class="bu">pow</span>(hfi_clean.pf_score, <span class="dv">3</span>)</span>
@@ -1686,7 +1686,7 @@ Standard Deviation: 2</code></pre>
 </section>
 <section id="kde-our-data" class="slide level2 smaller">
 <h2>KDE: our data</h2>
-<div id="235590be" class="cell" data-execution_count="32">
+<div id="88a4cf16" class="cell" data-execution_count="32">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb30" data-code-line-numbers="1-16|1-4|6,7|12|16"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a></a>values <span class="op">=</span> hfi_clean[<span class="st">'pf_score_square'</span>]</span>
@@ -1720,7 +1720,7 @@ Standard Deviation: 2</code></pre>
 </section>
 <section id="split-the-data" class="slide level2 smaller">
 <h2>Split the data</h2>
-<div id="49cd487c" class="cell" data-execution_count="33">
+<div id="3b414f91" class="cell" data-execution_count="33">
 <div class="sourceCode cell-code" id="cb32" data-code-line-numbers="1-5|1,2|4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a></a>valley <span class="op">=</span> <span class="fl">68.39968248</span></span>
 <span id="cb32-2"><a></a>hfi_clean[<span class="st">'group'</span>] <span class="op">=</span> np.where(hfi_clean[<span class="st">'pf_score_square'</span>] <span class="op">&lt;</span> valley, <span class="st">'group1'</span>, <span class="st">'group2'</span>)</span>
 <span id="cb32-3"><a></a></span>
@@ -1782,7 +1782,7 @@ Standard Deviation: 2</code></pre>
 </div>
 </div>
 </div>
-<div id="7f2c6277" class="cell" data-execution_count="34">
+<div id="b9924a63" class="cell" data-execution_count="34">
 <div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a></a>data.tail()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="30">
 <div>
@@ -1843,7 +1843,7 @@ Standard Deviation: 2</code></pre>
 </section>
 <section id="plot-the-grouped-data" class="slide level2">
 <h2>Plot the grouped data</h2>
-<div id="9865aa2d" class="cell" data-execution_count="35">
+<div id="9cf8e6df" class="cell" data-execution_count="35">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a></a>sns.histplot(data <span class="op">=</span> hfi_clean, x <span class="op">=</span> <span class="st">"pf_score_square"</span>, </span>
@@ -1889,7 +1889,7 @@ Standard Deviation: 2</code></pre>
 <ul id="tabset-10" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-10-1">Prep</a></li><li><a href="#tabset-10-2">PCA: variance</a></li><li><a href="#tabset-10-3">PCA: scree plot</a></li><li><a href="#tabset-10-4">t-SNE: components</a></li><li><a href="#tabset-10-5">t-SNE: plot</a></li></ul>
 <div class="tab-content">
 <div id="tabset-10-1">
-<div id="42f3db88" class="cell" data-execution_count="36">
+<div id="a1b53289" class="cell" data-execution_count="36">
 <div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a></a>numeric_cols <span class="op">=</span> hfi.select_dtypes(include <span class="op">=</span> [np.number]).columns</span>
 <span id="cb35-2"><a></a></span>
 <span id="cb35-3"><a></a><span class="co"># Applying mean imputation only to numeric columns</span></span>
@@ -1903,7 +1903,7 @@ Standard Deviation: 2</code></pre>
 </div>
 </div>
 <div id="tabset-10-2">
-<div id="077a753f" class="cell" data-execution_count="37">
+<div id="7ee5d383" class="cell" data-execution_count="37">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb36" data-code-line-numbers="1-5|1|2|3|4|5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a></a>pca <span class="op">=</span> PCA(n_components <span class="op">=</span> <span class="dv">2</span>)</span>
@@ -1932,7 +1932,7 @@ Standard Deviation: 2</code></pre>
 </div>
 </div>
 <div id="tabset-10-3">
-<div id="a4db6a6d" class="cell" data-execution_count="38">
+<div id="47c3aa12" class="cell" data-execution_count="38">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a></a><span class="co"># Combining the scatterplot of principal components with the scree plot using the correct column names</span></span>
@@ -1968,7 +1968,7 @@ Standard Deviation: 2</code></pre>
 </div>
 </div>
 <div id="tabset-10-4">
-<div id="90580e06" class="cell" data-execution_count="39">
+<div id="73e72795" class="cell" data-execution_count="39">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb39" data-code-line-numbers="1-5|1|2|4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a></a>tsne <span class="op">=</span> TSNE(n_components <span class="op">=</span> <span class="dv">2</span>, random_state <span class="op">=</span> <span class="dv">42</span>)</span>
@@ -2066,7 +2066,7 @@ Standard Deviation: 2</code></pre>
 </div>
 </div>
 <div id="tabset-10-5">
-<div id="beeeb4d1" class="cell" data-execution_count="40">
+<div id="ac05f1f1" class="cell" data-execution_count="40">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a></a>tsne_df[<span class="st">'region'</span>] <span class="op">=</span> y</span>
@@ -2125,7 +2125,7 @@ Standard Deviation: 2</code></pre>
 </section>
 <section id="dataset-2-environmental-stability" class="slide level2 smaller">
 <h2>Dataset #2: Environmental Stability</h2>
-<div id="0130e5bf" class="cell" data-execution_count="41">
+<div id="bf5eda20" class="cell" data-execution_count="41">
 <div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a></a>esi <span class="op">=</span> pd.read_csv(<span class="st">"data/esi.csv"</span>)</span>
 <span id="cb41-2"><a></a>esi.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="37">
@@ -2310,7 +2310,7 @@ Standard Deviation: 2</code></pre>
 </section>
 <section id="grouping-and-aggregating" class="slide level2 smaller">
 <h2>Grouping and aggregating</h2>
-<div id="582eab6d" class="cell" data-execution_count="42">
+<div id="5b0c4a66" class="cell" data-execution_count="42">
 <div class="sourceCode cell-code" id="cb42" data-code-line-numbers="1-4|1-2|3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a></a>grouped_hfi <span class="op">=</span> hfi.groupby(<span class="st">'countries'</span>).agg({<span class="st">'region'</span>: <span class="st">'first'</span>, </span>
 <span id="cb42-2"><a></a>                                            <span class="st">'pf_score'</span>: <span class="st">'mean'</span></span>
 <span id="cb42-3"><a></a>                                           }).reset_index()</span>
@@ -2380,7 +2380,7 @@ Standard Deviation: 2</code></pre>
 </section>
 <section id="joining-the-data" class="slide level2 smaller">
 <h2>Joining the data</h2>
-<div id="356a1064" class="cell" data-execution_count="43">
+<div id="56bab70a" class="cell" data-execution_count="43">
 <div class="sourceCode cell-code" id="cb43" data-code-line-numbers="1-5|1-2|4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a></a>grouped_hfi[<span class="st">'country'</span>] <span class="op">=</span> grouped_hfi[<span class="st">'countries'</span>]</span>
 <span id="cb43-2"><a></a>merged_data <span class="op">=</span> esi.merge(grouped_hfi, how <span class="op">=</span> <span class="st">'left'</span>, on <span class="op">=</span> <span class="st">'country'</span>)</span>
 <span id="cb43-3"><a></a></span>
@@ -2463,7 +2463,7 @@ Standard Deviation: 2</code></pre>
 <section id="back-to-missing-values" class="slide level2">
 <h2>Back to missing values</h2>
 <p>We are going to drop them, since they are also present in <code>region</code></p>
-<div id="46fa44b9" class="cell" data-execution_count="44">
+<div id="bc66ef1e" class="cell" data-execution_count="44">
 <div class="sourceCode cell-code" id="cb44"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a></a>esi_hfi_red <span class="op">=</span> esi_hfi.dropna()</span>
 <span id="cb44-2"><a></a>esi_hfi_red.isna().<span class="bu">sum</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="40">
@@ -2486,7 +2486,7 @@ dtype: int64</code></pre>
 <ul id="tabset-11" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-11-1"><code>pf_score</code></a></li><li><a href="#tabset-11-2"><code>esi</code></a></li></ul>
 <div class="tab-content">
 <div id="tabset-11-1">
-<div id="a0d337b5" class="cell" data-execution_count="45">
+<div id="d25436e3" class="cell" data-execution_count="45">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb46"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb46-1"><a></a>sns.set_style(<span class="st">"white"</span>)</span>
@@ -2511,7 +2511,7 @@ dtype: int64</code></pre>
 </div>
 </div>
 <div id="tabset-11-2">
-<div id="5d772789" class="cell" data-execution_count="46">
+<div id="302f1eb5" class="cell" data-execution_count="46">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb47"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb47-1"><a></a>fig, (ax1, ax2) <span class="op">=</span> plt.subplots(ncols <span class="op">=</span> <span class="dv">2</span>, nrows <span class="op">=</span> <span class="dv">1</span>)</span>
@@ -2543,7 +2543,7 @@ dtype: int64</code></pre>
 <ul id="tabset-12" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-12-1"><code>pf_score</code></a></li><li><a href="#tabset-12-2"><code>esi</code></a></li></ul>
 <div class="tab-content">
 <div id="tabset-12-1">
-<div id="bf10ecb4" class="cell" data-execution_count="47">
+<div id="61f65e55" class="cell" data-execution_count="47">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb48"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb48-1"><a></a>esi_hfi_red[<span class="st">'pf_score_square'</span>] <span class="op">=</span> <span class="bu">pow</span>(esi_hfi_red.pf_score, <span class="dv">2</span>)</span>
@@ -2570,7 +2570,7 @@ dtype: int64</code></pre>
 </div>
 </div>
 <div id="tabset-12-2">
-<div id="229cc25d" class="cell" data-execution_count="48">
+<div id="a14e7d7c" class="cell" data-execution_count="48">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb49"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb49-1"><a></a>esi_hfi_red[<span class="st">'esi_log'</span>] <span class="op">=</span> np.log(esi_hfi_red.esi <span class="op">+</span> <span class="dv">1</span>)</span>
@@ -2601,7 +2601,7 @@ dtype: int64</code></pre>
 </section>
 <section id="normalizing-1" class="slide level2 smaller">
 <h2>Normalizing</h2>
-<div id="7ec19705" class="cell" data-execution_count="49">
+<div id="dcd394a8" class="cell" data-execution_count="49">
 <div class="sourceCode cell-code" id="cb50"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb50-1"><a></a>scaler <span class="op">=</span> StandardScaler()</span>
 <span id="cb50-2"><a></a>esi_hfi_red[[<span class="st">'esi_log'</span>, <span class="st">'pf_score_square'</span>]] <span class="op">=</span> scaler.fit_transform(esi_hfi_red[[<span class="st">'esi_log'</span>, <span class="st">'pf_score_square'</span>]])</span>
 <span id="cb50-3"><a></a></span>
@@ -2702,7 +2702,7 @@ dtype: int64</code></pre>
 <ul id="tabset-13" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-13-1">Correlation</a></li><li><a href="#tabset-13-2">Plot</a></li></ul>
 <div class="tab-content">
 <div id="tabset-13-1">
-<div id="98fbccd9" class="cell" data-execution_count="50">
+<div id="ecad60fe" class="cell" data-execution_count="50">
 <div class="sourceCode cell-code" id="cb51"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb51-1"><a></a>esi_hfi_num <span class="op">=</span> esi_hfi_red.select_dtypes(include <span class="op">=</span> <span class="st">'number'</span>)</span>
 <span id="cb51-2"><a></a></span>
 <span id="cb51-3"><a></a>corr <span class="op">=</span> esi_hfi_num.corr()</span>
@@ -2770,7 +2770,7 @@ dtype: int64</code></pre>
 </div>
 </div>
 <div id="tabset-13-2">
-<div id="4dcc4b71" class="cell" data-execution_count="51">
+<div id="74d2fe0f" class="cell" data-execution_count="51">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb52"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb52-1"><a></a>plt.figure(figsize <span class="op">=</span> (<span class="dv">7</span>, <span class="dv">5</span>))</span>
@@ -2801,7 +2801,7 @@ dtype: int64</code></pre>
 <ul id="tabset-14" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-14-1">p-value</a></li><li><a href="#tabset-14-2">Trend line</a></li></ul>
 <div class="tab-content">
 <div id="tabset-14-1">
-<div id="a67740e8" class="cell" data-execution_count="52">
+<div id="aee68a97" class="cell" data-execution_count="52">
 <div class="sourceCode cell-code" id="cb53"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb53-1"><a></a>x <span class="op">=</span> esi_hfi_red[<span class="st">'pf_score_square'</span>]</span>
 <span id="cb53-2"><a></a>y <span class="op">=</span> esi_hfi_red[<span class="st">'esi_log'</span>]</span>
 <span id="cb53-3"><a></a>corr_coefficient, p_value <span class="op">=</span> pearsonr(x, y)</span>
@@ -2815,7 +2815,7 @@ P-value: 0.0</code></pre>
 </div>
 </div>
 <div id="tabset-14-2">
-<div id="cc3941e5" class="cell" data-execution_count="53">
+<div id="73b66b51" class="cell" data-execution_count="53">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb55"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb55-1"><a></a>sns.lmplot(data <span class="op">=</span> esi_hfi_red, x <span class="op">=</span> <span class="st">"pf_score_square"</span>, y <span class="op">=</span> <span class="st">"esi_log"</span>, height <span class="op">=</span> <span class="dv">5</span>, aspect <span class="op">=</span> <span class="dv">7</span><span class="op">/</span><span class="dv">5</span>)</span>

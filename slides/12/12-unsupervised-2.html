@@ -256,7 +256,7 @@
 <ul id="tabset-1" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-1-1">Read + Head</a></li><li><a href="#tabset-1-2">Define columns</a></li><li><a href="#tabset-1-3">Prepare steps</a></li><li><a href="#tabset-1-4">Transformations</a></li></ul>
 <div class="tab-content">
 <div id="tabset-1-1">
-<div id="14f9eb90" class="cell" data-execution_count="2">
+<div id="027da6af" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a></a>mlb_players_18 <span class="op">=</span> pd.read_csv(<span class="st">"data/mlb_players_18.csv"</span>, encoding <span class="op">=</span> <span class="st">'iso-8859-1'</span>)</span>
 <span id="cb2-2"><a></a></span>
 <span id="cb2-3"><a></a>mlb_players_18.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -420,14 +420,14 @@
 </div>
 </div>
 <div id="tabset-1-2">
-<div id="96d193e5" class="cell" data-execution_count="3">
+<div id="10e45a25" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a></a><span class="co"># Define the columns based on their type for preprocessing</span></span>
 <span id="cb3-2"><a></a>categorical_features <span class="op">=</span> [<span class="st">'team'</span>, <span class="st">'position'</span>]</span>
 <span id="cb3-3"><a></a>numerical_features <span class="op">=</span> [<span class="st">'games'</span>, <span class="st">'AB'</span>, <span class="st">'R'</span>, <span class="st">'H'</span>, <span class="st">'doubles'</span>, <span class="st">'triples'</span>, <span class="st">'HR'</span>, <span class="st">'RBI'</span>, <span class="st">'walks'</span>, <span class="st">'strike_outs'</span>, <span class="st">'stolen_bases'</span>, <span class="st">'caught_stealing_base'</span>, <span class="st">'AVG'</span>, <span class="st">'OBP'</span>, <span class="st">'SLG'</span>, <span class="st">'OPS'</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 <div id="tabset-1-3">
-<div id="c585a5ae" class="cell" data-execution_count="4">
+<div id="78361d88" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a></a><span class="co"># Handling missing values: Impute missing values if any</span></span>
 <span id="cb4-2"><a></a><span class="co"># For numerical features, replace missing values with the median of the column</span></span>
 <span id="cb4-3"><a></a><span class="co"># For categorical features, replace missing values with the most frequent value of the column</span></span>
@@ -444,7 +444,7 @@
 </div>
 </div>
 <div id="tabset-1-4">
-<div id="b687cb48" class="cell" data-execution_count="5">
+<div id="e64081df" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a></a><span class="co"># Apply the transformations to the dataset</span></span>
 <span id="cb5-2"><a></a>mlb_preprocessed <span class="op">=</span> preprocessor.fit_transform(mlb_players_18)</span>
 <span id="cb5-3"><a></a></span>
@@ -638,7 +638,7 @@
 <section id="clustering-methods" class="slide level2">
 <h2>Clustering methods</h2>
 <div style="text-align: center;">
-<iframe width="1200" height="400" src="https://datamineaz.org/tables/model-cheatsheet.html" frameborder="1" style="background:white;"></iframe>
+<iframe width="1200" height="400" src="https://https://info523-fall25-101-201.github.io/tables/model-cheatsheet.html" frameborder="1" style="background:white;"></iframe>
 </div>
 </section>
 <section id="hierarchical-clustering" class="slide level2 smaller">
@@ -647,7 +647,7 @@
 <ul id="tabset-2" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-2-1">Visual</a></li><li><a href="#tabset-2-2">Agglomerative Clustering Process</a></li><li><a href="#tabset-2-3">Key points</a></li></ul>
 <div class="tab-content">
 <div id="tabset-2-1">
-<div id="5dcf3086" class="cell" data-execution_count="6">
+<div id="92705736" class="cell" data-execution_count="6">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -694,7 +694,7 @@
 <ul id="tabset-3" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-3-1">Model summary</a></li><li><a href="#tabset-3-2">Visualize results</a></li></ul>
 <div class="tab-content">
 <div id="tabset-3-1">
-<div id="2b2f53ed" class="cell" data-execution_count="7">
+<div id="5d935464" class="cell" data-execution_count="7">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a></a><span class="co"># Apply hierarchical clustering</span></span>
@@ -729,7 +729,7 @@
 </div>
 </div>
 <div id="tabset-3-2">
-<div id="f50c67d8" class="cell" data-execution_count="8">
+<div id="944a3865" class="cell" data-execution_count="8">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a></a><span class="co"># PCA for dimensionality reduction</span></span>
@@ -764,7 +764,7 @@
 <ul id="tabset-4" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-4-1">Visual</a></li><li><a href="#tabset-4-2">Key points</a></li></ul>
 <div class="tab-content">
 <div id="tabset-4-1">
-<div id="810074f2" class="cell" data-execution_count="9">
+<div id="c5c3c7db" class="cell" data-execution_count="9">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -793,7 +793,7 @@
 <ul id="tabset-5" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-5-1">Optimal parameters</a></li><li><a href="#tabset-5-2">Model summary</a></li><li><a href="#tabset-5-3">Visualize results</a></li></ul>
 <div class="tab-content">
 <div id="tabset-5-1">
-<div id="e5a9242e" class="cell" data-execution_count="10">
+<div id="109634a3" class="cell" data-execution_count="10">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a></a><span class="co"># Selecting relevant features for clustering</span></span>
@@ -827,7 +827,7 @@
 </div>
 </div>
 <div id="tabset-5-2">
-<div id="cd377e32" class="cell" data-execution_count="11">
+<div id="b2929302" class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a></a><span class="co"># Based on the elbow method from the plot, let's pick an eps value and apply DBSCAN</span></span>
 <span id="cb10-2"><a></a>eps_value <span class="op">=</span> <span class="fl">0.5</span>  <span class="co"># This value should be adjusted based on the elbow point observed in the plot</span></span>
 <span id="cb10-3"><a></a>dbscan <span class="op">=</span> DBSCAN(eps <span class="op">=</span> eps_value, min_samples <span class="op">=</span> <span class="dv">5</span>)</span>
@@ -842,7 +842,7 @@
 </div>
 </div>
 <div id="tabset-5-3">
-<div id="a5faf5b2" class="cell" data-execution_count="12">
+<div id="6e51f816" class="cell" data-execution_count="12">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a></a><span class="co"># PCA for dimensionality reduction</span></span>
@@ -919,7 +919,7 @@
 <div id="tabset-7-1">
 <div class="columns">
 <div class="column" style="width:50%;">
-<div id="82f9e934" class="cell" data-execution_count="13">
+<div id="62cc6477" class="cell" data-execution_count="13">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -929,7 +929,7 @@
 </div>
 </div>
 </div><div class="column" style="width:50%;">
-<div id="93bac04c" class="cell" data-execution_count="14">
+<div id="8e002e91" class="cell" data-execution_count="14">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -960,7 +960,7 @@
 <ul id="tabset-8" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-8-1">Visual</a></li><li><a href="#tabset-8-2">Key points</a></li></ul>
 <div class="tab-content">
 <div id="tabset-8-1">
-<div id="eeb52591" class="cell" data-execution_count="15">
+<div id="e7e3215d" class="cell" data-execution_count="15">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
@@ -989,7 +989,7 @@
 <ul id="tabset-9" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-9-1">Model summary</a></li><li><a href="#tabset-9-2">Visualize results</a></li></ul>
 <div class="tab-content">
 <div id="tabset-9-1">
-<div id="89e26942" class="cell" data-execution_count="16">
+<div id="8603f968" class="cell" data-execution_count="16">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a></a><span class="co"># Fit a Gaussian Mixture Model</span></span>
@@ -1030,7 +1030,7 @@ Cluster Weights: [0.48346465 0.24021972 0.27631563]</code></pre>
 </div>
 </div>
 <div id="tabset-9-2">
-<div id="9a781a49" class="cell" data-execution_count="17">
+<div id="dee49334" class="cell" data-execution_count="17">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a></a>pca <span class="op">=</span> PCA(n_components <span class="op">=</span> <span class="dv">2</span>)</span>
@@ -1084,7 +1084,7 @@ Cluster Weights: [0.48346465 0.24021972 0.27631563]</code></pre>
 <div class="tab-content">
 <div id="tabset-10-1">
 <div class="task">
-<p>Go to <a href="https://datamineaz.org/exercises/ex-12.html">ex-12</a> and perform the tasks</p>
+<p>Go to <a href="https://https://info523-fall25-101-201.github.io/exercises/ex-12.html">ex-12</a> and perform the tasks</p>
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure>
